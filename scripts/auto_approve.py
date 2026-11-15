@@ -29,7 +29,13 @@ README_FILE = ROOT / "README.md"
 
 
 def extract_field(body: str, heading: str) -> str:
-    pattern = rf"(?:###\s*{re.escape(heading)}\s*\n+|-\s*\*\*{re.escape(heading)}:\*\*\s*)([^\n]+)"
+    """Read a GitHub issue-form answer for `heading`.
+
+    GitHub renders form inputs as `### <label>` headings, and the template labels
+    may carry prefixes/suffixes (e.g. "Official GitHub Repository URL"), so the
+    heading is matched as a substring of the heading line.
+    """
+    pattern = rf"(?:###[^\n]*{re.escape(heading)}[^\n]*\n+|-\s*\*\*[^*\n]*{re.escape(heading)}[^*\n]*:\*\*\s*)([^\n]+)"
     match = re.search(pattern, body, flags=re.IGNORECASE)
     return match.group(1).strip() if match else ""
 
@@ -87,16 +93,29 @@ def main() -> None:
     issue_body = os.environ.get("ISSUE_BODY", "")
 
     name = extract_field(issue_body, "Emulator Name") or issue_title.replace("[Emulator Submission]", "").strip()
-    repo_url = extract_field(issue_body, "GitHub Repository URL") or extract_field(issue_body, "GitHub Repository")
-    releases_url = extract_field(issue_body, "Latest Releases or Documentation URL") or extract_field(
-        issue_body, "Latest Releases / Docs"
+    repo_url = (
+        extract_field(issue_body, "GitHub Repository URL")
+        or extract_field(issue_body, "Repository URL")
+        or extract_field(issue_body, "Official Repository")
+    )
+    if not repo_url:
+        # Last resort: any owner/repo GitHub link present in the issue body.
+        fallback = re.search(r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", issue_body)
+        repo_url = fallback.group(0) if fallback else ""
+    releases_url = (
+        extract_field(issue_body, "Latest Releases or Documentation Link")
+        or extract_field(issue_body, "Releases or Documentation")
+        or extract_field(issue_body, "Releases")
     )
     category = extract_field(issue_body, "Architecture Category") or extract_field(issue_body, "Category") or "PS5 Native / HLE"
     description = extract_field(issue_body, "Brief Description") or "Open-source PS5 emulation project verified via moderator review."
 
     parsed = parse_github_repo(repo_url)
     if not parsed or not name:
-        raise SystemExit("Missing valid Emulator Name or GitHub Repository URL in issue body.")
+        raise SystemExit(
+            "Missing valid Emulator Name or Official GitHub Repository URL in the issue body. "
+            f"Parsed name={name!r} repo_url={repo_url!r}"
+        )
 
     owner, repo = parsed
     emu_id = slugify(name)

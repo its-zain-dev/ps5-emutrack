@@ -71,14 +71,47 @@ _No community submissions merged via automated GitHub issue approval yet — ope
 
 ---
 
-## Submitting a New Emulator (GitHub PR & Maintainer Automation)
+## How to Submit Your Emulator
 
-All new emulator additions are handled **exclusively through GitHub** so only repository maintainers can review and merge entries:
-1. Fork this repository, add your project via Pull Request, or open a structured [Submit Emulator Issue](.github/ISSUE_TEMPLATE/submit-emulator.yml) directly on GitHub.
-2. When repository maintainers merge the Pull Request or apply the `approved` label on GitHub, `.github/workflows/approve-submission.yml` (`scripts/auto_approve.py`) **automatically**:
-   - Fetches live GitHub repo stats, language, latest release tag/assets, and README text
-   - Scans release notes & READMEs to detect supported games (including GTA VI monitoring)
-   - Appends the emulator to `public/data.json`, updates `README.md`, and deploys the update to the website
+Everything happens on GitHub — there is no signup, form backend, or email queue.
+
+**Step 1 — Open a submission issue**
+
+Use the **Submit Emulator** button on the site, or go directly to
+`https://github.com/its-zain-dev/ps5-emutrack/issues/new?template=submit-emulator.yml`
+
+| Field | Required | Example |
+| :--- | :--- | :--- |
+| Emulator Name | ✅ | `NovaPS5` |
+| Official GitHub Repository URL | ✅ | `https://github.com/owner/repository` |
+| Latest Releases or Documentation Link | ✅ | `https://github.com/owner/repository/releases` |
+| Architecture Category | ✅ | PS5 Native / HLE · Translation & Re-Linking · Low-Level / Kernel · Mobile & Cross-Console · PS4 & Hybrid Compat |
+| Language, Graphics API & Platforms | — | `C++20 · Vulkan · Windows, Linux` |
+| Brief Description | ✅ | What it targets, its approach, and current boot progress |
+
+The issue titled `[Emulator Submission] <name>` arrives labeled `emulator-submission` + `needs-review`.
+
+**Step 2 — Maintainer review**
+
+A maintainer confirms the repository is public open-source code, that the owner is the authentic project (not a typo-squatted fork), and that the releases link points to official GitHub Releases or docs. If it passes, the maintainer applies the **`approved`** label.
+
+**Step 3 — Automatic merge**
+
+The `approved` label triggers [`.github/workflows/approve-submission.yml`](.github/workflows/approve-submission.yml) → [`scripts/auto_approve.py`](scripts/auto_approve.py), which:
+
+- reads the fields from your issue
+- pulls live repo metadata (stars, primary language) and the latest release tag/assets
+- scans the release notes and README for supported game titles
+- appends the entry to `public/data.json` (`customEmulators`) and refreshes `gh-pages/data.json`
+- rewrites the auto-tracked list below, commits as `ps5-emutrack-bot`, and the site redeploys
+
+**Step 4 — Result**
+
+Your emulator shows up in the **Auto-Approved Community Submissions** list below, on the live site, and starts receiving hourly release updates like every other tracked project.
+
+**Prefer a Pull Request?** Fork the repo, add the entry to `TRACKED_EMULATORS` in `src/app/core/tracker-data.ts` plus `public/data.json` and this README, then open a PR — the same review applies before it goes live.
+
+> Open-source repositories only. Binary-only uploads (Drive/Mega drops), closed-source builds and look-alike forks are rejected.
 
 ---
 

@@ -15,9 +15,11 @@ PS5 EmuTrack operates like curated GitHub **Awesome Lists**. All new emulator ad
    - **Latest Releases or Documentation Link**
 5. Open a Pull Request for moderator review.
 
-### Option 2: Submit via Web Form or GitHub Issue
-- Use the **Submit Emulator** tab in the web app (`#submit`) to queue an entry into the **Moderator Review Queue** (`POST /api/submissions`) and generate a pre-filled GitHub Issue link.
-- Or open a [New Emulator Submission Issue](.github/ISSUE_TEMPLATE/submit-emulator.yml) directly on GitHub.
+### Option 2: Submit via GitHub Issue (no fork needed)
+- Open a [New Emulator Submission Issue](.github/ISSUE_TEMPLATE/submit-emulator.yml). The form asks for the emulator name, official repository URL, releases/docs link, architecture category, stack and a short description.
+- The issue is labeled `emulator-submission` + `needs-review`. A maintainer verifies the repository, then applies the **`approved`** label.
+- The `approved` label runs `.github/workflows/approve-submission.yml` → `scripts/auto_approve.py`, which enriches the entry from the GitHub API, updates `public/data.json`, `gh-pages/data.json` and this README, and triggers a site redeploy.
+- There is **no web-form backend**: `POST /api/submissions` is not implemented, and the Angular app only links to the issue template. GitHub Issues and Pull Requests are the only submission channels.
 
 ## Moderator Verification Checklist
 - Repository is publicly accessible open-source code (no closed binary-only mega/drive drops).
