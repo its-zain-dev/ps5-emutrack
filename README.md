@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[Lumen Emu](https://github.com/gs-soft-it/lumen-emu)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Experimental PS4/PS5 emulator from GS-Soft for Android and iOS with open-source cores, plus an in-progress Apple Silicon macOS port. · Detected Titles: Astro Bot, Bloodborne (60 FPS Patch / PS4-PS5) ([Releases / Docs](https://github.com/gs-soft-it/lumen-emu/releases))
 - **[Empire of Steel](https://github.com/daeken/EmpireOfSteel)** — `Dockerfile` · `Vulkan` · `Windows, Linux`  
   Prototype C# PS4/PS5 emulator exploring a managed-runtime approach to Orbis system call emulation and GPU command processing. ([Releases / Docs](https://github.com/daeken/EmpireOfSteel))
 - **[SharpDroid](https://github.com/mircowuffwuff/sharpdroid)** — `Kotlin` · `Vulkan` · `Windows, Linux`  

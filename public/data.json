@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:16:36Z",
+  "generatedAt": "2026-11-15T19:17:05Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:16:36Z",
+  "lastCompatibilityScan": "2026-11-15T19:17:05Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -123,6 +123,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Prototype C# PS4/PS5 emulator exploring a managed-runtime approach to Orbis system call emulation and GPU command processing.",
       "source": "community-approved",
       "assets": []
+    },
+    "lumen-emu": {
+      "tagName": "community-verified",
+      "releaseTitle": "Lumen Emu Verified Release",
+      "publishedAt": "2026-11-09T09:39:04Z",
+      "formattedDate": "Nov 09, 2026",
+      "releaseUrl": "https://github.com/gs-soft-it/lumen-emu/releases",
+      "directAssetUrl": "https://github.com/gs-soft-it/lumen-emu/releases",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Experimental PS4/PS5 emulator from GS-Soft for Android and iOS with open-source cores, plus an in-progress Apple Silicon macOS port.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -145,9 +157,56 @@
     ],
     "kytyps5-supermedo": [
       "Demon's Souls"
+    ],
+    "lumen-emu": [
+      "Astro Bot",
+      "Bloodborne (60 FPS Patch / PS4-PS5)"
     ]
   },
   "customEmulators": [
+    {
+      "id": "lumen-emu",
+      "name": "Lumen Emu",
+      "category": "Mobile & Cross-Console",
+      "activityLabel": "Community Approved \u00b7 25 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental PS4/PS5 emulator from GS-Soft for Android and iOS with open-source cores, plus an in-progress Apple Silicon macOS port.",
+      "statusSummary": "Experimental PS4/PS5 emulator from GS-Soft for Android and iOS with open-source cores, plus an in-progress Apple Silicon macOS port.",
+      "repoOwner": "gs-soft-it",
+      "repoName": "lumen-emu",
+      "repoUrl": "https://github.com/gs-soft-it/lumen-emu",
+      "releasesPageUrl": "https://github.com/gs-soft-it/lumen-emu/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/gs-soft-it/lumen-emu/releases/latest",
+      "stars": 25,
+      "supportedGames": [
+        "Astro Bot",
+        "Bloodborne (60 FPS Patch / PS4-PS5)"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:17:01Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Lumen Emu Verified Release",
+        "publishedAt": "2026-11-09T09:39:04Z",
+        "formattedDate": "Nov 09, 2026",
+        "releaseUrl": "https://github.com/gs-soft-it/lumen-emu/releases",
+        "directAssetUrl": "https://github.com/gs-soft-it/lumen-emu/releases",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Experimental PS4/PS5 emulator from GS-Soft for Android and iOS with open-source cores, plus an in-progress Apple Silicon macOS port.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "empire-of-steel",
       "name": "Empire of Steel",
