@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:30:27Z",
+  "generatedAt": "2026-11-15T19:31:10Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:30:27Z",
+  "lastCompatibilityScan": "2026-11-15T19:31:10Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -458,6 +458,18 @@
           "sizeBytes": 97
         }
       ]
+    },
+    "sharpemu-ps5-mac": {
+      "tagName": "community-verified",
+      "releaseTitle": "SharpEmu PS5 Mac Verified Release",
+      "publishedAt": "2026-09-08T14:45:51Z",
+      "formattedDate": "Sep 08, 2026",
+      "releaseUrl": "https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac",
+      "directAssetUrl": "https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Educational architectural prototype of a PlayStation 5 emulator built natively for macOS and Apple Silicon, bridging a C# core with a Swift/AppKit frontend.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -507,6 +519,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "sharpemu-ps5-mac",
+      "name": "SharpEmu PS5 Mac",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C#"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Educational architectural prototype of a PlayStation 5 emulator built natively for macOS and Apple Silicon, bridging a C# core with a Swift/AppKit frontend.",
+      "statusSummary": "Educational architectural prototype of a PlayStation 5 emulator built natively for macOS and Apple Silicon, bridging a C# core with a Swift/AppKit frontend.",
+      "repoOwner": "xxjonathan1997xx",
+      "repoName": "SharpEmu-PS5-Mac",
+      "repoUrl": "https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac",
+      "releasesPageUrl": "https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/xxjonathan1997xx/SharpEmu-PS5-Mac/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:30:53Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "SharpEmu PS5 Mac Verified Release",
+        "publishedAt": "2026-09-08T14:45:51Z",
+        "formattedDate": "Sep 08, 2026",
+        "releaseUrl": "https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac",
+        "directAssetUrl": "https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Educational architectural prototype of a PlayStation 5 emulator built natively for macOS and Apple Silicon, bridging a C# core with a Swift/AppKit frontend.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "kytyps5-linux",
       "name": "KytyPS5 Linux",

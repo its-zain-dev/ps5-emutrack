@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[SharpEmu PS5 Mac](https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac)** — `C#` · `Vulkan` · `Windows, Linux`  
+  Educational architectural prototype of a PlayStation 5 emulator built natively for macOS and Apple Silicon, bridging a C# core with a Swift/AppKit frontend. ([Releases / Docs](https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac))
 - **[KytyPS5 Linux](https://github.com/futbarista/KytyPS5-chenxiao07-linux)** — `C++` · `Vulkan` · `Windows, Linux`  
   Packaging of chenxiao07's KytyPS5 build for Demon's Souls with scripts to run the Windows build on Linux/SteamOS under Wine or Proton. · Detected Titles: Demon's Souls ([Releases / Docs](https://github.com/futbarista/KytyPS5-chenxiao07-linux))
 - **[KytyPS5 Wolverine](https://github.com/loyalty3/KytyPS5-wolverine)** — `C++` · `Vulkan` · `Windows, Linux`  
