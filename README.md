@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[Zeno5](https://github.com/tossdace/Zeno5)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Early-stage C++ PS5 emulator focused on booting PS5 binaries with a Vulkan renderer and an HLE syscall layer. ([Releases / Docs](https://github.com/tossdace/Zeno5))
 - **[Touche PX5](https://github.com/Techx3/TouchePX5)** — `C#` · `Vulkan` · `Windows, Linux`  
   Independent experimental PS5 emulator for Windows written in C#, targeting legally dumped commercial games and homebrew through HLE. ([Releases / Docs](https://github.com/Techx3/TouchePX5/releases))
 - **[Lumen Emu](https://github.com/gs-soft-it/lumen-emu)** — `C++` · `Vulkan` · `Windows, Linux`  

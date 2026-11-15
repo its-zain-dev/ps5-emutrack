@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:17:45Z",
+  "generatedAt": "2026-11-15T19:18:20Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:17:45Z",
+  "lastCompatibilityScan": "2026-11-15T19:18:20Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -163,6 +163,18 @@
           "sizeBytes": 80316140
         }
       ]
+    },
+    "zeno5": {
+      "tagName": "community-verified",
+      "releaseTitle": "Zeno5 Verified Release",
+      "publishedAt": "2026-07-18T04:50:51Z",
+      "formattedDate": "Jul 18, 2026",
+      "releaseUrl": "https://github.com/tossdace/Zeno5",
+      "directAssetUrl": "https://github.com/tossdace/Zeno5",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Early-stage C++ PS5 emulator focused on booting PS5 binaries with a Vulkan renderer and an HLE syscall layer.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -192,6 +204,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "zeno5",
+      "name": "Zeno5",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 2 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Early-stage C++ PS5 emulator focused on booting PS5 binaries with a Vulkan renderer and an HLE syscall layer.",
+      "statusSummary": "Early-stage C++ PS5 emulator focused on booting PS5 binaries with a Vulkan renderer and an HLE syscall layer.",
+      "repoOwner": "tossdace",
+      "repoName": "Zeno5",
+      "repoUrl": "https://github.com/tossdace/Zeno5",
+      "releasesPageUrl": "https://github.com/tossdace/Zeno5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/tossdace/Zeno5/releases/latest",
+      "stars": 2,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:18:11Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Zeno5 Verified Release",
+        "publishedAt": "2026-07-18T04:50:51Z",
+        "formattedDate": "Jul 18, 2026",
+        "releaseUrl": "https://github.com/tossdace/Zeno5",
+        "directAssetUrl": "https://github.com/tossdace/Zeno5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Early-stage C++ PS5 emulator focused on booting PS5 binaries with a Vulkan renderer and an HLE syscall layer.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "touche-px5",
       "name": "Touche PX5",
