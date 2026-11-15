@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:18:49Z",
+  "generatedAt": "2026-11-15T19:19:15Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:18:49Z",
+  "lastCompatibilityScan": "2026-11-15T19:19:15Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -193,6 +193,18 @@
           "sizeBytes": 19690966
         }
       ]
+    },
+    "novaps5-android": {
+      "tagName": "community-verified",
+      "releaseTitle": "NovaPS5 Android Verified Release",
+      "publishedAt": "2026-10-30T22:29:39Z",
+      "formattedDate": "Oct 30, 2026",
+      "releaseUrl": "https://github.com/kaminofilms/NovaPS5-Android",
+      "directAssetUrl": "https://github.com/kaminofilms/NovaPS5-Android",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Android PS5 emulator experiment packaged as a native app, aiming to boot PS5 homebrew on mobile ARM64 devices.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -222,6 +234,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "novaps5-android",
+      "name": "NovaPS5 Android",
+      "category": "Mobile & Cross-Console",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Android PS5 emulator experiment packaged as a native app, aiming to boot PS5 homebrew on mobile ARM64 devices.",
+      "statusSummary": "Android PS5 emulator experiment packaged as a native app, aiming to boot PS5 homebrew on mobile ARM64 devices.",
+      "repoOwner": "kaminofilms",
+      "repoName": "NovaPS5-Android",
+      "repoUrl": "https://github.com/kaminofilms/NovaPS5-Android",
+      "releasesPageUrl": "https://github.com/kaminofilms/NovaPS5-Android",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/kaminofilms/NovaPS5-Android/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:19:10Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "NovaPS5 Android Verified Release",
+        "publishedAt": "2026-10-30T22:29:39Z",
+        "formattedDate": "Oct 30, 2026",
+        "releaseUrl": "https://github.com/kaminofilms/NovaPS5-Android",
+        "directAssetUrl": "https://github.com/kaminofilms/NovaPS5-Android",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Android PS5 emulator experiment packaged as a native app, aiming to boot PS5 homebrew on mobile ARM64 devices.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "ps5plusplus",
       "name": "PS5plusplus",

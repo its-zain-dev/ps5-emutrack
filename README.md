@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[NovaPS5 Android](https://github.com/kaminofilms/NovaPS5-Android)** — `C` · `Vulkan` · `Windows, Linux`  
+  Android PS5 emulator experiment packaged as a native app, aiming to boot PS5 homebrew on mobile ARM64 devices. ([Releases / Docs](https://github.com/kaminofilms/NovaPS5-Android))
 - **[PS5plusplus](https://github.com/thesupersupersigma/PS5plusplus)** — `C++` · `Vulkan` · `Windows, Linux`  
   Experimental C++ PS5 emulator extending the Kyty lineage with additional HLE module coverage and boot-reach experiments. ([Releases / Docs](https://github.com/thesupersupersigma/PS5plusplus))
 - **[Zeno5](https://github.com/tossdace/Zeno5)** — `C++` · `Vulkan` · `Windows, Linux`  
