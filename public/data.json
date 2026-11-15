@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:26:45Z",
+  "generatedAt": "2026-11-15T19:27:26Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:26:45Z",
+  "lastCompatibilityScan": "2026-11-15T19:27:26Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -382,6 +382,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Experimental native SwiftUI PS4/PS5 runtime for Apple Silicon, inspired by SharpEmu and built around a native Metal renderer.",
       "source": "community-approved",
       "assets": []
+    },
+    "spogue5": {
+      "tagName": "community-verified",
+      "releaseTitle": "Spogue5 Verified Release",
+      "publishedAt": "2026-08-06T20:57:03Z",
+      "formattedDate": "Aug 06, 2026",
+      "releaseUrl": "https://github.com/tinirey/Spogue5",
+      "directAssetUrl": "https://github.com/tinirey/Spogue5",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator project in Rust based on research from Kyty, SharpEmu and shadPS4, aiming at a clean cross-platform core.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -424,6 +436,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "spogue5",
+      "name": "Spogue5",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "Rust"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PS5 emulator project in Rust based on research from Kyty, SharpEmu and shadPS4, aiming at a clean cross-platform core.",
+      "statusSummary": "PS5 emulator project in Rust based on research from Kyty, SharpEmu and shadPS4, aiming at a clean cross-platform core.",
+      "repoOwner": "tinirey",
+      "repoName": "Spogue5",
+      "repoUrl": "https://github.com/tinirey/Spogue5",
+      "releasesPageUrl": "https://github.com/tinirey/Spogue5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/tinirey/Spogue5/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:27:15Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Spogue5 Verified Release",
+        "publishedAt": "2026-08-06T20:57:03Z",
+        "formattedDate": "Aug 06, 2026",
+        "releaseUrl": "https://github.com/tinirey/Spogue5",
+        "directAssetUrl": "https://github.com/tinirey/Spogue5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator project in Rust based on research from Kyty, SharpEmu and shadPS4, aiming at a clean cross-platform core.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "vibestation5",
       "name": "VibeStation5",

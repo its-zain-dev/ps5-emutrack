@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[Spogue5](https://github.com/tinirey/Spogue5)** — `Rust` · `Vulkan` · `Windows, Linux`  
+  PS5 emulator project in Rust based on research from Kyty, SharpEmu and shadPS4, aiming at a clean cross-platform core. ([Releases / Docs](https://github.com/tinirey/Spogue5))
 - **[VibeStation5](https://github.com/Acelogic/VibeStation5)** — `Swift` · `Vulkan` · `Windows, Linux`  
   Experimental native SwiftUI PS4/PS5 runtime for Apple Silicon, inspired by SharpEmu and built around a native Metal renderer. · Detected Titles: Astro Bot ([Releases / Docs](https://github.com/Acelogic/VibeStation5))
 - **[SharpEmu macOS](https://github.com/sharpemu/sharpemu-mac)** — `C#` · `Vulkan` · `Windows, Linux`  
