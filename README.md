@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[CL5](https://github.com/SplaatSites/CL5)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Early PS5 compatibility layer for Windows exploring high-level reimplementation of system services. ([Releases / Docs](https://github.com/SplaatSites/CL5))
 - **[Open5Emu](https://github.com/SplaatSites/Open5Emu)** — `C++` · `Vulkan` · `Windows, Linux`  
   Early open-source PS5 emulator effort publishing its initial source layout and boot experiments. ([Releases / Docs](https://github.com/SplaatSites/Open5Emu))
 - **[AnyPS5](https://github.com/boykopovar/AnyPS5)** — `C++` · `Vulkan` · `Windows, Linux`  

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:34:18Z",
+  "generatedAt": "2026-11-15T19:34:52Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:34:18Z",
+  "lastCompatibilityScan": "2026-11-15T19:34:52Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -650,6 +650,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Early open-source PS5 emulator effort publishing its initial source layout and boot experiments.",
       "source": "community-approved",
       "assets": []
+    },
+    "cl5": {
+      "tagName": "community-verified",
+      "releaseTitle": "CL5 Verified Release",
+      "publishedAt": "2026-03-08T17:53:02Z",
+      "formattedDate": "Mar 08, 2026",
+      "releaseUrl": "https://github.com/SplaatSites/CL5",
+      "directAssetUrl": "https://github.com/SplaatSites/CL5",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Early PS5 compatibility layer for Windows exploring high-level reimplementation of system services.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -699,6 +711,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "cl5",
+      "name": "CL5",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Early PS5 compatibility layer for Windows exploring high-level reimplementation of system services.",
+      "statusSummary": "Early PS5 compatibility layer for Windows exploring high-level reimplementation of system services.",
+      "repoOwner": "SplaatSites",
+      "repoName": "CL5",
+      "repoUrl": "https://github.com/SplaatSites/CL5",
+      "releasesPageUrl": "https://github.com/SplaatSites/CL5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/SplaatSites/CL5/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:34:34Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "CL5 Verified Release",
+        "publishedAt": "2026-03-08T17:53:02Z",
+        "formattedDate": "Mar 08, 2026",
+        "releaseUrl": "https://github.com/SplaatSites/CL5",
+        "directAssetUrl": "https://github.com/SplaatSites/CL5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Early PS5 compatibility layer for Windows exploring high-level reimplementation of system services.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "open5emu",
       "name": "Open5Emu",
