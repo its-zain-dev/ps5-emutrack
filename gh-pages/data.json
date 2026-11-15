@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T19:38:36Z",
+  "generatedAt": "2026-11-15T20:00:47Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
   "emulators": {
     "kytyps5": {
@@ -437,5 +437,1344 @@
       "Demon's Souls"
     ]
   },
-  "lastCompatibilityScan": "2026-11-15T19:38:36Z"
+  "lastCompatibilityScan": "2026-11-15T20:00:47Z",
+  "customEmulators": [
+    {
+      "id": "cincar",
+      "name": "Cincar",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Early-stage PS5 emulator project building out its CPU and loader foundations.",
+      "statusSummary": "Early-stage PS5 emulator project building out its CPU and loader foundations.",
+      "repoOwner": "linuxfanosis",
+      "repoName": "Cincar",
+      "repoUrl": "https://github.com/linuxfanosis/Cincar",
+      "releasesPageUrl": "https://github.com/linuxfanosis/Cincar",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/linuxfanosis/Cincar/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:36:00Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Cincar Verified Release",
+        "publishedAt": "2026-10-10T19:58:27Z",
+        "formattedDate": "Oct 10, 2026",
+        "releaseUrl": "https://github.com/linuxfanosis/Cincar",
+        "directAssetUrl": "https://github.com/linuxfanosis/Cincar",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Early-stage PS5 emulator project building out its CPU and loader foundations.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "rustps5",
+      "name": "RustPS5",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C#"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PS5 emulator experiment pairing a Rust core with a C# Avalonia desktop interface.",
+      "statusSummary": "PS5 emulator experiment pairing a Rust core with a C# Avalonia desktop interface.",
+      "repoOwner": "CipherSoul01",
+      "repoName": "RustPS5",
+      "repoUrl": "https://github.com/CipherSoul01/RustPS5",
+      "releasesPageUrl": "https://github.com/CipherSoul01/RustPS5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/CipherSoul01/RustPS5/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:35:15Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "RustPS5 Verified Release",
+        "publishedAt": "2026-10-29T12:54:38Z",
+        "formattedDate": "Oct 29, 2026",
+        "releaseUrl": "https://github.com/CipherSoul01/RustPS5",
+        "directAssetUrl": "https://github.com/CipherSoul01/RustPS5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator experiment pairing a Rust core with a C# Avalonia desktop interface.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "cl5",
+      "name": "CL5",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Early PS5 compatibility layer for Windows exploring high-level reimplementation of system services.",
+      "statusSummary": "Early PS5 compatibility layer for Windows exploring high-level reimplementation of system services.",
+      "repoOwner": "SplaatSites",
+      "repoName": "CL5",
+      "repoUrl": "https://github.com/SplaatSites/CL5",
+      "releasesPageUrl": "https://github.com/SplaatSites/CL5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/SplaatSites/CL5/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:34:34Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "CL5 Verified Release",
+        "publishedAt": "2026-03-08T17:53:02Z",
+        "formattedDate": "Mar 08, 2026",
+        "releaseUrl": "https://github.com/SplaatSites/CL5",
+        "directAssetUrl": "https://github.com/SplaatSites/CL5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Early PS5 compatibility layer for Windows exploring high-level reimplementation of system services.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "open5emu",
+      "name": "Open5Emu",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Early open-source PS5 emulator effort publishing its initial source layout and boot experiments.",
+      "statusSummary": "Early open-source PS5 emulator effort publishing its initial source layout and boot experiments.",
+      "repoOwner": "SplaatSites",
+      "repoName": "Open5Emu",
+      "repoUrl": "https://github.com/SplaatSites/Open5Emu",
+      "releasesPageUrl": "https://github.com/SplaatSites/Open5Emu",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/SplaatSites/Open5Emu/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:34:03Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Open5Emu Verified Release",
+        "publishedAt": "2026-02-21T17:50:15Z",
+        "formattedDate": "Feb 21, 2026",
+        "releaseUrl": "https://github.com/SplaatSites/Open5Emu",
+        "directAssetUrl": "https://github.com/SplaatSites/Open5Emu",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Early open-source PS5 emulator effort publishing its initial source layout and boot experiments.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "anyps5",
+      "name": "AnyPS5",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 54146 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Tooling that automatically ports PS5 executables to Linux and Windows, powering the AnyPS5 compatibility approach.",
+      "statusSummary": "Tooling that automatically ports PS5 executables to Linux and Windows, powering the AnyPS5 compatibility approach.",
+      "repoOwner": "boykopovar",
+      "repoName": "AnyPS5",
+      "repoUrl": "https://github.com/boykopovar/AnyPS5",
+      "releasesPageUrl": "https://github.com/boykopovar/AnyPS5/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/boykopovar/AnyPS5/releases/latest",
+      "stars": 54146,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:33:19Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v0.1.5",
+        "releaseTitle": "v0.1.5",
+        "publishedAt": "2026-11-11T15:01:01Z",
+        "formattedDate": "Nov 11, 2026",
+        "releaseUrl": "https://github.com/boykopovar/AnyPS5/releases/tag/v0.1.5",
+        "directAssetUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-headers-v0.1.5.zip",
+        "directAssetName": "prx-headers-v0.1.5.zip",
+        "bodyNotes": "## New Contributors\n* @Brecherbernd made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13631\n* @CobaltMoth482 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13657\n* @dmto made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13704\n* @jbooba made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13754\n* @ryanc2112 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/9125\n* @angrysandhill made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14215\n* @deepak-r-135 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13891\n* @Scooooodoo made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13822\n* @DealPotato made their first contribution in https://github.com/boykopovar/AnyPS5/pull/8285\n* @NerfEko made their first contribution in https://github.com/boykopovar/AnyPS5/pull/11345\n* @ycarogabriel-lgtm made their first contribution in https://github.com/boykopovar/AnyPS5/pull/8477\n* @Iluminatti312 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/9793\n* @nozzzd made their first contribution in https://github.com/boykopovar/AnyPS5/pull/10617\n* @lgqdaxia made their first contribution in https://github.com/boykopovar/AnyPS5/pull/10760\n* @x-labb made their first contribution in https://github.com/boykopovar/AnyPS5/pull/11601\n* @teerthsharma made their first contribution in https://github.com/boykopovar/AnyPS5/pull/12609\n* @yeager made their first contribution in https://github.com/boykopovar/AnyPS5/pull/12615\n* @Froraut made their first contribution in https://github.com/boykopovar/AnyPS5/pull/9970\n* @Blelle made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13672\n* @Dinsuljevic336 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14422\n* @ken00H made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14855\n* @Laronza made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14882\n* @chinmay6537 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/15066\n* @viktorhantosi made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14242\n* @SoRadGaming made their first contribution in https://github.com/boykopovar/AnyPS5/pull/6273\n* @irwanrivaldi made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14952\n* @Islam-ElShahaby made their first contribution in https://github.com/boykopovar/AnyPS5/pull/7648\n* @imshah-id made their first contribution in https://github.com/boykopovar/AnyPS5/pull/8251\n* @GabrielKLBr made their first contribution in https://github.com/boykopovar/AnyPS5/pull/10392\n* @Jev1337 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/7192\n* @zorde23 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/15741\n* @LordVersA made their first contribution in https://github.com/boykopovar/AnyPS5/pull/11662\n* @MalikTalha03 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13239\n\n**Full Changelog**: https://github.com/boykopovar/AnyPS5/compare/v0.1.4...v0.1.5\n<!-- anyps5-release-workflow:62bd7dd61e2b8a7a59262c4c145edff549bae5b9 -->",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "prosperity",
+      "name": "Prosperity",
+      "category": "Low-Level / Kernel",
+      "activityLabel": "Community Approved \u00b7 411 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Low-level emulation project for PS4 and PS5 consoles, implementing hardware behaviour rather than high-level module reimplementation.",
+      "statusSummary": "Low-level emulation project for PS4 and PS5 consoles, implementing hardware behaviour rather than high-level module reimplementation.",
+      "repoOwner": "Force67",
+      "repoName": "prosperity",
+      "repoUrl": "https://github.com/Force67/prosperity",
+      "releasesPageUrl": "https://github.com/Force67/prosperity",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/Force67/prosperity/releases/latest",
+      "stars": 411,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:32:45Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v0.0.1",
+        "releaseTitle": "v0.0.1",
+        "publishedAt": "2026-10-03T17:22:47Z",
+        "formattedDate": "Oct 03, 2026",
+        "releaseUrl": "https://github.com/Force67/prosperity/releases/tag/v0.0.1",
+        "directAssetUrl": "https://github.com/Force67/prosperity/releases/download/v0.0.1/prosperity_0.0.1_amd64.deb",
+        "directAssetName": "prosperity_0.0.1_amd64.deb",
+        "bodyNotes": "## What's Changed\n* Fix github actions by initializing submodules by @greggameplayer in https://github.com/Force67/prosperity/pull/2\n* Giving some details to the docs as well as adding some troubleshooting for the building process by @MalauD in https://github.com/Force67/prosperity/pull/3\n* Add another troubleshooting step by @dtabacaru in https://github.com/Force67/prosperity/pull/4\n* Add compiler option to use C++17 on every platform by @thomasgu112 in https://github.com/Force67/prosperity/pull/6\n* Fix PS4 runtime semantics exposed by Uncharted 2 by @Force67 in https://github.com/Force67/prosperity/pull/11\n* gpu: split vk_render into an rhi seam and a vulkan backend by @Force67 in https://github.com/Force67/prosperity/pull/12\n* Build Ubuntu release packages in CI by @Force67 in https://github.com/Force67/prosperity/pull/17\n\n## New Contributors\n* @greggameplayer made their first contribution in https://github.com/Force67/prosperity/pull/2\n* @MalauD made their first contribution in https://github.com/Force67/prosperity/pull/3\n* @dtabacaru made their first contribution in https://github.com/Force67/prosperity/pull/4\n* @thomasgu112 made their first contribution in https://github.com/Force67/prosperity/pull/6\n* @Force67 made their first contribution in https://github.com/Force67/prosperity/pull/11\n\n**Full Changelog**: https://github.com/Force67/prosperity/commits/v0.0.1",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "kytyps5-gta5-fixes",
+      "name": "KytyPS5 GTA5 Fixes",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 2 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "KytyPS5 fork carrying compatibility fixes aimed at Grand Theft Auto V boot and rendering behaviour.",
+      "statusSummary": "KytyPS5 fork carrying compatibility fixes aimed at Grand Theft Auto V boot and rendering behaviour.",
+      "repoOwner": "CheesyPoofs346",
+      "repoName": "KytyPS5-gta5-fixes",
+      "repoUrl": "https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes",
+      "releasesPageUrl": "https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/CheesyPoofs346/KytyPS5-gta5-fixes/releases/latest",
+      "stars": 2,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:31:36Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KytyPS5 GTA5 Fixes Verified Release",
+        "publishedAt": "2026-09-17T02:56:59Z",
+        "formattedDate": "Sep 17, 2026",
+        "releaseUrl": "https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes",
+        "directAssetUrl": "https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- KytyPS5 fork carrying compatibility fixes aimed at Grand Theft Auto V boot and rendering behaviour.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "sharpemu-ps5-mac",
+      "name": "SharpEmu PS5 Mac",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C#"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Educational architectural prototype of a PlayStation 5 emulator built natively for macOS and Apple Silicon, bridging a C# core with a Swift/AppKit frontend.",
+      "statusSummary": "Educational architectural prototype of a PlayStation 5 emulator built natively for macOS and Apple Silicon, bridging a C# core with a Swift/AppKit frontend.",
+      "repoOwner": "xxjonathan1997xx",
+      "repoName": "SharpEmu-PS5-Mac",
+      "repoUrl": "https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac",
+      "releasesPageUrl": "https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/xxjonathan1997xx/SharpEmu-PS5-Mac/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:30:53Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "SharpEmu PS5 Mac Verified Release",
+        "publishedAt": "2026-09-08T14:45:51Z",
+        "formattedDate": "Sep 08, 2026",
+        "releaseUrl": "https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac",
+        "directAssetUrl": "https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Educational architectural prototype of a PlayStation 5 emulator built natively for macOS and Apple Silicon, bridging a C# core with a Swift/AppKit frontend.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "kytyps5-linux",
+      "name": "KytyPS5 Linux",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 2 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Packaging of chenxiao07's KytyPS5 build for Demon's Souls with scripts to run the Windows build on Linux/SteamOS under Wine or Proton.",
+      "statusSummary": "Packaging of chenxiao07's KytyPS5 build for Demon's Souls with scripts to run the Windows build on Linux/SteamOS under Wine or Proton.",
+      "repoOwner": "futbarista",
+      "repoName": "KytyPS5-chenxiao07-linux",
+      "repoUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux",
+      "releasesPageUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/futbarista/KytyPS5-chenxiao07-linux/releases/latest",
+      "stars": 2,
+      "supportedGames": [
+        "Demon's Souls"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:30:06Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v20261007-linux.1",
+        "releaseTitle": "KytyPS5 v20261007 (chenxiao07, 9348901) for Linux/SteamOS",
+        "publishedAt": "2026-10-08T19:39:01Z",
+        "formattedDate": "Oct 08, 2026",
+        "releaseUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux/releases/tag/v20261007-linux.1",
+        "directAssetUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux/releases/download/v20261007-linux.1/KytyPS5-v20261007-linux.1.zip",
+        "directAssetName": "KytyPS5-v20261007-linux.1.zip",
+        "bodyNotes": "**chenxiao07's KytyPS5 [v20261007](https://github.com/chenxiao07/KytyPS5/releases/tag/v20261007) (commit [`9348901`](https://github.com/chenxiao07/KytyPS5/commit/9348901f18a2b3ee5146e2e430f82466f122c34f)) for Demon's Souls (PPSA01341 1.07 / 1.05), packaged for Linux / SteamOS.**\n\nThe emulator is chenxiao07's **Windows build, unchanged** (`kyty_emulator.exe` and everything else from `KytyPS5-v20261007.zip`). It runs under Wine or Proton with three scripts added (see [LINUX.md](https://github.com/futbarista/KytyPS5-chenxiao07-linux/blob/main/LINUX.md)):\n\n- `demons-souls.sh`: starts the game under Proton's Wine (or Proton's launcher with `PROTON=1`), with the fixes Wine needs: `WINEDEBUG` not `-all` (otherwise exit 253), `GPU_BUFFER_PAGES` and `BUFFER_RECLAIM` off (otherwise a GPU page fault under RADV when a save loads). It also waits for Steam Input's virtual gamepad and shows the FPS counter (`KYTY_FPS_HUD`).\n- `precompile-linux.sh`: the static shader precompile for the Linux graphics driver (about 20 min). The precompiled cache from Windows can't be used under Wine: it belongs to the Windows driver.\n- `build-appimage.sh`: optional AppImage of the launcher.\n\n### Quick start (SteamOS)\n1. Install **Proton Experimental** in Steam.\n2. Unpack: `tar -xzf KytyPS5-v20261007-linux.tar.gz`\n3. Put your own dump of the game in `~/Games/Demon's Souls/PPSA01341-app0` (or pass its path).\n4. `./precompile-linux.sh` once (and after each Mesa / SteamOS update).\n5. `./demons-souls.sh`, or add it to Steam as a non-Steam game **without** a compatibility tool. Use `FULLSCREEN=1 %command%` in the launch options for full screen.\n\nTested on SteamOS with a Ryzen 5 9600X and a Radeon RX 9070 XT (Mesa RADV 26.1, Proton Experimental 11.0): about 34\u201336 fps while walking at 2560x1440.\n\nNo game files, keys or firmware are included. Use only a game you have dumped yourself.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "kytyps5-wolverine",
+      "name": "KytyPS5 Wolverine",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 2 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "KytyPS5 derivative tuned for Wolverine boot experiments, carrying renderer and HLE module adjustments.",
+      "statusSummary": "KytyPS5 derivative tuned for Wolverine boot experiments, carrying renderer and HLE module adjustments.",
+      "repoOwner": "loyalty3",
+      "repoName": "KytyPS5-wolverine",
+      "repoUrl": "https://github.com/loyalty3/KytyPS5-wolverine",
+      "releasesPageUrl": "https://github.com/loyalty3/KytyPS5-wolverine",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/loyalty3/KytyPS5-wolverine/releases/latest",
+      "stars": 2,
+      "supportedGames": [
+        "Astro Bot",
+        "Demon's Souls"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:29:11Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KytyPS5 Wolverine Verified Release",
+        "publishedAt": "2026-10-12T02:49:17Z",
+        "formattedDate": "Oct 12, 2026",
+        "releaseUrl": "https://github.com/loyalty3/KytyPS5-wolverine",
+        "directAssetUrl": "https://github.com/loyalty3/KytyPS5-wolverine",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- KytyPS5 derivative tuned for Wolverine boot experiments, carrying renderer and HLE module adjustments.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "orbis-kyty",
+      "name": "Orbis-Kyty",
+      "category": "PS4 & Hybrid Compat",
+      "activityLabel": "Community Approved \u00b7 5 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental PS4-hosted PS5 emulation test build based on Kyty, exploring running PS5 titles on jailbroken PS4 hardware.",
+      "statusSummary": "Experimental PS4-hosted PS5 emulation test build based on Kyty, exploring running PS5 titles on jailbroken PS4 hardware.",
+      "repoOwner": "MrKitsune9",
+      "repoName": "Orbis-Kyty",
+      "repoUrl": "https://github.com/MrKitsune9/Orbis-Kyty",
+      "releasesPageUrl": "https://github.com/MrKitsune9/Orbis-Kyty",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/MrKitsune9/Orbis-Kyty/releases/latest",
+      "stars": 5,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:28:43Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Orbis-Kyty Verified Release",
+        "publishedAt": "2026-11-13T23:04:59Z",
+        "formattedDate": "Nov 13, 2026",
+        "releaseUrl": "https://github.com/MrKitsune9/Orbis-Kyty",
+        "directAssetUrl": "https://github.com/MrKitsune9/Orbis-Kyty",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Experimental PS4-hosted PS5 emulation test build based on Kyty, exploring running PS5 titles on jailbroken PS4 hardware.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "kytyps5-carecu",
+      "name": "KytyPS5 Carecu",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 8 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PlayStation 5 emulator fork for Windows derived from the KytyPS5 translation-layer lineage.",
+      "statusSummary": "PlayStation 5 emulator fork for Windows derived from the KytyPS5 translation-layer lineage.",
+      "repoOwner": "carecu",
+      "repoName": "KytyPS5",
+      "repoUrl": "https://github.com/carecu/KytyPS5",
+      "releasesPageUrl": "https://github.com/carecu/KytyPS5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/carecu/KytyPS5/releases/latest",
+      "stars": 8,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:27:48Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KytyPS5 Carecu Verified Release",
+        "publishedAt": "2026-07-05T20:17:52Z",
+        "formattedDate": "Jul 05, 2026",
+        "releaseUrl": "https://github.com/carecu/KytyPS5",
+        "directAssetUrl": "https://github.com/carecu/KytyPS5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PlayStation 5 emulator fork for Windows derived from the KytyPS5 translation-layer lineage.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "spogue5",
+      "name": "Spogue5",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "Rust"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PS5 emulator project in Rust based on research from Kyty, SharpEmu and shadPS4, aiming at a clean cross-platform core.",
+      "statusSummary": "PS5 emulator project in Rust based on research from Kyty, SharpEmu and shadPS4, aiming at a clean cross-platform core.",
+      "repoOwner": "tinirey",
+      "repoName": "Spogue5",
+      "repoUrl": "https://github.com/tinirey/Spogue5",
+      "releasesPageUrl": "https://github.com/tinirey/Spogue5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/tinirey/Spogue5/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:27:15Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Spogue5 Verified Release",
+        "publishedAt": "2026-08-06T20:57:03Z",
+        "formattedDate": "Aug 06, 2026",
+        "releaseUrl": "https://github.com/tinirey/Spogue5",
+        "directAssetUrl": "https://github.com/tinirey/Spogue5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator project in Rust based on research from Kyty, SharpEmu and shadPS4, aiming at a clean cross-platform core.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "vibestation5",
+      "name": "VibeStation5",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 10 Stars",
+      "isMostActive": false,
+      "languages": [
+        "Swift"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental native SwiftUI PS4/PS5 runtime for Apple Silicon, inspired by SharpEmu and built around a native Metal renderer.",
+      "statusSummary": "Experimental native SwiftUI PS4/PS5 runtime for Apple Silicon, inspired by SharpEmu and built around a native Metal renderer.",
+      "repoOwner": "Acelogic",
+      "repoName": "VibeStation5",
+      "repoUrl": "https://github.com/Acelogic/VibeStation5",
+      "releasesPageUrl": "https://github.com/Acelogic/VibeStation5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/Acelogic/VibeStation5/releases/latest",
+      "stars": 10,
+      "supportedGames": [
+        "Astro Bot"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:26:34Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "VibeStation5 Verified Release",
+        "publishedAt": "2026-07-16T22:07:31Z",
+        "formattedDate": "Jul 16, 2026",
+        "releaseUrl": "https://github.com/Acelogic/VibeStation5",
+        "directAssetUrl": "https://github.com/Acelogic/VibeStation5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Experimental native SwiftUI PS4/PS5 runtime for Apple Silicon, inspired by SharpEmu and built around a native Metal renderer.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "sharpemu-macos",
+      "name": "SharpEmu macOS",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 25 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C#"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Official SharpEmu build targeting Mac devices, bringing the experimental PlayStation 5 emulator to Apple hardware.",
+      "statusSummary": "Official SharpEmu build targeting Mac devices, bringing the experimental PlayStation 5 emulator to Apple hardware.",
+      "repoOwner": "sharpemu",
+      "repoName": "sharpemu-mac",
+      "repoUrl": "https://github.com/sharpemu/sharpemu-mac",
+      "releasesPageUrl": "https://github.com/sharpemu/sharpemu-mac/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/sharpemu/sharpemu-mac/releases/latest",
+      "stars": 25,
+      "supportedGames": [
+        "Demon's Souls"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:26:04Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v0.0.7-pulse",
+        "releaseTitle": "SharpEmu v0.0.7-pulse",
+        "publishedAt": "2026-11-01T11:06:07Z",
+        "formattedDate": "Nov 01, 2026",
+        "releaseUrl": "https://github.com/sharpemu/sharpemu-mac/releases/tag/v0.0.7-pulse",
+        "directAssetUrl": "https://github.com/sharpemu/sharpemu-mac/releases/download/v0.0.7-pulse/sharpemu-0.0.7-pulse-osx-x64-app.zip",
+        "directAssetName": "sharpemu-0.0.7-pulse-osx-x64-app.zip",
+        "bodyNotes": "# SharpEmu for macOS v0.0.7-pulse\n\nUpstream SharpEmu dropped macOS (sharpemu#1123), and this repository is now the macOS build of the PS5 emulator. Since v0.0.6 the whole emulator has been ported to macOS on Apple silicon. That covers host memory, CPU execution, the kernel and HLE libraries, the shader compiler and the GPU backend. The fork adds 237k lines of source and 168k lines of tests on top of upstream. Upstream SharpEmu 0.0.7-pulse is merged in.\n\n## Platform\n\n- **Native macOS host** (`src/platforms/macos`, ~10k lines): guest memory, windowing, input and display. Per-OS host packages and SDL/Skia adapters.\n- **CPU:** the x86-64 guest code runs directly under Rosetta 2, and imports go through a native import path. AGC packet builders and other hot HLE entry points are answered by native stubs inside the guest.\n- **Kernel and HLE:** reworked kernel memory, files, sync and event queues, and the host seam and guest memory model.\n  - Fibers lock per stripe instead of through one global gate.\n  - The thread-local storage lookup `__tls_get_addr` is cached per thread.\n  - User-level-thread (ULT) wakeups are targeted to the waiters that changed.\n  - Pthread mutexes spin while the owner runs.\n  - Short sleeps nap on an escalating schedule.\n- **macOS 27:** the OS reserves VA ranges that PS5 titles map. The loader relocates the affected arena bases, including GTA V's RAGE arena and Ghost of Tsushima's batch maps, and maps virtual views into the GPU carveout.\n- **Spin-nap patcher:** guest pause/spin loops are patched to sleep. Demon's Souls' idle job workers nap instead of spinning.\n- **Display:** the guest render resolution follows the chosen output. There are patches for Unity (boot.config), Unreal, KEX, GTA V, small engines compiled for 3840\u00d72160, and Demon's Souls (its Bluepoint resolution adapter).\n\n## GPU: Metal V2\n\n- **Metal-only renderer** (`SharpEmu.Gpu.Metal`, ~70k lines). There is no Vulkan or MoltenVK layer, and the earlier Metal V1 backend is removed.\n- **Command processing** runs on its own thread by default.\n  - Program resolution and prefetch run on a separate thread, with pipeline look-ahead across the submissions queued behind it.\n  - Encoders are ordered by one fence instead of a barrier after each.\n- **Resource materialization** is native and cached. Bindless tables are memoised and kept resident. Repeated lookups skip searches that found nothing last time.\n- **Image cache:**\n  - Single-copy retile.\n  - Write-back of GPU-written images before guest stores.\n  - Alias transitions fused, with dead contents discarded.\n  - Memoryless stand-ins for colour targets that are only read or stored.\n  - Depth/stencil reached on the device instead of through guest memory.\n- **Occlusion queries** are counted on the device.\n- **Tessellation** uses the hull kernel plus Metal's tessellator, including Ghost of Tsushima's quad-patch instanced grass.\n- **Multisampling:** multisampled depth goes through a one-sample proxy plus resolve. A GPU-written HTILE is no longer loaded as a clear (UE5 Nanite).\n- **Pipeline cache:**\n  - Shaders compile into Metal binary archives, bounded by use and shared across builds.\n  - Shader prewarm stores compute pipelines.\n  - Guest stores are served while a draw waits for its shader compiles.\n- **GPU worker:** no per-draw or per-dispatch allocations, fewer guest re-reads, less lock traffic. Bench tooling is in-tree.\n\n## Shader compiler: gfx10 \u2192 MSL\n\n- **Translator** (`SharpEmu.ShaderCompiler.Metal`, ~25k lines) emits Metal Shading Language directly, at gfx10 ISA parity.\n- **wave64** runs as two Apple simdgroups. Multi-wave compute groups are bridged across simdgroups and meet at threadgroup barriers. Upper-lane reads and LDS atomics are ordered across the halves.\n- **NGG and mesh:** amplified NGG subgroups run as whole mesh workgroups of real wave64 waves.\n- **Ray tracing:** BVH nodes are read 16 bytes at a time, with half-precision boxes widened in hardware.\n- **Descriptors:** records chosen at run time, branch-chosen V#s, indirect image tables of up to 256 descriptors, and stores through V#s loaded from record tables are all planned and bound.\n- **Fixes:** SDWA destination select, `s_cmpk_*`, GDS M0 addressing, FORCE_DEGAMMA samplers, min/max filter samplers, compare samples of mipmapped images, and GLC store write-through.\n\n## Split GPU process\n\n- The GPU backend runs in a separate **native arm64 process**, now the default where it can run.\n  - It maps the guest's backing memory and replicates the guest's views.\n  - The two processes talk over a shared-memory transport (protocol 2).\n- Page-protection tracking is per 4 KiB page. A posted call wakes a single server thread.\n- `build-app.sh` bundles the arm64 GPU host in `Contents/MacOS/gpuhost`.\n\n## App\n\n- The launcher is a native arm64 Avalonia app and is the bundle's main executable. Game windows and Dock tiles are named after the game.\n- Launcher settings are global, and game settings are per game, with automatic migration. GUI and CLI share one launch configuration.\n- All logs, traces and dumps go under one logs folder. Caches are kept outside the signed bundle.\n- The performance overlay shows real CPU, GPU busy time and memory for both processes.\n\n## Upstream 0.0.6 \u2192 0.0.7-pulse\n\n- Tessellation, draw reuse and GNM mode.\n- XML and pattern game patches, with a patch manager.\n- Shader warm-up progress on the splash screen.\n- SPIR-V optimisation passes and UE4 ray-tracing shader-call programs.\n- Fixes for Saros, Elden Ring, Tomb Raider Legend, NGS2/ATRAC9 and AGC occlusion.\n- Simplified Chinese.\n\n## Performance (Apple M4, 1080p, in game)\n\n| Game | FPS |\n|---|---|\n| Quake, Superliminal, Void Terrarium, Dreaming Sarah | 60 |\n| The Oregon Trail | ~58 |\n| Poppy Playtime | ~47 |\n| GTA V (Performance) | ~46 |\n| Silent Hill: The Short Message | ~29 |\n| GTA V (Fidelity) | ~7 |\n| Demon's Souls | ~3\u20137 (bound by the game's own CPU work) |\n\n## Known issues\n\n- GTA V Fidelity mode runs at about 7 fps in game. Use Performance mode.\n- Demon's Souls is limited by its own job-worker threads. It can also crash intermittently while loading (1 in 3 runs here).\n- Tested on Apple silicon (M4) only.\n\n## Contributors\n\n**macOS port**\n- @xnetcat: the macOS port, Metal V2, the shader compiler, the split GPU process and the launcher\n- @gavinnolan: Ghost of Tsushima and Black Myth: Wukong on Metal V2, the native GPU process, tessellation, multisampled depth, occlusion queries and shader compiler work\n- @voidborn-astra: memory and kernel mapping fixes, shader translation and GPU/AGC correctness fixes\n- @juanfariasdev: queued mutex waiters spin for their grant before parking\n\n**Upstream fixes brought into the port**\n@Stoltemberg, @theantipopau, @soufian3hmdz, @Leonid749, @AtsonMelo, @yeshaswi3060, @Armi1014, @NickPom, @ajaysaagar-dev, @semirkabir, @zsigisti, @Fayberr, @SulaymanKh\n\n**Upstream SharpEmu 0.0.6 \u2192 0.0.7-pulse**\n@par274, @Im-Usif, @Kuaryn, @simplehima, @Nenderus",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "kytyps5-jetsku",
+      "name": "KytyPS5 Jetsku",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 612 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental KytyPS5 U59 fork with merged shader and renderer fixes, maintaining a complete sanitized history and Windows releases.",
+      "statusSummary": "Experimental KytyPS5 U59 fork with merged shader and renderer fixes, maintaining a complete sanitized history and Windows releases.",
+      "repoOwner": "Jetsku",
+      "repoName": "KytyPS5",
+      "repoUrl": "https://github.com/Jetsku/KytyPS5",
+      "releasesPageUrl": "https://github.com/Jetsku/KytyPS5/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/Jetsku/KytyPS5/releases/latest",
+      "stars": 612,
+      "supportedGames": [
+        "Astro Bot",
+        "Demon's Souls"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:25:32Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "u59-windows-20261024-int21",
+        "releaseTitle": "KytyPS5 U59 int21",
+        "publishedAt": "2026-10-24T13:04:19Z",
+        "formattedDate": "Oct 24, 2026",
+        "releaseUrl": "https://github.com/Jetsku/KytyPS5/releases/tag/u59-windows-20261024-int21",
+        "directAssetUrl": "https://github.com/Jetsku/KytyPS5/releases/download/u59-windows-20261024-int21/KytyPS5-U59-Windows-x64.zip",
+        "directAssetName": "KytyPS5-U59-Windows-x64.zip",
+        "bodyNotes": "int21 is int20 plus faster draw validation, fixes for GPU device losses and a silent exit, the latest upstream KytyPS5 changes, ports from chenxiao07's fork and a new profile-guided optimisation profile; the older notes are in docs/release-notes-history.md. The first launch rebuilds the shader and program caches once (the pipeline key changed), so the first minutes can stutter.\r\n\r\n- **Faster:** the command processor skips the full validity check of a prepared draw when the GPU has never touched the memory it reads (`KYTY_CLEAN_UNTOUCHED=1`, on in the preset; exact, verified over tens of millions of draws), plus a new profile-guided optimisation profile. Measured with the play folder's three game patches on (non-tiled renderer, GI off, fixed 1080p): pirate island about 58 fps against about 53 in int20, and Sky Garden at its 60 fps pacing cap where int20 ran about 54. Without game patches Sky Garden gained about 1.4% over the last test build.\r\n- **Fixed (device loss):** a small upload's copy from guest memory could run after later writes the command processor or the game made to the same memory, so earlier draws read future data and the GPU could hang. Writes now wait for or take over the queued copies (`KYTY_UPLOAD_DMA_WRITE_DRAIN=1`, on in the preset; `=labels` is a stricter mode for anyone who still sees losses). Also fixed: the texture cache could miss guest writes on pages whose protection was still pending, and draws could keep using a buffer that a later merge had retired (`KYTY_REBIND_AFTER_JOIN=1`).\r\n- **Fixed (silent exit):** on Windows set to force Control Flow Guard on every program, Astro Bot closed without a message (ntdll 0xC0000409) right after shader loading (`KYTY_GUEST_TEB_STACK_RANGE=1`, on in the preset; issue #66).\r\n- **Fixed:** exits on colour targets with an invalid format and on a stencil plane shared with another render target (`KYTY_STENCIL_TARGETS_APART=1`), guest file writes from GPU-protected pages that were silently cut short, and pad presses lost during frame hitches (`KYTY_PAD_STATE_COALESCE=1`).\r\n- **Crash reports:** `KYTY_DEVICE_FAULT_EXT=1` is on in the preset and now writes a complete `_device_fault.nv-gpudmp` file next to `_kyty.txt` when the GPU is lost. Please attach it to device-loss reports.\r\n- **Correction to int20:** int20's notes said the Astro Bot \"too many objects/batches\" crash was fixed; it was only rarer. The cause was that the game's draw threads overflow their command buffers when they fall a frame behind, mostly on CPUs with fewer cores. int21 doubles those buffers for Astro Bot 01.018 (`KYTY_ASTRO_CB_SCALE=2`) and spreads the game's threads over both CCDs on X3D CPUs (`KYTY_VCACHE_GUEST=all`): 0 crashes in about 20 boots of speedrun_inflator, the level that crashed on every boot before. Players with 8-core CPUs: a report from speedrun_inflator would help.\r\n- **Upstream KytyPS5:** about 150 upstream changes, among them user clip planes, f16 interpolation, alpha-to-mask (`KYTY_ALPHA_TO_MASK`), start on GTX 10xx/RDNA1 cards without fragment-shader barycentrics, a keyboard player option, a performance overlay and fixes for other games behind switches that are off by default. Details are in the commit history.\r\n- **Thanks:** chenxiao07 for the fork changes ported here (colour-target and stencil fixes, the Control Flow Guard fix, pad state, file writes, APR file reads and more), and the upstream KytyPS5 contributors.\r\n- **Known issues:** rare GPU device losses can still happen, seen in sponge_dirty_bath without game patches. Please report them with `_kyty.txt` and `_device_fault.nv-gpudmp`; workaround: `KYTY_UPLOAD_DMA_WRITE_DRAIN=labels` or `KYTY_DEFER_PROTECTS=0` in `u59-preset.json` (about 3% slower).\r\n- **Upgrading:** extract into a new folder, or replace `u59-preset.json` too; an old preset leaves the new fixes off.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "kytyps5-demon-souls-framegen",
+      "name": "KytyPS5 Demon Souls FrameGen",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 11 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "KytyPS5 build distribution for Demon's Souls with DLSS frame generation, ultrawide support and render-resolution controls.",
+      "statusSummary": "KytyPS5 build distribution for Demon's Souls with DLSS frame generation, ultrawide support and render-resolution controls.",
+      "repoOwner": "ceremony88",
+      "repoName": "KytyPS5-DemonsSouls-FrameGen",
+      "repoUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen",
+      "releasesPageUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/ceremony88/KytyPS5-DemonsSouls-FrameGen/releases/latest",
+      "stars": 11,
+      "supportedGames": [
+        "Demon's Souls"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:24:02Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v1.3",
+        "releaseTitle": "KytyPS5 Demon's Souls Frame Generation v1.3",
+        "publishedAt": "2026-10-14T14:05:18Z",
+        "formattedDate": "Oct 14, 2026",
+        "releaseUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen/releases/tag/v1.3",
+        "directAssetUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen/releases/download/v1.3/KytyPS5-DemonsSouls-FrameGen-source.zip",
+        "directAssetName": "KytyPS5-DemonsSouls-FrameGen-source.zip",
+        "bodyNotes": "**What's new in v1.3:** based on the new upstream KytyPS5 **v20261014** by chenxiao07, with all of this build's improvements kept.\n\n- \u2b50 **New launcher layout:** the settings are in tabs (Display, Graphics, Performance, System) under the game folder; the window remembers the last tab.\n- \u2b50 **Shrine of Storms freeze work (known issue #1):** large textures now upload in 64 MB pieces and the partial path no longer re-uploads the whole 1.8 GB pool; this build also turns on upstream's layer-range textures, so the pool's views become small textures of the layers they read (upstream issue #9). Not confirmed at the spot yet: known issue #1 stays open until a session shows it.\n- **About 2 GB less RAM** after a save loads, and no more memory growth when travelling between worlds.\n- **HDR and VSync options** (Display tab, off by default). With Frame Generation, a G-SYNC display is the better choice than VSync.\n- **Fixes from upstream:** a crash when travelling to the Tower of Latria by archstone, a 1.05 crash in Boletaria 1-1, very large textures on 8 GB GPUs, game folders with very long paths.\n- **More precompile hints:** shaders from tours of every map, so more first visits are smooth after precompiling.\n- **Your shader cache is kept:** upstream now caps the driver shader cache at 1/64 of RAM; this build allows 1/16 (2 GB with 32 GB RAM), so a typical 1.2 GB cache is not thrown away at every launch.\n\nEverything from v1.2 stays: DLSS Frame Generation (**requires an NVIDIA RTX 40 or 50 series card**), render resolution upscaling (the game's own upscaler, not DLSS/FSR), ultrawide for any ultrawide screen, the voices fix.\n\n**Updating from v1.2:** extract the new zip over your old folder (your saves, launcher settings and shader caches stay; the frame generation camera list is replaced by the one in the zip). Your precompiled shaders stay valid; run \"Precompile shaders\" again if you want the new map-tour shaders too.\n\n**Downloads:** `KytyPS5-DemonsSouls-FrameGen.zip` is the build. `KytyPS5-DemonsSouls-FrameGen-source.zip` is its complete source (KytyPS5 is GPL 2.0; third-party licenses in THIRD-PARTY-NOTICES.md).\n\nNo game files included. Unofficial build, not affiliated with Sony, NVIDIA or the KytyPS5 developers.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "zylxemu",
+      "name": "ZylxEmu",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 1 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C#"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PS4/PS5 emulator experiment in C# exposing x86/x64 native CPU extensions for guest title execution.",
+      "statusSummary": "PS4/PS5 emulator experiment in C# exposing x86/x64 native CPU extensions for guest title execution.",
+      "repoOwner": "zenunqq",
+      "repoName": "zylxemu",
+      "repoUrl": "https://github.com/zenunqq/zylxemu",
+      "releasesPageUrl": "https://github.com/zenunqq/zylxemu",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/zenunqq/zylxemu/releases/latest",
+      "stars": 1,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:23:35Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "ZylxEmu Verified Release",
+        "publishedAt": "2026-09-05T17:55:49Z",
+        "formattedDate": "Sep 05, 2026",
+        "releaseUrl": "https://github.com/zenunqq/zylxemu",
+        "directAssetUrl": "https://github.com/zenunqq/zylxemu",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PS4/PS5 emulator experiment in C# exposing x86/x64 native CPU extensions for guest title execution.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "ps5-pc-emulator",
+      "name": "PS5 PC Emulator",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental PS5 compatibility layer and desktop frontend for Windows and Linux exploring HLE module reimplementation.",
+      "statusSummary": "Experimental PS5 compatibility layer and desktop frontend for Windows and Linux exploring HLE module reimplementation.",
+      "repoOwner": "mustafaaldaffaie",
+      "repoName": "PS5-PC-Emulator",
+      "repoUrl": "https://github.com/mustafaaldaffaie/PS5-PC-Emulator",
+      "releasesPageUrl": "https://github.com/mustafaaldaffaie/PS5-PC-Emulator",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/mustafaaldaffaie/PS5-PC-Emulator/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:23:00Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "PS5 PC Emulator Verified Release",
+        "publishedAt": "2026-10-09T05:21:00Z",
+        "formattedDate": "Oct 09, 2026",
+        "releaseUrl": "https://github.com/mustafaaldaffaie/PS5-PC-Emulator",
+        "directAssetUrl": "https://github.com/mustafaaldaffaie/PS5-PC-Emulator",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Experimental PS5 compatibility layer and desktop frontend for Windows and Linux exploring HLE module reimplementation.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "kytyps5-tmnt",
+      "name": "KytyPS5 TMNT",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Fork of KytyPS5 adding Unity/IL2CPP boot handling and rendering fixes aimed at TMNT and similar titles.",
+      "statusSummary": "Fork of KytyPS5 adding Unity/IL2CPP boot handling and rendering fixes aimed at TMNT and similar titles.",
+      "repoOwner": "edfwasd1234",
+      "repoName": "KytyPS5-tmnt",
+      "repoUrl": "https://github.com/edfwasd1234/KytyPS5-tmnt",
+      "releasesPageUrl": "https://github.com/edfwasd1234/KytyPS5-tmnt",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/edfwasd1234/KytyPS5-tmnt/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:22:23Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KytyPS5 TMNT Verified Release",
+        "publishedAt": "2026-07-23T03:45:14Z",
+        "formattedDate": "Jul 23, 2026",
+        "releaseUrl": "https://github.com/edfwasd1234/KytyPS5-tmnt",
+        "directAssetUrl": "https://github.com/edfwasd1234/KytyPS5-tmnt",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Fork of KytyPS5 adding Unity/IL2CPP boot handling and rendering fixes aimed at TMNT and similar titles.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "sharpemu-android",
+      "name": "SharpEmu Android",
+      "category": "Mobile & Cross-Console",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "SharpEmu PS4/PS5 emulator Android frontend with a Material You 3 shell, bundling the desktop emulator source alongside it.",
+      "statusSummary": "SharpEmu PS4/PS5 emulator Android frontend with a Material You 3 shell, bundling the desktop emulator source alongside it.",
+      "repoOwner": "OniChan-little-GIRL",
+      "repoName": "sharpemu-android",
+      "repoUrl": "https://github.com/OniChan-little-GIRL/sharpemu-android",
+      "releasesPageUrl": "https://github.com/OniChan-little-GIRL/sharpemu-android",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/OniChan-little-GIRL/sharpemu-android/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:21:53Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "SharpEmu Android Verified Release",
+        "publishedAt": "2026-08-21T03:55:05Z",
+        "formattedDate": "Aug 21, 2026",
+        "releaseUrl": "https://github.com/OniChan-little-GIRL/sharpemu-android",
+        "directAssetUrl": "https://github.com/OniChan-little-GIRL/sharpemu-android",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- SharpEmu PS4/PS5 emulator Android frontend with a Material You 3 shell, bundling the desktop emulator source alongside it.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "kytx",
+      "name": "KyTx",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Native ARM64 PS5 emulator for Apple Silicon using FEX for guest CPU execution and an RDNA to Metal graphics backend.",
+      "statusSummary": "Native ARM64 PS5 emulator for Apple Silicon using FEX for guest CPU execution and an RDNA to Metal graphics backend.",
+      "repoOwner": "TxCsOffc",
+      "repoName": "KyTx",
+      "repoUrl": "https://github.com/TxCsOffc/KyTx",
+      "releasesPageUrl": "https://github.com/TxCsOffc/KyTx",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/TxCsOffc/KyTx/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:21:20Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KyTx Verified Release",
+        "publishedAt": "2026-11-12T16:41:16Z",
+        "formattedDate": "Nov 12, 2026",
+        "releaseUrl": "https://github.com/TxCsOffc/KyTx",
+        "directAssetUrl": "https://github.com/TxCsOffc/KyTx",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Native ARM64 PS5 emulator for Apple Silicon using FEX for guest CPU execution and an RDNA to Metal graphics backend.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "p5emu",
+      "name": "P5EMU",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 1 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental open-source PS5 emulator architecture focused on portability, ARM64 translation and Apple platforms.",
+      "statusSummary": "Experimental open-source PS5 emulator architecture focused on portability, ARM64 translation and Apple platforms.",
+      "repoOwner": "NabuOX",
+      "repoName": "P5EMU",
+      "repoUrl": "https://github.com/NabuOX/P5EMU",
+      "releasesPageUrl": "https://github.com/NabuOX/P5EMU",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/NabuOX/P5EMU/releases/latest",
+      "stars": 1,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:20:47Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "P5EMU Verified Release",
+        "publishedAt": "2026-10-12T23:56:51Z",
+        "formattedDate": "Oct 12, 2026",
+        "releaseUrl": "https://github.com/NabuOX/P5EMU",
+        "directAssetUrl": "https://github.com/NabuOX/P5EMU",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Experimental open-source PS5 emulator architecture focused on portability, ARM64 translation and Apple platforms.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "kytyps5-emscripten",
+      "name": "KytyPS5 Emscripten",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Emscripten/WebAssembly port of KytyPS5 that compiles the emulator core to run inside a web browser.",
+      "statusSummary": "Emscripten/WebAssembly port of KytyPS5 that compiles the emulator core to run inside a web browser.",
+      "repoOwner": "Shubin123",
+      "repoName": "kytyps5_emscripten",
+      "repoUrl": "https://github.com/Shubin123/kytyps5_emscripten",
+      "releasesPageUrl": "https://github.com/Shubin123/kytyps5_emscripten",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/Shubin123/kytyps5_emscripten/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:20:15Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KytyPS5 Emscripten Verified Release",
+        "publishedAt": "2026-10-29T12:07:36Z",
+        "formattedDate": "Oct 29, 2026",
+        "releaseUrl": "https://github.com/Shubin123/kytyps5_emscripten",
+        "directAssetUrl": "https://github.com/Shubin123/kytyps5_emscripten",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Emscripten/WebAssembly port of KytyPS5 that compiles the emulator core to run inside a web browser.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "pcs5",
+      "name": "PCS5",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PS5 emulator project focused on PC-hosted execution of PS5 binaries with a custom loader and graphics translation layer.",
+      "statusSummary": "PS5 emulator project focused on PC-hosted execution of PS5 binaries with a custom loader and graphics translation layer.",
+      "repoOwner": "StoneCold608",
+      "repoName": "PCS5",
+      "repoUrl": "https://github.com/StoneCold608/PCS5",
+      "releasesPageUrl": "https://github.com/StoneCold608/PCS5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/StoneCold608/PCS5/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:19:42Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "PCS5 Verified Release",
+        "publishedAt": "2020-11-20T05:15:15Z",
+        "formattedDate": "Nov 20, 2020",
+        "releaseUrl": "https://github.com/StoneCold608/PCS5",
+        "directAssetUrl": "https://github.com/StoneCold608/PCS5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator project focused on PC-hosted execution of PS5 binaries with a custom loader and graphics translation layer.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "novaps5-android",
+      "name": "NovaPS5 Android",
+      "category": "Mobile & Cross-Console",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Android PS5 emulator experiment packaged as a native app, aiming to boot PS5 homebrew on mobile ARM64 devices.",
+      "statusSummary": "Android PS5 emulator experiment packaged as a native app, aiming to boot PS5 homebrew on mobile ARM64 devices.",
+      "repoOwner": "kaminofilms",
+      "repoName": "NovaPS5-Android",
+      "repoUrl": "https://github.com/kaminofilms/NovaPS5-Android",
+      "releasesPageUrl": "https://github.com/kaminofilms/NovaPS5-Android",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/kaminofilms/NovaPS5-Android/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:19:10Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "NovaPS5 Android Verified Release",
+        "publishedAt": "2026-10-30T22:29:39Z",
+        "formattedDate": "Oct 30, 2026",
+        "releaseUrl": "https://github.com/kaminofilms/NovaPS5-Android",
+        "directAssetUrl": "https://github.com/kaminofilms/NovaPS5-Android",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Android PS5 emulator experiment packaged as a native app, aiming to boot PS5 homebrew on mobile ARM64 devices.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "ps5plusplus",
+      "name": "PS5plusplus",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 1 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental C++ PS5 emulator extending the Kyty lineage with additional HLE module coverage and boot-reach experiments.",
+      "statusSummary": "Experimental C++ PS5 emulator extending the Kyty lineage with additional HLE module coverage and boot-reach experiments.",
+      "repoOwner": "thesupersupersigma",
+      "repoName": "PS5plusplus",
+      "repoUrl": "https://github.com/thesupersupersigma/PS5plusplus",
+      "releasesPageUrl": "https://github.com/thesupersupersigma/PS5plusplus",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/thesupersupersigma/PS5plusplus/releases/latest",
+      "stars": 1,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:18:44Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "PS5plusplus-2026-08-06-0fcc079",
+        "releaseTitle": "PS5plusplus-2026-08-06-0fcc079",
+        "publishedAt": "2026-08-06T05:25:16Z",
+        "formattedDate": "Aug 06, 2026",
+        "releaseUrl": "https://github.com/thesupersupersigma/PS5plusplus/releases/tag/PS5plusplus-2026-08-06-0fcc079",
+        "directAssetUrl": "https://github.com/thesupersupersigma/PS5plusplus/releases/download/PS5plusplus-2026-08-06-0fcc079/PS5plusplus-2026-08-06-0fcc079.zip",
+        "directAssetName": "PS5plusplus-2026-08-06-0fcc079.zip",
+        "bodyNotes": "**Full Changelog**: https://github.com/thesupersupersigma/PS5plusplus/compare/PS5plusplus-2026-07-29-7edcbc0...PS5plusplus-2026-08-06-0fcc079",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "zeno5",
+      "name": "Zeno5",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 2 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Early-stage C++ PS5 emulator focused on booting PS5 binaries with a Vulkan renderer and an HLE syscall layer.",
+      "statusSummary": "Early-stage C++ PS5 emulator focused on booting PS5 binaries with a Vulkan renderer and an HLE syscall layer.",
+      "repoOwner": "tossdace",
+      "repoName": "Zeno5",
+      "repoUrl": "https://github.com/tossdace/Zeno5",
+      "releasesPageUrl": "https://github.com/tossdace/Zeno5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/tossdace/Zeno5/releases/latest",
+      "stars": 2,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:18:11Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Zeno5 Verified Release",
+        "publishedAt": "2026-07-18T04:50:51Z",
+        "formattedDate": "Jul 18, 2026",
+        "releaseUrl": "https://github.com/tossdace/Zeno5",
+        "directAssetUrl": "https://github.com/tossdace/Zeno5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Early-stage C++ PS5 emulator focused on booting PS5 binaries with a Vulkan renderer and an HLE syscall layer.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "touche-px5",
+      "name": "Touche PX5",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 11 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C#"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Independent experimental PS5 emulator for Windows written in C#, targeting legally dumped commercial games and homebrew through HLE.",
+      "statusSummary": "Independent experimental PS5 emulator for Windows written in C#, targeting legally dumped commercial games and homebrew through HLE.",
+      "repoOwner": "Techx3",
+      "repoName": "TouchePX5",
+      "repoUrl": "https://github.com/Techx3/TouchePX5",
+      "releasesPageUrl": "https://github.com/Techx3/TouchePX5/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/Techx3/TouchePX5/releases/latest",
+      "stars": 11,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:17:39Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v0.0.2-beta.6",
+        "releaseTitle": "Touch\u00e9 PX5 v0.0.2-beta.6",
+        "publishedAt": "2026-07-29T15:34:35Z",
+        "formattedDate": "Jul 29, 2026",
+        "releaseUrl": "https://github.com/Techx3/TouchePX5/releases/tag/v0.0.2-beta.6",
+        "directAssetUrl": "https://github.com/Techx3/TouchePX5/releases/download/v0.0.2-beta.6/touchepx5-0.0.2-beta.6-win-x64.zip",
+        "directAssetName": "touchepx5-0.0.2-beta.6-win-x64.zip",
+        "bodyNotes": "Automated Touch\u00e9 PX5 v0.0.2-beta.6 build for commit 7df596c665f334d2eaa837b7a092bd02dfb63d64.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "lumen-emu",
+      "name": "Lumen Emu",
+      "category": "Mobile & Cross-Console",
+      "activityLabel": "Community Approved \u00b7 25 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental PS4/PS5 emulator from GS-Soft for Android and iOS with open-source cores, plus an in-progress Apple Silicon macOS port.",
+      "statusSummary": "Experimental PS4/PS5 emulator from GS-Soft for Android and iOS with open-source cores, plus an in-progress Apple Silicon macOS port.",
+      "repoOwner": "gs-soft-it",
+      "repoName": "lumen-emu",
+      "repoUrl": "https://github.com/gs-soft-it/lumen-emu",
+      "releasesPageUrl": "https://github.com/gs-soft-it/lumen-emu/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/gs-soft-it/lumen-emu/releases/latest",
+      "stars": 25,
+      "supportedGames": [
+        "Astro Bot",
+        "Bloodborne (60 FPS Patch / PS4-PS5)"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:17:01Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Lumen Emu Verified Release",
+        "publishedAt": "2026-11-09T09:39:04Z",
+        "formattedDate": "Nov 09, 2026",
+        "releaseUrl": "https://github.com/gs-soft-it/lumen-emu/releases",
+        "directAssetUrl": "https://github.com/gs-soft-it/lumen-emu/releases",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Experimental PS4/PS5 emulator from GS-Soft for Android and iOS with open-source cores, plus an in-progress Apple Silicon macOS port.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "empire-of-steel",
+      "name": "Empire of Steel",
+      "category": "PS4 & Hybrid Compat",
+      "activityLabel": "Community Approved \u00b7 32 Stars",
+      "isMostActive": false,
+      "languages": [
+        "Dockerfile"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Prototype C# PS4/PS5 emulator exploring a managed-runtime approach to Orbis system call emulation and GPU command processing.",
+      "statusSummary": "Prototype C# PS4/PS5 emulator exploring a managed-runtime approach to Orbis system call emulation and GPU command processing.",
+      "repoOwner": "daeken",
+      "repoName": "EmpireOfSteel",
+      "repoUrl": "https://github.com/daeken/EmpireOfSteel",
+      "releasesPageUrl": "https://github.com/daeken/EmpireOfSteel",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/daeken/EmpireOfSteel/releases/latest",
+      "stars": 32,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:16:30Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Empire of Steel Verified Release",
+        "publishedAt": "2023-02-25T01:39:30Z",
+        "formattedDate": "Feb 25, 2023",
+        "releaseUrl": "https://github.com/daeken/EmpireOfSteel",
+        "directAssetUrl": "https://github.com/daeken/EmpireOfSteel",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Prototype C# PS4/PS5 emulator exploring a managed-runtime approach to Orbis system call emulation and GPU command processing.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "sharpdroid",
+      "name": "SharpDroid",
+      "category": "Mobile & Cross-Console",
+      "activityLabel": "Community Approved \u00b7 62 Stars",
+      "isMostActive": false,
+      "languages": [
+        "Kotlin"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Android frontend that packages and launches the SharpEmu PS5 emulator core on phones and tablets with a native Kotlin interface.",
+      "statusSummary": "Android frontend that packages and launches the SharpEmu PS5 emulator core on phones and tablets with a native Kotlin interface.",
+      "repoOwner": "mircowuffwuff",
+      "repoName": "sharpdroid",
+      "repoUrl": "https://github.com/mircowuffwuff/sharpdroid",
+      "releasesPageUrl": "https://github.com/mircowuffwuff/sharpdroid/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/mircowuffwuff/sharpdroid/releases/latest",
+      "stars": 62,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:16:13Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "sharpdroid-8",
+        "releaseTitle": "8",
+        "publishedAt": "2026-10-20T13:44:16Z",
+        "formattedDate": "Oct 20, 2026",
+        "releaseUrl": "https://github.com/mircowuffwuff/sharpdroid/releases/tag/sharpdroid-8",
+        "directAssetUrl": "https://github.com/mircowuffwuff/sharpdroid/releases/download/sharpdroid-8/sharpdroid-8.apk",
+        "directAssetName": "sharpdroid-8.apk",
+        "bodyNotes": "- improved Dead Cells performance from ~7 fps to 29 fps on the title screen\r\n\r\nfull changelog: https://github.com/mircowuffwuff/sharpdroid/compare/sharpdroid-7...sharpdroid-8\r\n\r\n---\r\n\r\nsharpdroid now defaults to a 12 ms render loop drain budget, matching what upstream SharpEmu hardcodes for macOS. turns out android needs the same treatment! performance numbers come from an Odin 3 running a medium underclock.\r\n\r\nwith that being said, this might be the last release of sharpdroid! stay tuned, i have something big in the oven.. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://support.mircowuffwuff.com\"><img width=\"24\" align=\"top\" src=\".github/images/mircomoji-X3-flat.png\"/></a>\r\n\r\n## still missing\r\n\r\n- touch controls (wants contributor)",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
+    {
+      "id": "magnusps5",
+      "name": "MagnusPS5",
+      "category": "Mobile & Cross-Console",
+      "activityLabel": "Community Approved \u00b7 38 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PS5 emulator targeting iPhone and iPad hardware, using Metal for graphics translation and an ARM64 guest pipeline on Apple silicon devices.",
+      "statusSummary": "PS5 emulator targeting iPhone and iPad hardware, using Metal for graphics translation and an ARM64 guest pipeline on Apple silicon devices.",
+      "repoOwner": "hernan0078",
+      "repoName": "MagnusPS5",
+      "repoUrl": "https://github.com/hernan0078/MagnusPS5",
+      "releasesPageUrl": "https://github.com/hernan0078/MagnusPS5/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/hernan0078/MagnusPS5/releases/latest",
+      "stars": 38,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:13:16Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "MagnusPS5 Verified Release",
+        "publishedAt": "2026-08-25T21:05:37Z",
+        "formattedDate": "Aug 25, 2026",
+        "releaseUrl": "https://github.com/hernan0078/MagnusPS5/releases",
+        "directAssetUrl": "https://github.com/hernan0078/MagnusPS5/releases",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator targeting iPhone and iPad hardware, using Metal for graphics translation and an ARM64 guest pipeline on Apple silicon devices.",
+        "source": "community-approved",
+        "assets": []
+      }
+    }
+  ]
 }
