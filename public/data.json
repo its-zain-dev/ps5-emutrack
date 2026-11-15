@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:32:59Z",
+  "generatedAt": "2026-11-15T19:33:42Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:32:59Z",
+  "lastCompatibilityScan": "2026-11-15T19:33:42Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -500,6 +500,144 @@
           "sizeBytes": 8064812
         }
       ]
+    },
+    "anyps5": {
+      "tagName": "v0.1.5",
+      "releaseTitle": "v0.1.5",
+      "publishedAt": "2026-11-11T15:01:01Z",
+      "formattedDate": "Nov 11, 2026",
+      "releaseUrl": "https://github.com/boykopovar/AnyPS5/releases/tag/v0.1.5",
+      "directAssetUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-headers-v0.1.5.zip",
+      "directAssetName": "prx-headers-v0.1.5.zip",
+      "bodyNotes": "## New Contributors\n* @Brecherbernd made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13631\n* @CobaltMoth482 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13657\n* @dmto made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13704\n* @jbooba made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13754\n* @ryanc2112 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/9125\n* @angrysandhill made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14215\n* @deepak-r-135 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13891\n* @Scooooodoo made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13822\n* @DealPotato made their first contribution in https://github.com/boykopovar/AnyPS5/pull/8285\n* @NerfEko made their first contribution in https://github.com/boykopovar/AnyPS5/pull/11345\n* @ycarogabriel-lgtm made their first contribution in https://github.com/boykopovar/AnyPS5/pull/8477\n* @Iluminatti312 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/9793\n* @nozzzd made their first contribution in https://github.com/boykopovar/AnyPS5/pull/10617\n* @lgqdaxia made their first contribution in https://github.com/boykopovar/AnyPS5/pull/10760\n* @x-labb made their first contribution in https://github.com/boykopovar/AnyPS5/pull/11601\n* @teerthsharma made their first contribution in https://github.com/boykopovar/AnyPS5/pull/12609\n* @yeager made their first contribution in https://github.com/boykopovar/AnyPS5/pull/12615\n* @Froraut made their first contribution in https://github.com/boykopovar/AnyPS5/pull/9970\n* @Blelle made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13672\n* @Dinsuljevic336 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14422\n* @ken00H made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14855\n* @Laronza made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14882\n* @chinmay6537 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/15066\n* @viktorhantosi made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14242\n* @SoRadGaming made their first contribution in https://github.com/boykopovar/AnyPS5/pull/6273\n* @irwanrivaldi made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14952\n* @Islam-ElShahaby made their first contribution in https://github.com/boykopovar/AnyPS5/pull/7648\n* @imshah-id made their first contribution in https://github.com/boykopovar/AnyPS5/pull/8251\n* @GabrielKLBr made their first contribution in https://github.com/boykopovar/AnyPS5/pull/10392\n* @Jev1337 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/7192\n* @zorde23 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/15741\n* @LordVersA made their first contribution in https://github.com/boykopovar/AnyPS5/pull/11662\n* @MalikTalha03 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13239\n\n**Full Changelog**: https://github.com/boykopovar/AnyPS5/compare/v0.1.4...v0.1.5\n<!-- anyps5-release-workflow:62bd7dd61e2b8a7a59262c4c145edff549bae5b9 -->",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "INPUT_MAPPING.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/INPUT_MAPPING.md",
+          "sizeBytes": 16885
+        },
+        {
+          "name": "prx-headers-v0.1.5.tar.gz",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-headers-v0.1.5.tar.gz",
+          "sizeBytes": 636923
+        },
+        {
+          "name": "prx-headers-v0.1.5.zip",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-headers-v0.1.5.zip",
+          "sizeBytes": 932867
+        },
+        {
+          "name": "prx-linux-unpatched-v0.1.5.tar.gz",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-linux-unpatched-v0.1.5.tar.gz",
+          "sizeBytes": 120973474
+        },
+        {
+          "name": "prx-linux-unpatched-v0.1.5.zip",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-linux-unpatched-v0.1.5.zip",
+          "sizeBytes": 121324414
+        },
+        {
+          "name": "prx-linux-v0.1.5.tar.gz",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-linux-v0.1.5.tar.gz",
+          "sizeBytes": 121045221
+        },
+        {
+          "name": "prx-linux-v0.1.5.zip",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-linux-v0.1.5.zip",
+          "sizeBytes": 121372241
+        },
+        {
+          "name": "prx-windows-unpatched-v0.1.5.tar.gz",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-windows-unpatched-v0.1.5.tar.gz",
+          "sizeBytes": 119352491
+        },
+        {
+          "name": "prx-windows-unpatched-v0.1.5.zip",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-windows-unpatched-v0.1.5.zip",
+          "sizeBytes": 119524652
+        },
+        {
+          "name": "prx-windows-v0.1.5.tar.gz",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-windows-v0.1.5.tar.gz",
+          "sizeBytes": 114679476
+        },
+        {
+          "name": "prx-windows-v0.1.5.zip",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-windows-v0.1.5.zip",
+          "sizeBytes": 114702577
+        },
+        {
+          "name": "README.ca.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/README.ca.md",
+          "sizeBytes": 3771
+        },
+        {
+          "name": "README.es.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/README.es.md",
+          "sizeBytes": 3833
+        },
+        {
+          "name": "README.id.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/README.id.md",
+          "sizeBytes": 3589
+        },
+        {
+          "name": "README.it.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/README.it.md",
+          "sizeBytes": 3830
+        },
+        {
+          "name": "README.pl.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/README.pl.md",
+          "sizeBytes": 3888
+        },
+        {
+          "name": "README.pt-BR.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/README.pt-BR.md",
+          "sizeBytes": 3714
+        },
+        {
+          "name": "README.ru.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/README.ru.md",
+          "sizeBytes": 5366
+        },
+        {
+          "name": "README.zh-CN.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/README.zh-CN.md",
+          "sizeBytes": 3325
+        },
+        {
+          "name": "release-notes.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/release-notes.md",
+          "sizeBytes": 185321
+        },
+        {
+          "name": "relinker-v0.1.5",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/relinker-v0.1.5",
+          "sizeBytes": 5325632
+        },
+        {
+          "name": "relinker-v0.1.5.exe",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/relinker-v0.1.5.exe",
+          "sizeBytes": 5896022
+        },
+        {
+          "name": "run-report.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/run-report.md",
+          "sizeBytes": 11953
+        },
+        {
+          "name": "USAGE.md",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/USAGE.md",
+          "sizeBytes": 128395
+        },
+        {
+          "name": "web-v0.1.5.zip",
+          "downloadUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/web-v0.1.5.zip",
+          "sizeBytes": 484935
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -549,6 +687,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "anyps5",
+      "name": "AnyPS5",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 54146 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Tooling that automatically ports PS5 executables to Linux and Windows, powering the AnyPS5 compatibility approach.",
+      "statusSummary": "Tooling that automatically ports PS5 executables to Linux and Windows, powering the AnyPS5 compatibility approach.",
+      "repoOwner": "boykopovar",
+      "repoName": "AnyPS5",
+      "repoUrl": "https://github.com/boykopovar/AnyPS5",
+      "releasesPageUrl": "https://github.com/boykopovar/AnyPS5/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/boykopovar/AnyPS5/releases/latest",
+      "stars": 54146,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:33:19Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v0.1.5",
+        "releaseTitle": "v0.1.5",
+        "publishedAt": "2026-11-11T15:01:01Z",
+        "formattedDate": "Nov 11, 2026",
+        "releaseUrl": "https://github.com/boykopovar/AnyPS5/releases/tag/v0.1.5",
+        "directAssetUrl": "https://github.com/boykopovar/AnyPS5/releases/download/v0.1.5/prx-headers-v0.1.5.zip",
+        "directAssetName": "prx-headers-v0.1.5.zip",
+        "bodyNotes": "## New Contributors\n* @Brecherbernd made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13631\n* @CobaltMoth482 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13657\n* @dmto made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13704\n* @jbooba made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13754\n* @ryanc2112 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/9125\n* @angrysandhill made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14215\n* @deepak-r-135 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13891\n* @Scooooodoo made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13822\n* @DealPotato made their first contribution in https://github.com/boykopovar/AnyPS5/pull/8285\n* @NerfEko made their first contribution in https://github.com/boykopovar/AnyPS5/pull/11345\n* @ycarogabriel-lgtm made their first contribution in https://github.com/boykopovar/AnyPS5/pull/8477\n* @Iluminatti312 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/9793\n* @nozzzd made their first contribution in https://github.com/boykopovar/AnyPS5/pull/10617\n* @lgqdaxia made their first contribution in https://github.com/boykopovar/AnyPS5/pull/10760\n* @x-labb made their first contribution in https://github.com/boykopovar/AnyPS5/pull/11601\n* @teerthsharma made their first contribution in https://github.com/boykopovar/AnyPS5/pull/12609\n* @yeager made their first contribution in https://github.com/boykopovar/AnyPS5/pull/12615\n* @Froraut made their first contribution in https://github.com/boykopovar/AnyPS5/pull/9970\n* @Blelle made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13672\n* @Dinsuljevic336 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14422\n* @ken00H made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14855\n* @Laronza made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14882\n* @chinmay6537 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/15066\n* @viktorhantosi made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14242\n* @SoRadGaming made their first contribution in https://github.com/boykopovar/AnyPS5/pull/6273\n* @irwanrivaldi made their first contribution in https://github.com/boykopovar/AnyPS5/pull/14952\n* @Islam-ElShahaby made their first contribution in https://github.com/boykopovar/AnyPS5/pull/7648\n* @imshah-id made their first contribution in https://github.com/boykopovar/AnyPS5/pull/8251\n* @GabrielKLBr made their first contribution in https://github.com/boykopovar/AnyPS5/pull/10392\n* @Jev1337 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/7192\n* @zorde23 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/15741\n* @LordVersA made their first contribution in https://github.com/boykopovar/AnyPS5/pull/11662\n* @MalikTalha03 made their first contribution in https://github.com/boykopovar/AnyPS5/pull/13239\n\n**Full Changelog**: https://github.com/boykopovar/AnyPS5/compare/v0.1.4...v0.1.5\n<!-- anyps5-release-workflow:62bd7dd61e2b8a7a59262c4c145edff549bae5b9 -->",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "prosperity",
       "name": "Prosperity",

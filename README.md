@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[AnyPS5](https://github.com/boykopovar/AnyPS5)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Tooling that automatically ports PS5 executables to Linux and Windows, powering the AnyPS5 compatibility approach. ([Releases / Docs](https://github.com/boykopovar/AnyPS5/releases))
 - **[Prosperity](https://github.com/Force67/prosperity)** — `C++` · `Vulkan` · `Windows, Linux`  
   Low-level emulation project for PS4 and PS5 consoles, implementing hardware behaviour rather than high-level module reimplementation. ([Releases / Docs](https://github.com/Force67/prosperity))
 - **[KytyPS5 GTA5 Fixes](https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes)** — `C++` · `Vulkan` · `Windows, Linux`  
