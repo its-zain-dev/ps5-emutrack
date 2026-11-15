@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:16:17Z",
+  "generatedAt": "2026-11-15T19:16:36Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:16:17Z",
+  "lastCompatibilityScan": "2026-11-15T19:16:36Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -111,6 +111,18 @@
           "sizeBytes": 92455195
         }
       ]
+    },
+    "empire-of-steel": {
+      "tagName": "community-verified",
+      "releaseTitle": "Empire of Steel Verified Release",
+      "publishedAt": "2023-02-25T01:39:30Z",
+      "formattedDate": "Feb 25, 2023",
+      "releaseUrl": "https://github.com/daeken/EmpireOfSteel",
+      "directAssetUrl": "https://github.com/daeken/EmpireOfSteel",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Prototype C# PS4/PS5 emulator exploring a managed-runtime approach to Orbis system call emulation and GPU command processing.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -136,6 +148,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "empire-of-steel",
+      "name": "Empire of Steel",
+      "category": "PS4 & Hybrid Compat",
+      "activityLabel": "Community Approved \u00b7 32 Stars",
+      "isMostActive": false,
+      "languages": [
+        "Dockerfile"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Prototype C# PS4/PS5 emulator exploring a managed-runtime approach to Orbis system call emulation and GPU command processing.",
+      "statusSummary": "Prototype C# PS4/PS5 emulator exploring a managed-runtime approach to Orbis system call emulation and GPU command processing.",
+      "repoOwner": "daeken",
+      "repoName": "EmpireOfSteel",
+      "repoUrl": "https://github.com/daeken/EmpireOfSteel",
+      "releasesPageUrl": "https://github.com/daeken/EmpireOfSteel",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/daeken/EmpireOfSteel/releases/latest",
+      "stars": 32,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:16:30Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Empire of Steel Verified Release",
+        "publishedAt": "2023-02-25T01:39:30Z",
+        "formattedDate": "Feb 25, 2023",
+        "releaseUrl": "https://github.com/daeken/EmpireOfSteel",
+        "directAssetUrl": "https://github.com/daeken/EmpireOfSteel",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Prototype C# PS4/PS5 emulator exploring a managed-runtime approach to Orbis system call emulation and GPU command processing.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "sharpdroid",
       "name": "SharpDroid",

@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[Empire of Steel](https://github.com/daeken/EmpireOfSteel)** — `Dockerfile` · `Vulkan` · `Windows, Linux`  
+  Prototype C# PS4/PS5 emulator exploring a managed-runtime approach to Orbis system call emulation and GPU command processing. ([Releases / Docs](https://github.com/daeken/EmpireOfSteel))
 - **[SharpDroid](https://github.com/mircowuffwuff/sharpdroid)** — `Kotlin` · `Vulkan` · `Windows, Linux`  
   Android frontend that packages and launches the SharpEmu PS5 emulator core on phones and tablets with a native Kotlin interface. ([Releases / Docs](https://github.com/mircowuffwuff/sharpdroid/releases))
 - **[MagnusPS5](https://github.com/hernan0078/MagnusPS5)** — `C++` · `Vulkan` · `Windows, Linux`  
