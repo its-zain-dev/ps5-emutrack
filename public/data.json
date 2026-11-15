@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:22:33Z",
+  "generatedAt": "2026-11-15T19:23:09Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:22:33Z",
+  "lastCompatibilityScan": "2026-11-15T19:23:09Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -277,6 +277,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Fork of KytyPS5 adding Unity/IL2CPP boot handling and rendering fixes aimed at TMNT and similar titles.",
       "source": "community-approved",
       "assets": []
+    },
+    "ps5-pc-emulator": {
+      "tagName": "community-verified",
+      "releaseTitle": "PS5 PC Emulator Verified Release",
+      "publishedAt": "2026-10-09T05:21:00Z",
+      "formattedDate": "Oct 09, 2026",
+      "releaseUrl": "https://github.com/mustafaaldaffaie/PS5-PC-Emulator",
+      "directAssetUrl": "https://github.com/mustafaaldaffaie/PS5-PC-Emulator",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Experimental PS5 compatibility layer and desktop frontend for Windows and Linux exploring HLE module reimplementation.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -306,6 +318,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "ps5-pc-emulator",
+      "name": "PS5 PC Emulator",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental PS5 compatibility layer and desktop frontend for Windows and Linux exploring HLE module reimplementation.",
+      "statusSummary": "Experimental PS5 compatibility layer and desktop frontend for Windows and Linux exploring HLE module reimplementation.",
+      "repoOwner": "mustafaaldaffaie",
+      "repoName": "PS5-PC-Emulator",
+      "repoUrl": "https://github.com/mustafaaldaffaie/PS5-PC-Emulator",
+      "releasesPageUrl": "https://github.com/mustafaaldaffaie/PS5-PC-Emulator",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/mustafaaldaffaie/PS5-PC-Emulator/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:23:00Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "PS5 PC Emulator Verified Release",
+        "publishedAt": "2026-10-09T05:21:00Z",
+        "formattedDate": "Oct 09, 2026",
+        "releaseUrl": "https://github.com/mustafaaldaffaie/PS5-PC-Emulator",
+        "directAssetUrl": "https://github.com/mustafaaldaffaie/PS5-PC-Emulator",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Experimental PS5 compatibility layer and desktop frontend for Windows and Linux exploring HLE module reimplementation.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "kytyps5-tmnt",
       "name": "KytyPS5 TMNT",

@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[PS5 PC Emulator](https://github.com/mustafaaldaffaie/PS5-PC-Emulator)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Experimental PS5 compatibility layer and desktop frontend for Windows and Linux exploring HLE module reimplementation. ([Releases / Docs](https://github.com/mustafaaldaffaie/PS5-PC-Emulator))
 - **[KytyPS5 TMNT](https://github.com/edfwasd1234/KytyPS5-tmnt)** — `C++` · `Vulkan` · `Windows, Linux`  
   Fork of KytyPS5 adding Unity/IL2CPP boot handling and rendering fixes aimed at TMNT and similar titles. ([Releases / Docs](https://github.com/edfwasd1234/KytyPS5-tmnt))
 - **[SharpEmu Android](https://github.com/OniChan-little-GIRL/sharpemu-android)** — `C++` · `Vulkan` · `Windows, Linux`  
