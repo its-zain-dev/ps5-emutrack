@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:19:15Z",
+  "generatedAt": "2026-11-15T19:19:50Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:19:15Z",
+  "lastCompatibilityScan": "2026-11-15T19:19:50Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -205,6 +205,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Android PS5 emulator experiment packaged as a native app, aiming to boot PS5 homebrew on mobile ARM64 devices.",
       "source": "community-approved",
       "assets": []
+    },
+    "pcs5": {
+      "tagName": "community-verified",
+      "releaseTitle": "PCS5 Verified Release",
+      "publishedAt": "2020-11-20T05:15:15Z",
+      "formattedDate": "Nov 20, 2020",
+      "releaseUrl": "https://github.com/StoneCold608/PCS5",
+      "directAssetUrl": "https://github.com/StoneCold608/PCS5",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator project focused on PC-hosted execution of PS5 binaries with a custom loader and graphics translation layer.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -234,6 +246,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "pcs5",
+      "name": "PCS5",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PS5 emulator project focused on PC-hosted execution of PS5 binaries with a custom loader and graphics translation layer.",
+      "statusSummary": "PS5 emulator project focused on PC-hosted execution of PS5 binaries with a custom loader and graphics translation layer.",
+      "repoOwner": "StoneCold608",
+      "repoName": "PCS5",
+      "repoUrl": "https://github.com/StoneCold608/PCS5",
+      "releasesPageUrl": "https://github.com/StoneCold608/PCS5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/StoneCold608/PCS5/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:19:42Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "PCS5 Verified Release",
+        "publishedAt": "2020-11-20T05:15:15Z",
+        "formattedDate": "Nov 20, 2020",
+        "releaseUrl": "https://github.com/StoneCold608/PCS5",
+        "directAssetUrl": "https://github.com/StoneCold608/PCS5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator project focused on PC-hosted execution of PS5 binaries with a custom loader and graphics translation layer.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "novaps5-android",
       "name": "NovaPS5 Android",

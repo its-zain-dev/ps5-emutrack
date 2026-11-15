@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[PCS5](https://github.com/StoneCold608/PCS5)** — `C++` · `Vulkan` · `Windows, Linux`  
+  PS5 emulator project focused on PC-hosted execution of PS5 binaries with a custom loader and graphics translation layer. ([Releases / Docs](https://github.com/StoneCold608/PCS5))
 - **[NovaPS5 Android](https://github.com/kaminofilms/NovaPS5-Android)** — `C` · `Vulkan` · `Windows, Linux`  
   Android PS5 emulator experiment packaged as a native app, aiming to boot PS5 homebrew on mobile ARM64 devices. ([Releases / Docs](https://github.com/kaminofilms/NovaPS5-Android))
 - **[PS5plusplus](https://github.com/thesupersupersigma/PS5plusplus)** — `C++` · `Vulkan` · `Windows, Linux`  
