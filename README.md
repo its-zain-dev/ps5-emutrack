@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[KytyPS5 Wolverine](https://github.com/loyalty3/KytyPS5-wolverine)** — `C++` · `Vulkan` · `Windows, Linux`  
+  KytyPS5 derivative tuned for Wolverine boot experiments, carrying renderer and HLE module adjustments. · Detected Titles: Astro Bot, Demon's Souls ([Releases / Docs](https://github.com/loyalty3/KytyPS5-wolverine))
 - **[Orbis-Kyty](https://github.com/MrKitsune9/Orbis-Kyty)** — `C++` · `Vulkan` · `Windows, Linux`  
   Experimental PS4-hosted PS5 emulation test build based on Kyty, exploring running PS5 titles on jailbroken PS4 hardware. ([Releases / Docs](https://github.com/MrKitsune9/Orbis-Kyty))
 - **[KytyPS5 Carecu](https://github.com/carecu/KytyPS5)** — `C++` · `Vulkan` · `Windows, Linux`  

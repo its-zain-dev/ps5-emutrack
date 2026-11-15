@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:28:54Z",
+  "generatedAt": "2026-11-15T19:29:32Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:28:54Z",
+  "lastCompatibilityScan": "2026-11-15T19:29:32Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -418,6 +418,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Experimental PS4-hosted PS5 emulation test build based on Kyty, exploring running PS5 titles on jailbroken PS4 hardware.",
       "source": "community-approved",
       "assets": []
+    },
+    "kytyps5-wolverine": {
+      "tagName": "community-verified",
+      "releaseTitle": "KytyPS5 Wolverine Verified Release",
+      "publishedAt": "2026-10-12T02:49:17Z",
+      "formattedDate": "Oct 12, 2026",
+      "releaseUrl": "https://github.com/loyalty3/KytyPS5-wolverine",
+      "directAssetUrl": "https://github.com/loyalty3/KytyPS5-wolverine",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- KytyPS5 derivative tuned for Wolverine boot experiments, carrying renderer and HLE module adjustments.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -457,9 +469,56 @@
     ],
     "vibestation5": [
       "Astro Bot"
+    ],
+    "kytyps5-wolverine": [
+      "Astro Bot",
+      "Demon's Souls"
     ]
   },
   "customEmulators": [
+    {
+      "id": "kytyps5-wolverine",
+      "name": "KytyPS5 Wolverine",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 2 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "KytyPS5 derivative tuned for Wolverine boot experiments, carrying renderer and HLE module adjustments.",
+      "statusSummary": "KytyPS5 derivative tuned for Wolverine boot experiments, carrying renderer and HLE module adjustments.",
+      "repoOwner": "loyalty3",
+      "repoName": "KytyPS5-wolverine",
+      "repoUrl": "https://github.com/loyalty3/KytyPS5-wolverine",
+      "releasesPageUrl": "https://github.com/loyalty3/KytyPS5-wolverine",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/loyalty3/KytyPS5-wolverine/releases/latest",
+      "stars": 2,
+      "supportedGames": [
+        "Astro Bot",
+        "Demon's Souls"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:29:11Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KytyPS5 Wolverine Verified Release",
+        "publishedAt": "2026-10-12T02:49:17Z",
+        "formattedDate": "Oct 12, 2026",
+        "releaseUrl": "https://github.com/loyalty3/KytyPS5-wolverine",
+        "directAssetUrl": "https://github.com/loyalty3/KytyPS5-wolverine",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- KytyPS5 derivative tuned for Wolverine boot experiments, carrying renderer and HLE module adjustments.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "orbis-kyty",
       "name": "Orbis-Kyty",
