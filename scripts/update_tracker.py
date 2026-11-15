@@ -197,6 +197,17 @@ def update_file(path: Path, fetched: dict[str, dict], scan_texts: dict[str, str]
     supported_map = payload.setdefault("emulatorSupportedGames", {})
     date_only = generated_at[:10]
 
+    # Keep the static GitHub Pages snapshot in sync with the community registry
+    # that lives in public/data.json, so the landing page can render submissions.
+    master_path = DATA_FILES[0]
+    if path != master_path and master_path.exists():
+        try:
+            master = json.loads(master_path.read_text(encoding="utf-8"))
+            if "customEmulators" in master:
+                payload["customEmulators"] = master["customEmulators"]
+        except json.JSONDecodeError:
+            pass
+
     for key, rel in fetched.items():
         current = emulators.setdefault(key, {})
         assets_raw = rel.get("assets") or []

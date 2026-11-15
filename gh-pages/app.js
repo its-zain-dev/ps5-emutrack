@@ -115,6 +115,43 @@ let selectedStatus = 'All';
 let searchQuery = '';
 let selectedEmulator = 'all';
 let releaseMap = {};
+let registry = [];
+
+const escapeHtml = (value) =>
+  String(value ?? '').replace(
+    /[&<>"']/g,
+    (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch],
+  );
+
+function communityEmulators() {
+  const coreIds = new Set(EMULATORS.map((emu) => emu.id));
+  return registry
+    .filter((emu) => emu && emu.id && emu.repoUrl && !coreIds.has(emu.id))
+    .map((emu) => ({
+      id: emu.id,
+      name: emu.name || emu.id,
+      meta: [
+        emu.category,
+        (emu.languages || []).join(' / '),
+        (emu.graphicsBackends || []).join(' / '),
+        (emu.platforms || []).join(', '),
+      ]
+        .filter(Boolean)
+        .join(' · '),
+      summary:
+        emu.statusSummary ||
+        emu.architectureSummary ||
+        'Community-approved open-source PS5 emulation project.',
+      repoUrl: emu.repoUrl,
+      releasesUrl: emu.releasesPageUrl || emu.repoUrl,
+      apiUrl: emu.apiLatestReleaseUrl || null,
+      community: true,
+    }));
+}
+
+function allEmulators() {
+  return EMULATORS.concat(communityEmulators());
+}
 
 function badgeClass(status) {
   if (status === 'In-Game') return 'status-badge status-ingame';
@@ -155,23 +192,29 @@ function renderMatrix() {
 
 function renderEmulators() {
   const grid = document.getElementById('emulator-grid');
-  grid.innerHTML = EMULATORS.map((emu) => {
-    const rel = releaseMap[emu.id] || {
-      tagName: 'Latest',
-      formattedDate: 'Snapshot',
-      releaseUrl: emu.releasesUrl,
-      directAssetUrl: emu.releasesUrl,
-      bodyNotes: 'Official GitHub release notes.',
-    };
-    return `
+  if (!grid) return;
+  grid.innerHTML = allEmulators()
+    .map((emu) => {
+      const rel = releaseMap[emu.id] || {
+        tagName: 'Latest',
+        formattedDate: 'Snapshot',
+        releaseUrl: emu.releasesUrl,
+        directAssetUrl: emu.releasesUrl,
+        bodyNotes: 'Official GitHub release notes.',
+      };
+      const name = escapeHtml(emu.name);
+      const badge = emu.community
+        ? '<span class="status-badge status-menu">Community Approved</span>'
+        : '';
+      return `
       <article class="emu-card">
         <div>
-          <h3>${emu.name}</h3>
-          <p class="muted-meta">${emu.meta}</p>
-          <p>${emu.summary}</p>
+          <h3>${name} ${badge}</h3>
+          <p class="muted-meta">${escapeHtml(emu.meta)}</p>
+          <p>${escapeHtml(emu.summary)}</p>
           <div class="emu-meta-row">
-            <span>Tag: <strong>${rel.tagName}</strong></span>
-            <span>Date: ${rel.formattedDate}</span>
+            <span>Tag: <strong>${escapeHtml(rel.tagName)}</strong></span>
+            <span>Date: ${escapeHtml(rel.formattedDate)}</span>
           </div>
           <details class="changelog-details">
             <summary>View Release Notes</summary>
@@ -179,12 +222,14 @@ function renderEmulators() {
           </details>
         </div>
         <div class="emu-actions">
-          <a href="${emu.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Repository</a>
-          <a href="${rel.directAssetUrl || rel.releaseUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Latest Build</a>
+          <a href="${escapeHtml(emu.repoUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Repository</a>
+          <a href="${escapeHtml(rel.directAssetUrl || rel.releaseUrl)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Download Latest Build</a>
         </div>
       </article>`;
-  }).join('');
+    })
+    .join('');
 }
+
 
 function updateCountdown() {
   const el = document.getElementById('gta-countdown');
@@ -219,6 +264,7 @@ async function syncGitHub(forceRefresh) {
     if (fallbackRes.ok) {
       const json = await fallbackRes.json();
       if (json.emulators) releaseMap = json.emulators;
+      if (Array.isArray(json.customEmulators)) registry = json.customEmulators;
     }
   } catch (_) {}
 
@@ -236,7 +282,7 @@ async function syncGitHub(forceRefresh) {
 
   let liveCount = 0;
   await Promise.all(
-    EMULATORS.map(async (emu) => {
+    allEmulators().map(async (emu) => {
       if (!emu.apiUrl) return;
       try {
         const res = await fetch(emu.apiUrl, { headers: { Accept: 'application/vnd.github+json' } });

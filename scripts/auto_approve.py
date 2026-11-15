@@ -25,6 +25,7 @@ from update_tracker import (
 
 ROOT = Path(__file__).resolve().parent.parent
 PUBLIC_DATA = ROOT / "public" / "data.json"
+GH_PAGES_DATA = ROOT / "gh-pages" / "data.json"
 README_FILE = ROOT / "README.md"
 
 
@@ -191,6 +192,19 @@ def main() -> None:
     payload["generatedAt"] = now_iso
 
     PUBLIC_DATA.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+    # Mirror the community registry into the static GitHub Pages snapshot so the
+    # landing page can render approved submissions.
+    if GH_PAGES_DATA.exists():
+        try:
+            static_payload = json.loads(GH_PAGES_DATA.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            static_payload = {}
+        static_payload["customEmulators"] = custom
+        static_payload.setdefault("repoUrl", payload.get("repoUrl"))
+        static_payload["generatedAt"] = now_iso
+        GH_PAGES_DATA.write_text(json.dumps(static_payload, indent=2) + "\n", encoding="utf-8")
+
     update_readme_auto_section(custom)
     print(f"[OK] Auto-approved {name} ({owner}/{repo}) with {len(discovered_games)} discovered games.")
 
