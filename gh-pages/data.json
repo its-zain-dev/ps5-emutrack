@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T19:31:51Z",
+  "generatedAt": "2026-11-15T19:32:59Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
   "emulators": {
     "kytyps5": {
@@ -54,16 +54,22 @@
       ]
     },
     "prosperity": {
-      "tagName": "dev-2026.11",
-      "releaseTitle": "Prosperity Firmware & Binary Loader Milestone",
-      "publishedAt": "2026-11-09T12:00:00Z",
-      "formattedDate": "Nov 09, 2026",
-      "releaseUrl": "https://github.com/search?q=Prosperity+PS5+emulator&type=repositories",
-      "directAssetUrl": "https://github.com/search?q=Prosperity+PS5+emulator&type=repositories",
-      "directAssetName": "Source & Dev Builds",
-      "bodyNotes": "### Architecture & Reverse Engineering\n- Documented AMD Zen 2 / RDNA 2 command processor packet decoding.\n- Expanded ELF/SELF binary loader verification for early PS5 SDK titles.",
+      "tagName": "v0.0.1",
+      "releaseTitle": "v0.0.1",
+      "publishedAt": "2026-10-03T17:22:47Z",
+      "formattedDate": "Oct 03, 2026",
+      "releaseUrl": "https://github.com/Force67/prosperity/releases/tag/v0.0.1",
+      "directAssetUrl": "https://github.com/Force67/prosperity/releases/download/v0.0.1/prosperity_0.0.1_amd64.deb",
+      "directAssetName": "prosperity_0.0.1_amd64.deb",
+      "bodyNotes": "## What's Changed\n* Fix github actions by initializing submodules by @greggameplayer in https://github.com/Force67/prosperity/pull/2\n* Giving some details to the docs as well as adding some troubleshooting for the building process by @MalauD in https://github.com/Force67/prosperity/pull/3\n* Add another troubleshooting step by @dtabacaru in https://github.com/Force67/prosperity/pull/4\n* Add compiler option to use C++17 on every platform by @thomasgu112 in https://github.com/Force67/prosperity/pull/6\n* Fix PS4 runtime semantics exposed by Uncharted 2 by @Force67 in https://github.com/Force67/prosperity/pull/11\n* gpu: split vk_render into an rhi seam and a vulkan backend by @Force67 in https://github.com/Force67/prosperity/pull/12\n* Build Ubuntu release packages in CI by @Force67 in https://github.com/Force67/prosperity/pull/17\n\n## New Contributors\n* @greggameplayer made their first contribution in https://github.com/Force67/prosperity/pull/2\n* @MalauD made their first contribution in https://github.com/Force67/prosperity/pull/3\n* @dtabacaru made their first contribution in https://github.com/Force67/prosperity/pull/4\n* @thomasgu112 made their first contribution in https://github.com/Force67/prosperity/pull/6\n* @Force67 made their first contribution in https://github.com/Force67/prosperity/pull/11\n\n**Full Changelog**: https://github.com/Force67/prosperity/commits/v0.0.1",
       "source": "static-fallback",
-      "assets": []
+      "assets": [
+        {
+          "name": "prosperity_0.0.1_amd64.deb",
+          "downloadUrl": "https://github.com/Force67/prosperity/releases/download/v0.0.1/prosperity_0.0.1_amd64.deb",
+          "sizeBytes": 8064812
+        }
+      ]
     },
     "anyps5": {
       "tagName": "v0.2.4-exp",
@@ -305,5 +311,5 @@
       "Demon's Souls"
     ]
   },
-  "lastCompatibilityScan": "2026-11-15T19:31:51Z"
+  "lastCompatibilityScan": "2026-11-15T19:32:59Z"
 }

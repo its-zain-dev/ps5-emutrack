@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[Prosperity](https://github.com/Force67/prosperity)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Low-level emulation project for PS4 and PS5 consoles, implementing hardware behaviour rather than high-level module reimplementation. ([Releases / Docs](https://github.com/Force67/prosperity))
 - **[KytyPS5 GTA5 Fixes](https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes)** — `C++` · `Vulkan` · `Windows, Linux`  
   KytyPS5 fork carrying compatibility fixes aimed at Grand Theft Auto V boot and rendering behaviour. ([Releases / Docs](https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes))
 - **[SharpEmu PS5 Mac](https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac)** — `C#` · `Vulkan` · `Windows, Linux`  

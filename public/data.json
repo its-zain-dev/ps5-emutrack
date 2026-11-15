@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:31:51Z",
+  "generatedAt": "2026-11-15T19:32:59Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:31:51Z",
+  "lastCompatibilityScan": "2026-11-15T19:32:59Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -482,6 +482,24 @@
       "bodyNotes": "### Auto-Approved Addition\n- KytyPS5 fork carrying compatibility fixes aimed at Grand Theft Auto V boot and rendering behaviour.",
       "source": "community-approved",
       "assets": []
+    },
+    "prosperity": {
+      "tagName": "v0.0.1",
+      "releaseTitle": "v0.0.1",
+      "publishedAt": "2026-10-03T17:22:47Z",
+      "formattedDate": "Oct 03, 2026",
+      "releaseUrl": "https://github.com/Force67/prosperity/releases/tag/v0.0.1",
+      "directAssetUrl": "https://github.com/Force67/prosperity/releases/download/v0.0.1/prosperity_0.0.1_amd64.deb",
+      "directAssetName": "prosperity_0.0.1_amd64.deb",
+      "bodyNotes": "## What's Changed\n* Fix github actions by initializing submodules by @greggameplayer in https://github.com/Force67/prosperity/pull/2\n* Giving some details to the docs as well as adding some troubleshooting for the building process by @MalauD in https://github.com/Force67/prosperity/pull/3\n* Add another troubleshooting step by @dtabacaru in https://github.com/Force67/prosperity/pull/4\n* Add compiler option to use C++17 on every platform by @thomasgu112 in https://github.com/Force67/prosperity/pull/6\n* Fix PS4 runtime semantics exposed by Uncharted 2 by @Force67 in https://github.com/Force67/prosperity/pull/11\n* gpu: split vk_render into an rhi seam and a vulkan backend by @Force67 in https://github.com/Force67/prosperity/pull/12\n* Build Ubuntu release packages in CI by @Force67 in https://github.com/Force67/prosperity/pull/17\n\n## New Contributors\n* @greggameplayer made their first contribution in https://github.com/Force67/prosperity/pull/2\n* @MalauD made their first contribution in https://github.com/Force67/prosperity/pull/3\n* @dtabacaru made their first contribution in https://github.com/Force67/prosperity/pull/4\n* @thomasgu112 made their first contribution in https://github.com/Force67/prosperity/pull/6\n* @Force67 made their first contribution in https://github.com/Force67/prosperity/pull/11\n\n**Full Changelog**: https://github.com/Force67/prosperity/commits/v0.0.1",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "prosperity_0.0.1_amd64.deb",
+          "downloadUrl": "https://github.com/Force67/prosperity/releases/download/v0.0.1/prosperity_0.0.1_amd64.deb",
+          "sizeBytes": 8064812
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -531,6 +549,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "prosperity",
+      "name": "Prosperity",
+      "category": "Low-Level / Kernel",
+      "activityLabel": "Community Approved \u00b7 411 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Low-level emulation project for PS4 and PS5 consoles, implementing hardware behaviour rather than high-level module reimplementation.",
+      "statusSummary": "Low-level emulation project for PS4 and PS5 consoles, implementing hardware behaviour rather than high-level module reimplementation.",
+      "repoOwner": "Force67",
+      "repoName": "prosperity",
+      "repoUrl": "https://github.com/Force67/prosperity",
+      "releasesPageUrl": "https://github.com/Force67/prosperity",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/Force67/prosperity/releases/latest",
+      "stars": 411,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:32:45Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v0.0.1",
+        "releaseTitle": "v0.0.1",
+        "publishedAt": "2026-10-03T17:22:47Z",
+        "formattedDate": "Oct 03, 2026",
+        "releaseUrl": "https://github.com/Force67/prosperity/releases/tag/v0.0.1",
+        "directAssetUrl": "https://github.com/Force67/prosperity/releases/download/v0.0.1/prosperity_0.0.1_amd64.deb",
+        "directAssetName": "prosperity_0.0.1_amd64.deb",
+        "bodyNotes": "## What's Changed\n* Fix github actions by initializing submodules by @greggameplayer in https://github.com/Force67/prosperity/pull/2\n* Giving some details to the docs as well as adding some troubleshooting for the building process by @MalauD in https://github.com/Force67/prosperity/pull/3\n* Add another troubleshooting step by @dtabacaru in https://github.com/Force67/prosperity/pull/4\n* Add compiler option to use C++17 on every platform by @thomasgu112 in https://github.com/Force67/prosperity/pull/6\n* Fix PS4 runtime semantics exposed by Uncharted 2 by @Force67 in https://github.com/Force67/prosperity/pull/11\n* gpu: split vk_render into an rhi seam and a vulkan backend by @Force67 in https://github.com/Force67/prosperity/pull/12\n* Build Ubuntu release packages in CI by @Force67 in https://github.com/Force67/prosperity/pull/17\n\n## New Contributors\n* @greggameplayer made their first contribution in https://github.com/Force67/prosperity/pull/2\n* @MalauD made their first contribution in https://github.com/Force67/prosperity/pull/3\n* @dtabacaru made their first contribution in https://github.com/Force67/prosperity/pull/4\n* @thomasgu112 made their first contribution in https://github.com/Force67/prosperity/pull/6\n* @Force67 made their first contribution in https://github.com/Force67/prosperity/pull/11\n\n**Full Changelog**: https://github.com/Force67/prosperity/commits/v0.0.1",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "kytyps5-gta5-fixes",
       "name": "KytyPS5 GTA5 Fixes",
