@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:17:05Z",
+  "generatedAt": "2026-11-15T19:17:45Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:17:05Z",
+  "lastCompatibilityScan": "2026-11-15T19:17:45Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -135,6 +135,34 @@
       "bodyNotes": "### Auto-Approved Addition\n- Experimental PS4/PS5 emulator from GS-Soft for Android and iOS with open-source cores, plus an in-progress Apple Silicon macOS port.",
       "source": "community-approved",
       "assets": []
+    },
+    "touche-px5": {
+      "tagName": "v0.0.2-beta.6",
+      "releaseTitle": "Touch\u00e9 PX5 v0.0.2-beta.6",
+      "publishedAt": "2026-07-29T15:34:35Z",
+      "formattedDate": "Jul 29, 2026",
+      "releaseUrl": "https://github.com/Techx3/TouchePX5/releases/tag/v0.0.2-beta.6",
+      "directAssetUrl": "https://github.com/Techx3/TouchePX5/releases/download/v0.0.2-beta.6/touchepx5-0.0.2-beta.6-win-x64.zip",
+      "directAssetName": "touchepx5-0.0.2-beta.6-win-x64.zip",
+      "bodyNotes": "Automated Touch\u00e9 PX5 v0.0.2-beta.6 build for commit 7df596c665f334d2eaa837b7a092bd02dfb63d64.",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "touchepx5-0.0.2-beta.6-linux-x64.tar.gz",
+          "downloadUrl": "https://github.com/Techx3/TouchePX5/releases/download/v0.0.2-beta.6/touchepx5-0.0.2-beta.6-linux-x64.tar.gz",
+          "sizeBytes": 54909459
+        },
+        {
+          "name": "touchepx5-0.0.2-beta.6-osx-x64.tar.gz",
+          "downloadUrl": "https://github.com/Techx3/TouchePX5/releases/download/v0.0.2-beta.6/touchepx5-0.0.2-beta.6-osx-x64.tar.gz",
+          "sizeBytes": 65403549
+        },
+        {
+          "name": "touchepx5-0.0.2-beta.6-win-x64.zip",
+          "downloadUrl": "https://github.com/Techx3/TouchePX5/releases/download/v0.0.2-beta.6/touchepx5-0.0.2-beta.6-win-x64.zip",
+          "sizeBytes": 80316140
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -164,6 +192,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "touche-px5",
+      "name": "Touche PX5",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 11 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C#"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Independent experimental PS5 emulator for Windows written in C#, targeting legally dumped commercial games and homebrew through HLE.",
+      "statusSummary": "Independent experimental PS5 emulator for Windows written in C#, targeting legally dumped commercial games and homebrew through HLE.",
+      "repoOwner": "Techx3",
+      "repoName": "TouchePX5",
+      "repoUrl": "https://github.com/Techx3/TouchePX5",
+      "releasesPageUrl": "https://github.com/Techx3/TouchePX5/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/Techx3/TouchePX5/releases/latest",
+      "stars": 11,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:17:39Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v0.0.2-beta.6",
+        "releaseTitle": "Touch\u00e9 PX5 v0.0.2-beta.6",
+        "publishedAt": "2026-07-29T15:34:35Z",
+        "formattedDate": "Jul 29, 2026",
+        "releaseUrl": "https://github.com/Techx3/TouchePX5/releases/tag/v0.0.2-beta.6",
+        "directAssetUrl": "https://github.com/Techx3/TouchePX5/releases/download/v0.0.2-beta.6/touchepx5-0.0.2-beta.6-win-x64.zip",
+        "directAssetName": "touchepx5-0.0.2-beta.6-win-x64.zip",
+        "bodyNotes": "Automated Touch\u00e9 PX5 v0.0.2-beta.6 build for commit 7df596c665f334d2eaa837b7a092bd02dfb63d64.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "lumen-emu",
       "name": "Lumen Emu",

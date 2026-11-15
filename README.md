@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[Touche PX5](https://github.com/Techx3/TouchePX5)** — `C#` · `Vulkan` · `Windows, Linux`  
+  Independent experimental PS5 emulator for Windows written in C#, targeting legally dumped commercial games and homebrew through HLE. ([Releases / Docs](https://github.com/Techx3/TouchePX5/releases))
 - **[Lumen Emu](https://github.com/gs-soft-it/lumen-emu)** — `C++` · `Vulkan` · `Windows, Linux`  
   Experimental PS4/PS5 emulator from GS-Soft for Android and iOS with open-source cores, plus an in-progress Apple Silicon macOS port. · Detected Titles: Astro Bot, Bloodborne (60 FPS Patch / PS4-PS5) ([Releases / Docs](https://github.com/gs-soft-it/lumen-emu/releases))
 - **[Empire of Steel](https://github.com/daeken/EmpireOfSteel)** — `Dockerfile` · `Vulkan` · `Windows, Linux`  

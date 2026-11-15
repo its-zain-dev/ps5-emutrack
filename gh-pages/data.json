@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T19:17:05Z",
+  "generatedAt": "2026-11-15T19:17:45Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
   "emulators": {
     "kytyps5": {
@@ -122,6 +122,34 @@
           "sizeBytes": 92455195
         }
       ]
+    },
+    "touche-px5": {
+      "tagName": "v0.0.2-beta.6",
+      "releaseTitle": "Touch\u00e9 PX5 v0.0.2-beta.6",
+      "publishedAt": "2026-07-29T15:34:35Z",
+      "formattedDate": "Jul 29, 2026",
+      "releaseUrl": "https://github.com/Techx3/TouchePX5/releases/tag/v0.0.2-beta.6",
+      "directAssetUrl": "https://github.com/Techx3/TouchePX5/releases/download/v0.0.2-beta.6/touchepx5-0.0.2-beta.6-win-x64.zip",
+      "directAssetName": "touchepx5-0.0.2-beta.6-win-x64.zip",
+      "bodyNotes": "Automated Touch\u00e9 PX5 v0.0.2-beta.6 build for commit 7df596c665f334d2eaa837b7a092bd02dfb63d64.",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "touchepx5-0.0.2-beta.6-linux-x64.tar.gz",
+          "downloadUrl": "https://github.com/Techx3/TouchePX5/releases/download/v0.0.2-beta.6/touchepx5-0.0.2-beta.6-linux-x64.tar.gz",
+          "sizeBytes": 54909459
+        },
+        {
+          "name": "touchepx5-0.0.2-beta.6-osx-x64.tar.gz",
+          "downloadUrl": "https://github.com/Techx3/TouchePX5/releases/download/v0.0.2-beta.6/touchepx5-0.0.2-beta.6-osx-x64.tar.gz",
+          "sizeBytes": 65403549
+        },
+        {
+          "name": "touchepx5-0.0.2-beta.6-win-x64.zip",
+          "downloadUrl": "https://github.com/Techx3/TouchePX5/releases/download/v0.0.2-beta.6/touchepx5-0.0.2-beta.6-win-x64.zip",
+          "sizeBytes": 80316140
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -142,5 +170,5 @@
       "Bloodborne (60 FPS Patch / PS4-PS5)"
     ]
   },
-  "lastCompatibilityScan": "2026-11-15T19:17:05Z"
+  "lastCompatibilityScan": "2026-11-15T19:17:45Z"
 }
