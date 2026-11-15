@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:31:10Z",
+  "generatedAt": "2026-11-15T19:31:51Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:31:10Z",
+  "lastCompatibilityScan": "2026-11-15T19:31:51Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -470,6 +470,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Educational architectural prototype of a PlayStation 5 emulator built natively for macOS and Apple Silicon, bridging a C# core with a Swift/AppKit frontend.",
       "source": "community-approved",
       "assets": []
+    },
+    "kytyps5-gta5-fixes": {
+      "tagName": "community-verified",
+      "releaseTitle": "KytyPS5 GTA5 Fixes Verified Release",
+      "publishedAt": "2026-09-17T02:56:59Z",
+      "formattedDate": "Sep 17, 2026",
+      "releaseUrl": "https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes",
+      "directAssetUrl": "https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- KytyPS5 fork carrying compatibility fixes aimed at Grand Theft Auto V boot and rendering behaviour.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -519,6 +531,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "kytyps5-gta5-fixes",
+      "name": "KytyPS5 GTA5 Fixes",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 2 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "KytyPS5 fork carrying compatibility fixes aimed at Grand Theft Auto V boot and rendering behaviour.",
+      "statusSummary": "KytyPS5 fork carrying compatibility fixes aimed at Grand Theft Auto V boot and rendering behaviour.",
+      "repoOwner": "CheesyPoofs346",
+      "repoName": "KytyPS5-gta5-fixes",
+      "repoUrl": "https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes",
+      "releasesPageUrl": "https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/CheesyPoofs346/KytyPS5-gta5-fixes/releases/latest",
+      "stars": 2,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:31:36Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KytyPS5 GTA5 Fixes Verified Release",
+        "publishedAt": "2026-09-17T02:56:59Z",
+        "formattedDate": "Sep 17, 2026",
+        "releaseUrl": "https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes",
+        "directAssetUrl": "https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- KytyPS5 fork carrying compatibility fixes aimed at Grand Theft Auto V boot and rendering behaviour.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "sharpemu-ps5-mac",
       "name": "SharpEmu PS5 Mac",

@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[KytyPS5 GTA5 Fixes](https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes)** — `C++` · `Vulkan` · `Windows, Linux`  
+  KytyPS5 fork carrying compatibility fixes aimed at Grand Theft Auto V boot and rendering behaviour. ([Releases / Docs](https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes))
 - **[SharpEmu PS5 Mac](https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac)** — `C#` · `Vulkan` · `Windows, Linux`  
   Educational architectural prototype of a PlayStation 5 emulator built natively for macOS and Apple Silicon, bridging a C# core with a Swift/AppKit frontend. ([Releases / Docs](https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac))
 - **[KytyPS5 Linux](https://github.com/futbarista/KytyPS5-chenxiao07-linux)** — `C++` · `Vulkan` · `Windows, Linux`  
