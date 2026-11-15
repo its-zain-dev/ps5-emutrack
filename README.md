@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[VibeStation5](https://github.com/Acelogic/VibeStation5)** — `Swift` · `Vulkan` · `Windows, Linux`  
+  Experimental native SwiftUI PS4/PS5 runtime for Apple Silicon, inspired by SharpEmu and built around a native Metal renderer. · Detected Titles: Astro Bot ([Releases / Docs](https://github.com/Acelogic/VibeStation5))
 - **[SharpEmu macOS](https://github.com/sharpemu/sharpemu-mac)** — `C#` · `Vulkan` · `Windows, Linux`  
   Official SharpEmu build targeting Mac devices, bringing the experimental PlayStation 5 emulator to Apple hardware. · Detected Titles: Demon's Souls ([Releases / Docs](https://github.com/sharpemu/sharpemu-mac/releases))
 - **[KytyPS5 Jetsku](https://github.com/Jetsku/KytyPS5)** — `C++` · `Vulkan` · `Windows, Linux`  
