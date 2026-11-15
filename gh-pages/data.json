@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-11-15T06:00:00Z",
+  "repoUrl": "https://github.com/ps5-emutrack/ps5-emutrack",
+  "emulators": {
+    "kytyps5": {
+      "tagName": "v0.4.2-nightly",
+      "releaseTitle": "KytyPS5 Nightly Build v0.4.2",
+      "publishedAt": "2026-11-14T21:15:00Z",
+      "formattedDate": "Nov 14, 2026",
+      "releaseUrl": "https://github.com/KytyPS5/KytyPS5/releases",
+      "directAssetUrl": "https://github.com/KytyPS5/KytyPS5/releases",
+      "directAssetName": "KytyPS5-Releases",
+      "bodyNotes": "### Graphics & Vulkan Pipeline\n- Improved SPIR-V tessellation translation for Ghost of Yōtei outdoor terrain.\n- Reduced GPU descriptor pool stalls during Astro Bot level streaming.\n### Kernel & Memory\n- Implemented sceKernelMapNamedFlexibleMemory edge-case alignment for 64KB pages.",
+      "source": "static-fallback",
+      "assets": []
+    },
+    "sharpemu": {
+      "tagName": "v0.9.8-alpha",
+      "releaseTitle": "SharpEmu v0.9.8-alpha",
+      "publishedAt": "2026-11-13T16:40:00Z",
+      "formattedDate": "Nov 13, 2026",
+      "releaseUrl": "https://github.com/sharpemu/sharpemu/releases",
+      "directAssetUrl": "https://github.com/sharpemu/sharpemu/releases",
+      "directAssetName": "SharpEmu-Releases",
+      "bodyNotes": "### Compatibility Database & Runtime\n- Updated automated compatibility index covering 2,400+ tested firmware entries.\n- Improved DualSense haptic and trigger emulation bridge on Linux.",
+      "source": "static-fallback",
+      "assets": []
+    },
+    "prosperity": {
+      "tagName": "dev-2026.11",
+      "releaseTitle": "Prosperity Firmware & Binary Loader Milestone",
+      "publishedAt": "2026-11-09T12:00:00Z",
+      "formattedDate": "Nov 09, 2026",
+      "releaseUrl": "https://github.com/search?q=Prosperity+PS5+emulator&type=repositories",
+      "directAssetUrl": "https://github.com/search?q=Prosperity+PS5+emulator&type=repositories",
+      "directAssetName": "Source & Dev Builds",
+      "bodyNotes": "### Architecture & Reverse Engineering\n- Documented AMD Zen 2 / RDNA 2 command processor packet decoding.\n- Expanded ELF/SELF binary loader verification for early PS5 SDK titles.",
+      "source": "static-fallback",
+      "assets": []
+    },
+    "anyps5": {
+      "tagName": "v0.2.4-exp",
+      "releaseTitle": "AnyPS5 Re-Linker Prototype v0.2.4",
+      "publishedAt": "2026-11-06T09:20:00Z",
+      "formattedDate": "Nov 06, 2026",
+      "releaseUrl": "https://github.com/search?q=AnyPS5+emulator&type=repositories",
+      "directAssetUrl": "https://github.com/search?q=AnyPS5+emulator&type=repositories",
+      "directAssetName": "Experimental Builds",
+      "bodyNotes": "### Binary Re-Linking & API Shim\n- Added dynamic symbol re-linking for libScePad and libSceUserService.\n- Improved POSIX-to-Win32 thread scheduling translation latency.",
+      "source": "static-fallback",
+      "assets": []
+    }
+  }
+}

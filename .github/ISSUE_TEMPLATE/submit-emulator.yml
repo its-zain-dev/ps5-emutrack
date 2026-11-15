@@ -1,0 +1,56 @@
+name: Submit New PS5 Emulator
+description: Propose a new open-source PS5 emulator or compatibility layer for moderator review.
+title: "[Emulator Submission] "
+labels: ["emulator-submission", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing to **PS5 EmuTrack**! Submissions are reviewed by maintainers to verify repository authenticity and prevent look-alike malware forks before being added to the main directory.
+  - type: input
+    id: name
+    attributes:
+      label: Emulator Name
+      placeholder: "e.g. NovaPS5"
+    validations:
+      required: true
+  - type: input
+    id: repo_url
+    attributes:
+      label: Official GitHub Repository URL
+      placeholder: "https://github.com/owner/repository"
+    validations:
+      required: true
+  - type: input
+    id: releases_or_docs
+    attributes:
+      label: Latest Releases or Documentation Link
+      placeholder: "https://github.com/owner/repository/releases"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Architecture Category
+      options:
+        - PS5 Native / HLE
+        - Translation & Re-Linking
+        - Low-Level / Kernel
+        - Mobile & Cross-Console
+        - PS4 & Hybrid Compat
+    validations:
+      required: true
+  - type: input
+    id: stack
+    attributes:
+      label: Language, Graphics API & Platforms
+      placeholder: "C++20 · Vulkan · Windows, Linux"
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Brief Description
+      description: Summarize what the emulator targets, its translation/emulation approach, and current boot progress.
+    validations:
+      required: true

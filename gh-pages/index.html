@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PS5 EmuTrack – PlayStation 5 Emulator Release &amp; Compatibility Tracker</title>
+    <meta
+      name="description"
+      content="Track open-source PS5 emulators (KytyPS5, SharpEmu, Prosperity, AnyPS5), live GitHub releases, changelogs, and GTA VI compatibility status in real time."
+    />
+    <meta name="theme-color" content="#070B12" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PS5 EmuTrack" />
+    <meta property="og:title" content="PS5 EmuTrack – PlayStation 5 Emulator Release &amp; Compatibility Tracker" />
+    <meta
+      property="og:description"
+      content="Real-time hub tracking open-source PS5 emulators, official GitHub release builds, and live game compatibility for GTA VI, Ghost of Yōtei, Astro Bot, and Demon's Souls."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PS5 EmuTrack – PS5 Emulator Releases &amp; Compatibility Hub" />
+    <meta
+      name="twitter:description"
+      content="Live GitHub release tracking, official downloads, and game compatibility matrix for KytyPS5, SharpEmu, Prosperity, and AnyPS5."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "PS5 EmuTrack",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Windows, Linux, macOS, Web",
+        "description": "Real-time PlayStation 5 Emulator Release & Compatibility Tracker Hub monitoring KytyPS5, SharpEmu, Prosperity, and AnyPS5 via official GitHub releases.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can any PS5 emulator run Grand Theft Auto VI (GTA VI) right now?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not yet. Grand Theft Auto VI is marked Pending Release / Not Supported Yet across all tracked open-source PS5 emulators until retail PS5 dumps and keys can be analyzed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which open-source PS5 emulator is currently the most active?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "KytyPS5 is currently the most active open-source PS5 emulator, receiving near-daily updates and running Ghost of Yōtei, Astro Bot, and Demon's Souls in-game at early low framerates."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#compatibility" class="brand">PS5 EmuTrack</a>
+        <nav aria-label="Primary navigation" class="nav-links">
+          <a href="#compatibility">Compatibility</a>
+          <a href="#emulators">Emulators</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a id="header-repo-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+          View on GitHub
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section id="compatibility" class="section border-bottom">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="eyebrow">Open-Source PlayStation 5 Emulation Intelligence</p>
+              <h1>PS5 Emulator Releases &amp; Live Compatibility Hub</h1>
+              <p class="lead">
+                Verify real-time GitHub builds, official changelogs, and cross-emulator game bootability for
+                <strong>KytyPS5</strong>, <strong>SharpEmu</strong>, <strong>Prosperity</strong>, and
+                <strong>AnyPS5</strong>.
+              </p>
+              <div class="hero-actions">
+                <a href="#emulators" class="btn btn-primary">Browse Latest Builds</a>
+                <a id="hero-issue-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                  Report Compatibility
+                </a>
+              </div>
+            </div>
+
+            <aside class="spotlight-card" aria-label="Featured Title: Grand Theft Auto VI Tracker">
+              <div class="spotlight-top">
+                <span class="spotlight-kicker">Featured Title Watch</span>
+                <span class="status-badge status-pending">Pending Release</span>
+              </div>
+              <h2>Grand Theft Auto VI (GTA VI)</h2>
+              <p class="muted-meta">Rockstar Games · Last verified 2026-11-15</p>
+              <div id="gta-countdown" class="countdown-grid" aria-live="polite"></div>
+              <p class="spotlight-note">
+                Awaiting official PS5 console launch &amp; retail binary analysis. Track live emulator commits immediately upon release.
+              </p>
+            </aside>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h2>Trending Games Compatibility Matrix</h2>
+                <p id="matrix-count" class="muted-meta"></p>
+              </div>
+              <div class="filter-inputs">
+                <input
+                  id="game-search"
+                  type="search"
+                  placeholder="Filter titles (e.g. GTA VI, Ghost)..."
+                  aria-label="Search PS5 games"
+                />
+                <select id="emulator-filter" aria-label="Filter by emulator">
+                  <option value="all">All Emulators</option>
+                  <option value="kytyps5">KytyPS5</option>
+                  <option value="sharpemu">SharpEmu</option>
+                  <option value="prosperity">Prosperity</option>
+                  <option value="anyps5">AnyPS5</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="status-tabs" class="status-tabs" role="group" aria-label="Filter by compatibility status"></div>
+
+            <div class="table-wrap">
+              <table class="compat-table">
+                <thead>
+                  <tr>
+                    <th>Title &amp; Notes</th>
+                    <th>KytyPS5</th>
+                    <th>SharpEmu</th>
+                    <th>Prosperity</th>
+                    <th>AnyPS5</th>
+                    <th class="text-right">Last Verified</th>
+                  </tr>
+                </thead>
+                <tbody id="matrix-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="emulators" class="section border-bottom">
+        <div class="container">
+          <div class="section-header-row">
+            <div>
+              <h2>Tracked PS5 Emulators Directory</h2>
+              <p class="muted-meta">
+                Live GitHub REST API integration with 30-minute localStorage caching and static <code>data.json</code> fallback.
+              </p>
+              <p id="sync-status" class="mono-meta"></p>
+            </div>
+            <button id="refresh-github-btn" type="button" class="btn btn-secondary">
+              Refresh GitHub Data
+            </button>
+          </div>
+
+          <div id="emulator-grid" class="emulator-grid"></div>
+        </div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="container">
+          <h2>Frequently Asked Questions</h2>
+          <p class="muted-meta faq-sub">
+            Current state of open-source PlayStation 5 emulation, GTA VI tracking, and verification standards.
+          </p>
+          <div id="faq-list" class="faq-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>PS5 EmuTrack</strong> · Independent open-source PlayStation 5 emulator tracker. No binaries hosted.
+        </div>
+        <div class="footer-links">
+          <a id="footer-repo-link" href="#" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+          <a id="footer-issue-link" href="#" target="_blank" rel="noopener noreferrer">Contribute / Report Compatibility</a>
+          <a href="./data.json" target="_blank" rel="noopener noreferrer">data.json</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

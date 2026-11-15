@@ -1,0 +1,44 @@
+name: Auto-Approve Submitted PS5 Emulator
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  auto-approve-emulator:
+    if: github.event.label.name == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch GitHub metadata & update public/data.json + README.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: python scripts/auto_approve.py
+
+      - name: Refresh hourly release & compatibility matrix snapshots
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/update_tracker.py
+
+      - name: Commit and push updated registry
+        run: |
+          git config user.name "ps5-emutrack-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add public/data.json gh-pages/data.json README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "feat(registry): auto-approve emulator submission #${{ github.event.issue.number }}"
+            git push
+          fi
