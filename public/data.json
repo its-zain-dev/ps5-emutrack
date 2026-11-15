@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T14:47:44.141Z",
+  "generatedAt": "2026-11-15T16:32:54Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T14:47:44.141Z",
+  "lastCompatibilityScan": "2026-11-15T16:32:54Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -9,8 +9,8 @@
       "publishedAt": "2026-11-15T12:27:37Z",
       "formattedDate": "Nov 15, 2026",
       "releaseUrl": "https://github.com/KytyPS5/KytyPS5/releases/tag/KytyPS5-2026-11-15-f9dd415",
-      "directAssetUrl": "https://github.com/KytyPS5/KytyPS5/releases/download/KytyPS5-2026-11-15-f9dd415/KytyPS5-2026-11-15-f9dd415-Windows-x64.zip",
-      "directAssetName": "KytyPS5-2026-11-15-f9dd415-Windows-x64.zip",
+      "directAssetUrl": "https://github.com/KytyPS5/KytyPS5/releases/download/KytyPS5-2026-11-15-f9dd415/KytyPS5-2026-11-15-f9dd415-macOS-x86_64.zip",
+      "directAssetName": "KytyPS5-2026-11-15-f9dd415-macOS-x86_64.zip",
       "bodyNotes": "## What's Changed\n* Changes the compatability link in README.md to point to the correct page by @GitJitBit in https://github.com/KytyPS5/KytyPS5/pull/2279\n\n## New Contributors\n* @GitJitBit made their first contribution in https://github.com/KytyPS5/KytyPS5/pull/2279\n\n**Full Changelog**: https://github.com/KytyPS5/KytyPS5/compare/KytyPS5-2026-11-14-3e226bf...KytyPS5-2026-11-15-f9dd415",
       "source": "static-fallback",
       "assets": [
@@ -85,31 +85,21 @@
   },
   "emulatorSupportedGames": {
     "kytyps5": [
-      "Ghost of Yōtei",
       "Astro Bot",
-      "Demon's Souls",
-      "Marvel's Spider-Man 2",
-      "Returnal",
-      "Stellar Blade"
+      "Demon's Souls"
     ],
     "sharpemu": [
-      "Ghost of Yōtei",
       "Astro Bot",
       "Demon's Souls",
-      "Returnal",
-      "Stellar Blade",
-      "Bloodborne (60 FPS Patch / PS4-PS5)",
-      "Final Fantasy VII Rebirth"
+      "Bloodborne (60 FPS Patch / PS4-PS5)"
     ],
     "anyps5": [
-      "Ghost of Yōtei",
+      "Ghost of Y\u014dtei",
       "Astro Bot",
       "Returnal"
     ],
     "shadps4": [
-      "Bloodborne (60 FPS Patch / PS4-PS5)",
-      "God of War Ragnarök",
-      "Horizon Forbidden West"
+      "Bloodborne (60 FPS Patch / PS4-PS5)"
     ],
     "kytyps5-supermedo": [
       "Demon's Souls"
@@ -120,7 +110,7 @@
     {
       "id": "gta-vi",
       "title": "Grand Theft Auto VI (GTA VI)",
-      "shortNote": "Rockstar Games · PS5 Flagship Release",
+      "shortNote": "Rockstar Games \u00b7 PS5 Flagship Release",
       "featured": true,
       "releaseTargetIso": "2026-11-19T00:00:00Z",
       "lastVerifiedDate": "2026-11-15",
@@ -145,8 +135,8 @@
     },
     {
       "id": "ghost-of-yotei",
-      "title": "Ghost of Yōtei",
-      "shortNote": "Sucker Punch · Open-World Action",
+      "title": "Ghost of Y\u014dtei",
+      "shortNote": "Sucker Punch \u00b7 Open-World Action",
       "featured": false,
       "lastVerifiedDate": "2026-11-15",
       "statuses": {
@@ -155,7 +145,7 @@
         "prosperity": "Not Supported Yet",
         "anyps5": "Boots to Menu"
       },
-      "performanceNote": "KytyPS5 renders intro & open regions in-game at 10–18 FPS; minor foliage shader artifacts remain.",
+      "performanceNote": "KytyPS5 renders intro & open regions in-game at 10\u201318 FPS; minor foliage shader artifacts remain.",
       "searchAliases": [
         "ghost of yotei",
         "yotei pc",
@@ -170,7 +160,7 @@
     {
       "id": "astro-bot",
       "title": "Astro Bot",
-      "shortNote": "Team Asobi · 3D Platformer",
+      "shortNote": "Team Asobi \u00b7 3D Platformer",
       "featured": false,
       "lastVerifiedDate": "2026-11-15",
       "statuses": {
@@ -179,7 +169,7 @@
         "prosperity": "Boots to Menu",
         "anyps5": "Boots to Menu"
       },
-      "performanceNote": "In-game in KytyPS5 & SharpEmu (15–25 FPS on desktop GPUs); DualSense trigger telemetry partially mapped.",
+      "performanceNote": "In-game in KytyPS5 & SharpEmu (15\u201325 FPS on desktop GPUs); DualSense trigger telemetry partially mapped.",
       "searchAliases": [
         "astrobot",
         "astro bot pc",
@@ -195,7 +185,7 @@
     {
       "id": "demons-souls",
       "title": "Demon's Souls",
-      "shortNote": "Bluepoint Games · Action RPG",
+      "shortNote": "Bluepoint Games \u00b7 Action RPG",
       "featured": false,
       "lastVerifiedDate": "2026-11-15",
       "statuses": {
@@ -220,7 +210,7 @@
     {
       "id": "spider-man-2",
       "title": "Marvel's Spider-Man 2",
-      "shortNote": "Insomniac Games · Action-Adventure",
+      "shortNote": "Insomniac Games \u00b7 Action-Adventure",
       "featured": false,
       "lastVerifiedDate": "2026-11-15",
       "statuses": {
@@ -242,7 +232,7 @@
     {
       "id": "returnal",
       "title": "Returnal",
-      "shortNote": "Housemarque · Sci-Fi Roguelike",
+      "shortNote": "Housemarque \u00b7 Sci-Fi Roguelike",
       "featured": false,
       "lastVerifiedDate": "2026-11-15",
       "statuses": {
@@ -265,7 +255,7 @@
     {
       "id": "stellar-blade",
       "title": "Stellar Blade",
-      "shortNote": "Shift Up · Action RPG",
+      "shortNote": "Shift Up \u00b7 Action RPG",
       "featured": false,
       "lastVerifiedDate": "2026-11-15",
       "statuses": {
@@ -286,7 +276,7 @@
     {
       "id": "bloodborne",
       "title": "Bloodborne (60 FPS Patch / PS4-PS5)",
-      "shortNote": "FromSoftware · Action RPG",
+      "shortNote": "FromSoftware \u00b7 Action RPG",
       "featured": false,
       "lastVerifiedDate": "2026-11-15",
       "statuses": {
@@ -309,8 +299,8 @@
     },
     {
       "id": "god-of-war-ragnarok",
-      "title": "God of War Ragnarök",
-      "shortNote": "Santa Monica Studio · Action-Adventure",
+      "title": "God of War Ragnar\u00f6k",
+      "shortNote": "Santa Monica Studio \u00b7 Action-Adventure",
       "featured": false,
       "lastVerifiedDate": "2026-11-15",
       "statuses": {
@@ -333,7 +323,7 @@
     {
       "id": "ff7-rebirth",
       "title": "Final Fantasy VII Rebirth",
-      "shortNote": "Square Enix · Action RPG",
+      "shortNote": "Square Enix \u00b7 Action RPG",
       "featured": false,
       "lastVerifiedDate": "2026-11-15",
       "statuses": {
@@ -355,7 +345,7 @@
     {
       "id": "horizon-forbidden-west",
       "title": "Horizon Forbidden West",
-      "shortNote": "Guerrilla Games · Open-World RPG",
+      "shortNote": "Guerrilla Games \u00b7 Open-World RPG",
       "featured": false,
       "lastVerifiedDate": "2026-11-15",
       "statuses": {
@@ -377,7 +367,7 @@
     {
       "id": "wolverine-ps5",
       "title": "Marvel's Wolverine",
-      "shortNote": "Insomniac Games · Upcoming PS5 Exclusive",
+      "shortNote": "Insomniac Games \u00b7 Upcoming PS5 Exclusive",
       "featured": false,
       "releaseTargetIso": "2026-12-31T00:00:00Z",
       "lastVerifiedDate": "2026-11-15",
