@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:24:13Z",
+  "generatedAt": "2026-11-15T19:25:44Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:24:13Z",
+  "lastCompatibilityScan": "2026-11-15T19:25:44Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -324,6 +324,29 @@
           "sizeBytes": 20083245
         }
       ]
+    },
+    "kytyps5-jetsku": {
+      "tagName": "u59-windows-20261024-int21",
+      "releaseTitle": "KytyPS5 U59 int21",
+      "publishedAt": "2026-10-24T13:04:19Z",
+      "formattedDate": "Oct 24, 2026",
+      "releaseUrl": "https://github.com/Jetsku/KytyPS5/releases/tag/u59-windows-20261024-int21",
+      "directAssetUrl": "https://github.com/Jetsku/KytyPS5/releases/download/u59-windows-20261024-int21/KytyPS5-U59-Windows-x64.zip",
+      "directAssetName": "KytyPS5-U59-Windows-x64.zip",
+      "bodyNotes": "int21 is int20 plus faster draw validation, fixes for GPU device losses and a silent exit, the latest upstream KytyPS5 changes, ports from chenxiao07's fork and a new profile-guided optimisation profile; the older notes are in docs/release-notes-history.md. The first launch rebuilds the shader and program caches once (the pipeline key changed), so the first minutes can stutter.\r\n\r\n- **Faster:** the command processor skips the full validity check of a prepared draw when the GPU has never touched the memory it reads (`KYTY_CLEAN_UNTOUCHED=1`, on in the preset; exact, verified over tens of millions of draws), plus a new profile-guided optimisation profile. Measured with the play folder's three game patches on (non-tiled renderer, GI off, fixed 1080p): pirate island about 58 fps against about 53 in int20, and Sky Garden at its 60 fps pacing cap where int20 ran about 54. Without game patches Sky Garden gained about 1.4% over the last test build.\r\n- **Fixed (device loss):** a small upload's copy from guest memory could run after later writes the command processor or the game made to the same memory, so earlier draws read future data and the GPU could hang. Writes now wait for or take over the queued copies (`KYTY_UPLOAD_DMA_WRITE_DRAIN=1`, on in the preset; `=labels` is a stricter mode for anyone who still sees losses). Also fixed: the texture cache could miss guest writes on pages whose protection was still pending, and draws could keep using a buffer that a later merge had retired (`KYTY_REBIND_AFTER_JOIN=1`).\r\n- **Fixed (silent exit):** on Windows set to force Control Flow Guard on every program, Astro Bot closed without a message (ntdll 0xC0000409) right after shader loading (`KYTY_GUEST_TEB_STACK_RANGE=1`, on in the preset; issue #66).\r\n- **Fixed:** exits on colour targets with an invalid format and on a stencil plane shared with another render target (`KYTY_STENCIL_TARGETS_APART=1`), guest file writes from GPU-protected pages that were silently cut short, and pad presses lost during frame hitches (`KYTY_PAD_STATE_COALESCE=1`).\r\n- **Crash reports:** `KYTY_DEVICE_FAULT_EXT=1` is on in the preset and now writes a complete `_device_fault.nv-gpudmp` file next to `_kyty.txt` when the GPU is lost. Please attach it to device-loss reports.\r\n- **Correction to int20:** int20's notes said the Astro Bot \"too many objects/batches\" crash was fixed; it was only rarer. The cause was that the game's draw threads overflow their command buffers when they fall a frame behind, mostly on CPUs with fewer cores. int21 doubles those buffers for Astro Bot 01.018 (`KYTY_ASTRO_CB_SCALE=2`) and spreads the game's threads over both CCDs on X3D CPUs (`KYTY_VCACHE_GUEST=all`): 0 crashes in about 20 boots of speedrun_inflator, the level that crashed on every boot before. Players with 8-core CPUs: a report from speedrun_inflator would help.\r\n- **Upstream KytyPS5:** about 150 upstream changes, among them user clip planes, f16 interpolation, alpha-to-mask (`KYTY_ALPHA_TO_MASK`), start on GTX 10xx/RDNA1 cards without fragment-shader barycentrics, a keyboard player option, a performance overlay and fixes for other games behind switches that are off by default. Details are in the commit history.\r\n- **Thanks:** chenxiao07 for the fork changes ported here (colour-target and stencil fixes, the Control Flow Guard fix, pad state, file writes, APR file reads and more), and the upstream KytyPS5 contributors.\r\n- **Known issues:** rare GPU device losses can still happen, seen in sponge_dirty_bath without game patches. Please report them with `_kyty.txt` and `_device_fault.nv-gpudmp`; workaround: `KYTY_UPLOAD_DMA_WRITE_DRAIN=labels` or `KYTY_DEFER_PROTECTS=0` in `u59-preset.json` (about 3% slower).\r\n- **Upgrading:** extract into a new folder, or replace `u59-preset.json` too; an old preset leaves the new fixes off.",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "KytyPS5-U59-Linux-x86_64.tar.gz",
+          "downloadUrl": "https://github.com/Jetsku/KytyPS5/releases/download/u59-windows-20261024-int21/KytyPS5-U59-Linux-x86_64.tar.gz",
+          "sizeBytes": 46476299
+        },
+        {
+          "name": "KytyPS5-U59-Windows-x64.zip",
+          "downloadUrl": "https://github.com/Jetsku/KytyPS5/releases/download/u59-windows-20261024-int21/KytyPS5-U59-Windows-x64.zip",
+          "sizeBytes": 29427439
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -353,9 +376,56 @@
     ],
     "kytyps5-demon-souls-framegen": [
       "Demon's Souls"
+    ],
+    "kytyps5-jetsku": [
+      "Astro Bot",
+      "Demon's Souls"
     ]
   },
   "customEmulators": [
+    {
+      "id": "kytyps5-jetsku",
+      "name": "KytyPS5 Jetsku",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 612 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental KytyPS5 U59 fork with merged shader and renderer fixes, maintaining a complete sanitized history and Windows releases.",
+      "statusSummary": "Experimental KytyPS5 U59 fork with merged shader and renderer fixes, maintaining a complete sanitized history and Windows releases.",
+      "repoOwner": "Jetsku",
+      "repoName": "KytyPS5",
+      "repoUrl": "https://github.com/Jetsku/KytyPS5",
+      "releasesPageUrl": "https://github.com/Jetsku/KytyPS5/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/Jetsku/KytyPS5/releases/latest",
+      "stars": 612,
+      "supportedGames": [
+        "Astro Bot",
+        "Demon's Souls"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:25:32Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "u59-windows-20261024-int21",
+        "releaseTitle": "KytyPS5 U59 int21",
+        "publishedAt": "2026-10-24T13:04:19Z",
+        "formattedDate": "Oct 24, 2026",
+        "releaseUrl": "https://github.com/Jetsku/KytyPS5/releases/tag/u59-windows-20261024-int21",
+        "directAssetUrl": "https://github.com/Jetsku/KytyPS5/releases/download/u59-windows-20261024-int21/KytyPS5-U59-Windows-x64.zip",
+        "directAssetName": "KytyPS5-U59-Windows-x64.zip",
+        "bodyNotes": "int21 is int20 plus faster draw validation, fixes for GPU device losses and a silent exit, the latest upstream KytyPS5 changes, ports from chenxiao07's fork and a new profile-guided optimisation profile; the older notes are in docs/release-notes-history.md. The first launch rebuilds the shader and program caches once (the pipeline key changed), so the first minutes can stutter.\r\n\r\n- **Faster:** the command processor skips the full validity check of a prepared draw when the GPU has never touched the memory it reads (`KYTY_CLEAN_UNTOUCHED=1`, on in the preset; exact, verified over tens of millions of draws), plus a new profile-guided optimisation profile. Measured with the play folder's three game patches on (non-tiled renderer, GI off, fixed 1080p): pirate island about 58 fps against about 53 in int20, and Sky Garden at its 60 fps pacing cap where int20 ran about 54. Without game patches Sky Garden gained about 1.4% over the last test build.\r\n- **Fixed (device loss):** a small upload's copy from guest memory could run after later writes the command processor or the game made to the same memory, so earlier draws read future data and the GPU could hang. Writes now wait for or take over the queued copies (`KYTY_UPLOAD_DMA_WRITE_DRAIN=1`, on in the preset; `=labels` is a stricter mode for anyone who still sees losses). Also fixed: the texture cache could miss guest writes on pages whose protection was still pending, and draws could keep using a buffer that a later merge had retired (`KYTY_REBIND_AFTER_JOIN=1`).\r\n- **Fixed (silent exit):** on Windows set to force Control Flow Guard on every program, Astro Bot closed without a message (ntdll 0xC0000409) right after shader loading (`KYTY_GUEST_TEB_STACK_RANGE=1`, on in the preset; issue #66).\r\n- **Fixed:** exits on colour targets with an invalid format and on a stencil plane shared with another render target (`KYTY_STENCIL_TARGETS_APART=1`), guest file writes from GPU-protected pages that were silently cut short, and pad presses lost during frame hitches (`KYTY_PAD_STATE_COALESCE=1`).\r\n- **Crash reports:** `KYTY_DEVICE_FAULT_EXT=1` is on in the preset and now writes a complete `_device_fault.nv-gpudmp` file next to `_kyty.txt` when the GPU is lost. Please attach it to device-loss reports.\r\n- **Correction to int20:** int20's notes said the Astro Bot \"too many objects/batches\" crash was fixed; it was only rarer. The cause was that the game's draw threads overflow their command buffers when they fall a frame behind, mostly on CPUs with fewer cores. int21 doubles those buffers for Astro Bot 01.018 (`KYTY_ASTRO_CB_SCALE=2`) and spreads the game's threads over both CCDs on X3D CPUs (`KYTY_VCACHE_GUEST=all`): 0 crashes in about 20 boots of speedrun_inflator, the level that crashed on every boot before. Players with 8-core CPUs: a report from speedrun_inflator would help.\r\n- **Upstream KytyPS5:** about 150 upstream changes, among them user clip planes, f16 interpolation, alpha-to-mask (`KYTY_ALPHA_TO_MASK`), start on GTX 10xx/RDNA1 cards without fragment-shader barycentrics, a keyboard player option, a performance overlay and fixes for other games behind switches that are off by default. Details are in the commit history.\r\n- **Thanks:** chenxiao07 for the fork changes ported here (colour-target and stencil fixes, the Control Flow Guard fix, pad state, file writes, APR file reads and more), and the upstream KytyPS5 contributors.\r\n- **Known issues:** rare GPU device losses can still happen, seen in sponge_dirty_bath without game patches. Please report them with `_kyty.txt` and `_device_fault.nv-gpudmp`; workaround: `KYTY_UPLOAD_DMA_WRITE_DRAIN=labels` or `KYTY_DEFER_PROTECTS=0` in `u59-preset.json` (about 3% slower).\r\n- **Upgrading:** extract into a new folder, or replace `u59-preset.json` too; an old preset leaves the new fixes off.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "kytyps5-demon-souls-framegen",
       "name": "KytyPS5 Demon Souls FrameGen",

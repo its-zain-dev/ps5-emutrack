@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[KytyPS5 Jetsku](https://github.com/Jetsku/KytyPS5)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Experimental KytyPS5 U59 fork with merged shader and renderer fixes, maintaining a complete sanitized history and Windows releases. · Detected Titles: Astro Bot, Demon's Souls ([Releases / Docs](https://github.com/Jetsku/KytyPS5/releases))
 - **[KytyPS5 Demon Souls FrameGen](https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen)** — `C++` · `Vulkan` · `Windows, Linux`  
   KytyPS5 build distribution for Demon's Souls with DLSS frame generation, ultrawide support and render-resolution controls. · Detected Titles: Demon's Souls ([Releases / Docs](https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen))
 - **[ZylxEmu](https://github.com/zenunqq/zylxemu)** — `C#` · `Vulkan` · `Windows, Linux`  
