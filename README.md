@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[SharpEmu Android](https://github.com/OniChan-little-GIRL/sharpemu-android)** — `C++` · `Vulkan` · `Windows, Linux`  
+  SharpEmu PS4/PS5 emulator Android frontend with a Material You 3 shell, bundling the desktop emulator source alongside it. ([Releases / Docs](https://github.com/OniChan-little-GIRL/sharpemu-android))
 - **[KyTx](https://github.com/TxCsOffc/KyTx)** — `C++` · `Vulkan` · `Windows, Linux`  
   Native ARM64 PS5 emulator for Apple Silicon using FEX for guest CPU execution and an RDNA to Metal graphics backend. ([Releases / Docs](https://github.com/TxCsOffc/KyTx))
 - **[P5EMU](https://github.com/NabuOX/P5EMU)** — `C++` · `Vulkan` · `Windows, Linux`  

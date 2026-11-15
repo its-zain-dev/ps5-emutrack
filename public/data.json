@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:21:28Z",
+  "generatedAt": "2026-11-15T19:22:03Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:21:28Z",
+  "lastCompatibilityScan": "2026-11-15T19:22:03Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -253,6 +253,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Native ARM64 PS5 emulator for Apple Silicon using FEX for guest CPU execution and an RDNA to Metal graphics backend.",
       "source": "community-approved",
       "assets": []
+    },
+    "sharpemu-android": {
+      "tagName": "community-verified",
+      "releaseTitle": "SharpEmu Android Verified Release",
+      "publishedAt": "2026-08-21T03:55:05Z",
+      "formattedDate": "Aug 21, 2026",
+      "releaseUrl": "https://github.com/OniChan-little-GIRL/sharpemu-android",
+      "directAssetUrl": "https://github.com/OniChan-little-GIRL/sharpemu-android",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- SharpEmu PS4/PS5 emulator Android frontend with a Material You 3 shell, bundling the desktop emulator source alongside it.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -282,6 +294,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "sharpemu-android",
+      "name": "SharpEmu Android",
+      "category": "Mobile & Cross-Console",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "SharpEmu PS4/PS5 emulator Android frontend with a Material You 3 shell, bundling the desktop emulator source alongside it.",
+      "statusSummary": "SharpEmu PS4/PS5 emulator Android frontend with a Material You 3 shell, bundling the desktop emulator source alongside it.",
+      "repoOwner": "OniChan-little-GIRL",
+      "repoName": "sharpemu-android",
+      "repoUrl": "https://github.com/OniChan-little-GIRL/sharpemu-android",
+      "releasesPageUrl": "https://github.com/OniChan-little-GIRL/sharpemu-android",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/OniChan-little-GIRL/sharpemu-android/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:21:53Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "SharpEmu Android Verified Release",
+        "publishedAt": "2026-08-21T03:55:05Z",
+        "formattedDate": "Aug 21, 2026",
+        "releaseUrl": "https://github.com/OniChan-little-GIRL/sharpemu-android",
+        "directAssetUrl": "https://github.com/OniChan-little-GIRL/sharpemu-android",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- SharpEmu PS4/PS5 emulator Android frontend with a Material You 3 shell, bundling the desktop emulator source alongside it.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "kytx",
       "name": "KyTx",
