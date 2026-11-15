@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[Open5Emu](https://github.com/SplaatSites/Open5Emu)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Early open-source PS5 emulator effort publishing its initial source layout and boot experiments. ([Releases / Docs](https://github.com/SplaatSites/Open5Emu))
 - **[AnyPS5](https://github.com/boykopovar/AnyPS5)** — `C++` · `Vulkan` · `Windows, Linux`  
   Tooling that automatically ports PS5 executables to Linux and Windows, powering the AnyPS5 compatibility approach. ([Releases / Docs](https://github.com/boykopovar/AnyPS5/releases))
 - **[Prosperity](https://github.com/Force67/prosperity)** — `C++` · `Vulkan` · `Windows, Linux`  

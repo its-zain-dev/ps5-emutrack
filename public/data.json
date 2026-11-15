@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:33:42Z",
+  "generatedAt": "2026-11-15T19:34:18Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:33:42Z",
+  "lastCompatibilityScan": "2026-11-15T19:34:18Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -638,6 +638,18 @@
           "sizeBytes": 484935
         }
       ]
+    },
+    "open5emu": {
+      "tagName": "community-verified",
+      "releaseTitle": "Open5Emu Verified Release",
+      "publishedAt": "2026-02-21T17:50:15Z",
+      "formattedDate": "Feb 21, 2026",
+      "releaseUrl": "https://github.com/SplaatSites/Open5Emu",
+      "directAssetUrl": "https://github.com/SplaatSites/Open5Emu",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Early open-source PS5 emulator effort publishing its initial source layout and boot experiments.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -687,6 +699,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "open5emu",
+      "name": "Open5Emu",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Early open-source PS5 emulator effort publishing its initial source layout and boot experiments.",
+      "statusSummary": "Early open-source PS5 emulator effort publishing its initial source layout and boot experiments.",
+      "repoOwner": "SplaatSites",
+      "repoName": "Open5Emu",
+      "repoUrl": "https://github.com/SplaatSites/Open5Emu",
+      "releasesPageUrl": "https://github.com/SplaatSites/Open5Emu",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/SplaatSites/Open5Emu/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:34:03Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Open5Emu Verified Release",
+        "publishedAt": "2026-02-21T17:50:15Z",
+        "formattedDate": "Feb 21, 2026",
+        "releaseUrl": "https://github.com/SplaatSites/Open5Emu",
+        "directAssetUrl": "https://github.com/SplaatSites/Open5Emu",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Early open-source PS5 emulator effort publishing its initial source layout and boot experiments.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "anyps5",
       "name": "AnyPS5",
