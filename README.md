@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[SharpDroid](https://github.com/mircowuffwuff/sharpdroid)** — `Kotlin` · `Vulkan` · `Windows, Linux`  
+  Android frontend that packages and launches the SharpEmu PS5 emulator core on phones and tablets with a native Kotlin interface. ([Releases / Docs](https://github.com/mircowuffwuff/sharpdroid/releases))
 - **[MagnusPS5](https://github.com/hernan0078/MagnusPS5)** — `C++` · `Vulkan` · `Windows, Linux`  
   PS5 emulator targeting iPhone and iPad hardware, using Metal for graphics translation and an ARM64 guest pipeline on Apple silicon devices. ([Releases / Docs](https://github.com/hernan0078/MagnusPS5/releases))
 <!-- AUTO-TRACKED-EMULATORS:END -->

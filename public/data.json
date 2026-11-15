@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:13:18Z",
+  "generatedAt": "2026-11-15T19:16:17Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:13:18Z",
+  "lastCompatibilityScan": "2026-11-15T19:16:17Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -93,6 +93,24 @@
       "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator targeting iPhone and iPad hardware, using Metal for graphics translation and an ARM64 guest pipeline on Apple silicon devices.",
       "source": "community-approved",
       "assets": []
+    },
+    "sharpdroid": {
+      "tagName": "sharpdroid-8",
+      "releaseTitle": "8",
+      "publishedAt": "2026-10-20T13:44:16Z",
+      "formattedDate": "Oct 20, 2026",
+      "releaseUrl": "https://github.com/mircowuffwuff/sharpdroid/releases/tag/sharpdroid-8",
+      "directAssetUrl": "https://github.com/mircowuffwuff/sharpdroid/releases/download/sharpdroid-8/sharpdroid-8.apk",
+      "directAssetName": "sharpdroid-8.apk",
+      "bodyNotes": "- improved Dead Cells performance from ~7 fps to 29 fps on the title screen\r\n\r\nfull changelog: https://github.com/mircowuffwuff/sharpdroid/compare/sharpdroid-7...sharpdroid-8\r\n\r\n---\r\n\r\nsharpdroid now defaults to a 12 ms render loop drain budget, matching what upstream SharpEmu hardcodes for macOS. turns out android needs the same treatment! performance numbers come from an Odin 3 running a medium underclock.\r\n\r\nwith that being said, this might be the last release of sharpdroid! stay tuned, i have something big in the oven.. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://support.mircowuffwuff.com\"><img width=\"24\" align=\"top\" src=\".github/images/mircomoji-X3-flat.png\"/></a>\r\n\r\n## still missing\r\n\r\n- touch controls (wants contributor)",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "sharpdroid-8.apk",
+          "downloadUrl": "https://github.com/mircowuffwuff/sharpdroid/releases/download/sharpdroid-8/sharpdroid-8.apk",
+          "sizeBytes": 92455195
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -118,6 +136,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "sharpdroid",
+      "name": "SharpDroid",
+      "category": "Mobile & Cross-Console",
+      "activityLabel": "Community Approved \u00b7 62 Stars",
+      "isMostActive": false,
+      "languages": [
+        "Kotlin"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Android frontend that packages and launches the SharpEmu PS5 emulator core on phones and tablets with a native Kotlin interface.",
+      "statusSummary": "Android frontend that packages and launches the SharpEmu PS5 emulator core on phones and tablets with a native Kotlin interface.",
+      "repoOwner": "mircowuffwuff",
+      "repoName": "sharpdroid",
+      "repoUrl": "https://github.com/mircowuffwuff/sharpdroid",
+      "releasesPageUrl": "https://github.com/mircowuffwuff/sharpdroid/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/mircowuffwuff/sharpdroid/releases/latest",
+      "stars": 62,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:16:13Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "sharpdroid-8",
+        "releaseTitle": "8",
+        "publishedAt": "2026-10-20T13:44:16Z",
+        "formattedDate": "Oct 20, 2026",
+        "releaseUrl": "https://github.com/mircowuffwuff/sharpdroid/releases/tag/sharpdroid-8",
+        "directAssetUrl": "https://github.com/mircowuffwuff/sharpdroid/releases/download/sharpdroid-8/sharpdroid-8.apk",
+        "directAssetName": "sharpdroid-8.apk",
+        "bodyNotes": "- improved Dead Cells performance from ~7 fps to 29 fps on the title screen\r\n\r\nfull changelog: https://github.com/mircowuffwuff/sharpdroid/compare/sharpdroid-7...sharpdroid-8\r\n\r\n---\r\n\r\nsharpdroid now defaults to a 12 ms render loop drain budget, matching what upstream SharpEmu hardcodes for macOS. turns out android needs the same treatment! performance numbers come from an Odin 3 running a medium underclock.\r\n\r\nwith that being said, this might be the last release of sharpdroid! stay tuned, i have something big in the oven.. <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://support.mircowuffwuff.com\"><img width=\"24\" align=\"top\" src=\".github/images/mircomoji-X3-flat.png\"/></a>\r\n\r\n## still missing\r\n\r\n- touch controls (wants contributor)",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "magnusps5",
       "name": "MagnusPS5",
