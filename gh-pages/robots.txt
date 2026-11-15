@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# PS5 EmuTrack – GitHub Pages site
+Sitemap: https://its-zain-dev.github.io/ps5-emutrack/sitemap.xml
