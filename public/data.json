@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:20:55Z",
+  "generatedAt": "2026-11-15T19:21:28Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:20:55Z",
+  "lastCompatibilityScan": "2026-11-15T19:21:28Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -241,6 +241,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Experimental open-source PS5 emulator architecture focused on portability, ARM64 translation and Apple platforms.",
       "source": "community-approved",
       "assets": []
+    },
+    "kytx": {
+      "tagName": "community-verified",
+      "releaseTitle": "KyTx Verified Release",
+      "publishedAt": "2026-11-12T16:41:16Z",
+      "formattedDate": "Nov 12, 2026",
+      "releaseUrl": "https://github.com/TxCsOffc/KyTx",
+      "directAssetUrl": "https://github.com/TxCsOffc/KyTx",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Native ARM64 PS5 emulator for Apple Silicon using FEX for guest CPU execution and an RDNA to Metal graphics backend.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -270,6 +282,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "kytx",
+      "name": "KyTx",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Native ARM64 PS5 emulator for Apple Silicon using FEX for guest CPU execution and an RDNA to Metal graphics backend.",
+      "statusSummary": "Native ARM64 PS5 emulator for Apple Silicon using FEX for guest CPU execution and an RDNA to Metal graphics backend.",
+      "repoOwner": "TxCsOffc",
+      "repoName": "KyTx",
+      "repoUrl": "https://github.com/TxCsOffc/KyTx",
+      "releasesPageUrl": "https://github.com/TxCsOffc/KyTx",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/TxCsOffc/KyTx/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:21:20Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KyTx Verified Release",
+        "publishedAt": "2026-11-12T16:41:16Z",
+        "formattedDate": "Nov 12, 2026",
+        "releaseUrl": "https://github.com/TxCsOffc/KyTx",
+        "directAssetUrl": "https://github.com/TxCsOffc/KyTx",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Native ARM64 PS5 emulator for Apple Silicon using FEX for guest CPU execution and an RDNA to Metal graphics backend.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "p5emu",
       "name": "P5EMU",

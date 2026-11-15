@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[KyTx](https://github.com/TxCsOffc/KyTx)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Native ARM64 PS5 emulator for Apple Silicon using FEX for guest CPU execution and an RDNA to Metal graphics backend. ([Releases / Docs](https://github.com/TxCsOffc/KyTx))
 - **[P5EMU](https://github.com/NabuOX/P5EMU)** — `C++` · `Vulkan` · `Windows, Linux`  
   Experimental open-source PS5 emulator architecture focused on portability, ARM64 translation and Apple platforms. ([Releases / Docs](https://github.com/NabuOX/P5EMU))
 - **[KytyPS5 Emscripten](https://github.com/Shubin123/kytyps5_emscripten)** — `C++` · `Vulkan` · `Windows, Linux`  
