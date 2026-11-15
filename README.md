@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[KytyPS5 Demon Souls FrameGen](https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen)** — `C++` · `Vulkan` · `Windows, Linux`  
+  KytyPS5 build distribution for Demon's Souls with DLSS frame generation, ultrawide support and render-resolution controls. · Detected Titles: Demon's Souls ([Releases / Docs](https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen))
 - **[ZylxEmu](https://github.com/zenunqq/zylxemu)** — `C#` · `Vulkan` · `Windows, Linux`  
   PS4/PS5 emulator experiment in C# exposing x86/x64 native CPU extensions for guest title execution. ([Releases / Docs](https://github.com/zenunqq/zylxemu))
 - **[PS5 PC Emulator](https://github.com/mustafaaldaffaie/PS5-PC-Emulator)** — `C++` · `Vulkan` · `Windows, Linux`  

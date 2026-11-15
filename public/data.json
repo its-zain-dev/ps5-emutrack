@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:23:44Z",
+  "generatedAt": "2026-11-15T19:24:13Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:23:44Z",
+  "lastCompatibilityScan": "2026-11-15T19:24:13Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -301,6 +301,29 @@
       "bodyNotes": "### Auto-Approved Addition\n- PS4/PS5 emulator experiment in C# exposing x86/x64 native CPU extensions for guest title execution.",
       "source": "community-approved",
       "assets": []
+    },
+    "kytyps5-demon-souls-framegen": {
+      "tagName": "v1.3",
+      "releaseTitle": "KytyPS5 Demon's Souls Frame Generation v1.3",
+      "publishedAt": "2026-10-14T14:05:18Z",
+      "formattedDate": "Oct 14, 2026",
+      "releaseUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen/releases/tag/v1.3",
+      "directAssetUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen/releases/download/v1.3/KytyPS5-DemonsSouls-FrameGen-source.zip",
+      "directAssetName": "KytyPS5-DemonsSouls-FrameGen-source.zip",
+      "bodyNotes": "**What's new in v1.3:** based on the new upstream KytyPS5 **v20261014** by chenxiao07, with all of this build's improvements kept.\n\n- \u2b50 **New launcher layout:** the settings are in tabs (Display, Graphics, Performance, System) under the game folder; the window remembers the last tab.\n- \u2b50 **Shrine of Storms freeze work (known issue #1):** large textures now upload in 64 MB pieces and the partial path no longer re-uploads the whole 1.8 GB pool; this build also turns on upstream's layer-range textures, so the pool's views become small textures of the layers they read (upstream issue #9). Not confirmed at the spot yet: known issue #1 stays open until a session shows it.\n- **About 2 GB less RAM** after a save loads, and no more memory growth when travelling between worlds.\n- **HDR and VSync options** (Display tab, off by default). With Frame Generation, a G-SYNC display is the better choice than VSync.\n- **Fixes from upstream:** a crash when travelling to the Tower of Latria by archstone, a 1.05 crash in Boletaria 1-1, very large textures on 8 GB GPUs, game folders with very long paths.\n- **More precompile hints:** shaders from tours of every map, so more first visits are smooth after precompiling.\n- **Your shader cache is kept:** upstream now caps the driver shader cache at 1/64 of RAM; this build allows 1/16 (2 GB with 32 GB RAM), so a typical 1.2 GB cache is not thrown away at every launch.\n\nEverything from v1.2 stays: DLSS Frame Generation (**requires an NVIDIA RTX 40 or 50 series card**), render resolution upscaling (the game's own upscaler, not DLSS/FSR), ultrawide for any ultrawide screen, the voices fix.\n\n**Updating from v1.2:** extract the new zip over your old folder (your saves, launcher settings and shader caches stay; the frame generation camera list is replaced by the one in the zip). Your precompiled shaders stay valid; run \"Precompile shaders\" again if you want the new map-tour shaders too.\n\n**Downloads:** `KytyPS5-DemonsSouls-FrameGen.zip` is the build. `KytyPS5-DemonsSouls-FrameGen-source.zip` is its complete source (KytyPS5 is GPL 2.0; third-party licenses in THIRD-PARTY-NOTICES.md).\n\nNo game files included. Unofficial build, not affiliated with Sony, NVIDIA or the KytyPS5 developers.",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "KytyPS5-DemonsSouls-FrameGen-source.zip",
+          "downloadUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen/releases/download/v1.3/KytyPS5-DemonsSouls-FrameGen-source.zip",
+          "sizeBytes": 18228959
+        },
+        {
+          "name": "KytyPS5-DemonsSouls-FrameGen.zip",
+          "downloadUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen/releases/download/v1.3/KytyPS5-DemonsSouls-FrameGen.zip",
+          "sizeBytes": 20083245
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -327,9 +350,54 @@
     "lumen-emu": [
       "Astro Bot",
       "Bloodborne (60 FPS Patch / PS4-PS5)"
+    ],
+    "kytyps5-demon-souls-framegen": [
+      "Demon's Souls"
     ]
   },
   "customEmulators": [
+    {
+      "id": "kytyps5-demon-souls-framegen",
+      "name": "KytyPS5 Demon Souls FrameGen",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 11 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "KytyPS5 build distribution for Demon's Souls with DLSS frame generation, ultrawide support and render-resolution controls.",
+      "statusSummary": "KytyPS5 build distribution for Demon's Souls with DLSS frame generation, ultrawide support and render-resolution controls.",
+      "repoOwner": "ceremony88",
+      "repoName": "KytyPS5-DemonsSouls-FrameGen",
+      "repoUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen",
+      "releasesPageUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/ceremony88/KytyPS5-DemonsSouls-FrameGen/releases/latest",
+      "stars": 11,
+      "supportedGames": [
+        "Demon's Souls"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:24:02Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v1.3",
+        "releaseTitle": "KytyPS5 Demon's Souls Frame Generation v1.3",
+        "publishedAt": "2026-10-14T14:05:18Z",
+        "formattedDate": "Oct 14, 2026",
+        "releaseUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen/releases/tag/v1.3",
+        "directAssetUrl": "https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen/releases/download/v1.3/KytyPS5-DemonsSouls-FrameGen-source.zip",
+        "directAssetName": "KytyPS5-DemonsSouls-FrameGen-source.zip",
+        "bodyNotes": "**What's new in v1.3:** based on the new upstream KytyPS5 **v20261014** by chenxiao07, with all of this build's improvements kept.\n\n- \u2b50 **New launcher layout:** the settings are in tabs (Display, Graphics, Performance, System) under the game folder; the window remembers the last tab.\n- \u2b50 **Shrine of Storms freeze work (known issue #1):** large textures now upload in 64 MB pieces and the partial path no longer re-uploads the whole 1.8 GB pool; this build also turns on upstream's layer-range textures, so the pool's views become small textures of the layers they read (upstream issue #9). Not confirmed at the spot yet: known issue #1 stays open until a session shows it.\n- **About 2 GB less RAM** after a save loads, and no more memory growth when travelling between worlds.\n- **HDR and VSync options** (Display tab, off by default). With Frame Generation, a G-SYNC display is the better choice than VSync.\n- **Fixes from upstream:** a crash when travelling to the Tower of Latria by archstone, a 1.05 crash in Boletaria 1-1, very large textures on 8 GB GPUs, game folders with very long paths.\n- **More precompile hints:** shaders from tours of every map, so more first visits are smooth after precompiling.\n- **Your shader cache is kept:** upstream now caps the driver shader cache at 1/64 of RAM; this build allows 1/16 (2 GB with 32 GB RAM), so a typical 1.2 GB cache is not thrown away at every launch.\n\nEverything from v1.2 stays: DLSS Frame Generation (**requires an NVIDIA RTX 40 or 50 series card**), render resolution upscaling (the game's own upscaler, not DLSS/FSR), ultrawide for any ultrawide screen, the voices fix.\n\n**Updating from v1.2:** extract the new zip over your old folder (your saves, launcher settings and shader caches stay; the frame generation camera list is replaced by the one in the zip). Your precompiled shaders stay valid; run \"Precompile shaders\" again if you want the new map-tour shaders too.\n\n**Downloads:** `KytyPS5-DemonsSouls-FrameGen.zip` is the build. `KytyPS5-DemonsSouls-FrameGen-source.zip` is its complete source (KytyPS5 is GPL 2.0; third-party licenses in THIRD-PARTY-NOTICES.md).\n\nNo game files included. Unofficial build, not affiliated with Sony, NVIDIA or the KytyPS5 developers.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "zylxemu",
       "name": "ZylxEmu",
