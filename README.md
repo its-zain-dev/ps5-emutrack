@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[RustPS5](https://github.com/CipherSoul01/RustPS5)** — `C#` · `Vulkan` · `Windows, Linux`  
+  PS5 emulator experiment pairing a Rust core with a C# Avalonia desktop interface. ([Releases / Docs](https://github.com/CipherSoul01/RustPS5))
 - **[CL5](https://github.com/SplaatSites/CL5)** — `C++` · `Vulkan` · `Windows, Linux`  
   Early PS5 compatibility layer for Windows exploring high-level reimplementation of system services. ([Releases / Docs](https://github.com/SplaatSites/CL5))
 - **[Open5Emu](https://github.com/SplaatSites/Open5Emu)** — `C++` · `Vulkan` · `Windows, Linux`  

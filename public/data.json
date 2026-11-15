@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:34:52Z",
+  "generatedAt": "2026-11-15T19:35:36Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:34:52Z",
+  "lastCompatibilityScan": "2026-11-15T19:35:36Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -662,6 +662,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Early PS5 compatibility layer for Windows exploring high-level reimplementation of system services.",
       "source": "community-approved",
       "assets": []
+    },
+    "rustps5": {
+      "tagName": "community-verified",
+      "releaseTitle": "RustPS5 Verified Release",
+      "publishedAt": "2026-10-29T12:54:38Z",
+      "formattedDate": "Oct 29, 2026",
+      "releaseUrl": "https://github.com/CipherSoul01/RustPS5",
+      "directAssetUrl": "https://github.com/CipherSoul01/RustPS5",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator experiment pairing a Rust core with a C# Avalonia desktop interface.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -711,6 +723,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "rustps5",
+      "name": "RustPS5",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C#"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PS5 emulator experiment pairing a Rust core with a C# Avalonia desktop interface.",
+      "statusSummary": "PS5 emulator experiment pairing a Rust core with a C# Avalonia desktop interface.",
+      "repoOwner": "CipherSoul01",
+      "repoName": "RustPS5",
+      "repoUrl": "https://github.com/CipherSoul01/RustPS5",
+      "releasesPageUrl": "https://github.com/CipherSoul01/RustPS5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/CipherSoul01/RustPS5/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:35:15Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "RustPS5 Verified Release",
+        "publishedAt": "2026-10-29T12:54:38Z",
+        "formattedDate": "Oct 29, 2026",
+        "releaseUrl": "https://github.com/CipherSoul01/RustPS5",
+        "directAssetUrl": "https://github.com/CipherSoul01/RustPS5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator experiment pairing a Rust core with a C# Avalonia desktop interface.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "cl5",
       "name": "CL5",
