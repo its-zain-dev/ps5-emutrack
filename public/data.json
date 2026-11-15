@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:20:24Z",
+  "generatedAt": "2026-11-15T19:20:55Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:20:24Z",
+  "lastCompatibilityScan": "2026-11-15T19:20:55Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -229,6 +229,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Emscripten/WebAssembly port of KytyPS5 that compiles the emulator core to run inside a web browser.",
       "source": "community-approved",
       "assets": []
+    },
+    "p5emu": {
+      "tagName": "community-verified",
+      "releaseTitle": "P5EMU Verified Release",
+      "publishedAt": "2026-10-12T23:56:51Z",
+      "formattedDate": "Oct 12, 2026",
+      "releaseUrl": "https://github.com/NabuOX/P5EMU",
+      "directAssetUrl": "https://github.com/NabuOX/P5EMU",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Experimental open-source PS5 emulator architecture focused on portability, ARM64 translation and Apple platforms.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -258,6 +270,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "p5emu",
+      "name": "P5EMU",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 1 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental open-source PS5 emulator architecture focused on portability, ARM64 translation and Apple platforms.",
+      "statusSummary": "Experimental open-source PS5 emulator architecture focused on portability, ARM64 translation and Apple platforms.",
+      "repoOwner": "NabuOX",
+      "repoName": "P5EMU",
+      "repoUrl": "https://github.com/NabuOX/P5EMU",
+      "releasesPageUrl": "https://github.com/NabuOX/P5EMU",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/NabuOX/P5EMU/releases/latest",
+      "stars": 1,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:20:47Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "P5EMU Verified Release",
+        "publishedAt": "2026-10-12T23:56:51Z",
+        "formattedDate": "Oct 12, 2026",
+        "releaseUrl": "https://github.com/NabuOX/P5EMU",
+        "directAssetUrl": "https://github.com/NabuOX/P5EMU",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Experimental open-source PS5 emulator architecture focused on portability, ARM64 translation and Apple platforms.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "kytyps5-emscripten",
       "name": "KytyPS5 Emscripten",

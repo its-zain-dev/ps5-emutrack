@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T19:20:24Z",
+  "generatedAt": "2026-11-15T19:20:55Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
   "emulators": {
     "kytyps5": {
@@ -188,5 +188,5 @@
       "Bloodborne (60 FPS Patch / PS4-PS5)"
     ]
   },
-  "lastCompatibilityScan": "2026-11-15T19:20:24Z"
+  "lastCompatibilityScan": "2026-11-15T19:20:55Z"
 }

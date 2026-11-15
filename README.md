@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[P5EMU](https://github.com/NabuOX/P5EMU)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Experimental open-source PS5 emulator architecture focused on portability, ARM64 translation and Apple platforms. ([Releases / Docs](https://github.com/NabuOX/P5EMU))
 - **[KytyPS5 Emscripten](https://github.com/Shubin123/kytyps5_emscripten)** — `C++` · `Vulkan` · `Windows, Linux`  
   Emscripten/WebAssembly port of KytyPS5 that compiles the emulator core to run inside a web browser. ([Releases / Docs](https://github.com/Shubin123/kytyps5_emscripten))
 - **[PCS5](https://github.com/StoneCold608/PCS5)** — `C++` · `Vulkan` · `Windows, Linux`  
