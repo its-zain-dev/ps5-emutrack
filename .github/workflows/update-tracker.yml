@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   sync-releases:
@@ -36,3 +37,9 @@ jobs:
           else
             echo "No release or compatibility changes detected."
           fi
+
+      - name: Redeploy GitHub Pages
+        # Pushes made with GITHUB_TOKEN do not trigger the Pages workflow.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy-pages.yml --repo "${{ github.repository }}" --ref main
