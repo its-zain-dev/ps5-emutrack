@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:29:32Z",
+  "generatedAt": "2026-11-15T19:30:27Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:29:32Z",
+  "lastCompatibilityScan": "2026-11-15T19:30:27Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -430,6 +430,34 @@
       "bodyNotes": "### Auto-Approved Addition\n- KytyPS5 derivative tuned for Wolverine boot experiments, carrying renderer and HLE module adjustments.",
       "source": "community-approved",
       "assets": []
+    },
+    "kytyps5-linux": {
+      "tagName": "v20261007-linux.1",
+      "releaseTitle": "KytyPS5 v20261007 (chenxiao07, 9348901) for Linux/SteamOS",
+      "publishedAt": "2026-10-08T19:39:01Z",
+      "formattedDate": "Oct 08, 2026",
+      "releaseUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux/releases/tag/v20261007-linux.1",
+      "directAssetUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux/releases/download/v20261007-linux.1/KytyPS5-v20261007-linux.1.zip",
+      "directAssetName": "KytyPS5-v20261007-linux.1.zip",
+      "bodyNotes": "**chenxiao07's KytyPS5 [v20261007](https://github.com/chenxiao07/KytyPS5/releases/tag/v20261007) (commit [`9348901`](https://github.com/chenxiao07/KytyPS5/commit/9348901f18a2b3ee5146e2e430f82466f122c34f)) for Demon's Souls (PPSA01341 1.07 / 1.05), packaged for Linux / SteamOS.**\n\nThe emulator is chenxiao07's **Windows build, unchanged** (`kyty_emulator.exe` and everything else from `KytyPS5-v20261007.zip`). It runs under Wine or Proton with three scripts added (see [LINUX.md](https://github.com/futbarista/KytyPS5-chenxiao07-linux/blob/main/LINUX.md)):\n\n- `demons-souls.sh`: starts the game under Proton's Wine (or Proton's launcher with `PROTON=1`), with the fixes Wine needs: `WINEDEBUG` not `-all` (otherwise exit 253), `GPU_BUFFER_PAGES` and `BUFFER_RECLAIM` off (otherwise a GPU page fault under RADV when a save loads). It also waits for Steam Input's virtual gamepad and shows the FPS counter (`KYTY_FPS_HUD`).\n- `precompile-linux.sh`: the static shader precompile for the Linux graphics driver (about 20 min). The precompiled cache from Windows can't be used under Wine: it belongs to the Windows driver.\n- `build-appimage.sh`: optional AppImage of the launcher.\n\n### Quick start (SteamOS)\n1. Install **Proton Experimental** in Steam.\n2. Unpack: `tar -xzf KytyPS5-v20261007-linux.tar.gz`\n3. Put your own dump of the game in `~/Games/Demon's Souls/PPSA01341-app0` (or pass its path).\n4. `./precompile-linux.sh` once (and after each Mesa / SteamOS update).\n5. `./demons-souls.sh`, or add it to Steam as a non-Steam game **without** a compatibility tool. Use `FULLSCREEN=1 %command%` in the launch options for full screen.\n\nTested on SteamOS with a Ryzen 5 9600X and a Radeon RX 9070 XT (Mesa RADV 26.1, Proton Experimental 11.0): about 34\u201336 fps while walking at 2560x1440.\n\nNo game files, keys or firmware are included. Use only a game you have dumped yourself.",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "KytyPS5-v20261007-linux.1.zip",
+          "downloadUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux/releases/download/v20261007-linux.1/KytyPS5-v20261007-linux.1.zip",
+          "sizeBytes": 12010688
+        },
+        {
+          "name": "KytyPS5-v20261007-linux.tar.gz",
+          "downloadUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux/releases/download/v20261007-linux.1/KytyPS5-v20261007-linux.tar.gz",
+          "sizeBytes": 12014556
+        },
+        {
+          "name": "KytyPS5-v20261007-linux.tar.gz.sha256",
+          "downloadUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux/releases/download/v20261007-linux.1/KytyPS5-v20261007-linux.tar.gz.sha256",
+          "sizeBytes": 97
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -473,9 +501,54 @@
     "kytyps5-wolverine": [
       "Astro Bot",
       "Demon's Souls"
+    ],
+    "kytyps5-linux": [
+      "Demon's Souls"
     ]
   },
   "customEmulators": [
+    {
+      "id": "kytyps5-linux",
+      "name": "KytyPS5 Linux",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 2 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Packaging of chenxiao07's KytyPS5 build for Demon's Souls with scripts to run the Windows build on Linux/SteamOS under Wine or Proton.",
+      "statusSummary": "Packaging of chenxiao07's KytyPS5 build for Demon's Souls with scripts to run the Windows build on Linux/SteamOS under Wine or Proton.",
+      "repoOwner": "futbarista",
+      "repoName": "KytyPS5-chenxiao07-linux",
+      "repoUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux",
+      "releasesPageUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/futbarista/KytyPS5-chenxiao07-linux/releases/latest",
+      "stars": 2,
+      "supportedGames": [
+        "Demon's Souls"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:30:06Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v20261007-linux.1",
+        "releaseTitle": "KytyPS5 v20261007 (chenxiao07, 9348901) for Linux/SteamOS",
+        "publishedAt": "2026-10-08T19:39:01Z",
+        "formattedDate": "Oct 08, 2026",
+        "releaseUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux/releases/tag/v20261007-linux.1",
+        "directAssetUrl": "https://github.com/futbarista/KytyPS5-chenxiao07-linux/releases/download/v20261007-linux.1/KytyPS5-v20261007-linux.1.zip",
+        "directAssetName": "KytyPS5-v20261007-linux.1.zip",
+        "bodyNotes": "**chenxiao07's KytyPS5 [v20261007](https://github.com/chenxiao07/KytyPS5/releases/tag/v20261007) (commit [`9348901`](https://github.com/chenxiao07/KytyPS5/commit/9348901f18a2b3ee5146e2e430f82466f122c34f)) for Demon's Souls (PPSA01341 1.07 / 1.05), packaged for Linux / SteamOS.**\n\nThe emulator is chenxiao07's **Windows build, unchanged** (`kyty_emulator.exe` and everything else from `KytyPS5-v20261007.zip`). It runs under Wine or Proton with three scripts added (see [LINUX.md](https://github.com/futbarista/KytyPS5-chenxiao07-linux/blob/main/LINUX.md)):\n\n- `demons-souls.sh`: starts the game under Proton's Wine (or Proton's launcher with `PROTON=1`), with the fixes Wine needs: `WINEDEBUG` not `-all` (otherwise exit 253), `GPU_BUFFER_PAGES` and `BUFFER_RECLAIM` off (otherwise a GPU page fault under RADV when a save loads). It also waits for Steam Input's virtual gamepad and shows the FPS counter (`KYTY_FPS_HUD`).\n- `precompile-linux.sh`: the static shader precompile for the Linux graphics driver (about 20 min). The precompiled cache from Windows can't be used under Wine: it belongs to the Windows driver.\n- `build-appimage.sh`: optional AppImage of the launcher.\n\n### Quick start (SteamOS)\n1. Install **Proton Experimental** in Steam.\n2. Unpack: `tar -xzf KytyPS5-v20261007-linux.tar.gz`\n3. Put your own dump of the game in `~/Games/Demon's Souls/PPSA01341-app0` (or pass its path).\n4. `./precompile-linux.sh` once (and after each Mesa / SteamOS update).\n5. `./demons-souls.sh`, or add it to Steam as a non-Steam game **without** a compatibility tool. Use `FULLSCREEN=1 %command%` in the launch options for full screen.\n\nTested on SteamOS with a Ryzen 5 9600X and a Radeon RX 9070 XT (Mesa RADV 26.1, Proton Experimental 11.0): about 34\u201336 fps while walking at 2560x1440.\n\nNo game files, keys or firmware are included. Use only a game you have dumped yourself.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "kytyps5-wolverine",
       "name": "KytyPS5 Wolverine",
