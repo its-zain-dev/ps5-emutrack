@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[Cincar](https://github.com/linuxfanosis/Cincar)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Early-stage PS5 emulator project building out its CPU and loader foundations. ([Releases / Docs](https://github.com/linuxfanosis/Cincar))
 - **[RustPS5](https://github.com/CipherSoul01/RustPS5)** — `C#` · `Vulkan` · `Windows, Linux`  
   PS5 emulator experiment pairing a Rust core with a C# Avalonia desktop interface. ([Releases / Docs](https://github.com/CipherSoul01/RustPS5))
 - **[CL5](https://github.com/SplaatSites/CL5)** — `C++` · `Vulkan` · `Windows, Linux`  
