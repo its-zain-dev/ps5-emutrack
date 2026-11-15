@@ -1,13 +1,13 @@
 # Awesome PS5 Emulators & PS5 EmuTrack
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-0070D1?style=flat-square&logo=github)](https://ps5-emutrack.github.io/ps5-emutrack/)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Ready-0070D1?style=flat-square&logo=github)](https://its-zain-dev.github.io/ps5-emutrack/)
 [![Open Source](https://img.shields.io/badge/Open%20Source-MIT-10B981?style=flat-square)](LICENSE)
 [![Auto Updated](https://img.shields.io/badge/Releases-Hourly%20GitHub%20Actions-22D3EE?style=flat-square&logo=githubactions)](.github/workflows/update-tracker.yml)
 [![Tracked Projects](https://img.shields.io/badge/Tracked%20Emulators-24-0070D1?style=flat-square)](#curated-directory-of-tracked-ps5-emulators-24)
 
 **PS5 EmuTrack** is a fast, dark-mode, SEO-optimized **PlayStation 5 Emulator Release & Compatibility Tracker Hub**. It monitors **24 open-source PS5 emulators, forks, and compatibility layers** via the GitHub REST API (with 30-minute `localStorage` caching and an hourly Python `data.json` fallback), links directly to official GitHub Releases, tracks compatibility for major titles including **Grand Theft Auto VI (GTA VI)**, and supports **community emulator submissions with moderator review**.
 
-> **Live Demo Placeholder:** `https://<your-username>.github.io/ps5-emutrack/`
+> **Live Demo Placeholder:** `https://its-zain-dev.github.io/ps5-emutrack/`
 
 ---
 

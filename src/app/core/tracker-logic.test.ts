@@ -226,9 +226,9 @@ test('parseGitHubOwnerRepo and buildSubmissionGitHubArtifacts produce valid outp
       platforms: 'Linux, Windows',
       category: 'PS5 Native / HLE',
     },
-    'https://github.com/ps5-emutrack/ps5-emutrack',
+    'https://github.com/its-zain-dev/ps5-emutrack',
   );
-  assert.ok(artifacts.issueUrl.startsWith('https://github.com/ps5-emutrack/ps5-emutrack/issues/new?'));
+  assert.ok(artifacts.issueUrl.startsWith('https://github.com/its-zain-dev/ps5-emutrack/issues/new?'));
   assert.ok(artifacts.prJsonSnippet.includes('"repoOwner": "novaps5"'));
   assert.ok(artifacts.markdownRow.includes('**[NovaPS5](https://github.com/novaps5/novaps5)**'));
 });

@@ -7,14 +7,14 @@ import {
 } from './tracker.types';
 
 export const REPO_CONFIG = {
-  owner: 'ps5-emutrack',
+  owner: 'its-zain-dev',
   name: 'ps5-emutrack',
-  repoUrl: 'https://github.com/ps5-emutrack/ps5-emutrack',
+  repoUrl: 'https://github.com/its-zain-dev/ps5-emutrack',
   issuesReportUrl:
-    'https://github.com/ps5-emutrack/ps5-emutrack/issues/new?title=Compatibility+Report%3A+&labels=compatibility',
+    'https://github.com/its-zain-dev/ps5-emutrack/issues/new?title=Compatibility+Report%3A+&labels=compatibility',
   submitIssueUrl:
-    'https://github.com/ps5-emutrack/ps5-emutrack/issues/new?template=submit-emulator.yml&labels=emulator-submission',
-  demoUrl: 'https://ps5-emutrack.github.io/ps5-emutrack/',
+    'https://github.com/its-zain-dev/ps5-emutrack/issues/new?template=submit-emulator.yml&labels=emulator-submission',
+  demoUrl: 'https://its-zain-dev.github.io/ps5-emutrack/',
   cacheStorageKey: 'ps5_emutrack_gh_cache_v2',
   cacheTtlMs: 30 * 60 * 1000,
 } as const;

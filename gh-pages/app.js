@@ -1,7 +1,7 @@
 'use strict';
 
 // Configurable repository coordinates for GitHub Pages deployment
-const REPO_URL = 'https://github.com/ps5-emutrack/ps5-emutrack';
+const REPO_URL = 'https://github.com/its-zain-dev/ps5-emutrack';
 const ISSUES_URL = `${REPO_URL}/issues/new?title=Compatibility+Report%3A+&labels=compatibility`;
 const CACHE_KEY = 'ps5_emutrack_static_gh_cache_v1';
 const CACHE_TTL_MS = 30 * 60 * 1000;
