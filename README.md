@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[KytyPS5 Carecu](https://github.com/carecu/KytyPS5)** — `C++` · `Vulkan` · `Windows, Linux`  
+  PlayStation 5 emulator fork for Windows derived from the KytyPS5 translation-layer lineage. ([Releases / Docs](https://github.com/carecu/KytyPS5))
 - **[Spogue5](https://github.com/tinirey/Spogue5)** — `Rust` · `Vulkan` · `Windows, Linux`  
   PS5 emulator project in Rust based on research from Kyty, SharpEmu and shadPS4, aiming at a clean cross-platform core. ([Releases / Docs](https://github.com/tinirey/Spogue5))
 - **[VibeStation5](https://github.com/Acelogic/VibeStation5)** — `Swift` · `Vulkan` · `Windows, Linux`  

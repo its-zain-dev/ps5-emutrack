@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:27:26Z",
+  "generatedAt": "2026-11-15T19:28:04Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:27:26Z",
+  "lastCompatibilityScan": "2026-11-15T19:28:04Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -394,6 +394,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator project in Rust based on research from Kyty, SharpEmu and shadPS4, aiming at a clean cross-platform core.",
       "source": "community-approved",
       "assets": []
+    },
+    "kytyps5-carecu": {
+      "tagName": "community-verified",
+      "releaseTitle": "KytyPS5 Carecu Verified Release",
+      "publishedAt": "2026-07-05T20:17:52Z",
+      "formattedDate": "Jul 05, 2026",
+      "releaseUrl": "https://github.com/carecu/KytyPS5",
+      "directAssetUrl": "https://github.com/carecu/KytyPS5",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- PlayStation 5 emulator fork for Windows derived from the KytyPS5 translation-layer lineage.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -436,6 +448,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "kytyps5-carecu",
+      "name": "KytyPS5 Carecu",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 8 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PlayStation 5 emulator fork for Windows derived from the KytyPS5 translation-layer lineage.",
+      "statusSummary": "PlayStation 5 emulator fork for Windows derived from the KytyPS5 translation-layer lineage.",
+      "repoOwner": "carecu",
+      "repoName": "KytyPS5",
+      "repoUrl": "https://github.com/carecu/KytyPS5",
+      "releasesPageUrl": "https://github.com/carecu/KytyPS5",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/carecu/KytyPS5/releases/latest",
+      "stars": 8,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:27:48Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KytyPS5 Carecu Verified Release",
+        "publishedAt": "2026-07-05T20:17:52Z",
+        "formattedDate": "Jul 05, 2026",
+        "releaseUrl": "https://github.com/carecu/KytyPS5",
+        "directAssetUrl": "https://github.com/carecu/KytyPS5",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PlayStation 5 emulator fork for Windows derived from the KytyPS5 translation-layer lineage.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "spogue5",
       "name": "Spogue5",
