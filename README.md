@@ -66,7 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
-_No community submissions merged via automated GitHub issue approval yet — open a Pull Request or [Submit Emulator Issue](.github/ISSUE_TEMPLATE/submit-emulator.yml) on GitHub to contribute._
+- **[MagnusPS5](https://github.com/hernan0078/MagnusPS5)** — `C++` · `Vulkan` · `Windows, Linux`  
+  PS5 emulator targeting iPhone and iPad hardware, using Metal for graphics translation and an ARM64 guest pipeline on Apple silicon devices. ([Releases / Docs](https://github.com/hernan0078/MagnusPS5/releases))
 <!-- AUTO-TRACKED-EMULATORS:END -->
 
 ---

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T18:34:38Z",
+  "generatedAt": "2026-11-15T19:13:18Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T18:34:38Z",
+  "lastCompatibilityScan": "2026-11-15T19:13:18Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -81,6 +81,18 @@
           "sizeBytes": 31725856
         }
       ]
+    },
+    "magnusps5": {
+      "tagName": "community-verified",
+      "releaseTitle": "MagnusPS5 Verified Release",
+      "publishedAt": "2026-08-25T21:05:37Z",
+      "formattedDate": "Aug 25, 2026",
+      "releaseUrl": "https://github.com/hernan0078/MagnusPS5/releases",
+      "directAssetUrl": "https://github.com/hernan0078/MagnusPS5/releases",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator targeting iPhone and iPad hardware, using Metal for graphics translation and an ARM64 guest pipeline on Apple silicon devices.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -105,7 +117,48 @@
       "Demon's Souls"
     ]
   },
-  "customEmulators": [],
+  "customEmulators": [
+    {
+      "id": "magnusps5",
+      "name": "MagnusPS5",
+      "category": "Mobile & Cross-Console",
+      "activityLabel": "Community Approved \u00b7 38 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PS5 emulator targeting iPhone and iPad hardware, using Metal for graphics translation and an ARM64 guest pipeline on Apple silicon devices.",
+      "statusSummary": "PS5 emulator targeting iPhone and iPad hardware, using Metal for graphics translation and an ARM64 guest pipeline on Apple silicon devices.",
+      "repoOwner": "hernan0078",
+      "repoName": "MagnusPS5",
+      "repoUrl": "https://github.com/hernan0078/MagnusPS5",
+      "releasesPageUrl": "https://github.com/hernan0078/MagnusPS5/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/hernan0078/MagnusPS5/releases/latest",
+      "stars": 38,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:13:16Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "MagnusPS5 Verified Release",
+        "publishedAt": "2026-08-25T21:05:37Z",
+        "formattedDate": "Aug 25, 2026",
+        "releaseUrl": "https://github.com/hernan0078/MagnusPS5/releases",
+        "directAssetUrl": "https://github.com/hernan0078/MagnusPS5/releases",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator targeting iPhone and iPad hardware, using Metal for graphics translation and an ARM64 guest pipeline on Apple silicon devices.",
+        "source": "community-approved",
+        "assets": []
+      }
+    }
+  ],
   "games": [
     {
       "id": "gta-vi",
