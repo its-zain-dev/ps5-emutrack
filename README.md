@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[Orbis-Kyty](https://github.com/MrKitsune9/Orbis-Kyty)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Experimental PS4-hosted PS5 emulation test build based on Kyty, exploring running PS5 titles on jailbroken PS4 hardware. ([Releases / Docs](https://github.com/MrKitsune9/Orbis-Kyty))
 - **[KytyPS5 Carecu](https://github.com/carecu/KytyPS5)** — `C++` · `Vulkan` · `Windows, Linux`  
   PlayStation 5 emulator fork for Windows derived from the KytyPS5 translation-layer lineage. ([Releases / Docs](https://github.com/carecu/KytyPS5))
 - **[Spogue5](https://github.com/tinirey/Spogue5)** — `Rust` · `Vulkan` · `Windows, Linux`  

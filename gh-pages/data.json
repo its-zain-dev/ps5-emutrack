@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T19:28:04Z",
+  "generatedAt": "2026-11-15T19:28:54Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
   "emulators": {
     "kytyps5": {
@@ -270,5 +270,5 @@
       "Astro Bot"
     ]
   },
-  "lastCompatibilityScan": "2026-11-15T19:28:04Z"
+  "lastCompatibilityScan": "2026-11-15T19:28:54Z"
 }

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:28:04Z",
+  "generatedAt": "2026-11-15T19:28:54Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:28:04Z",
+  "lastCompatibilityScan": "2026-11-15T19:28:54Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -406,6 +406,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- PlayStation 5 emulator fork for Windows derived from the KytyPS5 translation-layer lineage.",
       "source": "community-approved",
       "assets": []
+    },
+    "orbis-kyty": {
+      "tagName": "community-verified",
+      "releaseTitle": "Orbis-Kyty Verified Release",
+      "publishedAt": "2026-11-13T23:04:59Z",
+      "formattedDate": "Nov 13, 2026",
+      "releaseUrl": "https://github.com/MrKitsune9/Orbis-Kyty",
+      "directAssetUrl": "https://github.com/MrKitsune9/Orbis-Kyty",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Experimental PS4-hosted PS5 emulation test build based on Kyty, exploring running PS5 titles on jailbroken PS4 hardware.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -448,6 +460,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "orbis-kyty",
+      "name": "Orbis-Kyty",
+      "category": "PS4 & Hybrid Compat",
+      "activityLabel": "Community Approved \u00b7 5 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental PS4-hosted PS5 emulation test build based on Kyty, exploring running PS5 titles on jailbroken PS4 hardware.",
+      "statusSummary": "Experimental PS4-hosted PS5 emulation test build based on Kyty, exploring running PS5 titles on jailbroken PS4 hardware.",
+      "repoOwner": "MrKitsune9",
+      "repoName": "Orbis-Kyty",
+      "repoUrl": "https://github.com/MrKitsune9/Orbis-Kyty",
+      "releasesPageUrl": "https://github.com/MrKitsune9/Orbis-Kyty",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/MrKitsune9/Orbis-Kyty/releases/latest",
+      "stars": 5,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:28:43Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "Orbis-Kyty Verified Release",
+        "publishedAt": "2026-11-13T23:04:59Z",
+        "formattedDate": "Nov 13, 2026",
+        "releaseUrl": "https://github.com/MrKitsune9/Orbis-Kyty",
+        "directAssetUrl": "https://github.com/MrKitsune9/Orbis-Kyty",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Experimental PS4-hosted PS5 emulation test build based on Kyty, exploring running PS5 titles on jailbroken PS4 hardware.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "kytyps5-carecu",
       "name": "KytyPS5 Carecu",
