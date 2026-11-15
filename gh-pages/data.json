@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T19:18:20Z",
+  "generatedAt": "2026-11-15T19:18:49Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
   "emulators": {
     "kytyps5": {
@@ -150,6 +150,24 @@
           "sizeBytes": 80316140
         }
       ]
+    },
+    "ps5plusplus": {
+      "tagName": "PS5plusplus-2026-08-06-0fcc079",
+      "releaseTitle": "PS5plusplus-2026-08-06-0fcc079",
+      "publishedAt": "2026-08-06T05:25:16Z",
+      "formattedDate": "Aug 06, 2026",
+      "releaseUrl": "https://github.com/thesupersupersigma/PS5plusplus/releases/tag/PS5plusplus-2026-08-06-0fcc079",
+      "directAssetUrl": "https://github.com/thesupersupersigma/PS5plusplus/releases/download/PS5plusplus-2026-08-06-0fcc079/PS5plusplus-2026-08-06-0fcc079.zip",
+      "directAssetName": "PS5plusplus-2026-08-06-0fcc079.zip",
+      "bodyNotes": "**Full Changelog**: https://github.com/thesupersupersigma/PS5plusplus/compare/PS5plusplus-2026-07-29-7edcbc0...PS5plusplus-2026-08-06-0fcc079",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "PS5plusplus-2026-08-06-0fcc079.zip",
+          "downloadUrl": "https://github.com/thesupersupersigma/PS5plusplus/releases/download/PS5plusplus-2026-08-06-0fcc079/PS5plusplus-2026-08-06-0fcc079.zip",
+          "sizeBytes": 19690966
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -170,5 +188,5 @@
       "Bloodborne (60 FPS Patch / PS4-PS5)"
     ]
   },
-  "lastCompatibilityScan": "2026-11-15T19:18:20Z"
+  "lastCompatibilityScan": "2026-11-15T19:18:49Z"
 }

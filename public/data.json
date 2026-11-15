@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:18:20Z",
+  "generatedAt": "2026-11-15T19:18:49Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:18:20Z",
+  "lastCompatibilityScan": "2026-11-15T19:18:49Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -175,6 +175,24 @@
       "bodyNotes": "### Auto-Approved Addition\n- Early-stage C++ PS5 emulator focused on booting PS5 binaries with a Vulkan renderer and an HLE syscall layer.",
       "source": "community-approved",
       "assets": []
+    },
+    "ps5plusplus": {
+      "tagName": "PS5plusplus-2026-08-06-0fcc079",
+      "releaseTitle": "PS5plusplus-2026-08-06-0fcc079",
+      "publishedAt": "2026-08-06T05:25:16Z",
+      "formattedDate": "Aug 06, 2026",
+      "releaseUrl": "https://github.com/thesupersupersigma/PS5plusplus/releases/tag/PS5plusplus-2026-08-06-0fcc079",
+      "directAssetUrl": "https://github.com/thesupersupersigma/PS5plusplus/releases/download/PS5plusplus-2026-08-06-0fcc079/PS5plusplus-2026-08-06-0fcc079.zip",
+      "directAssetName": "PS5plusplus-2026-08-06-0fcc079.zip",
+      "bodyNotes": "**Full Changelog**: https://github.com/thesupersupersigma/PS5plusplus/compare/PS5plusplus-2026-07-29-7edcbc0...PS5plusplus-2026-08-06-0fcc079",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "PS5plusplus-2026-08-06-0fcc079.zip",
+          "downloadUrl": "https://github.com/thesupersupersigma/PS5plusplus/releases/download/PS5plusplus-2026-08-06-0fcc079/PS5plusplus-2026-08-06-0fcc079.zip",
+          "sizeBytes": 19690966
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -204,6 +222,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "ps5plusplus",
+      "name": "PS5plusplus",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 1 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Experimental C++ PS5 emulator extending the Kyty lineage with additional HLE module coverage and boot-reach experiments.",
+      "statusSummary": "Experimental C++ PS5 emulator extending the Kyty lineage with additional HLE module coverage and boot-reach experiments.",
+      "repoOwner": "thesupersupersigma",
+      "repoName": "PS5plusplus",
+      "repoUrl": "https://github.com/thesupersupersigma/PS5plusplus",
+      "releasesPageUrl": "https://github.com/thesupersupersigma/PS5plusplus",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/thesupersupersigma/PS5plusplus/releases/latest",
+      "stars": 1,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:18:44Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "PS5plusplus-2026-08-06-0fcc079",
+        "releaseTitle": "PS5plusplus-2026-08-06-0fcc079",
+        "publishedAt": "2026-08-06T05:25:16Z",
+        "formattedDate": "Aug 06, 2026",
+        "releaseUrl": "https://github.com/thesupersupersigma/PS5plusplus/releases/tag/PS5plusplus-2026-08-06-0fcc079",
+        "directAssetUrl": "https://github.com/thesupersupersigma/PS5plusplus/releases/download/PS5plusplus-2026-08-06-0fcc079/PS5plusplus-2026-08-06-0fcc079.zip",
+        "directAssetName": "PS5plusplus-2026-08-06-0fcc079.zip",
+        "bodyNotes": "**Full Changelog**: https://github.com/thesupersupersigma/PS5plusplus/compare/PS5plusplus-2026-07-29-7edcbc0...PS5plusplus-2026-08-06-0fcc079",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "zeno5",
       "name": "Zeno5",

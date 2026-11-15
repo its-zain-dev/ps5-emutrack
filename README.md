@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[PS5plusplus](https://github.com/thesupersupersigma/PS5plusplus)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Experimental C++ PS5 emulator extending the Kyty lineage with additional HLE module coverage and boot-reach experiments. ([Releases / Docs](https://github.com/thesupersupersigma/PS5plusplus))
 - **[Zeno5](https://github.com/tossdace/Zeno5)** — `C++` · `Vulkan` · `Windows, Linux`  
   Early-stage C++ PS5 emulator focused on booting PS5 binaries with a Vulkan renderer and an HLE syscall layer. ([Releases / Docs](https://github.com/tossdace/Zeno5))
 - **[Touche PX5](https://github.com/Techx3/TouchePX5)** — `C#` · `Vulkan` · `Windows, Linux`  
