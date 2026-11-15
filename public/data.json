@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:25:44Z",
+  "generatedAt": "2026-11-15T19:26:15Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:25:44Z",
+  "lastCompatibilityScan": "2026-11-15T19:26:15Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -347,6 +347,29 @@
           "sizeBytes": 29427439
         }
       ]
+    },
+    "sharpemu-macos": {
+      "tagName": "v0.0.7-pulse",
+      "releaseTitle": "SharpEmu v0.0.7-pulse",
+      "publishedAt": "2026-11-01T11:06:07Z",
+      "formattedDate": "Nov 01, 2026",
+      "releaseUrl": "https://github.com/sharpemu/sharpemu-mac/releases/tag/v0.0.7-pulse",
+      "directAssetUrl": "https://github.com/sharpemu/sharpemu-mac/releases/download/v0.0.7-pulse/sharpemu-0.0.7-pulse-osx-x64-app.zip",
+      "directAssetName": "sharpemu-0.0.7-pulse-osx-x64-app.zip",
+      "bodyNotes": "# SharpEmu for macOS v0.0.7-pulse\n\nUpstream SharpEmu dropped macOS (sharpemu#1123), and this repository is now the macOS build of the PS5 emulator. Since v0.0.6 the whole emulator has been ported to macOS on Apple silicon. That covers host memory, CPU execution, the kernel and HLE libraries, the shader compiler and the GPU backend. The fork adds 237k lines of source and 168k lines of tests on top of upstream. Upstream SharpEmu 0.0.7-pulse is merged in.\n\n## Platform\n\n- **Native macOS host** (`src/platforms/macos`, ~10k lines): guest memory, windowing, input and display. Per-OS host packages and SDL/Skia adapters.\n- **CPU:** the x86-64 guest code runs directly under Rosetta 2, and imports go through a native import path. AGC packet builders and other hot HLE entry points are answered by native stubs inside the guest.\n- **Kernel and HLE:** reworked kernel memory, files, sync and event queues, and the host seam and guest memory model.\n  - Fibers lock per stripe instead of through one global gate.\n  - The thread-local storage lookup `__tls_get_addr` is cached per thread.\n  - User-level-thread (ULT) wakeups are targeted to the waiters that changed.\n  - Pthread mutexes spin while the owner runs.\n  - Short sleeps nap on an escalating schedule.\n- **macOS 27:** the OS reserves VA ranges that PS5 titles map. The loader relocates the affected arena bases, including GTA V's RAGE arena and Ghost of Tsushima's batch maps, and maps virtual views into the GPU carveout.\n- **Spin-nap patcher:** guest pause/spin loops are patched to sleep. Demon's Souls' idle job workers nap instead of spinning.\n- **Display:** the guest render resolution follows the chosen output. There are patches for Unity (boot.config), Unreal, KEX, GTA V, small engines compiled for 3840\u00d72160, and Demon's Souls (its Bluepoint resolution adapter).\n\n## GPU: Metal V2\n\n- **Metal-only renderer** (`SharpEmu.Gpu.Metal`, ~70k lines). There is no Vulkan or MoltenVK layer, and the earlier Metal V1 backend is removed.\n- **Command processing** runs on its own thread by default.\n  - Program resolution and prefetch run on a separate thread, with pipeline look-ahead across the submissions queued behind it.\n  - Encoders are ordered by one fence instead of a barrier after each.\n- **Resource materialization** is native and cached. Bindless tables are memoised and kept resident. Repeated lookups skip searches that found nothing last time.\n- **Image cache:**\n  - Single-copy retile.\n  - Write-back of GPU-written images before guest stores.\n  - Alias transitions fused, with dead contents discarded.\n  - Memoryless stand-ins for colour targets that are only read or stored.\n  - Depth/stencil reached on the device instead of through guest memory.\n- **Occlusion queries** are counted on the device.\n- **Tessellation** uses the hull kernel plus Metal's tessellator, including Ghost of Tsushima's quad-patch instanced grass.\n- **Multisampling:** multisampled depth goes through a one-sample proxy plus resolve. A GPU-written HTILE is no longer loaded as a clear (UE5 Nanite).\n- **Pipeline cache:**\n  - Shaders compile into Metal binary archives, bounded by use and shared across builds.\n  - Shader prewarm stores compute pipelines.\n  - Guest stores are served while a draw waits for its shader compiles.\n- **GPU worker:** no per-draw or per-dispatch allocations, fewer guest re-reads, less lock traffic. Bench tooling is in-tree.\n\n## Shader compiler: gfx10 \u2192 MSL\n\n- **Translator** (`SharpEmu.ShaderCompiler.Metal`, ~25k lines) emits Metal Shading Language directly, at gfx10 ISA parity.\n- **wave64** runs as two Apple simdgroups. Multi-wave compute groups are bridged across simdgroups and meet at threadgroup barriers. Upper-lane reads and LDS atomics are ordered across the halves.\n- **NGG and mesh:** amplified NGG subgroups run as whole mesh workgroups of real wave64 waves.\n- **Ray tracing:** BVH nodes are read 16 bytes at a time, with half-precision boxes widened in hardware.\n- **Descriptors:** records chosen at run time, branch-chosen V#s, indirect image tables of up to 256 descriptors, and stores through V#s loaded from record tables are all planned and bound.\n- **Fixes:** SDWA destination select, `s_cmpk_*`, GDS M0 addressing, FORCE_DEGAMMA samplers, min/max filter samplers, compare samples of mipmapped images, and GLC store write-through.\n\n## Split GPU process\n\n- The GPU backend runs in a separate **native arm64 process**, now the default where it can run.\n  - It maps the guest's backing memory and replicates the guest's views.\n  - The two processes talk over a shared-memory transport (protocol 2).\n- Page-protection tracking is per 4 KiB page. A posted call wakes a single server thread.\n- `build-app.sh` bundles the arm64 GPU host in `Contents/MacOS/gpuhost`.\n\n## App\n\n- The launcher is a native arm64 Avalonia app and is the bundle's main executable. Game windows and Dock tiles are named after the game.\n- Launcher settings are global, and game settings are per game, with automatic migration. GUI and CLI share one launch configuration.\n- All logs, traces and dumps go under one logs folder. Caches are kept outside the signed bundle.\n- The performance overlay shows real CPU, GPU busy time and memory for both processes.\n\n## Upstream 0.0.6 \u2192 0.0.7-pulse\n\n- Tessellation, draw reuse and GNM mode.\n- XML and pattern game patches, with a patch manager.\n- Shader warm-up progress on the splash screen.\n- SPIR-V optimisation passes and UE4 ray-tracing shader-call programs.\n- Fixes for Saros, Elden Ring, Tomb Raider Legend, NGS2/ATRAC9 and AGC occlusion.\n- Simplified Chinese.\n\n## Performance (Apple M4, 1080p, in game)\n\n| Game | FPS |\n|---|---|\n| Quake, Superliminal, Void Terrarium, Dreaming Sarah | 60 |\n| The Oregon Trail | ~58 |\n| Poppy Playtime | ~47 |\n| GTA V (Performance) | ~46 |\n| Silent Hill: The Short Message | ~29 |\n| GTA V (Fidelity) | ~7 |\n| Demon's Souls | ~3\u20137 (bound by the game's own CPU work) |\n\n## Known issues\n\n- GTA V Fidelity mode runs at about 7 fps in game. Use Performance mode.\n- Demon's Souls is limited by its own job-worker threads. It can also crash intermittently while loading (1 in 3 runs here).\n- Tested on Apple silicon (M4) only.\n\n## Contributors\n\n**macOS port**\n- @xnetcat: the macOS port, Metal V2, the shader compiler, the split GPU process and the launcher\n- @gavinnolan: Ghost of Tsushima and Black Myth: Wukong on Metal V2, the native GPU process, tessellation, multisampled depth, occlusion queries and shader compiler work\n- @voidborn-astra: memory and kernel mapping fixes, shader translation and GPU/AGC correctness fixes\n- @juanfariasdev: queued mutex waiters spin for their grant before parking\n\n**Upstream fixes brought into the port**\n@Stoltemberg, @theantipopau, @soufian3hmdz, @Leonid749, @AtsonMelo, @yeshaswi3060, @Armi1014, @NickPom, @ajaysaagar-dev, @semirkabir, @zsigisti, @Fayberr, @SulaymanKh\n\n**Upstream SharpEmu 0.0.6 \u2192 0.0.7-pulse**\n@par274, @Im-Usif, @Kuaryn, @simplehima, @Nenderus",
+      "source": "static-fallback",
+      "assets": [
+        {
+          "name": "sharpemu-0.0.7-pulse-osx-x64-app.zip",
+          "downloadUrl": "https://github.com/sharpemu/sharpemu-mac/releases/download/v0.0.7-pulse/sharpemu-0.0.7-pulse-osx-x64-app.zip",
+          "sizeBytes": 148937984
+        },
+        {
+          "name": "sharpemu-0.0.7-pulse-osx-x64.tar.gz",
+          "downloadUrl": "https://github.com/sharpemu/sharpemu-mac/releases/download/v0.0.7-pulse/sharpemu-0.0.7-pulse-osx-x64.tar.gz",
+          "sizeBytes": 68697248
+        }
+      ]
     }
   },
   "emulatorSupportedGames": {
@@ -380,9 +403,54 @@
     "kytyps5-jetsku": [
       "Astro Bot",
       "Demon's Souls"
+    ],
+    "sharpemu-macos": [
+      "Demon's Souls"
     ]
   },
   "customEmulators": [
+    {
+      "id": "sharpemu-macos",
+      "name": "SharpEmu macOS",
+      "category": "PS5 Native / HLE",
+      "activityLabel": "Community Approved \u00b7 25 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C#"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Official SharpEmu build targeting Mac devices, bringing the experimental PlayStation 5 emulator to Apple hardware.",
+      "statusSummary": "Official SharpEmu build targeting Mac devices, bringing the experimental PlayStation 5 emulator to Apple hardware.",
+      "repoOwner": "sharpemu",
+      "repoName": "sharpemu-mac",
+      "repoUrl": "https://github.com/sharpemu/sharpemu-mac",
+      "releasesPageUrl": "https://github.com/sharpemu/sharpemu-mac/releases",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/sharpemu/sharpemu-mac/releases/latest",
+      "stars": 25,
+      "supportedGames": [
+        "Demon's Souls"
+      ],
+      "lastAutoScannedAt": "2026-11-15T19:26:04Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "v0.0.7-pulse",
+        "releaseTitle": "SharpEmu v0.0.7-pulse",
+        "publishedAt": "2026-11-01T11:06:07Z",
+        "formattedDate": "Nov 01, 2026",
+        "releaseUrl": "https://github.com/sharpemu/sharpemu-mac/releases/tag/v0.0.7-pulse",
+        "directAssetUrl": "https://github.com/sharpemu/sharpemu-mac/releases/download/v0.0.7-pulse/sharpemu-0.0.7-pulse-osx-x64-app.zip",
+        "directAssetName": "sharpemu-0.0.7-pulse-osx-x64-app.zip",
+        "bodyNotes": "# SharpEmu for macOS v0.0.7-pulse\n\nUpstream SharpEmu dropped macOS (sharpemu#1123), and this repository is now the macOS build of the PS5 emulator. Since v0.0.6 the whole emulator has been ported to macOS on Apple silicon. That covers host memory, CPU execution, the kernel and HLE libraries, the shader compiler and the GPU backend. The fork adds 237k lines of source and 168k lines of tests on top of upstream. Upstream SharpEmu 0.0.7-pulse is merged in.\n\n## Platform\n\n- **Native macOS host** (`src/platforms/macos`, ~10k lines): guest memory, windowing, input and display. Per-OS host packages and SDL/Skia adapters.\n- **CPU:** the x86-64 guest code runs directly under Rosetta 2, and imports go through a native import path. AGC packet builders and other hot HLE entry points are answered by native stubs inside the guest.\n- **Kernel and HLE:** reworked kernel memory, files, sync and event queues, and the host seam and guest memory model.\n  - Fibers lock per stripe instead of through one global gate.\n  - The thread-local storage lookup `__tls_get_addr` is cached per thread.\n  - User-level-thread (ULT) wakeups are targeted to the waiters that changed.\n  - Pthread mutexes spin while the owner runs.\n  - Short sleeps nap on an escalating schedule.\n- **macOS 27:** the OS reserves VA ranges that PS5 titles map. The loader relocates the affected arena bases, including GTA V's RAGE arena and Ghost of Tsushima's batch maps, and maps virtual views into the GPU carveout.\n- **Spin-nap patcher:** guest pause/spin loops are patched to sleep. Demon's Souls' idle job workers nap instead of spinning.\n- **Display:** the guest render resolution follows the chosen output. There are patches for Unity (boot.config), Unreal, KEX, GTA V, small engines compiled for 3840\u00d72160, and Demon's Souls (its Bluepoint resolution adapter).\n\n## GPU: Metal V2\n\n- **Metal-only renderer** (`SharpEmu.Gpu.Metal`, ~70k lines). There is no Vulkan or MoltenVK layer, and the earlier Metal V1 backend is removed.\n- **Command processing** runs on its own thread by default.\n  - Program resolution and prefetch run on a separate thread, with pipeline look-ahead across the submissions queued behind it.\n  - Encoders are ordered by one fence instead of a barrier after each.\n- **Resource materialization** is native and cached. Bindless tables are memoised and kept resident. Repeated lookups skip searches that found nothing last time.\n- **Image cache:**\n  - Single-copy retile.\n  - Write-back of GPU-written images before guest stores.\n  - Alias transitions fused, with dead contents discarded.\n  - Memoryless stand-ins for colour targets that are only read or stored.\n  - Depth/stencil reached on the device instead of through guest memory.\n- **Occlusion queries** are counted on the device.\n- **Tessellation** uses the hull kernel plus Metal's tessellator, including Ghost of Tsushima's quad-patch instanced grass.\n- **Multisampling:** multisampled depth goes through a one-sample proxy plus resolve. A GPU-written HTILE is no longer loaded as a clear (UE5 Nanite).\n- **Pipeline cache:**\n  - Shaders compile into Metal binary archives, bounded by use and shared across builds.\n  - Shader prewarm stores compute pipelines.\n  - Guest stores are served while a draw waits for its shader compiles.\n- **GPU worker:** no per-draw or per-dispatch allocations, fewer guest re-reads, less lock traffic. Bench tooling is in-tree.\n\n## Shader compiler: gfx10 \u2192 MSL\n\n- **Translator** (`SharpEmu.ShaderCompiler.Metal`, ~25k lines) emits Metal Shading Language directly, at gfx10 ISA parity.\n- **wave64** runs as two Apple simdgroups. Multi-wave compute groups are bridged across simdgroups and meet at threadgroup barriers. Upper-lane reads and LDS atomics are ordered across the halves.\n- **NGG and mesh:** amplified NGG subgroups run as whole mesh workgroups of real wave64 waves.\n- **Ray tracing:** BVH nodes are read 16 bytes at a time, with half-precision boxes widened in hardware.\n- **Descriptors:** records chosen at run time, branch-chosen V#s, indirect image tables of up to 256 descriptors, and stores through V#s loaded from record tables are all planned and bound.\n- **Fixes:** SDWA destination select, `s_cmpk_*`, GDS M0 addressing, FORCE_DEGAMMA samplers, min/max filter samplers, compare samples of mipmapped images, and GLC store write-through.\n\n## Split GPU process\n\n- The GPU backend runs in a separate **native arm64 process**, now the default where it can run.\n  - It maps the guest's backing memory and replicates the guest's views.\n  - The two processes talk over a shared-memory transport (protocol 2).\n- Page-protection tracking is per 4 KiB page. A posted call wakes a single server thread.\n- `build-app.sh` bundles the arm64 GPU host in `Contents/MacOS/gpuhost`.\n\n## App\n\n- The launcher is a native arm64 Avalonia app and is the bundle's main executable. Game windows and Dock tiles are named after the game.\n- Launcher settings are global, and game settings are per game, with automatic migration. GUI and CLI share one launch configuration.\n- All logs, traces and dumps go under one logs folder. Caches are kept outside the signed bundle.\n- The performance overlay shows real CPU, GPU busy time and memory for both processes.\n\n## Upstream 0.0.6 \u2192 0.0.7-pulse\n\n- Tessellation, draw reuse and GNM mode.\n- XML and pattern game patches, with a patch manager.\n- Shader warm-up progress on the splash screen.\n- SPIR-V optimisation passes and UE4 ray-tracing shader-call programs.\n- Fixes for Saros, Elden Ring, Tomb Raider Legend, NGS2/ATRAC9 and AGC occlusion.\n- Simplified Chinese.\n\n## Performance (Apple M4, 1080p, in game)\n\n| Game | FPS |\n|---|---|\n| Quake, Superliminal, Void Terrarium, Dreaming Sarah | 60 |\n| The Oregon Trail | ~58 |\n| Poppy Playtime | ~47 |\n| GTA V (Performance) | ~46 |\n| Silent Hill: The Short Message | ~29 |\n| GTA V (Fidelity) | ~7 |\n| Demon's Souls | ~3\u20137 (bound by the game's own CPU work) |\n\n## Known issues\n\n- GTA V Fidelity mode runs at about 7 fps in game. Use Performance mode.\n- Demon's Souls is limited by its own job-worker threads. It can also crash intermittently while loading (1 in 3 runs here).\n- Tested on Apple silicon (M4) only.\n\n## Contributors\n\n**macOS port**\n- @xnetcat: the macOS port, Metal V2, the shader compiler, the split GPU process and the launcher\n- @gavinnolan: Ghost of Tsushima and Black Myth: Wukong on Metal V2, the native GPU process, tessellation, multisampled depth, occlusion queries and shader compiler work\n- @voidborn-astra: memory and kernel mapping fixes, shader translation and GPU/AGC correctness fixes\n- @juanfariasdev: queued mutex waiters spin for their grant before parking\n\n**Upstream fixes brought into the port**\n@Stoltemberg, @theantipopau, @soufian3hmdz, @Leonid749, @AtsonMelo, @yeshaswi3060, @Armi1014, @NickPom, @ajaysaagar-dev, @semirkabir, @zsigisti, @Fayberr, @SulaymanKh\n\n**Upstream SharpEmu 0.0.6 \u2192 0.0.7-pulse**\n@par274, @Im-Usif, @Kuaryn, @simplehima, @Nenderus",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "kytyps5-jetsku",
       "name": "KytyPS5 Jetsku",

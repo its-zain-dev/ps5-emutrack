@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[SharpEmu macOS](https://github.com/sharpemu/sharpemu-mac)** — `C#` · `Vulkan` · `Windows, Linux`  
+  Official SharpEmu build targeting Mac devices, bringing the experimental PlayStation 5 emulator to Apple hardware. · Detected Titles: Demon's Souls ([Releases / Docs](https://github.com/sharpemu/sharpemu-mac/releases))
 - **[KytyPS5 Jetsku](https://github.com/Jetsku/KytyPS5)** — `C++` · `Vulkan` · `Windows, Linux`  
   Experimental KytyPS5 U59 fork with merged shader and renderer fixes, maintaining a complete sanitized history and Windows releases. · Detected Titles: Astro Bot, Demon's Souls ([Releases / Docs](https://github.com/Jetsku/KytyPS5/releases))
 - **[KytyPS5 Demon Souls FrameGen](https://github.com/ceremony88/KytyPS5-DemonsSouls-FrameGen)** — `C++` · `Vulkan` · `Windows, Linux`  
