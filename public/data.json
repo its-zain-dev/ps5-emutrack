@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:23:09Z",
+  "generatedAt": "2026-11-15T19:23:44Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:23:09Z",
+  "lastCompatibilityScan": "2026-11-15T19:23:44Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -289,6 +289,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- Experimental PS5 compatibility layer and desktop frontend for Windows and Linux exploring HLE module reimplementation.",
       "source": "community-approved",
       "assets": []
+    },
+    "zylxemu": {
+      "tagName": "community-verified",
+      "releaseTitle": "ZylxEmu Verified Release",
+      "publishedAt": "2026-09-05T17:55:49Z",
+      "formattedDate": "Sep 05, 2026",
+      "releaseUrl": "https://github.com/zenunqq/zylxemu",
+      "directAssetUrl": "https://github.com/zenunqq/zylxemu",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- PS4/PS5 emulator experiment in C# exposing x86/x64 native CPU extensions for guest title execution.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -318,6 +330,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "zylxemu",
+      "name": "ZylxEmu",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 1 Stars",
+      "isMostActive": false,
+      "languages": [
+        "C#"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "PS4/PS5 emulator experiment in C# exposing x86/x64 native CPU extensions for guest title execution.",
+      "statusSummary": "PS4/PS5 emulator experiment in C# exposing x86/x64 native CPU extensions for guest title execution.",
+      "repoOwner": "zenunqq",
+      "repoName": "zylxemu",
+      "repoUrl": "https://github.com/zenunqq/zylxemu",
+      "releasesPageUrl": "https://github.com/zenunqq/zylxemu",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/zenunqq/zylxemu/releases/latest",
+      "stars": 1,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:23:35Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "ZylxEmu Verified Release",
+        "publishedAt": "2026-09-05T17:55:49Z",
+        "formattedDate": "Sep 05, 2026",
+        "releaseUrl": "https://github.com/zenunqq/zylxemu",
+        "directAssetUrl": "https://github.com/zenunqq/zylxemu",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- PS4/PS5 emulator experiment in C# exposing x86/x64 native CPU extensions for guest title execution.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "ps5-pc-emulator",
       "name": "PS5 PC Emulator",

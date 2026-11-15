@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[ZylxEmu](https://github.com/zenunqq/zylxemu)** — `C#` · `Vulkan` · `Windows, Linux`  
+  PS4/PS5 emulator experiment in C# exposing x86/x64 native CPU extensions for guest title execution. ([Releases / Docs](https://github.com/zenunqq/zylxemu))
 - **[PS5 PC Emulator](https://github.com/mustafaaldaffaie/PS5-PC-Emulator)** — `C++` · `Vulkan` · `Windows, Linux`  
   Experimental PS5 compatibility layer and desktop frontend for Windows and Linux exploring HLE module reimplementation. ([Releases / Docs](https://github.com/mustafaaldaffaie/PS5-PC-Emulator))
 - **[KytyPS5 TMNT](https://github.com/edfwasd1234/KytyPS5-tmnt)** — `C++` · `Vulkan` · `Windows, Linux`  
