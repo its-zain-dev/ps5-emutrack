@@ -66,6 +66,8 @@
 ### Auto-Approved Community Submissions
 
 <!-- AUTO-TRACKED-EMULATORS:START -->
+- **[KytyPS5 Emscripten](https://github.com/Shubin123/kytyps5_emscripten)** — `C++` · `Vulkan` · `Windows, Linux`  
+  Emscripten/WebAssembly port of KytyPS5 that compiles the emulator core to run inside a web browser. ([Releases / Docs](https://github.com/Shubin123/kytyps5_emscripten))
 - **[PCS5](https://github.com/StoneCold608/PCS5)** — `C++` · `Vulkan` · `Windows, Linux`  
   PS5 emulator project focused on PC-hosted execution of PS5 binaries with a custom loader and graphics translation layer. ([Releases / Docs](https://github.com/StoneCold608/PCS5))
 - **[NovaPS5 Android](https://github.com/kaminofilms/NovaPS5-Android)** — `C` · `Vulkan` · `Windows, Linux`  

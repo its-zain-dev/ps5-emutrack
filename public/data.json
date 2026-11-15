@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-15T19:19:50Z",
+  "generatedAt": "2026-11-15T19:20:24Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
-  "lastCompatibilityScan": "2026-11-15T19:19:50Z",
+  "lastCompatibilityScan": "2026-11-15T19:20:24Z",
   "emulators": {
     "kytyps5": {
       "tagName": "KytyPS5-2026-11-15-f9dd415",
@@ -217,6 +217,18 @@
       "bodyNotes": "### Auto-Approved Addition\n- PS5 emulator project focused on PC-hosted execution of PS5 binaries with a custom loader and graphics translation layer.",
       "source": "community-approved",
       "assets": []
+    },
+    "kytyps5-emscripten": {
+      "tagName": "community-verified",
+      "releaseTitle": "KytyPS5 Emscripten Verified Release",
+      "publishedAt": "2026-10-29T12:07:36Z",
+      "formattedDate": "Oct 29, 2026",
+      "releaseUrl": "https://github.com/Shubin123/kytyps5_emscripten",
+      "directAssetUrl": "https://github.com/Shubin123/kytyps5_emscripten",
+      "directAssetName": "Releases / Documentation",
+      "bodyNotes": "### Auto-Approved Addition\n- Emscripten/WebAssembly port of KytyPS5 that compiles the emulator core to run inside a web browser.",
+      "source": "community-approved",
+      "assets": []
     }
   },
   "emulatorSupportedGames": {
@@ -246,6 +258,46 @@
     ]
   },
   "customEmulators": [
+    {
+      "id": "kytyps5-emscripten",
+      "name": "KytyPS5 Emscripten",
+      "category": "Translation & Re-Linking",
+      "activityLabel": "Community Approved \u00b7 Auto-Synced",
+      "isMostActive": false,
+      "languages": [
+        "C++"
+      ],
+      "graphicsBackends": [
+        "Vulkan"
+      ],
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "architectureSummary": "Emscripten/WebAssembly port of KytyPS5 that compiles the emulator core to run inside a web browser.",
+      "statusSummary": "Emscripten/WebAssembly port of KytyPS5 that compiles the emulator core to run inside a web browser.",
+      "repoOwner": "Shubin123",
+      "repoName": "kytyps5_emscripten",
+      "repoUrl": "https://github.com/Shubin123/kytyps5_emscripten",
+      "releasesPageUrl": "https://github.com/Shubin123/kytyps5_emscripten",
+      "apiLatestReleaseUrl": "https://api.github.com/repos/Shubin123/kytyps5_emscripten/releases/latest",
+      "stars": null,
+      "supportedGames": [],
+      "lastAutoScannedAt": "2026-11-15T19:20:15Z",
+      "autoApproved": true,
+      "fallbackRelease": {
+        "tagName": "community-verified",
+        "releaseTitle": "KytyPS5 Emscripten Verified Release",
+        "publishedAt": "2026-10-29T12:07:36Z",
+        "formattedDate": "Oct 29, 2026",
+        "releaseUrl": "https://github.com/Shubin123/kytyps5_emscripten",
+        "directAssetUrl": "https://github.com/Shubin123/kytyps5_emscripten",
+        "directAssetName": "Releases / Documentation",
+        "bodyNotes": "### Auto-Approved Addition\n- Emscripten/WebAssembly port of KytyPS5 that compiles the emulator core to run inside a web browser.",
+        "source": "community-approved",
+        "assets": []
+      }
+    },
     {
       "id": "pcs5",
       "name": "PCS5",
