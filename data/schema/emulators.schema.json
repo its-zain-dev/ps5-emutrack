@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PS5 EmuTrack Emulators Registry",
+  "type": "object",
+  "required": ["emulators"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "emulators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "repo", "category", "tier", "addedAt"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "name": { "type": "string", "minLength": 1, "maxLength": 60 },
+          "repo": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})/[A-Za-z0-9._-]{1,100}$"
+          },
+          "category": { "type": "string", "enum": ["ps5", "fork", "port", "ps4"] },
+          "tier": { "type": "string", "enum": ["featured", "community"] },
+          "forkOf": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "platforms": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["Windows", "Linux", "macOS", "Android", "iOS", "PS4", "Web"]
+            }
+          },
+          "summary": { "type": "string", "minLength": 10, "maxLength": 280 },
+          "addedAt": { "type": "string", "format": "date" }
+        }
+      }
+    }
+  }
+}

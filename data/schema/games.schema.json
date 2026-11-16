@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PS5 EmuTrack Games Registry",
+  "type": "object",
+  "required": ["games"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "games": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+          "title": { "type": "string", "minLength": 1, "maxLength": 100 },
+          "developer": { "type": "string" },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "releaseDate": { "type": "string", "format": "date" },
+          "platform": { "type": "string" }
+        }
+      }
+    }
+  }
+}

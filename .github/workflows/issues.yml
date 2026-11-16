@@ -1,0 +1,85 @@
+name: Issue Triage & Approval
+
+on:
+  issues:
+    types: [opened, edited, reopened, labeled]
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: issue-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  triage:
+    if: >-
+      github.event.action != 'labeled' &&
+      (contains(github.event.issue.labels.*.name, 'emulator-submission') ||
+       contains(github.event.issue.labels.*.name, 'compatibility-report'))
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run automated checks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m tracker triage
+
+  approve:
+    if: github.event.action == 'labeled' && github.event.label.name == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - id: approve
+        name: Evaluate and apply approved issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m tracker approve
+
+      - name: Commit and push registry update
+        if: steps.approve.outputs.result == 'approved'
+        env:
+          COMMIT_MSG: ${{ steps.approve.outputs.commit }}
+        run: |
+          git config user.name "ps5-emutrack-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/ README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "$COMMIT_MSG"
+            git push
+          fi
+
+      - name: Comment, close issue, and redeploy Pages
+        if: steps.approve.outputs.result == 'approved'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+          MSG: ${{ steps.approve.outputs.message }}
+        run: |
+          gh issue comment "$ISSUE_NUM" --repo "$REPO" --body "$MSG"
+          gh issue close "$ISSUE_NUM" --repo "$REPO" --reason completed
+          gh workflow run pages.yml --repo "$REPO" --ref main
+
+      - name: Handle rejection or unauthorized labeling
+        if: steps.approve.outputs.result == 'rejected' || steps.approve.outputs.result == 'forbidden'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+          MSG: ${{ steps.approve.outputs.message }}
+        run: |
+          gh issue edit "$ISSUE_NUM" --repo "$REPO" --remove-label approved || true
+          if [ -n "$MSG" ]; then
+            gh issue comment "$ISSUE_NUM" --repo "$REPO" --body "$MSG"
+          fi

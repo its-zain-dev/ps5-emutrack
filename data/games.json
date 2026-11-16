@@ -1,0 +1,121 @@
+{
+  "$schema": "./schema/games.schema.json",
+  "games": [
+    {
+      "id": "gta-vi",
+      "title": "Grand Theft Auto VI",
+      "developer": "Rockstar Games",
+      "aliases": [
+        "grand theft auto 6",
+        "gta 6",
+        "gta vi pc",
+        "gta6",
+        "rockstar"
+      ],
+      "releaseDate": "2026-11-19"
+    },
+    {
+      "id": "ghost-of-yotei",
+      "title": "Ghost of Yōtei",
+      "developer": "Sucker Punch",
+      "aliases": [
+        "ghost of yotei",
+        "sucker punch",
+        "yotei pc"
+      ]
+    },
+    {
+      "id": "astro-bot",
+      "title": "Astro Bot",
+      "developer": "Team Asobi",
+      "aliases": [
+        "astro bot pc",
+        "astrobot",
+        "team asobi"
+      ]
+    },
+    {
+      "id": "demons-souls",
+      "title": "Demon's Souls",
+      "developer": "Bluepoint Games",
+      "aliases": [
+        "demon souls ps5 pc",
+        "demons souls",
+        "soulsborne"
+      ]
+    },
+    {
+      "id": "spider-man-2",
+      "title": "Marvel's Spider-Man 2",
+      "developer": "Insomniac Games",
+      "aliases": [
+        "spider man 2 ps5",
+        "spiderman 2"
+      ]
+    },
+    {
+      "id": "returnal",
+      "title": "Returnal",
+      "developer": "Housemarque",
+      "aliases": [
+        "housemarque",
+        "returnal ps5"
+      ]
+    },
+    {
+      "id": "stellar-blade",
+      "title": "Stellar Blade",
+      "developer": "Shift Up",
+      "aliases": [
+        "stellar blade ps5"
+      ]
+    },
+    {
+      "id": "bloodborne",
+      "title": "Bloodborne",
+      "developer": "FromSoftware",
+      "aliases": [
+        "bloodborne 60fps",
+        "bloodborne pc",
+        "shadps4 bloodborne"
+      ],
+      "platform": "PS4"
+    },
+    {
+      "id": "god-of-war-ragnarok",
+      "title": "God of War Ragnarök",
+      "developer": "Santa Monica Studio",
+      "aliases": [
+        "god of war ragnarok",
+        "gow ragnarok"
+      ]
+    },
+    {
+      "id": "ff7-rebirth",
+      "title": "Final Fantasy VII Rebirth",
+      "developer": "Square Enix",
+      "aliases": [
+        "ff7 rebirth",
+        "final fantasy 7 rebirth"
+      ]
+    },
+    {
+      "id": "horizon-forbidden-west",
+      "title": "Horizon Forbidden West",
+      "developer": "Guerrilla Games",
+      "aliases": [
+        "forbidden west",
+        "horizon"
+      ]
+    },
+    {
+      "id": "wolverine-ps5",
+      "title": "Marvel's Wolverine",
+      "developer": "Insomniac Games",
+      "aliases": [
+        "marvel wolverine",
+        "wolverine ps5"
+      ]
+    }
+  ]
+}

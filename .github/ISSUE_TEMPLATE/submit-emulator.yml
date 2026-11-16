@@ -1,56 +1,63 @@
-name: Submit New PS5 Emulator
-description: Propose a new open-source PS5 emulator or compatibility layer for moderator review.
-title: "[Emulator Submission] "
-labels: ["emulator-submission", "needs-review"]
+name: Submit an Emulator
+description: Propose an open-source PS5 emulator, fork, or port to add to PS5 EmuTrack.
+title: "[Emulator] "
+labels: ["emulator-submission"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for contributing to **PS5 EmuTrack**! Submissions are reviewed by maintainers to verify repository authenticity and prevent look-alike malware forks before being added to the main directory.
+        Only public, open-source repositories on GitHub are accepted. Automated checks run as soon as you open this issue.
   - type: input
     id: name
     attributes:
-      label: Emulator Name
-      placeholder: "e.g. NovaPS5"
+      label: Emulator name
+      placeholder: e.g. NovaPS5
     validations:
       required: true
   - type: input
-    id: repo_url
+    id: repo
     attributes:
-      label: Official GitHub Repository URL
-      placeholder: "https://github.com/owner/repository"
-    validations:
-      required: true
-  - type: input
-    id: releases_or_docs
-    attributes:
-      label: Latest Releases or Documentation Link
-      placeholder: "https://github.com/owner/repository/releases"
+      label: Repository
+      description: Full GitHub repository URL.
+      placeholder: https://github.com/owner/repo
     validations:
       required: true
   - type: dropdown
     id: category
     attributes:
-      label: Architecture Category
+      label: Category
       options:
-        - PS5 Native / HLE
-        - Translation & Re-Linking
-        - Low-Level / Kernel
-        - Mobile & Cross-Console
-        - PS4 & Hybrid Compat
+        - PS5 emulator / compatibility layer
+        - Fork or custom build of another emulator
+        - Port or frontend (Android, iOS, macOS, web, PS4…)
+        - PS4 emulator / related project
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: Short description
+      description: 10–280 characters describing what it targets and how it works.
+      placeholder: e.g. Experimental C++20 PS5 HLE runtime with a Vulkan renderer for Linux and Windows.
     validations:
       required: true
   - type: input
-    id: stack
+    id: fork_of
     attributes:
-      label: Language, Graphics API & Platforms
-      placeholder: "C++20 · Vulkan · Windows, Linux"
+      label: Fork of (optional)
+      description: If this is a fork or port of another tracked emulator, enter its name or repo URL.
+      placeholder: e.g. KytyPS5
     validations:
       required: false
-  - type: textarea
-    id: description
+  - type: checkboxes
+    id: platforms
     attributes:
-      label: Brief Description
-      description: Summarize what the emulator targets, its translation/emulation approach, and current boot progress.
-    validations:
-      required: true
+      label: Platforms
+      options:
+        - label: Windows
+        - label: Linux
+        - label: macOS
+        - label: Android
+        - label: iOS
+        - label: PS4
+        - label: Web

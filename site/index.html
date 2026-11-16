@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PS5 EmuTrack: every open-source PS5 emulator, tracked hourly</title>
+    <meta
+      name="description"
+      content="An independent, open-source tracker for PlayStation 5 emulators: latest GitHub releases, project activity, and sourced game compatibility reports for KytyPS5, SharpEmu, AnyPS5 and more."
+    />
+    <meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="google-site-verification" content="xKwdJEB_WzQuCEltZwvfQgXwB-RtqlKR8q9zS6kt34" />
+    <link rel="canonical" href="https://its-zain-dev.github.io/ps5-emutrack/" />
+    <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PS5 EmuTrack" />
+    <meta property="og:title" content="PS5 EmuTrack: open-source PS5 emulator tracker" />
+    <meta property="og:description" content="Latest releases, activity and sourced compatibility reports for every open-source PS5 emulator." />
+    <meta property="og:url" content="https://its-zain-dev.github.io/ps5-emutrack/" />
+    <meta property="og:image" content="https://its-zain-dev.github.io/ps5-emutrack/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preload" href="./data.json" as="fetch" crossorigin />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script type="module" src="./assets/js/main.js"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PS5 EmuTrack",
+        "url": "https://its-zain-dev.github.io/ps5-emutrack/",
+        "description": "Independent tracker for open-source PlayStation 5 emulators."
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#top" class="brand" aria-label="PS5 EmuTrack home">
+          <img src="./assets/icon.svg" alt="" width="28" height="28" />
+          <span>PS5 <b>EmuTrack</b></span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#emulators">Emulators</a>
+          <a href="#compatibility">Compatibility</a>
+          <a href="#contribute">Contribute</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <a class="btn btn-ghost btn-sm" href="https://github.com/its-zain-dev/ps5-emutrack" target="_blank" rel="noopener">
+          <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="container">
+          <p class="eyebrow">Independent · Open source · Updated hourly</p>
+          <h1>Every open-source PS5 emulator, <span class="accent">in one place.</span></h1>
+          <p class="lead">
+            Latest GitHub releases, project activity, and game compatibility reports. Every
+            compatibility entry links to its source. We host no binaries, firmware or games.
+          </p>
+          <dl class="stats" id="stats" aria-live="polite">
+            <div><dt>Projects tracked</dt><dd data-stat="projects">–</dd></div>
+            <div><dt>Releases this week</dt><dd data-stat="weekly">–</dd></div>
+            <div><dt>Compatibility reports</dt><dd data-stat="reports">–</dd></div>
+            <div><dt>Data refreshed</dt><dd data-stat="updated">–</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section" id="emulators" aria-labelledby="emulators-title">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 id="emulators-title">Emulators</h2>
+              <p class="muted">
+                <span class="tier-dot featured"></span> Featured projects are established and reviewed by maintainers.
+                <span class="tier-dot community"></span> Community listings are submitted by users and only lightly checked.
+              </p>
+            </div>
+          </div>
+
+          <form class="toolbar" id="emu-filters" role="search" onsubmit="return false">
+            <label class="field field-search">
+              <span class="sr-only">Search emulators</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
+              <input type="search" name="q" placeholder="Search name, repo, language…" autocomplete="off" />
+            </label>
+            <div class="chips" role="radiogroup" aria-label="Category" id="category-chips"></div>
+            <label class="field">
+              <span class="sr-only">Platform</span>
+              <select name="platform">
+                <option value="">All platforms</option>
+                <option>Windows</option><option>Linux</option><option>macOS</option>
+                <option>Android</option><option>iOS</option><option>PS4</option><option>Web</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="sr-only">Sort by</span>
+              <select name="sort">
+                <option value="release">Latest release</option>
+                <option value="stars">Most stars</option>
+                <option value="activity">Recently active</option>
+                <option value="name">Name</option>
+              </select>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" name="inactive" />
+              <span>Include inactive</span>
+            </label>
+          </form>
+
+          <p class="result-count muted" id="emu-count" aria-live="polite"></p>
+          <div class="emu-grid" id="emu-grid">
+            <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
+          </div>
+          <noscript><p class="notice">This page needs JavaScript to show live data. The full list is also in the <a href="https://github.com/its-zain-dev/ps5-emutrack#tracked-emulators">README</a>.</p></noscript>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="compatibility" aria-labelledby="compat-title">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 id="compat-title">Game compatibility</h2>
+              <p class="muted">
+                Each cell shows the best status reported for that emulator. <strong>Verified</strong> reports link to evidence and were approved by a maintainer.
+                Entries marked <span class="unverified-tag">unverified</span> have no source yet. Treat them as rumours.
+              </p>
+            </div>
+            <a class="btn btn-primary" id="report-link" href="#" target="_blank" rel="noopener">Submit a report</a>
+          </div>
+
+          <div class="toolbar">
+            <label class="field field-search">
+              <span class="sr-only">Search games</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
+              <input type="search" id="game-search" placeholder="Search games…" autocomplete="off" />
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="show-unverified" checked />
+              <span>Show unverified</span>
+            </label>
+          </div>
+
+          <ul class="legend" id="legend" aria-label="Status legend"></ul>
+          <div class="table-wrap" id="compat-wrap" tabindex="0" role="region" aria-label="Compatibility table">
+            <table class="compat" id="compat-table"></table>
+          </div>
+          <p class="muted small" id="compat-empty" hidden>No games match your search.</p>
+        </div>
+      </section>
+
+      <section class="section" id="contribute" aria-labelledby="contribute-title">
+        <div class="container">
+          <h2 id="contribute-title">Contribute</h2>
+          <p class="muted">Everything goes through GitHub issues. You don't need an account anywhere else.</p>
+          <ol class="steps">
+            <li>
+              <h3>Open a form</h3>
+              <p>Use the <em>Submit emulator</em> or <em>Compatibility report</em> form. Reports need a video, screenshot or log as evidence.</p>
+            </li>
+            <li>
+              <h3>Automatic checks</h3>
+              <p>A bot checks the repository right away: it exists, is public, isn't a duplicate, and has a license. It posts the results as a comment.</p>
+            </li>
+            <li>
+              <h3>Maintainer approval</h3>
+              <p>When a maintainer adds the <code>approved</code> label, the entry is committed to <code>data/</code> and the site redeploys within minutes.</p>
+            </li>
+          </ol>
+          <div class="cta-row">
+            <a class="btn btn-primary" id="submit-link" href="#" target="_blank" rel="noopener">Submit an emulator</a>
+            <a class="btn btn-ghost" id="report-link-2" href="#" target="_blank" rel="noopener">Report compatibility</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="faq" aria-labelledby="faq-title">
+        <div class="container narrow">
+          <h2 id="faq-title">FAQ</h2>
+          <details>
+            <summary>Can a PS5 emulator run my games today?</summary>
+            <p>
+              Some titles boot, and a few are playable on the most mature projects. Performance varies a lot between
+              builds and GPUs. Check the compatibility table, and treat entries without evidence as unconfirmed.
+            </p>
+          </details>
+          <details>
+            <summary>How do I avoid fake or malicious "PS5 emulators"?</summary>
+            <p>
+              Real emulators are open source and published on GitHub. Be wary of anything that asks you to complete a
+              survey, enter a password, or download from a file-sharing site. Community listings here are only lightly
+              checked, so prefer <strong>featured</strong> projects and download only from the project's own GitHub Releases page.
+            </p>
+          </details>
+          <details>
+            <summary>Where do I get games, firmware or keys?</summary>
+            <p>
+              Not here. Emulators require you to dump games and system files from hardware you own. PS5 EmuTrack never
+              links to copyrighted games, firmware, BIOS files or keys, and such requests will be closed.
+            </p>
+          </details>
+          <details>
+            <summary>What do the compatibility statuses mean?</summary>
+            <p>
+              <strong>Nothing</strong>: doesn't start. <strong>Boots</strong>: shows a logo or loading screen.
+              <strong>Menus</strong>: reaches menus but not gameplay. <strong>In-Game</strong>: gameplay works with major issues.
+              <strong>Playable</strong>: can be completed with acceptable performance.
+            </p>
+          </details>
+          <details>
+            <summary>How is the data updated?</summary>
+            <p>
+              A GitHub Action rebuilds <a href="./data.json">data.json</a> every hour from the GitHub API, using the curated lists
+              in the repository's <code>data/</code> folder. If GitHub is unreachable, the last good snapshot is kept.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          <strong>PS5 EmuTrack</strong> is an independent, MIT-licensed project. It is not affiliated with Sony Interactive Entertainment.
+          “PlayStation” and “PS5” are trademarks of their respective owners.
+        </p>
+        <p class="footer-links">
+          <a href="https://github.com/its-zain-dev/ps5-emutrack" target="_blank" rel="noopener">Source</a>
+          <a href="./data.json">data.json</a>
+          <span id="footer-updated" class="muted"></span>
+        </p>
+      </div>
+    </footer>
+
+    <dialog id="release-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-inner">
+        <header class="dialog-head">
+          <div>
+            <h3 id="dialog-title"></h3>
+            <p class="muted small" id="dialog-sub"></p>
+          </div>
+          <button type="button" class="icon-btn" data-close aria-label="Close">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </header>
+        <div class="dialog-body" id="dialog-body"></div>
+      </div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" hidden></div>
+  </body>
+</html>

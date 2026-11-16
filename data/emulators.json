@@ -1,0 +1,568 @@
+{
+  "$schema": "./schema/emulators.schema.json",
+  "emulators": [
+    {
+      "id": "anyps5",
+      "name": "AnyPS5",
+      "repo": "boykopovar/AnyPS5",
+      "category": "ps5",
+      "tier": "featured",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Ports PS5 executables to run natively on Linux and Windows through automatic re-linking.",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytyps5",
+      "name": "KytyPS5",
+      "repo": "KytyPS5/KytyPS5",
+      "category": "ps5",
+      "tier": "featured",
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "summary": "The most widely used PS5 translation layer. Runs PS5 executables on Windows, Linux and macOS.",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "prosperity",
+      "name": "Prosperity",
+      "repo": "Force67/prosperity",
+      "category": "ps5",
+      "tier": "featured",
+      "summary": "Low-level (LLE) emulator targeting both PS4 and PS5 hardware.",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "sharpemu",
+      "name": "SharpEmu",
+      "repo": "sharpemu/sharpemu",
+      "category": "ps5",
+      "tier": "featured",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Experimental PS5 emulator written in C#/.NET with a Vulkan renderer, for Windows and Linux.",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "shadps4",
+      "name": "shadPS4",
+      "repo": "shadps4-emu/shadPS4",
+      "category": "ps4",
+      "tier": "featured",
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "summary": "The leading PS4 emulator. Many PS5 projects reuse its shader recompiler and HLE work.",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "cincar",
+      "name": "Cincar",
+      "repo": "linuxfanosis/Cincar",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "cl5",
+      "name": "CL5",
+      "repo": "SplaatSites/CL5",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "open5emu",
+      "name": "Open5Emu",
+      "repo": "SplaatSites/Open5Emu",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "p5emu",
+      "name": "P5EMU",
+      "repo": "NabuOX/P5EMU",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "pcs5",
+      "name": "PCS5",
+      "repo": "StoneCold608/PCS5",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "prosper",
+      "name": "Prosper",
+      "repo": "mattias800/prosper",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "ps5-pc-emulator",
+      "name": "PS5 PC Emulator",
+      "repo": "mustafaaldaffaie/PS5-PC-Emulator",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "ps5pcem",
+      "name": "PS5PCEM",
+      "repo": "iStark/PS5PCEM",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "ps5plusplus",
+      "name": "PS5plusplus",
+      "repo": "thesupersupersigma/PS5plusplus",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "ps5rs",
+      "name": "ps5rs",
+      "repo": "claimore22/ps5rs",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "pspc5-plus",
+      "name": "PSPC5 Plus",
+      "repo": "gurjotsenghww/pspc5-plus",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "rps5e",
+      "name": "RPS5E (RustPS5Emu)",
+      "repo": "keklick1337/rps5e",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "rustps5",
+      "name": "RustPS5",
+      "repo": "CipherSoul01/RustPS5",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "s5-play",
+      "name": "S5-Play",
+      "repo": "danielsem65/S5-Play",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "sharpemu-ps5-mac",
+      "name": "SharpEmu PS5 Mac",
+      "repo": "xxjonathan1997xx/SharpEmu-PS5-Mac",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "macOS"
+      ]
+    },
+    {
+      "id": "spogue5",
+      "name": "Spogue5",
+      "repo": "tinirey/Spogue5",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "touche-px5",
+      "name": "Touche PX5",
+      "repo": "Techx3/TouchePX5",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "vibestation5",
+      "name": "VibeStation5",
+      "repo": "Acelogic/VibeStation5",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "macOS"
+      ]
+    },
+    {
+      "id": "zeno5",
+      "name": "Zeno5",
+      "repo": "tossdace/Zeno5",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "zylxemu",
+      "name": "ZylxEmu",
+      "repo": "zenunqq/zylxemu",
+      "category": "ps5",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytyplus",
+      "name": "KytyPlus",
+      "repo": "Coder787-source/KytyPlus",
+      "category": "fork",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytyps5-linux",
+      "name": "KytyPS5 (chenxiao07 Linux build)",
+      "repo": "futbarista/KytyPS5-chenxiao07-linux",
+      "category": "fork",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytyps5-carecu",
+      "name": "KytyPS5 Carecu",
+      "repo": "carecu/KytyPS5",
+      "category": "fork",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytyps5-demon-souls-framegen",
+      "name": "KytyPS5 Demon Souls FrameGen",
+      "repo": "ceremony88/KytyPS5-DemonsSouls-FrameGen",
+      "category": "fork",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytyps5-gta5-fixes",
+      "name": "KytyPS5 GTA5 Fixes",
+      "repo": "CheesyPoofs346/KytyPS5-gta5-fixes",
+      "category": "fork",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "summary": "KytyPS5 fork with game-specific fixes.",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytyps5-jetsku",
+      "name": "KytyPS5 Jetsku",
+      "repo": "Jetsku/KytyPS5",
+      "category": "fork",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytyps5-tmnt",
+      "name": "KytyPS5 TMNT",
+      "repo": "edfwasd1234/KytyPS5-tmnt",
+      "category": "fork",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytyps5-wolverine",
+      "name": "KytyPS5 Wolverine",
+      "repo": "loyalty3/KytyPS5-wolverine",
+      "category": "fork",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "summary": "KytyPS5 fork with game-specific fixes.",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytyps5-supermedo",
+      "name": "KytyPS5-SuperMedo",
+      "repo": "Supermedo/KytyPS5-SuperMedo",
+      "category": "fork",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "platforms": [
+        "Windows"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "emufive",
+      "name": "EmuFive",
+      "repo": "blue0x1/EmuFive",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "platforms": [
+        "PS4"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kytx",
+      "name": "KyTx",
+      "repo": "TxCsOffc/KyTx",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "macOS"
+      ]
+    },
+    {
+      "id": "kytyps5-emscripten",
+      "name": "KytyPS5 Emscripten",
+      "repo": "Shubin123/kytyps5_emscripten",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "Web"
+      ]
+    },
+    {
+      "id": "kytyps5-android",
+      "name": "KytyPS5-Android",
+      "repo": "tarek369/KytyPS5-Android",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "platforms": [
+        "Android"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "lumen-emu",
+      "name": "Lumen Emu",
+      "repo": "gs-soft-it/lumen-emu",
+      "category": "port",
+      "tier": "community",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "Android",
+        "iOS"
+      ]
+    },
+    {
+      "id": "magnusps5",
+      "name": "MagnusPS5",
+      "repo": "hernan0078/MagnusPS5",
+      "category": "port",
+      "tier": "community",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "iOS"
+      ]
+    },
+    {
+      "id": "novaps5-android",
+      "name": "NovaPS5 Android",
+      "repo": "kaminofilms/NovaPS5-Android",
+      "category": "port",
+      "tier": "community",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "Android"
+      ]
+    },
+    {
+      "id": "onrps4-android",
+      "name": "onRps4-Android",
+      "repo": "dev-Ali2008/onRps4-Android",
+      "category": "port",
+      "tier": "community",
+      "platforms": [
+        "Android"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "orbis-kyty",
+      "name": "Orbis-Kyty",
+      "repo": "MrKitsune9/Orbis-Kyty",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "PS4"
+      ]
+    },
+    {
+      "id": "sharpdroid",
+      "name": "SharpDroid",
+      "repo": "mircowuffwuff/sharpdroid",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "sharpemu",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "Android"
+      ]
+    },
+    {
+      "id": "sharpemu-android",
+      "name": "SharpEmu Android",
+      "repo": "OniChan-little-GIRL/sharpemu-android",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "sharpemu",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "Android"
+      ]
+    },
+    {
+      "id": "sharpemu-macos",
+      "name": "SharpEmu for Mac",
+      "repo": "sharpemu/sharpemu-mac",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "sharpemu",
+      "addedAt": "2026-11-15",
+      "platforms": [
+        "macOS"
+      ]
+    },
+    {
+      "id": "empire-of-steel",
+      "name": "Empire of Steel",
+      "repo": "daeken/EmpireOfSteel",
+      "category": "ps4",
+      "tier": "community",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "fpps4",
+      "name": "fpPS4",
+      "repo": "red-prig/fpPS4",
+      "category": "ps4",
+      "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "gpcs4",
+      "name": "GPCS4",
+      "repo": "Inori/GPCS4",
+      "category": "ps4",
+      "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "kyty-inorirus",
+      "name": "Kyty (Upstream)",
+      "repo": "InoriRus/Kyty",
+      "category": "ps4",
+      "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "obliteration",
+      "name": "Obliteration",
+      "repo": "obhq/obliteration",
+      "category": "ps4",
+      "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "orbital",
+      "name": "Orbital",
+      "repo": "AlexAltea/orbital",
+      "category": "ps4",
+      "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "psoff",
+      "name": "psOff",
+      "repo": "SysRay/psOff_public",
+      "category": "ps4",
+      "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "addedAt": "2026-11-15"
+    }
+  ]
+}

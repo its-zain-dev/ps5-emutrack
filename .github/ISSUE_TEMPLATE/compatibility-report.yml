@@ -1,0 +1,66 @@
+name: Report Game Compatibility
+description: Submit a sourced compatibility test result for a tracked emulator.
+title: "[Compatibility] "
+labels: ["compatibility-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every compatibility report requires an `https://` link to evidence (video, screenshot, or log). Requests for pirated games, firmware, or keys are closed.
+  - type: input
+    id: game
+    attributes:
+      label: Game
+      placeholder: e.g. Astro Bot
+    validations:
+      required: true
+  - type: input
+    id: emulator
+    attributes:
+      label: Emulator
+      description: Tracked emulator name, ID, or GitHub repository URL.
+      placeholder: e.g. KytyPS5
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Emulator version or build
+      placeholder: e.g. KytyPS5-2026-11-15-f9dd415 or commit hash
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options:
+        - Playable — can be completed with acceptable performance
+        - In-Game — reaches gameplay with major issues
+        - Menus — reaches menus or title screen
+        - Boots — shows intro or loading screen only
+        - Nothing — crashes or black screen on launch
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Direct https:// link to a video, screenshot, or log output.
+      placeholder: https://...
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: Hardware (optional)
+      placeholder: e.g. Ryzen 7 7800X3D · RX 7800 XT · Ubuntu 24.04
+    validations:
+      required: false
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Framerate, graphical issues, crashes, or settings used.
+      placeholder: e.g. Runs intro at ~20 FPS on Vulkan; minor audio stutter.
+    validations:
+      required: false

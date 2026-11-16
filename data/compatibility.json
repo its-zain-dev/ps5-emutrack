@@ -1,0 +1,205 @@
+{
+  "$schema": "./schema/compatibility.schema.json",
+  "reports": [
+    {
+      "game": "ghost-of-yotei",
+      "emulator": "kytyps5",
+      "status": "ingame",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "ghost-of-yotei",
+      "emulator": "sharpemu",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "ghost-of-yotei",
+      "emulator": "anyps5",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "astro-bot",
+      "emulator": "kytyps5",
+      "status": "ingame",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "astro-bot",
+      "emulator": "sharpemu",
+      "status": "ingame",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "astro-bot",
+      "emulator": "prosperity",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "astro-bot",
+      "emulator": "anyps5",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "demons-souls",
+      "emulator": "kytyps5",
+      "status": "ingame",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "demons-souls",
+      "emulator": "sharpemu",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "demons-souls",
+      "emulator": "prosperity",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "spider-man-2",
+      "emulator": "kytyps5",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "spider-man-2",
+      "emulator": "sharpemu",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "returnal",
+      "emulator": "kytyps5",
+      "status": "ingame",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "returnal",
+      "emulator": "sharpemu",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "returnal",
+      "emulator": "anyps5",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "stellar-blade",
+      "emulator": "kytyps5",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "stellar-blade",
+      "emulator": "sharpemu",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "bloodborne",
+      "emulator": "kytyps5",
+      "status": "ingame",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "bloodborne",
+      "emulator": "sharpemu",
+      "status": "ingame",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "bloodborne",
+      "emulator": "prosperity",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "god-of-war-ragnarok",
+      "emulator": "kytyps5",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "god-of-war-ragnarok",
+      "emulator": "sharpemu",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "ff7-rebirth",
+      "emulator": "kytyps5",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "ff7-rebirth",
+      "emulator": "sharpemu",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    },
+    {
+      "game": "horizon-forbidden-west",
+      "emulator": "kytyps5",
+      "status": "menus",
+      "verified": false,
+      "date": "2026-11-15",
+      "notes": "Imported from the v1 dataset. No source was recorded."
+    }
+  ]
+}

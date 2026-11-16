@@ -1,6 +1,0 @@
-{
-  "name": "PS5 EmuTrack",
-  "description": "Real-time PlayStation 5 Emulator Release & Compatibility Tracker Hub tracking KytyPS5, SharpEmu, Prosperity, AnyPS5, and GTA VI compatibility.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
