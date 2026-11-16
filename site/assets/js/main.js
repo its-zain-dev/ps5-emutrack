@@ -173,6 +173,13 @@ function safeHttps(url) {
   return typeof url === 'string' && url.startsWith('https://') ? url : null;
 }
 
+function hasEmulatorPage(emu) {
+  if (!emu) return false;
+  if (emu.tier === 'featured' || emu.release) return true;
+  if ((emu.github?.stars || 0) >= 10) return true;
+  return Boolean(state.data?.reports.some((r) => r.emulator === emu.id));
+}
+
 function lastTouchMs(emu) {
   return Math.max(parseTime(emu.github?.pushedAt), parseTime(emu.release?.publishedAt));
 }
@@ -1053,6 +1060,7 @@ function openReleaseDialog(emuId) {
 
   sections.push(`<div class="dialog-actions-row">
     ${relUrl ? `<a class="btn btn-primary btn-sm" href="${escapeHtml(relUrl)}" target="_blank" rel="noopener noreferrer">Open release on GitHub ↗</a>` : ''}
+    ${hasEmulatorPage(emu) ? `<a class="btn btn-ghost btn-sm" href="./emulators/${escapeHtml(emu.id)}/">Full ${escapeHtml(emu.name)} page</a>` : ''}
     <button type="button" class="btn btn-ghost btn-sm" data-copy-text="${escapeHtml(rel.tag)}">Copy tag</button>
     ${relUrl ? `<button type="button" class="btn btn-ghost btn-sm" data-copy-text="${escapeHtml(relUrl)}">Copy URL</button>` : ''}
   </div>`);
@@ -1270,14 +1278,15 @@ function renderCompatibility() {
         });
 
       const prefillUrl = `${REPORT_URL}&title=${encodeURIComponent(`[Compatibility] ${game.title}`)}`;
+      const gamePageLink = `<a href="./games/${escapeHtml(game.id)}/">Full ${escapeHtml(game.title)} compatibility page ↗</a>`;
       reportItems.push(
-        `<li class="report"><span class="muted small" style="grid-column:2">Have a test result? <a href="${escapeHtml(prefillUrl)}" target="_blank" rel="noopener">Submit a verified report for ${escapeHtml(game.title)} ↗</a></span></li>`,
+        `<li class="report"><span class="muted small" style="grid-column:2">${gamePageLink} · <a href="${escapeHtml(prefillUrl)}" target="_blank" rel="noopener">Submit a verified report ↗</a></span></li>`,
       );
 
       const detailContent =
         gameReports.length > 0
           ? `<ul class="reports">${reportItems.join('')}</ul>`
-          : `<ul class="reports"><li class="report"><span class="muted small" style="grid-column:2">No ${state.showUnverified ? '' : 'verified '}reports match right now. <a href="${escapeHtml(prefillUrl)}" target="_blank" rel="noopener">Submit a verified report ↗</a></span></li></ul>`;
+          : `<ul class="reports"><li class="report"><span class="muted small" style="grid-column:2">No ${state.showUnverified ? '' : 'verified '}reports match right now. ${gamePageLink} · <a href="${escapeHtml(prefillUrl)}" target="_blank" rel="noopener">Submit a verified report ↗</a></span></li></ul>`;
 
       return `<tr class="game-row" data-game="${escapeHtml(game.id)}" tabindex="0" role="button" aria-expanded="${expanded}">
           <td>

@@ -39,3 +39,6 @@ jobs:
           path: ./site
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Notify IndexNow (Bing / ChatGPT Search)
+        if: success()
+        run: python -m tracker indexnow

@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from . import registry
+from . import registry, seo
 from .github import GitHub, GitHubError
 
 SITE = registry.ROOT / "site"
@@ -183,6 +183,7 @@ def main(argv: list[str]) -> int:
         help="previous data.json (path or https URL) used as a fallback; '' to disable",
     )
     parser.add_argument("--offline", action="store_true", help="skip GitHub; registry data only")
+    parser.add_argument("--no-html", action="store_true", help="skip static SEO page/sitemap generation")
     args = parser.parse_args(argv)
 
     reg = registry.load()
@@ -208,6 +209,12 @@ def main(argv: list[str]) -> int:
     if not args.offline and c["ok"] == 0 and not previous:
         print("GitHub API unreachable and no previous snapshot; refusing to publish empty data.", file=sys.stderr)
         return 1
+    if not args.no_html:
+        seo_counts = seo.generate(fetched_payload, out.parent)
+        print(
+            f"Generated SEO pages: {seo_counts['games']} games, {seo_counts['emulators']} emulators "
+            f"({seo_counts['urls']} sitemap URLs)"
+        )
     return 0
 
 

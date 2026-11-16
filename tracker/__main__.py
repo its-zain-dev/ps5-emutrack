@@ -1,8 +1,9 @@
 """PS5 EmuTrack data pipeline.
 
     python -m tracker validate        check data/*.json
-    python -m tracker build           fetch GitHub metadata -> site/data.json
+    python -m tracker build           fetch GitHub metadata -> site/data.json + static SEO pages
     python -m tracker readme [--check] regenerate the README emulator list
+    python -m tracker indexnow        ping IndexNow with URLs from site/sitemap.xml
     python -m tracker triage          (Actions) comment automated checks on an issue
     python -m tracker approve         (Actions) apply an approved issue to data/
 """
@@ -11,7 +12,7 @@ from __future__ import annotations
 
 import sys
 
-from . import build, issues, readme, registry
+from . import build, issues, readme, registry, seo
 
 
 def validate(argv: list[str]) -> int:
@@ -40,6 +41,7 @@ COMMANDS = {
     "validate": validate,
     "build": build.main,
     "readme": readme_cmd,
+    "indexnow": lambda _argv: seo.submit_indexnow(),
     "triage": issues.triage,
     "approve": issues.approve,
 }

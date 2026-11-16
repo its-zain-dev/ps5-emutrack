@@ -1,9 +1,10 @@
 import re
+import tempfile
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-from tracker import build, issues, readme, registry
+from tracker import build, issues, readme, registry, seo
 
 
 class RegistryTests(unittest.TestCase):
@@ -164,6 +165,49 @@ class BuildAndReadmeTests(unittest.TestCase):
             path = registry.ROOT / rel
             self.assertTrue(path.exists(), f"Missing README asset: {rel}")
             ET.parse(path)
+
+
+class SeoTests(unittest.TestCase):
+    def test_seo_generate_builds_subpages_and_sitemap(self) -> None:
+        reg = registry.load()
+        payload = {
+            "schemaVersion": 2,
+            "generatedAt": "2026-11-16T23:00:00Z",
+            "categories": registry.CATEGORIES,
+            "statuses": [{"id": s, "label": registry.STATUS_LABELS[s]} for s in registry.STATUSES],
+            "emulators": [
+                {
+                    **e,
+                    "url": f"https://github.com/{e['repo']}",
+                    "github": {"stars": 100 if e["tier"] == "featured" else 0, "language": "C++", "pushedAt": "2026-11-15T00:00:00Z"},
+                    "release": {"tag": "v1.0", "name": "v1.0", "publishedAt": "2026-11-15T00:00:00Z", "url": f"https://github.com/{e['repo']}/releases/tag/v1.0", "notes": "Test <script>alert(1)</script>", "assets": []}
+                    if e["id"] == "kytyps5"
+                    else None,
+                }
+                for e in reg.emulators
+            ],
+            "games": reg.games,
+            "reports": reg.reports,
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_site = Path(tmp)
+            (tmp_site / "index.html").write_text(
+                "<!-- SSR:STATS --><!-- /SSR:STATS -->"
+                "<!-- SSR:EMULATORS --><!-- /SSR:EMULATORS -->"
+                "<!-- SSR:COMPAT --><!-- /SSR:COMPAT -->"
+                "<!-- SSR:GUIDES --><!-- /SSR:GUIDES -->",
+                encoding="utf-8",
+            )
+            counts = seo.generate(payload, tmp_site)
+            self.assertEqual(counts["games"], len(reg.games))
+            self.assertTrue((tmp_site / "games" / "gta-vi" / "index.html").exists())
+            self.assertTrue((tmp_site / "emulators" / "kytyps5" / "index.html").exists())
+            kyty_html = (tmp_site / "emulators" / "kytyps5" / "index.html").read_text(encoding="utf-8")
+            self.assertNotIn("<script>alert(1)</script>", kyty_html)
+            self.assertIn("&lt;script&gt;", kyty_html)
+            sitemap = ET.fromstring((tmp_site / "sitemap.xml").read_text(encoding="utf-8"))
+            locs = sitemap.findall("{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc")
+            self.assertEqual(len(locs), counts["urls"])
 
 
 if __name__ == "__main__":
