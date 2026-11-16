@@ -15,6 +15,20 @@ body:
     validations:
       required: true
   - type: input
+    id: title_id
+    attributes:
+      label: Title ID / serial (optional)
+      placeholder: e.g. PPSA21567
+    validations:
+      required: false
+  - type: input
+    id: game_version
+    attributes:
+      label: Game version (optional)
+      placeholder: e.g. v01.019.000
+    validations:
+      required: false
+  - type: input
     id: emulator
     attributes:
       label: Emulator
@@ -50,10 +64,17 @@ body:
     validations:
       required: true
   - type: input
+    id: os
+    attributes:
+      label: Operating system (optional)
+      placeholder: e.g. Windows 11 26H2 or Arch Linux
+    validations:
+      required: false
+  - type: input
     id: hardware
     attributes:
       label: Hardware (optional)
-      placeholder: e.g. Ryzen 7 7800X3D · RX 7800 XT · Ubuntu 24.04
+      placeholder: e.g. Ryzen 7 7800X3D · RX 7800 XT · 32 GB DDR5
     validations:
       required: false
   - type: textarea

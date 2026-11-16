@@ -198,16 +198,24 @@ class SeoTests(unittest.TestCase):
                 "<!-- SSR:GUIDES --><!-- /SSR:GUIDES -->",
                 encoding="utf-8",
             )
-            counts = seo.generate(payload, tmp_site)
+            counts = seo.generate(payload, tmp_site, previous_sitemap_url=None)
             self.assertEqual(counts["games"], len(reg.games))
+            self.assertGreaterEqual(counts["reports"], 1)
+            self.assertGreaterEqual(counts["guides"], 5)
+            self.assertTrue((tmp_site / "404.html").exists())
             self.assertTrue((tmp_site / "games" / "gta-vi" / "index.html").exists())
             self.assertTrue((tmp_site / "emulators" / "kytyps5" / "index.html").exists())
+            self.assertTrue((tmp_site / "guides" / "real-vs-fake-ps5-emulators" / "index.html").exists())
             kyty_html = (tmp_site / "emulators" / "kytyps5" / "index.html").read_text(encoding="utf-8")
             self.assertNotIn("<script>alert(1)</script>", kyty_html)
             self.assertIn("&lt;script&gt;", kyty_html)
             sitemap = ET.fromstring((tmp_site / "sitemap.xml").read_text(encoding="utf-8"))
-            locs = sitemap.findall("{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc")
-            self.assertEqual(len(locs), counts["urls"])
+            ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+            urls = sitemap.findall("s:url", ns)
+            self.assertEqual(len(urls), counts["urls"])
+            # Second identical offline run should detect 0 changed URLs
+            counts2 = seo.generate(payload, tmp_site, previous_sitemap_url=None)
+            self.assertEqual(counts2["changed"], 0)
 
 
 if __name__ == "__main__":

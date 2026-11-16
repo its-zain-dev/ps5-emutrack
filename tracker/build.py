@@ -85,6 +85,21 @@ def shape_release(raw: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def shape_history(releases: list[dict[str, Any]], limit: int = 8) -> list[dict[str, Any]]:
+    published = [r for r in releases if not r.get("draft") and r.get("published_at")]
+    published.sort(key=lambda r: r["published_at"], reverse=True)
+    return [
+        {
+            "tag": r.get("tag_name"),
+            "name": (r.get("name") or "").strip() or r.get("tag_name"),
+            "publishedAt": r.get("published_at"),
+            "prerelease": bool(r.get("prerelease")),
+            "url": r.get("html_url"),
+        }
+        for r in published[:limit]
+    ]
+
+
 def fetch_one(gh: GitHub, emu: dict[str, Any]) -> dict[str, Any]:
     repo = emu["repo"]
     result: dict[str, Any] = {"status": "ok"}
@@ -99,8 +114,10 @@ def fetch_one(gh: GitHub, emu: dict[str, Any]) -> dict[str, Any]:
         result["error"] = str(exc)
         return result
     try:
-        rel = pick_release(gh.get(f"/repos/{repo}/releases?per_page=10") or [])
+        releases = gh.get(f"/repos/{repo}/releases?per_page=10") or []
+        rel = pick_release(releases)
         result["release"] = shape_release(rel) if rel else None
+        result["releaseHistory"] = shape_history(releases)
     except Exception as exc:
         result["status"] = "partial"
         result["error"] = str(exc)
@@ -144,17 +161,20 @@ def build(
         if live["status"] in ("ok", "partial"):
             entry["github"] = live["github"]
             entry["release"] = live["release"] if "release" in live else prev.get("release")
+            entry["releaseHistory"] = live["releaseHistory"] if "releaseHistory" in live else prev.get("releaseHistory", [])
             entry["stale"] = live["status"] == "partial"
             counts["ok" if live["status"] == "ok" else "stale"] += 1
         elif live["status"] == "missing":
             entry["github"] = None
             entry["release"] = None
+            entry["releaseHistory"] = []
             entry["unavailable"] = True
             counts["missing"] += 1
             print(f"[warn] {emu['repo']}: repository not found", file=sys.stderr)
         else:
             entry["github"] = prev.get("github")
             entry["release"] = prev.get("release")
+            entry["releaseHistory"] = prev.get("releaseHistory", [])
             entry["stale"] = True
             counts["stale"] += 1
             print(f"[warn] {emu['repo']}: {live.get('error')} (using previous snapshot)", file=sys.stderr)
@@ -210,10 +230,15 @@ def main(argv: list[str]) -> int:
         print("GitHub API unreachable and no previous snapshot; refusing to publish empty data.", file=sys.stderr)
         return 1
     if not args.no_html:
-        seo_counts = seo.generate(fetched_payload, out.parent)
+        seo_counts = seo.generate(
+            fetched_payload,
+            out.parent,
+            previous_sitemap_url=None if args.offline else seo.LIVE_SITEMAP_URL,
+        )
         print(
-            f"Generated SEO pages: {seo_counts['games']} games, {seo_counts['emulators']} emulators "
-            f"({seo_counts['urls']} sitemap URLs)"
+            f"Generated SEO pages: {seo_counts['games']} games, {seo_counts['emulators']} emulators, "
+            f"{seo_counts['reports']} reports, {seo_counts['guides']} guides "
+            f"({seo_counts['urls']} sitemap URLs, {seo_counts['changed']} changed)"
         )
     return 0
 

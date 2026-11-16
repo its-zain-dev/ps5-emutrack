@@ -1,4 +1,4 @@
-"""Generate crawler-friendly static HTML, dedicated game/emulator pages, sitemap.xml, and IndexNow pings."""
+"""Generate crawler-friendly static HTML, verified report pages, guide pages, 404.html, sitemap.xml, and changed-only IndexNow pings."""
 
 from __future__ import annotations
 
@@ -12,17 +12,48 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from . import registry
+from . import guides, registry
 
 BASE_URL = "https://its-zain-dev.github.io/ps5-emutrack"
 REPO_URL = "https://github.com/its-zain-dev/ps5-emutrack"
 SUBMIT_URL = f"{REPO_URL}/issues/new?template=submit-emulator.yml"
 REPORT_URL = f"{REPO_URL}/issues/new?template=compatibility-report.yml"
 INDEXNOW_KEY_NAME = "7862e477294f4e6572602570d152cbdf.txt"
+LIVE_SITEMAP_URL = f"{BASE_URL}/sitemap.xml"
 
 MATRIX_COLUMNS = ("kytyps5", "sharpemu", "anyps5", "prosperity", "shadps4")
 STATUS_RANK = {"nothing": 0, "boots": 1, "menus": 2, "ingame": 3, "playable": 4}
 FOLD_LIMIT = 6
+
+# Verified upstream screenshots hosted in public repositories (zero unverified mirrors).
+UPSTREAM_SCREENSHOTS: dict[str, list[tuple[str, str]]] = {
+    "kytyps5": [
+        (
+            "https://raw.githubusercontent.com/KytyPS5/KytyPS5/main/docs/screenshots/ps5-01.png",
+            "Astro Bot running in KytyPS5 emulator (upstream showcase screenshot)",
+        ),
+        (
+            "https://raw.githubusercontent.com/KytyPS5/KytyPS5/main/docs/screenshots/ps5-02.png",
+            "Demon's Souls running in KytyPS5 emulator (upstream showcase screenshot)",
+        ),
+        (
+            "https://raw.githubusercontent.com/KytyPS5/KytyPS5/main/docs/screenshots/ps5-07.png",
+            "Cyberpunk 2077 running in KytyPS5 emulator (upstream showcase screenshot)",
+        ),
+    ],
+    "prosperity": [
+        (
+            "https://raw.githubusercontent.com/Force67/prosperity/master/docs/screenshots/main-menu.png",
+            "Prosperity emulator main user interface",
+        ),
+    ],
+    "shadps4": [
+        (
+            "https://raw.githubusercontent.com/shadps4-emu/shadPS4/main/documents/Screenshots/1.png",
+            "Bloodborne running in shadPS4 emulator (upstream showcase screenshot)",
+        ),
+    ],
+}
 
 
 def esc(value: Any) -> str:
@@ -52,6 +83,20 @@ def fmt_bytes(size: int) -> str:
             return f"{round(val)} {unit}" if (val >= 10 or unit == "B") else f"{val:.1f} {unit}"
         val /= 1024
     return f"{size} B"
+
+
+def report_slug(report: dict[str, Any], index: int = 0) -> str:
+    if report.get("id"):
+        return str(report["id"])
+    raw = f"{report['game']}-{report['emulator']}-{report['date']}-{index}"
+    return re.sub(r"[^a-z0-9-]+", "-", raw.lower()).strip("-")
+
+
+def youtube_id(url: str | None) -> str | None:
+    if not url:
+        return None
+    m = re.search(r"(?:youtu\.be/|youtube\.com/watch\?v=)([A-Za-z0-9_-]{11})", url)
+    return m.group(1) if m else None
 
 
 def _inline_md(escaped_line: str) -> str:
@@ -181,7 +226,6 @@ def sort_emulators_default(emulators: list[dict[str, Any]]) -> list[dict[str, An
 
 
 def has_substantive_page(emu: dict[str, Any], report_counts: dict[str, int]) -> bool:
-    """Avoid thin/empty pages for 0-star forks with no releases, summary, or reports."""
     if emu.get("tier") == "featured":
         return True
     if emu.get("release") is not None:
@@ -190,6 +234,29 @@ def has_substantive_page(emu: dict[str, Any], report_counts: dict[str, int]) -> 
         return True
     stars = int((emu.get("github") or {}).get("stars") or 0)
     return stars >= 10
+
+
+def _emu_lastmod(emu: dict[str, Any], emu_reports: list[dict[str, Any]]) -> str:
+    candidates = [emu.get("addedAt") or ""]
+    rel_pub = (emu.get("release") or {}).get("publishedAt")
+    if rel_pub:
+        candidates.append(rel_pub[:10])
+    pushed = (emu.get("github") or {}).get("pushedAt")
+    if pushed:
+        candidates.append(pushed[:10])
+    for r in emu_reports:
+        if r.get("date"):
+            candidates.append(str(r["date"])[:10])
+    valid = [c for c in candidates if re.match(r"^\d{4}-\d{2}-\d{2}$", c)]
+    return max(valid) if valid else "2026-11-16"
+
+
+def _game_lastmod(game: dict[str, Any], game_reports: list[dict[str, Any]], featured_lastmod: str) -> str:
+    dates = [str(r["date"])[:10] for r in game_reports if r.get("date")]
+    if game["id"] == "gta-vi" and featured_lastmod:
+        dates.append(featured_lastmod)
+    valid = [d for d in dates if re.match(r"^\d{4}-\d{2}-\d{2}$", d)]
+    return max(valid) if valid else "2026-11-16"
 
 
 def _replace_marker(doc: str, name: str, content: str) -> str:
@@ -266,11 +333,15 @@ def _render_home_emulators(
             else f'<a class="btn btn-ghost btn-sm" href="{esc(emu["url"])}/commits" target="_blank" rel="noopener">Commits</a>'
         )
         cards.append(
-            f'<article class="card{" is-featured" if emu.get("tier") == "featured" else ""}">'
+            f'<article id="emu-card-{esc(emu["id"])}" class="card{" is-featured" if emu.get("tier") == "featured" else ""}">'
             f'<div class="card-top">'
             f'<img class="avatar" src="{avatar}" alt="" width="38" height="38" loading="lazy">'
             f'<div class="card-title"><h3><a href="{esc(emu["url"])}" target="_blank" rel="noopener">{esc(emu["name"])}</a></h3>'
-            f'<span class="repo">{esc(emu["repo"])}</span></div></div>'
+            f'<span class="repo">{esc(emu["repo"])}</span></div>'
+            f'<div class="card-pins">'
+            f'<button type="button" class="pin-btn star" data-save-emu="{esc(emu["id"])}" aria-pressed="false" title="Save to watchlist">☆</button>'
+            f'<button type="button" class="pin-btn" data-compare-emu="{esc(emu["id"])}" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button>'
+            f'</div></div>'
             f'<div class="badges">{"".join(badges)}</div>'
             f'<p class="desc">{esc(desc)}</p>'
             f'<div class="meta">{"".join(meta)}</div>'
@@ -317,7 +388,20 @@ def _render_home_compat(payload: dict[str, Any], emu_page_ids: set[str]) -> str:
     return f'<thead><tr><th>Game</th>{head_cells}</tr></thead><tbody>{"".join(rows)}</tbody>'
 
 
-def _render_home_guides(games: list[dict[str, Any]], emus_with_pages: list[dict[str, Any]]) -> str:
+def _render_home_guides(
+    games: list[dict[str, Any]],
+    emus_with_pages: list[dict[str, Any]],
+    verified_reports: list[tuple[str, dict[str, Any]]],
+    emulators_by_id: dict[str, dict[str, Any]],
+    games_by_id: dict[str, dict[str, Any]],
+) -> str:
+    guide_links = " · ".join(
+        f'<a href="./guides/{esc(g["id"])}/">{esc(g["navTitle"])}</a>' for g in guides.GUIDES
+    )
+    report_links = " · ".join(
+        f'<a href="./reports/{esc(slug)}/">{esc(games_by_id.get(r["game"], {}).get("title", r["game"]))} ({esc(emulators_by_id.get(r["emulator"], {}).get("name", r["emulator"]))})</a>'
+        for slug, r in verified_reports
+    )
     game_links = " · ".join(
         f'<a href="./games/{esc(g["id"])}/">{esc(g["title"])}</a>' for g in games
     )
@@ -326,6 +410,8 @@ def _render_home_guides(games: list[dict[str, Any]], emus_with_pages: list[dict[
     )
     return (
         f'<div class="guides-grid">'
+        f'<div><h3>PS5 Emulation Research Guides ({len(guides.GUIDES)})</h3><p class="small muted">{guide_links}</p></div>'
+        f'<div><h3>Verified Compatibility Evidence Reports ({len(verified_reports)})</h3><p class="small muted">{report_links or "None yet."}</p></div>'
         f'<div><h3>Game Compatibility Pages ({len(games)})</h3><p class="small muted">{game_links}</p></div>'
         f'<div><h3>Emulator Release &amp; Status Pages ({len(emus_with_pages)})</h3><p class="small muted">{emu_links}</p></div>'
         f"</div>"
@@ -340,7 +426,9 @@ def _page_shell(
     ld_blocks: list[dict[str, Any]],
     body_html: str,
     generated_at: str,
+    depth: int = 2,
 ) -> str:
+    rel = "../" * depth
     ld_scripts = "\n    ".join(
         f'<script type="application/ld+json">{json.dumps(b, ensure_ascii=False)}</script>' for b in ld_blocks
     )
@@ -356,7 +444,7 @@ def _page_shell(
     <meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)" />
     <meta name="color-scheme" content="dark light" />
     <link rel="canonical" href="{esc(canonical)}" />
-    <link rel="icon" href="../../assets/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="{rel}assets/icon.svg" type="image/svg+xml" />
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="PS5 EmuTrack" />
     <meta property="og:title" content="{esc(title)}" />
@@ -364,24 +452,24 @@ def _page_shell(
     <meta property="og:url" content="{esc(canonical)}" />
     <meta property="og:image" content="{BASE_URL}/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="../../assets/styles.css" />
+    <link rel="stylesheet" href="{rel}assets/styles.css" />
     {ld_scripts}
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="../../" class="brand" aria-label="PS5 EmuTrack home">
-          <img src="../../assets/icon.svg" alt="" width="28" height="28" />
+        <a href="{rel}" class="brand" aria-label="PS5 EmuTrack home">
+          <img src="{rel}assets/icon.svg" alt="" width="28" height="28" />
           <span>PS5 <b>EmuTrack</b></span>
         </a>
         <nav class="nav" aria-label="Primary">
-          <a href="../../#emulators">Emulators</a>
-          <a href="../../#compatibility">Compatibility</a>
-          <a href="../../#contribute">Contribute</a>
-          <a href="../../#faq">FAQ</a>
+          <a href="{rel}#emulators">Emulators</a>
+          <a href="{rel}#compatibility">Compatibility</a>
+          <a href="{rel}guides/real-vs-fake-ps5-emulators/">Safety Guide</a>
+          <a href="{rel}#contribute">Contribute</a>
         </nav>
         <div class="header-actions">
-          <a class="btn btn-ghost btn-sm" href="../../">Interactive Hub</a>
+          <a class="btn btn-ghost btn-sm" href="{rel}">Interactive Hub</a>
           <a class="btn btn-primary btn-sm" href="{REPO_URL}" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
@@ -395,10 +483,10 @@ def _page_shell(
       <div class="container footer-inner">
         <p><strong>PS5 EmuTrack</strong> · Independent open-source tracker. No games, firmware, or keys hosted.</p>
         <p class="footer-links">
-          <a href="../../">Home</a>
-          <a href="../../#emulators">Emulators</a>
-          <a href="../../#compatibility">Compatibility</a>
-          <a href="../../data.json">data.json</a>
+          <a href="{rel}">Home</a>
+          <a href="{rel}guides/best-ps5-emulators-compared/">Comparisons</a>
+          <a href="{rel}guides/real-vs-fake-ps5-emulators/">Verification Guide</a>
+          <a href="{rel}data.json">data.json</a>
           <span class="muted">Updated {esc(fmt_date(generated_at))}</span>
         </p>
       </div>
@@ -408,16 +496,180 @@ def _page_shell(
 """
 
 
+def _static_release_sparkline(history: list[dict[str, Any]]) -> str:
+    """Static (non-animated) SVG bar chart showing recent release sizes/cadence across months."""
+    if len(history) < 2:
+        return ""
+    buckets: dict[str, int] = {}
+    for item in history:
+        dt = parse_iso_dt(item.get("publishedAt"))
+        if dt:
+            key = dt.strftime("%Y-%m")
+            buckets[key] = buckets.get(key, 0) + 1
+    if not buckets:
+        return ""
+    items = sorted(buckets.items())[-8:]
+    max_val = max(v for _, v in items) or 1
+    bar_w = 34
+    gap = 10
+    width = len(items) * (bar_w + gap)
+    height = 72
+    rects = []
+    for i, (month, count) in enumerate(items):
+        h = max(8, round((count / max_val) * 38))
+        x = i * (bar_w + gap)
+        y = 44 - h
+        rects.append(
+            f'<rect x="{x}" y="{y}" width="{bar_w}" height="{h}" rx="4" fill="#3d8bff" fill-opacity="0.78"/>'
+            f'<text x="{x + bar_w // 2}" y="{y - 4}" text-anchor="middle" font-size="10" fill="currentColor">{count}</text>'
+            f'<text x="{x + bar_w // 2}" y="60" text-anchor="middle" font-size="9.5" fill="#8592a6">{esc(month[2:])}</text>'
+        )
+    return (
+        f'<svg viewBox="0 0 {width} {height}" width="{width}" height="{height}" '
+        f'role="img" aria-label="Monthly release count across recent tags" style="max-width:100%;height:auto">'
+        f'{"".join(rects)}</svg>'
+    )
+
+
+def _video_ld_block(report: dict[str, Any], game_title: str, emu_name: str, canonical: str) -> dict[str, Any] | None:
+    video_url = report.get("video")
+    if not video_url:
+        return None
+    vid = youtube_id(video_url)
+    block: dict[str, Any] = {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": f"{game_title} on {emu_name} ({report.get('version') or 'test build'})",
+        "description": report.get("notes") or f"Compatibility test footage of {game_title} on {emu_name}.",
+        "uploadDate": f"{report['date']}T00:00:00Z",
+        "contentUrl": video_url,
+        "url": canonical,
+    }
+    if vid:
+        block["thumbnailUrl"] = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
+        block["embedUrl"] = f"https://www.youtube.com/embed/{vid}"
+    elif report.get("screenshot"):
+        block["thumbnailUrl"] = report["screenshot"]
+    else:
+        block["thumbnailUrl"] = f"{BASE_URL}/og-image.png"
+    return block
+
+
+def _render_report_page(
+    slug: str,
+    report: dict[str, Any],
+    payload: dict[str, Any],
+    emu_page_ids: set[str],
+) -> str:
+    by_id = {e["id"]: e for e in payload["emulators"]}
+    games_by_id = {g["id"]: g for g in payload["games"]}
+    status_labels = {s["id"]: s["label"] for s in payload["statuses"]}
+
+    game = games_by_id.get(report["game"], {"id": report["game"], "title": report["game"]})
+    emu = by_id.get(report["emulator"], {"id": report["emulator"], "name": report["emulator"], "url": REPO_URL})
+    st_label = status_labels.get(report["status"], report["status"])
+    canonical = f"{BASE_URL}/reports/{slug}/"
+    page_title = f"{game['title']} on {emu['name']} ({st_label}) — Verified Test Report | PS5 EmuTrack"
+    page_desc = (
+        f"Verified compatibility report for {game['title']} on {emu['name']}: status {st_label}, "
+        f"build {report.get('version') or 'see source'}, tested {report['date']}"
+        f"{' on ' + report['hardware'] if report.get('hardware') else ''}."
+    )[:160]
+
+    emu_link = (
+        f'<a href="../../emulators/{esc(emu["id"])}/">{esc(emu["name"])}</a>'
+        if emu["id"] in emu_page_ids
+        else f'<a href="{esc(emu.get("url", REPO_URL))}" target="_blank" rel="noopener">{esc(emu["name"])}</a>'
+    )
+
+    specs = [
+        ("Game", f'<a href="../../games/{esc(game["id"])}/">{esc(game["title"])}</a>'),
+        ("Title ID / Serial", f'<code>{esc(report["titleId"])}</code>' if report.get("titleId") else "—"),
+        ("Game Version", f'<code>{esc(report["gameVersion"])}</code>' if report.get("gameVersion") else "—"),
+        ("Emulator", emu_link),
+        ("Emulator Build", f'<code>{esc(report["version"])}</code>' if report.get("version") else "—"),
+        ("Status", f'<span class="status {esc(report["status"])}">{esc(st_label)}</span>'),
+        ("Operating System", esc(report.get("os") or "—")),
+        ("Hardware (CPU / GPU / RAM)", esc(report.get("hardware") or "—")),
+        ("Test Date", esc(report["date"])),
+        ("Reporter", f'@{esc(report["reporter"])}' if report.get("reporter") else "Community tester"),
+    ]
+    spec_rows = "".join(f"<tr><th>{esc(k)}</th><td>{v}</td></tr>" for k, v in specs)
+
+    media_html = ""
+    if report.get("screenshot"):
+        alt = f"{game['title']} compatibility screenshot on {emu['name']} ({st_label})"
+        media_html += (
+            f'<figure class="prose-card" style="margin-top:20px">'
+            f'<img src="{esc(report["screenshot"])}" alt="{esc(alt)}" loading="lazy" '
+            f'style="max-width:100%;height:auto;border-radius:10px;border:1px solid var(--border)" />'
+            f'<figcaption class="small muted">{esc(alt)}</figcaption></figure>'
+        )
+
+    links = [f'<a class="btn btn-primary btn-sm" href="{esc(report["source"])}" target="_blank" rel="noopener">Source Issue / PR ↗</a>']
+    if report.get("evidence") and report["evidence"] != report["source"]:
+        links.append(f'<a class="btn btn-ghost btn-sm" href="{esc(report["evidence"])}" target="_blank" rel="noopener">Attached Log / Evidence ↗</a>')
+    if report.get("video"):
+        links.append(f'<a class="btn btn-ghost btn-sm" href="{esc(report["video"])}" target="_blank" rel="noopener">Watch Test Video ↗</a>')
+
+    body = f"""
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../">Home</a> / <a href="../../games/{esc(game["id"])}/">{esc(game["title"])}</a> / <span>Verified Report</span>
+      </nav>
+      <div class="subpage-hero">
+        <div class="badges">
+          <span class="status {esc(report["status"])}">{esc(st_label)}</span>
+          <span class="badge">Verified Evidence</span>
+          {f'<span class="badge"><code>{esc(report["titleId"])}</code></span>' if report.get("titleId") else ""}
+        </div>
+        <h1>{esc(game["title"])} on {esc(emu["name"])}</h1>
+        <p class="lead">{esc(report.get("notes") or "Verified compatibility test report.")}</p>
+        <div class="cta-row" style="margin-top:16px">{"".join(links)}</div>
+      </div>
+
+      <section class="prose-card">
+        <h2>Test Environment &amp; Evidence Metadata</h2>
+        <div class="table-wrap"><table class="compare-table"><tbody>{spec_rows}</tbody></table></div>
+      </section>
+      {media_html}
+    """
+
+    ld_blocks: list[dict[str, Any]] = [
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "PS5 EmuTrack", "item": f"{BASE_URL}/"},
+                {"@type": "ListItem", "position": 2, "name": game["title"], "item": f"{BASE_URL}/games/{game['id']}/"},
+                {"@type": "ListItem", "position": 3, "name": f"{emu['name']} Report ({report['date']})", "item": canonical},
+            ],
+        }
+    ]
+    vid_ld = _video_ld_block(report, game["title"], emu["name"], canonical)
+    if vid_ld:
+        ld_blocks.append(vid_ld)
+
+    return _page_shell(
+        title=page_title,
+        description=page_desc,
+        canonical=canonical,
+        ld_blocks=ld_blocks,
+        body_html=body,
+        generated_at=payload.get("generatedAt", ""),
+    )
+
+
 def _render_game_page(
     game: dict[str, Any],
     payload: dict[str, Any],
     emu_page_ids: set[str],
+    report_slug_map: dict[int, str],
 ) -> str:
     gid = game["id"]
     title_text = game["title"]
     by_id = {e["id"]: e for e in payload["emulators"]}
     status_labels = {s["id"]: s["label"] for s in payload["statuses"]}
-    reports = [r for r in payload["reports"] if r["game"] == gid]
+    reports = [(i, r) for i, r in enumerate(payload["reports"]) if r["game"] == gid]
     cols = [by_id[eid] for eid in MATRIX_COLUMNS if eid in by_id]
     generated_at = payload.get("generatedAt", "")
 
@@ -428,10 +680,10 @@ def _render_game_page(
             "launch reality check, release tracking, and how to avoid fake GTA 6 PC emulator malware."
         )
     else:
-        page_title = f"{title_text} — PS5 Emulator Compatibility (KytyPS5, SharpEmu, AnyPS5) | PS5 EmuTrack"
+        page_title = f"{title_text} — PS5 Emulator Compatibility & Verified Test Reports | PS5 EmuTrack"
         page_desc = (
-            f"Check {title_text} compatibility across open-source PS5 emulators including KytyPS5, SharpEmu, and AnyPS5, "
-            "plus verified test reports and build notes."
+            f"Verified compatibility reports for {title_text} on KytyPS5, SharpEmu, AnyPS5, and Prosperity, "
+            "with test hardware specs, emulator builds, and progression history."
         )
 
     canonical = f"{BASE_URL}/games/{gid}/"
@@ -444,30 +696,6 @@ def _render_game_page(
         meta_badges.append(f'<span class="pill-upcoming">Console release: {esc(game["releaseDate"])}</span>')
 
     gta_callout = ""
-    faq_entries = [
-        {
-            "@type": "Question",
-            "name": f"Can open-source PS5 emulators run {title_text} right now?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": (
-                    f"No PS5 emulator can run {title_text} right now. Console release is scheduled for {game.get('releaseDate', 'TBA')}, "
-                    "and running a new AAA PS5 title via emulation on PC requires years of reverse engineering."
-                    if gid == "gta-vi"
-                    else f"Check the live compatibility table on this page for the latest reported status of {title_text} across KytyPS5, SharpEmu, AnyPS5, and Prosperity."
-                ),
-            },
-        },
-        {
-            "@type": "Question",
-            "name": f"Where can I safely download PS5 emulators to test {title_text}?",
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Download open-source emulators strictly from their official GitHub Releases pages (such as KytyPS5/KytyPS5 or sharpemu/sharpemu). Never trust third-party file hosts or 'GTA 6 PC emulator' installers.",
-            },
-        },
-    ]
-
     if gid == "gta-vi":
         gta_callout = f"""
         <div class="prose-card">
@@ -475,20 +703,17 @@ def _render_game_page(
           <p>
             <strong>Short answer: No.</strong> Grand Theft Auto VI launches on PlayStation 5 and Xbox Series X|S on
             <strong>{esc(game.get("releaseDate", "2026-11-19"))}</strong> with no official PC port yet.
-            While open-source projects like <a href="../../emulators/kytyps5/">KytyPS5</a> have demonstrated experimental boots of older titles
-            such as the PS5 version of <em>GTA V</em> for brief scenes before crashing, emulating a brand-new, complex open-world PS5 release
-            at launch is not currently possible.
+            While <a href="../../emulators/kytyps5/">KytyPS5</a> has booted early builds of older PS5 titles like <em>GTA V</em> briefly before crashing,
+            emulating a new open-world PS5 release on launch day is not currently possible.
           </p>
           <p>
-            <strong>Watch out for scams:</strong> Dozens of fake "GTA 6 PC Emulator" downloads circulate on launch week.
-            Real PS5 emulators are open-source on GitHub and never require surveys, passwords, or third-party cloud mirrors.
-            This page updates automatically every hour from real GitHub releases and sourced community compatibility reports.
+            <strong>Avoid malware:</strong> Read our <a href="../../guides/real-vs-fake-ps5-emulators/">Real vs. Fake PS5 Emulators guide</a> before downloading anything claiming to play GTA 6 on PC.
           </p>
         </div>"""
 
     rows_html = []
     for emu in cols:
-        best = pick_best_report([r for r in reports if r["emulator"] == emu["id"]])
+        best = pick_best_report([r for _, r in reports if r["emulator"] == emu["id"]])
         emu_link = (
             f'<a href="../../emulators/{esc(emu["id"])}/">{esc(emu["name"])}</a>'
             if emu["id"] in emu_page_ids
@@ -509,6 +734,36 @@ def _render_game_page(
             f"<tr><td><strong>{emu_link}</strong></td><td>{st_html}</td><td>{ver_html}</td><td>{rel_str}</td><td>{note}</td></tr>"
         )
 
+    verified_list = [(i, r) for i, r in reports if r["verified"]]
+    verified_list.sort(key=lambda pair: str(pair[1]["date"]), reverse=True)
+    timeline_html = ""
+    if verified_list:
+        cards = []
+        for idx, r in verified_list:
+            emu_name = by_id.get(r["emulator"], {}).get("name", r["emulator"])
+            slug = report_slug_map[idx]
+            st = status_labels.get(r["status"], r["status"])
+            hw = f' · {esc(r["hardware"])}' if r.get("hardware") else ""
+            os_str = f' · {esc(r["os"])}' if r.get("os") else ""
+            ver_tag = f'<code>{esc(r["version"])}</code>' if r.get("version") else ""
+            cards.append(
+                f'<li class="report">'
+                f'<span class="status {esc(r["status"])}">{esc(st)}</span>'
+                f'<div class="report-main"><strong>{esc(emu_name)}</strong> '
+                f'{ver_tag} '
+                f'<span class="muted">{esc(r["date"])}{os_str}{hw}</span></div>'
+                f'<div class="report-notes">{esc(r.get("notes") or "")}</div>'
+                f'<div class="report-links">'
+                f'<a href="../../reports/{esc(slug)}/">Full Report Page ↗</a>'
+                f'<a href="{esc(r["source"])}" target="_blank" rel="noopener">Source Issue ↗</a>'
+                f'</div></li>'
+            )
+        timeline_html = f"""
+        <section style="margin-top:28px">
+          <h2 style="margin-bottom:12px">Verified Evidence Reports &amp; History ({len(verified_list)})</h2>
+          <ul class="reports" style="padding:0">{"".join(cards)}</ul>
+        </section>"""
+
     other_games = " · ".join(
         f'<a href="../../games/{esc(g["id"])}/">{esc(g["title"])}</a>'
         for g in payload["games"]
@@ -528,7 +783,7 @@ def _render_game_page(
       <div class="subpage-hero">
         <div class="badges">{"".join(meta_badges)}</div>
         <h1>{esc(title_text)} — PS5 Emulator Compatibility</h1>
-        <p class="lead">Live status across tracked open-source PlayStation 5 emulators · Last refreshed {esc(fmt_date(generated_at))}.</p>
+        <p class="lead">Sourced compatibility across tracked open-source PS5 emulators · Updated {esc(fmt_date(generated_at))}.</p>
         {aliases_note}
         <div class="cta-row" style="margin-top:16px">
           <a class="btn btn-primary btn-sm" href="{esc(prefill)}" target="_blank" rel="noopener">Submit verified report</a>
@@ -539,7 +794,7 @@ def _render_game_page(
       {gta_callout}
 
       <section style="margin-top:28px">
-        <h2 style="margin-bottom:12px">Status by Featured Emulator</h2>
+        <h2 style="margin-bottom:12px">Best Reported Status by Featured Emulator</h2>
         <div class="table-wrap">
           <table class="compat">
             <thead><tr><th>Emulator</th><th>Status</th><th>Verification</th><th>Latest Build</th><th>Notes</th></tr></thead>
@@ -548,13 +803,15 @@ def _render_game_page(
         </div>
       </section>
 
+      {timeline_html}
+
       <section style="margin-top:28px">
         <h2 style="margin-bottom:10px">Other Tracked Games</h2>
         <p class="small muted">{other_games}</p>
       </section>
     """
 
-    ld_blocks = [
+    ld_blocks: list[dict[str, Any]] = [
         {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -563,13 +820,14 @@ def _render_game_page(
                 {"@type": "ListItem", "position": 2, "name": "Compatibility", "item": f"{BASE_URL}/#compatibility"},
                 {"@type": "ListItem", "position": 3, "name": title_text, "item": canonical},
             ],
-        },
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faq_entries,
-        },
+        }
     ]
+    for _, r in verified_list:
+        v_block = _video_ld_block(r, title_text, by_id.get(r["emulator"], {}).get("name", r["emulator"]), canonical)
+        if v_block:
+            ld_blocks.append(v_block)
+            break
+
     return _page_shell(
         title=page_title,
         description=page_desc,
@@ -584,11 +842,13 @@ def _render_emulator_page(
     emu: dict[str, Any],
     payload: dict[str, Any],
     emu_page_ids: set[str],
+    report_slug_map: dict[int, str],
 ) -> str:
     eid = emu["id"]
     name = emu["name"]
     gh = emu.get("github") or {}
     rel = emu.get("release")
+    history = emu.get("releaseHistory") or ([rel] if rel else [])
     by_id = {e["id"]: e for e in payload["emulators"]}
     games_by_id = {g["id"]: g for g in payload["games"]}
     status_labels = {s["id"]: s["label"] for s in payload["statuses"]}
@@ -597,9 +857,9 @@ def _render_emulator_page(
 
     desc = emu.get("summary") or gh.get("description") or f"{name} open-source PlayStation emulation project on GitHub."
     canonical = f"{BASE_URL}/emulators/{eid}/"
-    page_title = f"{name} PS5 Emulator — Latest Releases, Compatibility & Info | PS5 EmuTrack"
+    page_title = f"{name} PS5 Emulator — Releases, History & Verified Compatibility | PS5 EmuTrack"
     page_desc = (
-        f"{name} ({emu['repo']}): {desc} Latest GitHub release: {rel['tag'] if rel else 'source builds'}, "
+        f"{name} ({emu['repo']}): {desc} Latest release: {rel['tag'] if rel else 'source builds'}, "
         f"{gh.get('stars', 0):,} stars, platforms: {', '.join(emu.get('platforms') or ['See repo'])}."
     )[:160]
 
@@ -630,30 +890,67 @@ def _render_emulator_page(
         rel_section = f"""
         <section class="prose-card" style="margin-top:24px">
           <h2>Latest Release: <code>{esc(rel["tag"])}</code></h2>
-          <p class="small muted" style="margin-bottom:12px">Published {esc(fmt_date(rel.get("publishedAt")))} · <a href="{esc(rel["url"])}" target="_blank" rel="noopener noreferrer">View release on GitHub ↗</a></p>
+          <p class="small muted">Published {esc(fmt_date(rel.get("publishedAt")))} · <a href="{esc(rel["url"])}" target="_blank" rel="noopener noreferrer">View release on GitHub ↗</a></p>
           {assets_html}
           <h3>Release Notes</h3>
-          <div class="notes" style="margin-top:8px">{render_markdown_html(rel.get("notes"))}</div>
+          <div class="notes">{render_markdown_html(rel.get("notes"))}</div>
         </section>"""
 
-    reports = [r for r in payload["reports"] if r["emulator"] == eid]
+    history_section = ""
+    if history:
+        spark = _static_release_sparkline(history)
+        h_rows = "".join(
+            f'<tr><td><a href="{esc(h.get("url") or emu["url"])}" target="_blank" rel="noopener"><code>{esc(h.get("tag"))}</code></a></td>'
+            f'<td>{"Pre-release" if h.get("prerelease") else "Release"}</td>'
+            f'<td>{esc(fmt_date(h.get("publishedAt")))}</td></tr>'
+            for h in history
+        )
+        history_section = f"""
+        <section class="prose-card" style="margin-top:24px">
+          <h2>Project Timeline &amp; Release History</h2>
+          <p class="small muted">Repository created {esc(fmt_date(gh.get("createdAt")))} · Added to tracker {esc(emu.get("addedAt"))} · Last pushed {esc(fmt_date(gh.get("pushedAt")))}</p>
+          {f'<div style="margin:8px 0">{spark}</div>' if spark else ""}
+          <div class="table-wrap"><table class="compat">
+            <thead><tr><th>Tag</th><th>Type</th><th>Published</th></tr></thead>
+            <tbody>{h_rows}</tbody>
+          </table></div>
+        </section>"""
+
+    shots = UPSTREAM_SCREENSHOTS.get(eid, [])
+    shots_html = ""
+    if shots:
+        figs = "".join(
+            f'<figure style="margin:0"><img src="{esc(src)}" alt="{esc(alt)}" loading="lazy" '
+            f'style="width:100%;height:auto;border-radius:10px;border:1px solid var(--border)" />'
+            f'<figcaption class="small muted" style="margin-top:6px">{esc(alt)}</figcaption></figure>'
+            for src, alt in shots
+        )
+        shots_html = f'<section class="prose-card" style="margin-top:24px"><h2>Upstream Screenshots</h2><div class="emu-grid">{figs}</div></section>'
+
+    reports = [(i, r) for i, r in enumerate(payload["reports"]) if r["emulator"] == eid]
+    reports.sort(key=lambda pair: (not pair[1]["verified"], str(pair[1]["date"])), reverse=False)
     reports_section = ""
     if reports:
         r_rows = []
-        for r in reports:
+        for idx, r in reports:
             g = games_by_id.get(r["game"], {"id": r["game"], "title": r["game"]})
             cls = f'status {esc(r["status"])}{"" if r["verified"] else " unverified"}'
+            ver_cell = (
+                f'<a href="../../reports/{esc(report_slug_map[idx])}/">Verified Report ↗</a>'
+                if r["verified"]
+                else '<span class="unverified-tag">Unverified legacy</span>'
+            )
             r_rows.append(
                 f'<tr><td><a href="../../games/{esc(g["id"])}/"><strong>{esc(g["title"])}</strong></a></td>'
                 f'<td><span class="{cls}">{esc(status_labels.get(r["status"], r["status"]))}</span></td>'
-                f'<td>{"Verified" if r["verified"] else "Unverified"}</td>'
+                f"<td>{ver_cell}</td>"
                 f'<td>{esc(r.get("notes") or "—")}</td></tr>'
             )
         reports_section = f"""
         <section style="margin-top:24px">
           <h2 style="margin-bottom:12px">Tracked Game Compatibility ({len(reports)})</h2>
           <div class="table-wrap"><table class="compat">
-            <thead><tr><th>Game</th><th>Status</th><th>Verification</th><th>Notes</th></tr></thead>
+            <thead><tr><th>Game</th><th>Status</th><th>Evidence</th><th>Notes</th></tr></thead>
             <tbody>{"".join(r_rows)}</tbody>
           </table></div>
         </section>"""
@@ -687,6 +984,8 @@ def _render_emulator_page(
       </dl>
 
       {rel_section}
+      {history_section}
+      {shots_html}
       {reports_section}
 
       {f'<section style="margin-top:28px"><h2 style="margin-bottom:10px">Related {esc(cat_label)} Projects</h2><p class="small muted">{siblings}</p></section>' if siblings else ""}
@@ -724,6 +1023,118 @@ def _render_emulator_page(
     )
 
 
+def _render_guide_page(guide: dict[str, Any], generated_at: str) -> str:
+    gid = guide["id"]
+    canonical = f"{BASE_URL}/guides/{gid}/"
+    sections_html = "".join(
+        f'<section class="prose-card"><h2>{esc(heading)}</h2>{body}</section>'
+        for heading, body in guide["sections"]
+    )
+    other_guides = " · ".join(
+        f'<a href="../../guides/{esc(g["id"])}/">{esc(g["navTitle"])}</a>'
+        for g in guides.GUIDES
+        if g["id"] != gid
+    )
+    body = f"""
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../">Home</a> / <span>Guides</span> / <span>{esc(guide["navTitle"])}</span>
+      </nav>
+      <div class="subpage-hero">
+        <div class="badges"><span class="badge">Research Guide</span><span class="badge">Updated {esc(guide["updated"])}</span></div>
+        <h1>{esc(guide["title"])}</h1>
+        <p class="lead">{esc(guide["description"])}</p>
+        <div class="cta-row" style="margin-top:16px">
+          <a class="btn btn-primary btn-sm" href="../../#emulators">Browse Emulator Directory</a>
+          <a class="btn btn-ghost btn-sm" href="../../games/gta-vi/">GTA VI Watch</a>
+        </div>
+      </div>
+      {sections_html}
+      <section style="margin-top:28px">
+        <h2 style="margin-bottom:10px">More PS5 Emulation Guides</h2>
+        <p class="small muted">{other_guides}</p>
+      </section>
+    """
+    ld_blocks = [
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "PS5 EmuTrack", "item": f"{BASE_URL}/"},
+                {"@type": "ListItem", "position": 2, "name": guide["navTitle"], "item": canonical},
+            ],
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": guide["title"],
+            "description": guide["description"],
+            "dateModified": guide["updated"],
+            "url": canonical,
+        },
+    ]
+    return _page_shell(
+        title=f"{guide['title']} | PS5 EmuTrack",
+        description=guide["description"],
+        canonical=canonical,
+        ld_blocks=ld_blocks,
+        body_html=body,
+        generated_at=generated_at,
+    )
+
+
+def _render_404_page(generated_at: str) -> str:
+    body = f"""
+      <div class="subpage-hero">
+        <div class="badges"><span class="badge badge-warn">404 · Not Found</span></div>
+        <h1>Page not found</h1>
+        <p class="lead">The emulator, game, or report URL you requested has moved or does not exist.</p>
+        <div class="cta-row" style="margin-top:18px">
+          <a class="btn btn-primary" href="/ps5-emutrack/">Go to PS5 EmuTrack Home</a>
+          <a class="btn btn-ghost" href="/ps5-emutrack/#compatibility">Compatibility Matrix</a>
+          <a class="btn btn-ghost" href="/ps5-emutrack/games/gta-vi/">GTA VI Status</a>
+          <a class="btn btn-ghost" href="/ps5-emutrack/guides/real-vs-fake-ps5-emulators/">Safety Guide</a>
+        </div>
+      </div>
+    """
+    return _page_shell(
+        title="Page Not Found | PS5 EmuTrack",
+        description="Requested page not found on PS5 EmuTrack.",
+        canonical=f"{BASE_URL}/404.html",
+        ld_blocks=[],
+        body_html=body,
+        generated_at=generated_at,
+        depth=0,
+    ).replace('href="assets/', 'href="/ps5-emutrack/assets/').replace('src="assets/', 'src="/ps5-emutrack/assets/')
+
+
+def _read_previous_sitemap(site_dir: Path, previous_url: str | None) -> dict[str, str]:
+    """Map loc -> lastmod from the currently live sitemap (or local fallback) to detect real URL diffs."""
+    raw = ""
+    if previous_url:
+        try:
+            req = urllib.request.Request(previous_url, headers={"User-Agent": "ps5-emutrack"})
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                raw = resp.read().decode("utf-8", "replace")
+        except Exception:
+            raw = ""
+    if not raw and (site_dir / "sitemap.xml").exists():
+        raw = (site_dir / "sitemap.xml").read_text(encoding="utf-8")
+    if not raw:
+        return {}
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError:
+        return {}
+    ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    out: dict[str, str] = {}
+    for url_el in root.findall("s:url", ns):
+        loc = url_el.findtext("s:loc", default="", namespaces=ns).strip()
+        lastmod = url_el.findtext("s:lastmod", default="", namespaces=ns).strip()
+        if loc:
+            out[loc] = lastmod
+    return out
+
+
 def _write_sitemap(site_dir: Path, urls: list[tuple[str, str, str, str]]) -> None:
     lines = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc, lastmod, freq, prio in urls:
@@ -739,11 +1150,15 @@ def _write_sitemap(site_dir: Path, urls: list[tuple[str, str, str, str]]) -> Non
     (site_dir / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def generate(payload: dict[str, Any], site_dir: Path | None = None) -> dict[str, int]:
-    """Prerender site/index.html sections, build game/emulator subpages, and update sitemap.xml."""
+def generate(
+    payload: dict[str, Any],
+    site_dir: Path | None = None,
+    previous_sitemap_url: str | None = LIVE_SITEMAP_URL,
+) -> dict[str, int]:
+    """Prerender site/index.html, build game/emulator/report/guide pages, 404.html, and diff-aware sitemap.xml."""
     target = site_dir or (registry.ROOT / "site")
     now = datetime.now(timezone.utc)
-    today = (payload.get("generatedAt") or now.strftime("%Y-%m-%d"))[:10]
+    generated_at = payload.get("generatedAt") or now.strftime("%Y-%m-%dT%H:%M:%SZ")
 
     report_counts: dict[str, int] = {}
     for r in payload["reports"]:
@@ -751,6 +1166,16 @@ def generate(payload: dict[str, Any], site_dir: Path | None = None) -> dict[str,
 
     emus_with_pages = [e for e in payload["emulators"] if has_substantive_page(e, report_counts)]
     emu_page_ids = {e["id"] for e in emus_with_pages}
+    emulators_by_id = {e["id"]: e for e in payload["emulators"]}
+    games_by_id = {g["id"]: g for g in payload["games"]}
+
+    report_slug_map: dict[int, str] = {}
+    verified_reports: list[tuple[str, dict[str, Any]]] = []
+    for idx, r in enumerate(payload["reports"]):
+        slug = report_slug(r, idx)
+        report_slug_map[idx] = slug
+        if r.get("verified"):
+            verified_reports.append((slug, r))
 
     index_path = target / "index.html"
     if index_path.exists():
@@ -762,48 +1187,109 @@ def generate(payload: dict[str, Any], site_dir: Path | None = None) -> dict[str,
             _render_home_emulators(payload["emulators"], emu_page_ids, payload["categories"]),
         )
         doc = _replace_marker(doc, "COMPAT", _render_home_compat(payload, emu_page_ids))
-        doc = _replace_marker(doc, "GUIDES", _render_home_guides(payload["games"], emus_with_pages))
+        doc = _replace_marker(
+            doc,
+            "GUIDES",
+            _render_home_guides(payload["games"], emus_with_pages, verified_reports, emulators_by_id, games_by_id),
+        )
         index_path.write_text(doc, encoding="utf-8")
 
-    sitemap_urls: list[tuple[str, str, str, str]] = [
-        (f"{BASE_URL}/", today, "hourly", "1.0"),
+    (target / "404.html").write_text(_render_404_page(generated_at), encoding="utf-8")
+
+    featured_dates = [
+        _emu_lastmod(e, [r for r in payload["reports"] if r["emulator"] == e["id"]])
+        for e in payload["emulators"]
+        if e.get("tier") == "featured"
     ]
+    featured_lastmod = max(featured_dates) if featured_dates else "2026-11-16"
+
+    url_entries: list[tuple[str, str, str, str]] = []
 
     games_dir = target / "games"
     for g in payload["games"]:
         g_dir = games_dir / g["id"]
         g_dir.mkdir(parents=True, exist_ok=True)
-        (g_dir / "index.html").write_text(_render_game_page(g, payload, emu_page_ids), encoding="utf-8")
+        (g_dir / "index.html").write_text(
+            _render_game_page(g, payload, emu_page_ids, report_slug_map),
+            encoding="utf-8",
+        )
+        g_reports = [r for r in payload["reports"] if r["game"] == g["id"]]
+        lastmod = _game_lastmod(g, g_reports, featured_lastmod)
         prio = "0.9" if g["id"] == "gta-vi" else "0.8"
-        sitemap_urls.append((f"{BASE_URL}/games/{g['id']}/", today, "hourly" if g["id"] == "gta-vi" else "daily", prio))
+        url_entries.append((f"{BASE_URL}/games/{g['id']}/", lastmod, "daily", prio))
 
     emus_dir = target / "emulators"
     for e in emus_with_pages:
         e_dir = emus_dir / e["id"]
         e_dir.mkdir(parents=True, exist_ok=True)
-        (e_dir / "index.html").write_text(_render_emulator_page(e, payload, emu_page_ids), encoding="utf-8")
+        (e_dir / "index.html").write_text(
+            _render_emulator_page(e, payload, emu_page_ids, report_slug_map),
+            encoding="utf-8",
+        )
+        e_reports = [r for r in payload["reports"] if r["emulator"] == e["id"]]
+        lastmod = _emu_lastmod(e, e_reports)
         prio = "0.9" if e.get("tier") == "featured" else "0.7"
-        sitemap_urls.append((f"{BASE_URL}/emulators/{e['id']}/", today, "daily", prio))
+        url_entries.append((f"{BASE_URL}/emulators/{e['id']}/", lastmod, "daily", prio))
+
+    reports_dir = target / "reports"
+    for slug, r in verified_reports:
+        r_dir = reports_dir / slug
+        r_dir.mkdir(parents=True, exist_ok=True)
+        (r_dir / "index.html").write_text(
+            _render_report_page(slug, r, payload, emu_page_ids),
+            encoding="utf-8",
+        )
+        url_entries.append((f"{BASE_URL}/reports/{slug}/", str(r["date"])[:10], "monthly", "0.7"))
+
+    guides_dir = target / "guides"
+    for guide in guides.GUIDES:
+        gd_dir = guides_dir / guide["id"]
+        gd_dir.mkdir(parents=True, exist_ok=True)
+        (gd_dir / "index.html").write_text(_render_guide_page(guide, generated_at), encoding="utf-8")
+        url_entries.append((f"{BASE_URL}/guides/{guide['id']}/", guide["updated"], "weekly", guide["priority"]))
+
+    home_lastmod = max([lm for _, lm, _, _ in url_entries] or ["2026-11-16"])
+    sitemap_urls = [(f"{BASE_URL}/", home_lastmod, "hourly", "1.0")] + url_entries
+
+    prev_map = _read_previous_sitemap(target, previous_sitemap_url)
+    changed_urls = [loc for loc, lm, _, _ in sitemap_urls if prev_map.get(loc) != lm]
+    removed_urls = [loc for loc in prev_map if loc not in {u[0] for u in sitemap_urls}]
+    diff_urls = sorted(set(changed_urls + removed_urls))
 
     _write_sitemap(target, sitemap_urls)
-    return {"games": len(payload["games"]), "emulators": len(emus_with_pages), "urls": len(sitemap_urls)}
+    build_meta_dir = target.parent / ".build"
+    build_meta_dir.mkdir(parents=True, exist_ok=True)
+    (build_meta_dir / "changed_urls.json").write_text(json.dumps(diff_urls, indent=2) + "\n", encoding="utf-8")
+
+    return {
+        "games": len(payload["games"]),
+        "emulators": len(emus_with_pages),
+        "reports": len(verified_reports),
+        "guides": len(guides.GUIDES),
+        "urls": len(sitemap_urls),
+        "changed": len(diff_urls),
+    }
 
 
 def submit_indexnow(site_dir: Path | None = None) -> int:
-    """Notify Bing / IndexNow of all URLs in site/sitemap.xml."""
+    """Notify Bing / IndexNow strictly for URLs that were added, updated, or removed."""
     target = site_dir or (registry.ROOT / "site")
     key_path = target / INDEXNOW_KEY_NAME
-    sitemap_path = target / "sitemap.xml"
-    if not key_path.exists() or not sitemap_path.exists():
-        print("[warn] IndexNow key or sitemap.xml missing; skipping.")
+    if not key_path.exists():
+        print("[warn] IndexNow key missing; skipping.")
         return 0
-    key = key_path.read_text(encoding="utf-8").strip()
-    root = ET.fromstring(sitemap_path.read_text(encoding="utf-8"))
-    ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
-    urls = [el.text.strip() for el in root.findall("s:url/s:loc", ns) if el.text]
-    if not urls:
+    changed_file = target.parent / ".build" / "changed_urls.json"
+    if changed_file.exists():
+        urls = json.loads(changed_file.read_text(encoding="utf-8"))
+    else:
+        print("IndexNow: no .build/changed_urls.json diff file; skipping.")
         return 0
 
+    if not urls:
+        print("IndexNow: 0 URLs changed since live sitemap; skipping ping.")
+        return 0
+
+    key = key_path.read_text(encoding="utf-8").strip()
     body = json.dumps(
         {
             "host": "its-zain-dev.github.io",
@@ -820,7 +1306,7 @@ def submit_indexnow(site_dir: Path | None = None) -> int:
     )
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
-            print(f"IndexNow submitted {len(urls)} URLs (HTTP {resp.status})")
+            print(f"IndexNow submitted {len(urls)} changed URLs (HTTP {resp.status})")
     except urllib.error.HTTPError as exc:
         print(f"[warn] IndexNow returned HTTP {exc.code}: {exc.read().decode('utf-8', 'replace')[:200]}")
     except Exception as exc:

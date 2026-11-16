@@ -1257,15 +1257,20 @@ function renderCompatibility() {
           const metaBits = [
             `<strong>${escapeHtml(emuName)}</strong>`,
             r.version ? `<code>${escapeHtml(r.version)}</code>` : '',
+            r.gameVersion ? `<code>${escapeHtml(r.gameVersion)}</code>` : '',
+            r.os ? `<span class="muted">${escapeHtml(r.os)}</span>` : '',
             r.hardware ? `<span class="muted">${escapeHtml(r.hardware)}</span>` : '',
             `<span class="muted">${escapeHtml(r.date)}</span>`,
+            r.reporter ? `<span class="muted">by @${escapeHtml(r.reporter)}</span>` : '',
             r.verified ? '' : '<span class="unverified-tag">unverified</span>',
           ]
             .filter(Boolean)
             .join(' ');
           const links = [
+            r.verified && r.id ? `<a href="./reports/${escapeHtml(r.id)}/">Full report ↗</a>` : '',
             safeHttps(r.source) ? `<a href="${escapeHtml(r.source)}" target="_blank" rel="noopener">Source issue ↗</a>` : '',
-            safeHttps(r.evidence) ? `<a href="${escapeHtml(r.evidence)}" target="_blank" rel="noopener">Evidence ↗</a>` : '',
+            safeHttps(r.evidence) && r.evidence !== r.source ? `<a href="${escapeHtml(r.evidence)}" target="_blank" rel="noopener">Evidence ↗</a>` : '',
+            safeHttps(r.video) ? `<a href="${escapeHtml(r.video)}" target="_blank" rel="noopener">Video ↗</a>` : '',
           ]
             .filter(Boolean)
             .join('');

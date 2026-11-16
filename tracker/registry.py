@@ -131,8 +131,15 @@ def validate(reg: Registry) -> list[str]:
             errors.append(f"{where}: releaseDate must be YYYY-MM-DD")
 
     games = reg.game_ids
+    seen_report_ids: set[str] = set()
     for i, r in enumerate(reg.reports):
         where = f"reports[{i}]"
+        if r.get("id"):
+            if not ID_RE.match(r["id"]):
+                errors.append(f"{where}: id must be kebab-case")
+            if r["id"] in seen_report_ids:
+                errors.append(f"{where}: duplicate id {r['id']!r}")
+            seen_report_ids.add(r["id"])
         if r.get("game") not in games:
             errors.append(f"{where}: unknown game {r.get('game')!r}")
         if r.get("emulator") not in ids:
@@ -143,8 +150,9 @@ def validate(reg: Registry) -> list[str]:
             errors.append(f"{where}: 'verified' must be true or false")
         if r.get("verified") and not (isinstance(r.get("source"), str) and URL_RE.match(r["source"])):
             errors.append(f"{where}: verified reports need an https 'source' link")
-        if r.get("source") is not None and not URL_RE.match(str(r["source"])):
-            errors.append(f"{where}: source must be an https URL")
+        for url_field in ("source", "evidence", "screenshot", "video"):
+            if r.get(url_field) is not None and not URL_RE.match(str(r[url_field])):
+                errors.append(f"{where}: {url_field} must be an https URL")
         if not _valid_date(r.get("date")):
             errors.append(f"{where}: date must be YYYY-MM-DD")
     return errors

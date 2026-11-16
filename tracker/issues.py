@@ -238,13 +238,21 @@ class Report:
     checks: Checks
 
 
-def evaluate_report(fields: dict[str, str], reg: registry.Registry, issue_url: str) -> Report:
+def evaluate_report(
+    fields: dict[str, str],
+    reg: registry.Registry,
+    issue_url: str,
+    reporter: str = "",
+) -> Report:
     c = Checks()
     title = clean_text(fields.get("Game", ""), 100)
+    title_id = clean_text(fields.get("Title ID / serial (optional)", ""), 24)
+    game_version = clean_text(fields.get("Game version (optional)", ""), 32)
     emu_q = clean_text(fields.get("Emulator", ""), 120)
     version = clean_text(fields.get("Emulator version or build", ""), 80)
     status = STATUS_CHOICES.get(fields.get("Status", "").split(" — ")[0].strip())
     evidence = clean_text(fields.get("Evidence", ""), 300)
+    os_name = clean_text(fields.get("Operating system (optional)", ""), 80)
     notes = clean_text(fields.get("Notes", ""), 400)
     hardware = clean_text(fields.get("Hardware (optional)", ""), 120)
 
@@ -272,20 +280,46 @@ def evaluate_report(fields: dict[str, str], reg: registry.Registry, issue_url: s
     if not version:
         c.warn("No emulator version given")
 
+    game_id = (game or new_game or {}).get("id", "")
+    emu_id = (emu or {}).get("id", "")
+    today = datetime.now(timezone.utc).date().isoformat()
+    base_slug = slugify(f"{game_id}-{emu_id}-{today}") if game_id and emu_id else ""
+    existing_ids = {r.get("id") for r in reg.reports if r.get("id")}
+    report_id = base_slug
+    if report_id and report_id in existing_ids:
+        n = 2
+        while f"{base_slug}-{n}" in existing_ids:
+            n += 1
+        report_id = f"{base_slug}-{n}"
+
     report: dict[str, Any] = {
-        "game": (game or new_game or {}).get("id", ""),
-        "emulator": (emu or {}).get("id", ""),
+        "game": game_id,
+        "emulator": emu_id,
         "status": status or "",
         "verified": True,
-        "date": datetime.now(timezone.utc).date().isoformat(),
+        "date": today,
         "source": issue_url,
     }
+    if report_id:
+        report["id"] = report_id
     if evidence:
         report["evidence"] = evidence
+        if re.search(r"(youtube\.com/watch|youtu\.be/|\.mp4$|\.webm$)", evidence, re.I):
+            report["video"] = evidence
+        elif re.search(r"(\.png$|\.jpg$|\.jpeg$|\.webp$)", evidence, re.I):
+            report["screenshot"] = evidence
+    if title_id:
+        report["titleId"] = title_id
+    if game_version:
+        report["gameVersion"] = game_version
     if version:
         report["version"] = version
+    if os_name:
+        report["os"] = os_name
     if hardware:
         report["hardware"] = hardware
+    if reporter:
+        report["reporter"] = clean_text(reporter, 40)
     if notes:
         report["notes"] = notes
     return Report(report, new_game, c)
@@ -343,7 +377,9 @@ def triage(argv: list[str]) -> int:
         checks = evaluate_submission(fields, reg, gh).checks
         title = "Automated submission checks"
     else:
-        checks = evaluate_report(fields, reg, issue["html_url"]).checks
+        checks = evaluate_report(
+            fields, reg, issue["html_url"], reporter=(issue.get("user") or {}).get("login", "")
+        ).checks
         title = "Automated report checks"
     footer = (
         "Fix the ❌ items by editing the issue. These checks re-run on every edit."
@@ -392,7 +428,9 @@ def approve(argv: list[str]) -> int:
         return 0
 
     if kind == "report":
-        rep = evaluate_report(fields, reg, issue["html_url"])
+        rep = evaluate_report(
+            fields, reg, issue["html_url"], reporter=(issue.get("user") or {}).get("login", "")
+        )
         if rep.checks.errors:
             return _reject(rep.checks)
         if rep.new_game:
