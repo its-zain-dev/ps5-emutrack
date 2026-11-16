@@ -1,4 +1,6 @@
+import re
 import unittest
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from tracker import build, issues, readme, registry
@@ -152,6 +154,16 @@ class BuildAndReadmeTests(unittest.TestCase):
         rendered = readme.render(reg)
         text = Path(readme.README).read_text(encoding="utf-8")
         self.assertIn(rendered, text)
+        self.assertIn("<details>", rendered)
+
+    def test_readme_svg_assets_exist_and_are_valid_xml(self) -> None:
+        text = Path(readme.README).read_text(encoding="utf-8")
+        srcs = re.findall(r'src="(assets/readme/[^"]+\.svg)"', text)
+        self.assertGreaterEqual(len(srcs), 4)
+        for rel in set(srcs):
+            path = registry.ROOT / rel
+            self.assertTrue(path.exists(), f"Missing README asset: {rel}")
+            ET.parse(path)
 
 
 if __name__ == "__main__":

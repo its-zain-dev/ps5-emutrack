@@ -1,70 +1,119 @@
-# PS5 EmuTrack
+<div align="center">
 
-[![Pages Deploy](https://github.com/its-zain-dev/ps5-emutrack/actions/workflows/pages.yml/badge.svg)](https://github.com/its-zain-dev/ps5-emutrack/actions/workflows/pages.yml)
-[![CI](https://github.com/its-zain-dev/ps5-emutrack/actions/workflows/ci.yml/badge.svg)](https://github.com/its-zain-dev/ps5-emutrack/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+<a href="https://its-zain-dev.github.io/ps5-emutrack/">
+  <img src="assets/readme/hero.svg" alt="PS5 EmuTrack — Open-Source PlayStation 5 Emulator & Compatibility Hub" width="100%" />
+</a>
 
-An independent, open-source directory and compatibility tracker for PlayStation 5 emulators, compatibility layers, forks, and ports.
+<br />
 
-**Live site:** <https://its-zain-dev.github.io/ps5-emutrack/>
+[![Live Web Hub](https://img.shields.io/badge/Live_Web_Hub-Open_Tracker-3d8bff?style=for-the-badge&logo=playstation&logoColor=white)](https://its-zain-dev.github.io/ps5-emutrack/)
+[![Pages Deploy](https://img.shields.io/github/actions/workflow/status/its-zain-dev/ps5-emutrack/pages.yml?style=for-the-badge&label=Pages%20Deploy&logo=github)](https://github.com/its-zain-dev/ps5-emutrack/actions/workflows/pages.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/its-zain-dev/ps5-emutrack/ci.yml?style=for-the-badge&label=CI%20Tests&logo=python&logoColor=white)](https://github.com/its-zain-dev/ps5-emutrack/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
 
----
+<br />
+
+[Explore Live Hub](https://its-zain-dev.github.io/ps5-emutrack/) &nbsp;•&nbsp;
+[Architecture](#how-it-works) &nbsp;•&nbsp;
+[Compatibility Scale](#compatibility-scale) &nbsp;•&nbsp;
+[Local CLI](#local-commands) &nbsp;•&nbsp;
+[Submit Emulator](https://github.com/its-zain-dev/ps5-emutrack/issues/new?template=submit-emulator.yml) &nbsp;•&nbsp;
+[Tracked Emulators](#tracked-emulators)
+
+</div>
+
+<br />
+
+<img src="assets/readme/divider.svg" alt="" width="100%" />
 
 ## How it works
 
-1. **Curated source of truth (`data/`)**:
-   - [`data/emulators.json`](data/emulators.json) — tracked repositories, categorised as PS5 emulators, forks, ports, or related PS4 projects, split into `featured` and `community` tiers.
-   - [`data/games.json`](data/games.json) — tracked games and search aliases.
-   - [`data/compatibility.json`](data/compatibility.json) — compatibility test reports. Every verified report links to an issue and evidence (`https://` video, screenshot, or log). Legacy entries imported without a source are marked `verified: false` (`unverified`).
-2. **Python data pipeline (`tracker/`)**:
-   - Standard library only — no third-party dependencies or build tools.
-   - Runs hourly in GitHub Actions to fetch live repository stats and latest releases from the GitHub REST API and write [`site/data.json`](site/data.json). If an API request fails, the last published snapshot is preserved.
-3. **Static frontend (`site/`)**:
-   - Plain semantic HTML, CSS, and vanilla ES modules (`site/index.html`, `site/assets/`). No framework, no bundler, no `localStorage` staleness.
+<p align="center">
+  <img src="assets/readme/pipeline.svg" alt="PS5 EmuTrack hourly build pipeline and GitHub issue automation flow" width="100%" />
+</p>
 
----
+| Layer | Location | Responsibility |
+| :--- | :--- | :--- |
+| **Curated Registry** | [`data/`](data/emulators.json) | Single source of truth for tracked emulators, games, and compatibility reports validated with JSON Schemas. |
+| **Python Pipeline** | [`tracker/`](tracker/__main__.py) | Pure standard-library sync engine that fetches live repo stats & latest releases hourly with snapshot fallback. |
+| **Static Web Hub** | [`site/`](site/index.html) | Zero-build frontend with spotlight search + suggestions, foldable directory, side-by-side comparison, and compatibility matrix. |
+| **Issue Automation** | [`.github/workflows/`](.github/workflows/issues.yml) | Automated triage checks on submission/report issues and auto-commit on maintainer `approved` label. |
+
+<br />
+
+<img src="assets/readme/divider.svg" alt="" width="100%" />
+
+## Compatibility scale
+
+<p align="center">
+  <img src="assets/readme/compat-scale.svg" alt="5-tier compatibility scale: Nothing, Boots, Menus, In-Game, Playable, plus Verified vs Unverified rules" width="100%" />
+</p>
+
+> [!NOTE]
+> Every new compatibility report requires a maintainer review and a direct `https://` evidence link (video, screenshot, or log). Legacy v1 entries without recorded sources are clearly marked **unverified** so users can separate confirmed boots from rumours.
+
+<br />
+
+<img src="assets/readme/divider.svg" alt="" width="100%" />
 
 ## Local commands
 
-Requires Python 3.11+ (uses only the Python standard library):
+Requires **Python 3.11+** with **zero third-party dependencies**:
 
 ```bash
-# Validate data/*.json against registry rules
+# Validate data/*.json against registry & schema rules
 python -m tracker validate
 
-# Regenerate the emulator table in README.md (or verify with --check)
+# Regenerate the emulator tables in README.md (or verify with --check)
 python -m tracker readme
 python -m tracker readme --check
 
 # Build site/data.json from GitHub API (set GITHUB_TOKEN to avoid the 60 req/hr limit)
 GITHUB_TOKEN="$(gh auth token)" python -m tracker build
 
-# Preview the static site locally
+# Preview the static web hub locally
 python -m http.server 8080 -d site
 
 # Run unit tests
 python -m unittest discover -s tests -v
 ```
 
----
+<br />
+
+<img src="assets/readme/divider.svg" alt="" width="100%" />
 
 ## Contributing
 
-Everything runs through GitHub Issues or Pull Requests:
+| Action | Channel | Automated Checks |
+| :--- | :--- | :--- |
+| **Add an Emulator / Fork / Port** | [Submit Emulator Form ↗](https://github.com/its-zain-dev/ps5-emutrack/issues/new?template=submit-emulator.yml) | Verifies public GitHub repo, non-duplicate, license, and releases |
+| **Report Game Compatibility** | [Compatibility Report Form ↗](https://github.com/its-zain-dev/ps5-emutrack/issues/new?template=compatibility-report.yml) | Verifies tracked emulator, game match/creation, and `https://` evidence link |
+| **Direct Pull Request** | [CONTRIBUTING.md](CONTRIBUTING.md) | CI runs `validate`, `readme --check`, and `unittest` |
 
-- **[Submit an emulator](https://github.com/its-zain-dev/ps5-emutrack/issues/new?template=submit-emulator.yml)** — automated checks verify the repository exists, is public, isn't a duplicate, and check its license and releases.
-- **[Report game compatibility](https://github.com/its-zain-dev/ps5-emutrack/issues/new?template=compatibility-report.yml)** — requires an `https://` link to evidence (video, screenshot, or log).
+> [!CAUTION]
+> PS5 EmuTrack strictly tracks open-source software and test results. It never hosts or links to games, firmware, BIOS files, or decryption keys.
 
-When a maintainer adds the `approved` label, GitHub Actions validates the entry, commits the update to `data/` and `README.md`, closes the issue, and redeploys GitHub Pages. See [CONTRIBUTING.md](CONTRIBUTING.md) for manual PR instructions.
+<br />
 
-> PS5 EmuTrack does not host or link to games, firmware, BIOS files, or decryption keys.
-
----
+<img src="assets/readme/divider.svg" alt="" width="100%" />
 
 ## Tracked emulators
 
 <!-- EMULATORS:START (generated by `python -m tracker readme`, do not edit by hand) -->
-#### PS5 emulator (24)
+### Featured (5)
+
+| Project | Category | Platforms | Notes |
+| :-- | :-- | :-- | :-- |
+| **[AnyPS5](https://github.com/boykopovar/AnyPS5)** ⭐ | PS5 emulator | Windows, Linux | Ports PS5 executables to run natively on Linux and Windows through automatic re-linking. |
+| **[KytyPS5](https://github.com/KytyPS5/KytyPS5)** ⭐ | PS5 emulator | Windows, Linux, macOS | The most widely used PS5 translation layer. Runs PS5 executables on Windows, Linux and macOS. |
+| **[Prosperity](https://github.com/Force67/prosperity)** ⭐ | PS5 emulator | — | Low-level (LLE) emulator targeting both PS4 and PS5 hardware. |
+| **[SharpEmu](https://github.com/sharpemu/sharpemu)** ⭐ | PS5 emulator | Windows, Linux | Experimental PS5 emulator written in C#/.NET with a Vulkan renderer, for Windows and Linux. |
+| **[shadPS4](https://github.com/shadps4-emu/shadPS4)** ⭐ | PS4 & related | Windows, Linux, macOS | The leading PS4 emulator. Many PS5 projects reuse its shader recompiler and HLE work. |
+
+### Full Directory by Category (53 total)
+
+<details>
+<summary><strong>PS5 emulator (24)</strong> — expand table</summary>
 
 | Project | Platforms | Notes |
 | :-- | :-- | :-- |
@@ -93,7 +142,10 @@ When a maintainer adds the `approved` label, GitHub Actions validates the entry,
 | [Zeno5](https://github.com/tossdace/Zeno5) | — | — |
 | [ZylxEmu](https://github.com/zenunqq/zylxemu) | — | — |
 
-#### Fork / custom build (9)
+</details>
+
+<details>
+<summary><strong>Fork / custom build (9)</strong> — expand table</summary>
 
 | Project | Platforms | Notes |
 | :-- | :-- | :-- |
@@ -107,7 +159,10 @@ When a maintainer adds the `approved` label, GitHub Actions validates the entry,
 | [KytyPS5 Wolverine](https://github.com/loyalty3/KytyPS5-wolverine) | — | Based on KytyPS5 · KytyPS5 fork with game-specific fixes. |
 | [KytyPS5-SuperMedo](https://github.com/Supermedo/KytyPS5-SuperMedo) | Windows | Based on KytyPS5 |
 
-#### Port / frontend (12)
+</details>
+
+<details>
+<summary><strong>Port / frontend (12)</strong> — expand table</summary>
 
 | Project | Platforms | Notes |
 | :-- | :-- | :-- |
@@ -124,7 +179,10 @@ When a maintainer adds the `approved` label, GitHub Actions validates the entry,
 | [SharpEmu Android](https://github.com/OniChan-little-GIRL/sharpemu-android) | Android | Based on SharpEmu |
 | [SharpEmu for Mac](https://github.com/sharpemu/sharpemu-mac) | macOS | Based on SharpEmu |
 
-#### PS4 & related (8)
+</details>
+
+<details>
+<summary><strong>PS4 & related (8)</strong> — expand table</summary>
 
 | Project | Platforms | Notes |
 | :-- | :-- | :-- |
@@ -136,4 +194,6 @@ When a maintainer adds the `approved` label, GitHub Actions validates the entry,
 | [Obliteration](https://github.com/obhq/obliteration) | Windows, Linux, macOS | — |
 | [Orbital](https://github.com/AlexAltea/orbital) | Windows, Linux | — |
 | [psOff](https://github.com/SysRay/psOff_public) | Windows | — |
+
+</details>
 <!-- EMULATORS:END -->

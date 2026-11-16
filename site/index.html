@@ -52,10 +52,20 @@
           <a href="#contribute">Contribute</a>
           <a href="#faq">FAQ</a>
         </nav>
-        <a class="btn btn-ghost btn-sm" href="https://github.com/its-zain-dev/ps5-emutrack" target="_blank" rel="noopener">
-          <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-          <span>GitHub</span>
-        </a>
+        <div class="header-actions">
+          <button type="button" class="btn btn-ghost btn-sm search-trigger" id="header-search-btn" title="Jump to search (/)">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
+            <span>Search</span>
+            <kbd>/</kbd>
+          </button>
+          <button type="button" class="icon-btn" id="theme-toggle" title="Switch theme" aria-label="Switch color theme">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+          </button>
+          <a class="btn btn-ghost btn-sm" href="https://github.com/its-zain-dev/ps5-emutrack" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            <span class="hide-sm">GitHub</span>
+          </a>
+        </div>
       </div>
     </header>
 
@@ -65,9 +75,41 @@
           <p class="eyebrow">Independent · Open source · Updated hourly</p>
           <h1>Every open-source PS5 emulator, <span class="accent">in one place.</span></h1>
           <p class="lead">
-            Latest GitHub releases, project activity, and game compatibility reports. Every
-            compatibility entry links to its source. We host no binaries, firmware or games.
+            Latest GitHub releases, activity telemetry, and sourced game compatibility.
+            Zero binaries, firmware, or keys hosted.
           </p>
+
+          <div class="spotlight-wrap" id="spotlight-wrap">
+            <div class="search-combo spotlight-combo">
+              <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
+              <input
+                id="global-search"
+                type="search"
+                placeholder="Search emulators, games, languages or platforms (e.g. KytyPS5, GTA VI, Rust, Android)…"
+                autocomplete="off"
+                role="combobox"
+                aria-autocomplete="list"
+                aria-expanded="false"
+                aria-controls="global-suggestions"
+                aria-label="Search emulators, games, languages, or platforms"
+              />
+              <button type="button" class="clear-btn" id="global-clear" hidden aria-label="Clear search">×</button>
+              <kbd class="kbd-hint" aria-hidden="true">/</kbd>
+              <div class="suggestions" id="global-suggestions" role="listbox" aria-label="Search suggestions" hidden></div>
+            </div>
+
+            <div class="quick-picks" id="quick-picks" aria-label="Quick filters">
+              <span class="quick-label">Quick pick:</span>
+              <button type="button" class="quick-chip" data-quick="featured">★ Featured only</button>
+              <button type="button" class="quick-chip" data-quick="platform:Windows">Windows</button>
+              <button type="button" class="quick-chip" data-quick="platform:Linux">Linux</button>
+              <button type="button" class="quick-chip" data-quick="platform:macOS">macOS</button>
+              <button type="button" class="quick-chip" data-quick="platform:Android">Android</button>
+              <button type="button" class="quick-chip" data-quick="compat:gta-vi">GTA VI watch</button>
+              <button type="button" class="quick-chip" data-quick="saved">Saved (<span id="saved-quick-count">0</span>)</button>
+            </div>
+          </div>
+
           <dl class="stats" id="stats" aria-live="polite">
             <div><dt>Projects tracked</dt><dd data-stat="projects">–</dd></div>
             <div><dt>Releases this week</dt><dd data-stat="weekly">–</dd></div>
@@ -83,47 +125,81 @@
             <div>
               <h2 id="emulators-title">Emulators</h2>
               <p class="muted">
-                <span class="tier-dot featured"></span> Featured projects are established and reviewed by maintainers.
-                <span class="tier-dot community"></span> Community listings are submitted by users and only lightly checked.
+                <span class="tier-dot featured"></span> Featured projects are established and reviewed.
+                <span class="tier-dot community"></span> Community listings are lightly checked.
               </p>
+            </div>
+            <div class="head-controls">
+              <div class="segmented" role="group" aria-label="Layout view" id="view-switch">
+                <button type="button" class="seg-btn" data-view="cards" aria-pressed="true">Cards</button>
+                <button type="button" class="seg-btn" data-view="compact" aria-pressed="false">Compact</button>
+              </div>
+              <button type="button" class="btn btn-ghost btn-sm" id="fold-emulators-btn" aria-expanded="true" aria-controls="emu-section-body">
+                Fold section
+              </button>
             </div>
           </div>
 
-          <form class="toolbar" id="emu-filters" role="search" onsubmit="return false">
-            <label class="field field-search">
-              <span class="sr-only">Search emulators</span>
-              <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
-              <input type="search" name="q" placeholder="Search name, repo, language…" autocomplete="off" />
-            </label>
-            <div class="chips" role="radiogroup" aria-label="Category" id="category-chips"></div>
-            <label class="field">
-              <span class="sr-only">Platform</span>
-              <select name="platform">
-                <option value="">All platforms</option>
-                <option>Windows</option><option>Linux</option><option>macOS</option>
-                <option>Android</option><option>iOS</option><option>PS4</option><option>Web</option>
-              </select>
-            </label>
-            <label class="field">
-              <span class="sr-only">Sort by</span>
-              <select name="sort">
-                <option value="release">Latest release</option>
-                <option value="stars">Most stars</option>
-                <option value="activity">Recently active</option>
-                <option value="name">Name</option>
-              </select>
-            </label>
-            <label class="toggle">
-              <input type="checkbox" name="inactive" />
-              <span>Include inactive</span>
-            </label>
-          </form>
+          <div id="emu-section-body">
+            <form class="toolbar" id="emu-filters" role="search" onsubmit="return false">
+              <div class="field field-search search-combo" id="emu-search-combo">
+                <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
+                <input
+                  type="search"
+                  name="q"
+                  id="emu-q"
+                  placeholder="Filter emulators, topics, language…"
+                  autocomplete="off"
+                  role="combobox"
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-controls="emu-suggestions"
+                  aria-label="Search emulators"
+                />
+                <button type="button" class="clear-btn" id="emu-q-clear" hidden aria-label="Clear emulator filter">×</button>
+                <div class="suggestions" id="emu-suggestions" role="listbox" aria-label="Emulator suggestions" hidden></div>
+              </div>
 
-          <p class="result-count muted" id="emu-count" aria-live="polite"></p>
-          <div class="emu-grid" id="emu-grid">
-            <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
+              <label class="field">
+                <span class="sr-only">Platform</span>
+                <select name="platform">
+                  <option value="">All platforms</option>
+                  <option>Windows</option><option>Linux</option><option>macOS</option>
+                  <option>Android</option><option>iOS</option><option>PS4</option><option>Web</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="sr-only">Sort by</span>
+                <select name="sort">
+                  <option value="release">Latest release</option>
+                  <option value="stars">Most stars</option>
+                  <option value="activity">Recently active</option>
+                  <option value="name">Name</option>
+                </select>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" name="inactive" />
+                <span>Include inactive</span>
+              </label>
+              <button type="button" class="btn btn-ghost btn-sm" id="reset-filters-btn" hidden>Reset</button>
+              <button type="button" class="btn btn-ghost btn-sm" id="copy-link-btn" title="Copy link with current filters">Share view</button>
+            </form>
+
+            <div class="chips" role="radiogroup" aria-label="Category filter" id="category-chips"></div>
+
+            <div class="list-status-bar">
+              <p class="result-count muted" id="emu-count" aria-live="polite"></p>
+              <button type="button" class="link-btn" id="quick-jump-compat">Jump to Compatibility ↓</button>
+            </div>
+
+            <div class="emu-grid" id="emu-grid">
+              <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
+            </div>
+
+            <div class="fold-bar" id="emu-fold-bar" hidden></div>
+
+            <noscript><p class="notice">This page needs JavaScript to show live data. The full list is also in the <a href="https://github.com/its-zain-dev/ps5-emutrack#tracked-emulators">README</a>.</p></noscript>
           </div>
-          <noscript><p class="notice">This page needs JavaScript to show live data. The full list is also in the <a href="https://github.com/its-zain-dev/ps5-emutrack#tracked-emulators">README</a>.</p></noscript>
         </div>
       </section>
 
@@ -133,30 +209,66 @@
             <div>
               <h2 id="compat-title">Game compatibility</h2>
               <p class="muted">
-                Each cell shows the best status reported for that emulator. <strong>Verified</strong> reports link to evidence and were approved by a maintainer.
-                Entries marked <span class="unverified-tag">unverified</span> have no source yet. Treat them as rumours.
+                Click any game row to inspect test reports. <strong>Verified</strong> reports include evidence and maintainer approval;
+                <span class="unverified-tag">unverified</span> entries are legacy v1 claims without a source.
               </p>
             </div>
-            <a class="btn btn-primary" id="report-link" href="#" target="_blank" rel="noopener">Submit a report</a>
+            <div class="head-controls">
+              <button type="button" class="btn btn-ghost btn-sm" id="fold-compat-btn" aria-expanded="true" aria-controls="compat-section-body">
+                Fold section
+              </button>
+              <a class="btn btn-primary btn-sm" id="report-link" href="#" target="_blank" rel="noopener">Submit a report</a>
+            </div>
           </div>
 
-          <div class="toolbar">
-            <label class="field field-search">
-              <span class="sr-only">Search games</span>
-              <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
-              <input type="search" id="game-search" placeholder="Search games…" autocomplete="off" />
-            </label>
-            <label class="toggle">
-              <input type="checkbox" id="show-unverified" checked />
-              <span>Show unverified</span>
-            </label>
-          </div>
+          <div id="compat-section-body">
+            <div class="toolbar">
+              <div class="field field-search search-combo" id="game-search-combo">
+                <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"/></svg>
+                <input
+                  type="search"
+                  id="game-search"
+                  placeholder="Search games or aliases (e.g. GTA 6, Souls, Bloodborne)…"
+                  autocomplete="off"
+                  role="combobox"
+                  aria-autocomplete="list"
+                  aria-expanded="false"
+                  aria-controls="game-suggestions"
+                  aria-label="Search games"
+                />
+                <button type="button" class="clear-btn" id="game-clear" hidden aria-label="Clear game search">×</button>
+                <div class="suggestions" id="game-suggestions" role="listbox" aria-label="Game suggestions" hidden></div>
+              </div>
+              <label class="field">
+                <span class="sr-only">Filter by status</span>
+                <select id="compat-status-filter">
+                  <option value="">All statuses</option>
+                  <option value="playable">Playable</option>
+                  <option value="ingame">In-Game</option>
+                  <option value="menus">Menus</option>
+                  <option value="boots">Boots</option>
+                  <option value="nothing">Nothing</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="sr-only">Filter by emulator</span>
+                <select id="compat-emu-filter">
+                  <option value="">All featured emulators</option>
+                </select>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" id="show-unverified" checked />
+                <span>Show unverified</span>
+              </label>
+              <button type="button" class="btn btn-ghost btn-sm" id="toggle-all-games-btn">Expand all</button>
+            </div>
 
-          <ul class="legend" id="legend" aria-label="Status legend"></ul>
-          <div class="table-wrap" id="compat-wrap" tabindex="0" role="region" aria-label="Compatibility table">
-            <table class="compat" id="compat-table"></table>
+            <ul class="legend" id="legend" aria-label="Status legend"></ul>
+            <div class="table-wrap" id="compat-wrap" tabindex="0" role="region" aria-label="Compatibility table">
+              <table class="compat" id="compat-table"></table>
+            </div>
+            <p class="muted small" id="compat-empty" hidden>No games match your filters.</p>
           </div>
-          <p class="muted small" id="compat-empty" hidden>No games match your search.</p>
         </div>
       </section>
 
@@ -229,19 +341,34 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="footer">
       <div class="container footer-inner">
         <p>
           <strong>PS5 EmuTrack</strong> is an independent, MIT-licensed project. It is not affiliated with Sony Interactive Entertainment.
           “PlayStation” and “PS5” are trademarks of their respective owners.
         </p>
         <p class="footer-links">
+          <a href="#top">Top</a>
+          <a href="#emulators">Emulators</a>
+          <a href="#compatibility">Compatibility</a>
           <a href="https://github.com/its-zain-dev/ps5-emutrack" target="_blank" rel="noopener">Source</a>
           <a href="./data.json">data.json</a>
           <span id="footer-updated" class="muted"></span>
         </p>
       </div>
     </footer>
+
+    <div class="compare-bar" id="compare-bar" hidden>
+      <div class="compare-bar-inner">
+        <span id="compare-summary"></span>
+        <div class="compare-bar-actions">
+          <button type="button" class="btn btn-primary btn-sm" id="compare-open-btn">Compare side-by-side</button>
+          <button type="button" class="btn btn-ghost btn-sm" id="compare-clear-btn">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="back-to-top" id="back-to-top" hidden aria-label="Back to top" title="Back to top">↑</button>
 
     <dialog id="release-dialog" aria-labelledby="dialog-title">
       <div class="dialog-inner">
@@ -255,6 +382,21 @@
           </button>
         </header>
         <div class="dialog-body" id="dialog-body"></div>
+      </div>
+    </dialog>
+
+    <dialog id="compare-dialog" class="dialog-wide" aria-labelledby="compare-dialog-title">
+      <div class="dialog-inner">
+        <header class="dialog-head">
+          <div>
+            <h3 id="compare-dialog-title">Compare Emulators</h3>
+            <p class="muted small">Side-by-side activity, platforms, latest builds, and tracked reports.</p>
+          </div>
+          <button type="button" class="icon-btn" data-close aria-label="Close">
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </header>
+        <div class="dialog-body" id="compare-dialog-body"></div>
       </div>
     </dialog>
 

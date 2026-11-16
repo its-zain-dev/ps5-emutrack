@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 196" width="880" height="196" role="img" aria-labelledby="pipe-title pipe-desc">
+  <title id="pipe-title">PS5 EmuTrack Architecture &amp; Issue Automation Pipeline</title>
+  <desc id="pipe-desc">Data flows hourly from curated data/*.json through Python stdlib tracker/build.py to static site/data.json on GitHub Pages, with automated issue triage and approval.</desc>
+  <defs>
+    <linearGradient id="p-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b101b"/>
+      <stop offset="100%" stop-color="#11192a"/>
+    </linearGradient>
+    <style>
+      .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+      @keyframes flowDash {
+        to { stroke-dashoffset: -28; }
+      }
+      @keyframes nodeGlow {
+        0%, 100% { stroke-opacity: 0.32; }
+        50% { stroke-opacity: 0.78; }
+      }
+      .wire { stroke-dasharray: 6 8; animation: flowDash 1.4s linear infinite; }
+      .n1 { animation: nodeGlow 3.6s ease-in-out 0s infinite; }
+      .n2 { animation: nodeGlow 3.6s ease-in-out 1.2s infinite; }
+      .n3 { animation: nodeGlow 3.6s ease-in-out 2.4s infinite; }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="878" height="194" rx="16" fill="url(#p-bg)" stroke="#94a3b8" stroke-opacity="0.22" stroke-width="1.2"/>
+
+  <!-- Top row label -->
+  <text x="26" y="27" class="mono" font-size="11" font-weight="600" fill="#6aa8ff" letter-spacing="0.8">HOURLY BUILD PIPELINE</text>
+
+  <!-- Node 1: data/ -->
+  <rect class="n1" x="26" y="40" width="242" height="78" rx="12" fill="#131c2e" stroke="#3d8bff" stroke-width="1.4"/>
+  <rect x="40" y="52" width="26" height="20" rx="5" fill="#1e2d48"/>
+  <text x="53" y="66" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#6aa8ff">{}</text>
+  <text x="74" y="66" class="sans" font-size="14" font-weight="700" fill="#f1f5f9">Curated Registry</text>
+  <text x="40" y="88" class="mono" font-size="11.5" fill="#cbd5e1">data/emulators.json · games</text>
+  <text x="40" y="105" class="sans" font-size="11" fill="#8592a6">Schema-validated source of truth</text>
+
+  <!-- Connector 1 -> 2 -->
+  <line class="wire" x1="274" y1="79" x2="314" y2="79" stroke="#3d8bff" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M311 74l6 5-6 5" fill="none" stroke="#6aa8ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle r="3.5" fill="#6aa8ff">
+    <animateMotion dur="1.4s" repeatCount="indefinite" path="M274,79 L314,79"/>
+  </circle>
+
+  <!-- Node 2: tracker/ -->
+  <rect class="n2" x="319" y="40" width="242" height="78" rx="12" fill="#131c2e" stroke="#22c55e" stroke-width="1.4"/>
+  <rect x="333" y="52" width="26" height="20" rx="5" fill="#143227"/>
+  <text x="346" y="66" text-anchor="middle" class="mono" font-size="11" font-weight="700" fill="#4ade80">py</text>
+  <text x="367" y="66" class="sans" font-size="14" font-weight="700" fill="#f1f5f9">Python Stdlib Sync</text>
+  <text x="333" y="88" class="mono" font-size="11.5" fill="#cbd5e1">python -m tracker build</text>
+  <text x="333" y="105" class="sans" font-size="11" fill="#8592a6">GitHub API + snapshot fallback</text>
+
+  <!-- Connector 2 -> 3 -->
+  <line class="wire" x1="567" y1="79" x2="607" y2="79" stroke="#a78bfa" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M604 74l6 5-6 5" fill="none" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle r="3.5" fill="#c4b5fd">
+    <animateMotion dur="1.4s" begin="0.7s" repeatCount="indefinite" path="M567,79 L607,79"/>
+  </circle>
+
+  <!-- Node 3: site/ -->
+  <rect class="n3" x="612" y="40" width="242" height="78" rx="12" fill="#131c2e" stroke="#a78bfa" stroke-width="1.4"/>
+  <rect x="626" y="52" width="26" height="20" rx="5" fill="#271f42"/>
+  <text x="639" y="66" text-anchor="middle" class="mono" font-size="10.5" font-weight="700" fill="#c4b5fd">&lt;/&gt;</text>
+  <text x="660" y="66" class="sans" font-size="14" font-weight="700" fill="#f1f5f9">Static Pages Hub</text>
+  <text x="626" y="88" class="mono" font-size="11.5" fill="#cbd5e1">site/index.html + data.json</text>
+  <text x="626" y="105" class="sans" font-size="11" fill="#8592a6">Instant search, compare &amp; matrix</text>
+
+  <!-- Bottom workflow strip -->
+  <rect x="26" y="134" width="828" height="44" rx="10" fill="#0d1422" stroke="#94a3b8" stroke-opacity="0.18"/>
+  <text x="42" y="160" class="mono" font-size="11" font-weight="700" fill="#f5b301">COMMUNITY FLOW</text>
+
+  <rect x="170" y="144" width="132" height="24" rx="6" fill="#172236"/>
+  <text x="236" y="160" text-anchor="middle" class="sans" font-size="11.5" font-weight="600" fill="#e2e8f0">1. Issue Form</text>
+
+  <line class="wire" x1="308" y1="156" x2="334" y2="156" stroke="#6aa8ff" stroke-width="1.8"/>
+  <rect x="340" y="144" width="144" height="24" rx="6" fill="#172236"/>
+  <text x="412" y="160" text-anchor="middle" class="sans" font-size="11.5" font-weight="600" fill="#e2e8f0">2. Auto Triage Bot</text>
+
+  <line class="wire" x1="490" y1="156" x2="516" y2="156" stroke="#f5b301" stroke-width="1.8"/>
+  <rect x="522" y="144" width="144" height="24" rx="6" fill="#232018" stroke="#f5b301" stroke-opacity="0.45"/>
+  <text x="594" y="160" text-anchor="middle" class="sans" font-size="11.5" font-weight="600" fill="#fde68a">3. approved Label</text>
+
+  <line class="wire" x1="672" y1="156" x2="698" y2="156" stroke="#22c55e" stroke-width="1.8"/>
+  <rect x="704" y="144" width="136" height="24" rx="6" fill="#142921" stroke="#22c55e" stroke-opacity="0.45"/>
+  <text x="772" y="160" text-anchor="middle" class="sans" font-size="11.5" font-weight="600" fill="#86efac">4. Merge &amp; Deploy</text>
+</svg>

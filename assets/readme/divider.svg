@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 14" width="880" height="14" role="presentation">
+  <defs>
+    <linearGradient id="div-beam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3d8bff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#6aa8ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="div-clip">
+      <rect x="0" y="6" width="880" height="2" rx="1"/>
+    </clipPath>
+    <style>
+      @keyframes sweep {
+        0% { transform: translateX(-240px); }
+        100% { transform: translateX(880px); }
+      }
+      .beam { animation: sweep 4s ease-in-out infinite; }
+    </style>
+  </defs>
+  <rect x="0" y="6" width="880" height="2" rx="1" fill="#64748b" fill-opacity="0.22"/>
+  <g clip-path="url(#div-clip)">
+    <rect class="beam" x="0" y="6" width="240" height="2" fill="url(#div-beam)"/>
+  </g>
+</svg>
