@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T08:24:50Z",
+  "generatedAt": "2026-11-16T10:34:21Z",
   "repoUrl": "https://github.com/its-zain-dev/ps5-emutrack",
   "emulators": {
     "kytyps5": {
@@ -437,7 +437,7 @@
       "Demon's Souls"
     ]
   },
-  "lastCompatibilityScan": "2026-11-16T08:24:50Z",
+  "lastCompatibilityScan": "2026-11-16T10:34:21Z",
   "customEmulators": [
     {
       "id": "cincar",
