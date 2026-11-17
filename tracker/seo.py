@@ -15,6 +15,7 @@ from typing import Any
 from . import guides, registry
 
 BASE_URL = "https://its-zain-dev.github.io/ps5-emutrack"
+BASE_PATH = "/ps5-emutrack"
 REPO_URL = "https://github.com/its-zain-dev/ps5-emutrack"
 SUBMIT_URL = f"{REPO_URL}/issues/new?template=submit-emulator.yml"
 REPORT_URL = f"{REPO_URL}/issues/new?template=compatibility-report.yml"
@@ -24,6 +25,12 @@ LIVE_SITEMAP_URL = f"{BASE_URL}/sitemap.xml"
 MATRIX_COLUMNS = ("kytyps5", "sharpemu", "anyps5", "prosperity", "shadps4")
 STATUS_RANK = {"nothing": 0, "boots": 1, "menus": 2, "ingame": 3, "playable": 4}
 FOLD_LIMIT = 6
+EMU_TITLE_CATEGORY = {
+    "ps5": "PS5 Emulator",
+    "ps4": "PS4 Emulator",
+    "fork": "PS5 Emulator Fork",
+    "port": "PS5 Emulator Port",
+}
 
 # Verified upstream screenshots hosted in public repositories (zero unverified mirrors).
 UPSTREAM_SCREENSHOTS: dict[str, list[tuple[str, str]]] = {
@@ -58,6 +65,28 @@ UPSTREAM_SCREENSHOTS: dict[str, list[tuple[str, str]]] = {
 
 def esc(value: Any) -> str:
     return html.escape("" if value is None else str(value), quote=True)
+
+
+def truncate_words(text: str, limit: int = 155) -> str:
+    """Collapse whitespace and truncate strictly on word boundaries without mid-word cuts."""
+    cleaned = " ".join(str(text or "").split())
+    if len(cleaned) <= limit:
+        return cleaned
+    window = cleaned[: limit - 1]
+    if not cleaned[limit - 1].isspace() and " " in window:
+        window = window.rsplit(" ", 1)[0]
+    window = window.rstrip(" .,;:!?-–—")
+    return f"{window}…"
+
+
+def _prune_stale_dirs(parent: Path, keep_ids: set[str]) -> None:
+    if not parent.exists():
+        return
+    import shutil
+
+    for child in parent.iterdir():
+        if child.is_dir() and child.name not in keep_ids:
+            shutil.rmtree(child)
 
 
 def parse_iso_dt(iso: str | None) -> datetime | None:
@@ -335,7 +364,7 @@ def _render_home_emulators(
         cards.append(
             f'<article id="emu-card-{esc(emu["id"])}" class="card{" is-featured" if emu.get("tier") == "featured" else ""}">'
             f'<div class="card-top">'
-            f'<img class="avatar" src="{avatar}" alt="" width="38" height="38" loading="lazy">'
+            f'<img class="avatar" src="{avatar}" alt="{esc(emu["name"])} GitHub avatar" width="38" height="38" loading="lazy" decoding="async">'
             f'<div class="card-title"><h3><a href="{esc(emu["url"])}" target="_blank" rel="noopener">{esc(emu["name"])}</a></h3>'
             f'<span class="repo">{esc(emu["repo"])}</span></div>'
             f'<div class="card-pins">'
@@ -410,7 +439,7 @@ def _render_home_guides(
     )
     return (
         f'<div class="guides-grid">'
-        f'<div><h3>PS5 Emulation Research Guides ({len(guides.GUIDES)})</h3><p class="small muted">{guide_links}</p></div>'
+        f'<div><h3><a href="./guides/">PS5 Emulation &amp; GTA VI Guides ({len(guides.GUIDES)})</a></h3><p class="small muted">{guide_links}</p></div>'
         f'<div><h3>Verified Compatibility Evidence Reports ({len(verified_reports)})</h3><p class="small muted">{report_links or "None yet."}</p></div>'
         f'<div><h3>Game Compatibility Pages ({len(games)})</h3><p class="small muted">{game_links}</p></div>'
         f'<div><h3>Emulator Release &amp; Status Pages ({len(emus_with_pages)})</h3><p class="small muted">{emu_links}</p></div>'
@@ -427,11 +456,19 @@ def _page_shell(
     body_html: str,
     generated_at: str,
     depth: int = 2,
+    robots: str = "index, follow, max-image-preview:large, max-snippet:-1",
+    include_canonical: bool = True,
+    include_og_url: bool = True,
+    og_type: str = "article",
+    root_prefix: str | None = None,
 ) -> str:
-    rel = "../" * depth
+    rel = root_prefix if root_prefix is not None else ("../" * depth)
     ld_scripts = "\n    ".join(
         f'<script type="application/ld+json">{json.dumps(b, ensure_ascii=False)}</script>' for b in ld_blocks
     )
+    canonical_tag = f'\n    <link rel="canonical" href="{esc(canonical)}" />' if include_canonical else ""
+    og_url_tag = f'\n    <meta property="og:url" content="{esc(canonical)}" />' if include_og_url else ""
+    og_alt = "PS5 EmuTrack open-source PS5 emulator tracker and compatibility matrix"
     return f"""<!doctype html>
 <html lang="en">
   <head>
@@ -439,19 +476,28 @@ def _page_shell(
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{esc(title)}</title>
     <meta name="description" content="{esc(description)}" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <meta name="robots" content="{esc(robots)}" />
     <meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)" />
-    <meta name="color-scheme" content="dark light" />
-    <link rel="canonical" href="{esc(canonical)}" />
+    <meta name="color-scheme" content="dark light" />{canonical_tag}
     <link rel="icon" href="{rel}assets/icon.svg" type="image/svg+xml" />
-    <meta property="og:type" content="article" />
+    <link rel="icon" href="{rel}assets/icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="{rel}apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="{rel}manifest.webmanifest" />
+    <meta property="og:type" content="{esc(og_type)}" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="PS5 EmuTrack" />
     <meta property="og:title" content="{esc(title)}" />
-    <meta property="og:description" content="{esc(description)}" />
-    <meta property="og:url" content="{esc(canonical)}" />
+    <meta property="og:description" content="{esc(description)}" />{og_url_tag}
     <meta property="og:image" content="{BASE_URL}/og-image.png" />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="900" />
+    <meta property="og:image:alt" content="{og_alt}" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{esc(title)}" />
+    <meta name="twitter:description" content="{esc(description)}" />
+    <meta name="twitter:image" content="{BASE_URL}/og-image.png" />
+    <meta name="twitter:image:alt" content="{og_alt}" />
     <link rel="stylesheet" href="{rel}assets/styles.css" />
     {ld_scripts}
   </head>
@@ -459,12 +505,13 @@ def _page_shell(
     <header class="site-header">
       <div class="container header-inner">
         <a href="{rel}" class="brand" aria-label="PS5 EmuTrack home">
-          <img src="{rel}assets/icon.svg" alt="" width="28" height="28" />
+          <img src="{rel}assets/icon.svg" alt="PS5 EmuTrack logo" width="28" height="28" />
           <span>PS5 <b>EmuTrack</b></span>
         </a>
         <nav class="nav" aria-label="Primary">
           <a href="{rel}#emulators">Emulators</a>
           <a href="{rel}#compatibility">Compatibility</a>
+          <a href="{rel}guides/">Guides</a>
           <a href="{rel}guides/real-vs-fake-ps5-emulators/">Safety Guide</a>
           <a href="{rel}#contribute">Contribute</a>
         </nav>
@@ -484,7 +531,8 @@ def _page_shell(
         <p><strong>PS5 EmuTrack</strong> · Independent open-source tracker. No games, firmware, or keys hosted.</p>
         <p class="footer-links">
           <a href="{rel}">Home</a>
-          <a href="{rel}guides/best-ps5-emulators-compared/">Comparisons</a>
+          <a href="{rel}guides/">Guides</a>
+          <a href="{rel}games/gta-vi/">GTA VI Watch</a>
           <a href="{rel}guides/real-vs-fake-ps5-emulators/">Verification Guide</a>
           <a href="{rel}data.json">data.json</a>
           <span class="muted">Updated {esc(fmt_date(generated_at))}</span>
@@ -542,17 +590,19 @@ def _video_ld_block(report: dict[str, Any], game_title: str, emu_name: str, cano
         "name": f"{game_title} on {emu_name} ({report.get('version') or 'test build'})",
         "description": report.get("notes") or f"Compatibility test footage of {game_title} on {emu_name}.",
         "uploadDate": f"{report['date']}T00:00:00Z",
-        "contentUrl": video_url,
         "url": canonical,
     }
     if vid:
         block["thumbnailUrl"] = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
         block["embedUrl"] = f"https://www.youtube.com/embed/{vid}"
-    elif report.get("screenshot"):
-        block["thumbnailUrl"] = report["screenshot"]
     else:
-        block["thumbnailUrl"] = f"{BASE_URL}/og-image.png"
+        block["contentUrl"] = video_url
+        block["thumbnailUrl"] = report["screenshot"] if report.get("screenshot") else f"{BASE_URL}/og-image.png"
     return block
+
+
+def _fit_title(primary: str, fallback: str, limit: int = 65) -> str:
+    return primary if len(primary) <= limit else fallback
 
 
 def _render_report_page(
@@ -569,12 +619,16 @@ def _render_report_page(
     emu = by_id.get(report["emulator"], {"id": report["emulator"], "name": report["emulator"], "url": REPO_URL})
     st_label = status_labels.get(report["status"], report["status"])
     canonical = f"{BASE_URL}/reports/{slug}/"
-    page_title = f"{game['title']} on {emu['name']} ({st_label}) — Verified Test Report | PS5 EmuTrack"
-    page_desc = (
+    page_title = _fit_title(
+        f"{game['title']} on {emu['name']} ({st_label}) | PS5 EmuTrack",
+        f"{game['title']} ({emu['name']}) | PS5 EmuTrack",
+    )
+    page_desc = truncate_words(
         f"Verified compatibility report for {game['title']} on {emu['name']}: status {st_label}, "
         f"build {report.get('version') or 'see source'}, tested {report['date']}"
-        f"{' on ' + report['hardware'] if report.get('hardware') else ''}."
-    )[:160]
+        f"{' on ' + report['hardware'] if report.get('hardware') else ''}.",
+        limit=155,
+    )
 
     emu_link = (
         f'<a href="../../emulators/{esc(emu["id"])}/">{esc(emu["name"])}</a>'
@@ -601,8 +655,7 @@ def _render_report_page(
         alt = f"{game['title']} compatibility screenshot on {emu['name']} ({st_label})"
         media_html += (
             f'<figure class="prose-card" style="margin-top:20px">'
-            f'<img src="{esc(report["screenshot"])}" alt="{esc(alt)}" loading="lazy" '
-            f'style="max-width:100%;height:auto;border-radius:10px;border:1px solid var(--border)" />'
+            f'<img class="shot-img" src="{esc(report["screenshot"])}" alt="{esc(alt)}" loading="lazy" decoding="async" />'
             f'<figcaption class="small muted">{esc(alt)}</figcaption></figure>'
         )
 
@@ -674,17 +727,35 @@ def _render_game_page(
     generated_at = payload.get("generatedAt", "")
 
     if gid == "gta-vi":
-        page_title = "Can Any PS5 Emulator Run GTA VI on PC? Live KytyPS5 & SharpEmu Status | PS5 EmuTrack"
-        page_desc = (
-            "Live status for Grand Theft Auto VI (GTA VI) across open-source PS5 emulators (KytyPS5, SharpEmu, AnyPS5, Prosperity): "
-            "launch reality check, release tracking, and how to avoid fake GTA 6 PC emulator malware."
+        page_title = "GTA 6 PC & GTAVI Emulator Status (PS5) | PS5 EmuTrack"
+        page_desc = truncate_words(
+            "Live GTA6 / GTA 6 PC & GTAVI emulator tracker across KytyPS5, SharpEmu & AnyPS5. "
+            "PS5 release reality check, GTA IV disambiguation & anti-scam guide.",
+            limit=155,
         )
+        h1_title = "Grand Theft Auto VI (GTA6) — PS5 Emulator & GTA 6 PC Watch"
+    elif game.get("platform") == "PS4":
+        page_title = _fit_title(
+            f"{title_text} PS4/PS5 Emulator Status | PS5 EmuTrack",
+            f"{title_text} Compatibility | PS5 EmuTrack",
+        )
+        page_desc = truncate_words(
+            f"Verified compatibility reports for {title_text} on shadPS4 (PS4 emulator) and PS5 projects, "
+            "with test hardware specs, builds, and status history.",
+            limit=155,
+        )
+        h1_title = f"{title_text} — PS4 & PS5 Emulator Compatibility"
     else:
-        page_title = f"{title_text} — PS5 Emulator Compatibility & Verified Test Reports | PS5 EmuTrack"
-        page_desc = (
-            f"Verified compatibility reports for {title_text} on KytyPS5, SharpEmu, AnyPS5, and Prosperity, "
-            "with test hardware specs, emulator builds, and progression history."
+        page_title = _fit_title(
+            f"{title_text} — PS5 Emulator Status | PS5 EmuTrack",
+            f"{title_text} Compatibility | PS5 EmuTrack",
         )
+        page_desc = truncate_words(
+            f"Verified compatibility reports for {title_text} on KytyPS5, SharpEmu, AnyPS5 & Prosperity, "
+            "with hardware specs, emulator builds, and test history.",
+            limit=155,
+        )
+        h1_title = f"{title_text} — PS5 Emulator Compatibility"
 
     canonical = f"{BASE_URL}/games/{gid}/"
     meta_badges = []
@@ -696,20 +767,53 @@ def _render_game_page(
         meta_badges.append(f'<span class="pill-upcoming">Console release: {esc(game["releaseDate"])}</span>')
 
     gta_callout = ""
+    gta_faq_section = ""
+    gta_faq_items: list[tuple[str, str]] = []
     if gid == "gta-vi":
+        gta5_fork_link = (
+            '<a href="../../emulators/kytyps5-gta5-fixes/">KytyPS5 GTA5 Fixes</a>'
+            if "kytyps5-gta5-fixes" in emu_page_ids
+            else '<a href="https://github.com/CheesyPoofs346/KytyPS5-gta5-fixes" target="_blank" rel="noopener">KytyPS5 GTA5 Fixes</a>'
+        )
         gta_callout = f"""
         <div class="prose-card">
-          <h2>GTA VI on PC via PS5 Emulator — Launch Reality Check</h2>
+          <h2>GTA 6 PC &amp; GTAVI / GTA6 Emulator — Launch Reality Check</h2>
           <p>
-            <strong>Short answer: No.</strong> Grand Theft Auto VI launches on PlayStation 5 and Xbox Series X|S on
-            <strong>{esc(game.get("releaseDate", "2026-11-19"))}</strong> with no official PC port yet.
+            <strong>Short answer: No working PS5 emulator can run GTA VI today.</strong> Grand Theft Auto VI (GTA6) launches on PlayStation 5 and Xbox Series X|S on
+            <strong>{esc(game.get("releaseDate", "2026-11-19"))}</strong> with no official <strong>GTA 6 PC</strong> or <strong>GTA6 PC</strong> port at launch.
             While <a href="../../emulators/kytyps5/">KytyPS5</a> has booted early builds of older PS5 titles like <em>GTA V</em> briefly before crashing,
-            emulating a new open-world PS5 release on launch day is not currently possible.
+            running a brand-new open-world PS5 release via a <em>GTAVI emulator</em> or <em>GTA6 emulator</em> on PC is not currently possible.
+          </p>
+          <h3>GTA VI vs. GTA IV vs. GTA V (Disambiguation)</h3>
+          <p>
+            Looking for <strong>GTA VI</strong> (often mistyped as <strong>GTA IV</strong>)? <em>Grand Theft Auto IV</em> (2008) is a PC/PS3/Xbox 360 title with an official PC release—it is <strong>not</strong> a PS5 game and is not tracked by PS5 emulators. <em>GTA V</em> has a PS5 edition with experimental work in forks such as {gta5_fork_link}. Follow real GTA6 compatibility milestones here as verified dumps and test logs arrive.
           </p>
           <p>
-            <strong>Avoid malware:</strong> Read our <a href="../../guides/real-vs-fake-ps5-emulators/">Real vs. Fake PS5 Emulators guide</a> before downloading anything claiming to play GTA 6 on PC.
+            <strong>Avoid malware:</strong> Read our <a href="../../guides/gta-vi-pc-ps5-emulator-reality-check/">GTA VI PC &amp; Emulator Reality Check</a> and <a href="../../guides/real-vs-fake-ps5-emulators/">Real vs. Fake PS5 Emulators guide</a> before downloading anything claiming to play GTA6 on PC.
           </p>
         </div>"""
+        gta_faq_items = [
+            (
+                "Can any GTAVI emulator or GTA6 emulator run GTA 6 on PC?",
+                "No. Grand Theft Auto VI launches on PlayStation 5 and Xbox Series X|S on 2026-11-19 with no official GTA 6 PC port yet, and no open-source PS5 emulator (KytyPS5, SharpEmu, AnyPS5, or Prosperity) can run GTA VI today.",
+            ),
+            (
+                "What is the difference between GTA IV, GTA V, and GTA VI for PS5 emulators?",
+                "GTA IV (Grand Theft Auto IV, 2008) is a PS3/Xbox 360/PC game and is not a PS5 title. GTA V has a native PS5 release tested in experimental KytyPS5 forks, while GTA VI (GTA6) is Rockstar's upcoming PS5/Xbox Series title tracked on PS5 EmuTrack.",
+            ),
+            (
+                "How do I avoid fake GTA6 PC emulator downloads?",
+                "Legitimate PS5 emulators are open source on GitHub and never bundle commercial game dumps, BIOS files, or password-protected installers. Verify every repository URL through PS5 EmuTrack before downloading.",
+            ),
+        ]
+        faq_details = "".join(
+            f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in gta_faq_items
+        )
+        gta_faq_section = f"""
+      <section style="margin-top:28px" aria-labelledby="gta-faq-heading">
+        <h2 id="gta-faq-heading" style="margin-bottom:12px">GTA VI (GTA6 PC) &amp; PS5 Emulator FAQ</h2>
+        {faq_details}
+      </section>"""
 
     rows_html = []
     for emu in cols:
@@ -782,8 +886,8 @@ def _render_game_page(
       </nav>
       <div class="subpage-hero">
         <div class="badges">{"".join(meta_badges)}</div>
-        <h1>{esc(title_text)} — PS5 Emulator Compatibility</h1>
-        <p class="lead">Sourced compatibility across tracked open-source PS5 emulators · Updated {esc(fmt_date(generated_at))}.</p>
+        <h1>{esc(h1_title)}</h1>
+        <p class="lead">Sourced compatibility across tracked open-source PS5 &amp; PS4 emulators · Updated {esc(fmt_date(generated_at))}.</p>
         {aliases_note}
         <div class="cta-row" style="margin-top:16px">
           <a class="btn btn-primary btn-sm" href="{esc(prefill)}" target="_blank" rel="noopener">Submit verified report</a>
@@ -804,6 +908,7 @@ def _render_game_page(
       </section>
 
       {timeline_html}
+      {gta_faq_section}
 
       <section style="margin-top:28px">
         <h2 style="margin-bottom:10px">Other Tracked Games</h2>
@@ -822,6 +927,21 @@ def _render_game_page(
             ],
         }
     ]
+    if gta_faq_items:
+        ld_blocks.append(
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": q,
+                        "acceptedAnswer": {"@type": "Answer", "text": a},
+                    }
+                    for q, a in gta_faq_items
+                ],
+            }
+        )
     for _, r in verified_list:
         v_block = _video_ld_block(r, title_text, by_id.get(r["emulator"], {}).get("name", r["emulator"]), canonical)
         if v_block:
@@ -835,6 +955,7 @@ def _render_game_page(
         ld_blocks=ld_blocks,
         body_html=body,
         generated_at=generated_at,
+        og_type="website",
     )
 
 
@@ -857,11 +978,20 @@ def _render_emulator_page(
 
     desc = emu.get("summary") or gh.get("description") or f"{name} open-source PlayStation emulation project on GitHub."
     canonical = f"{BASE_URL}/emulators/{eid}/"
-    page_title = f"{name} PS5 Emulator — Releases, History & Verified Compatibility | PS5 EmuTrack"
-    page_desc = (
-        f"{name} ({emu['repo']}): {desc} Latest release: {rel['tag'] if rel else 'source builds'}, "
-        f"{gh.get('stars', 0):,} stars, platforms: {', '.join(emu.get('platforms') or ['See repo'])}."
-    )[:160]
+    kind_label = EMU_TITLE_CATEGORY.get(emu.get("category", "ps5"), "PS5 Emulator")
+    page_title = _fit_title(
+        f"{name} {kind_label} — Releases & Status | PS5 EmuTrack",
+        _fit_title(
+            f"{name} — {kind_label} | PS5 EmuTrack",
+            f"{name} | PS5 EmuTrack",
+        ),
+    )
+    desc_punct = desc if desc.endswith((".", "!", "?", "…")) else f"{desc}."
+    page_desc = truncate_words(
+        f"{name} ({gh.get('stars', 0):,}★, {', '.join(emu.get('platforms') or ['GitHub'])}): {desc_punct}"
+        f"{' Latest build ' + fmt_date(rel.get('publishedAt')) + '.' if rel else ''}",
+        limit=158,
+    )
 
     badges = []
     if emu.get("tier") == "featured":
@@ -920,8 +1050,7 @@ def _render_emulator_page(
     shots_html = ""
     if shots:
         figs = "".join(
-            f'<figure style="margin:0"><img src="{esc(src)}" alt="{esc(alt)}" loading="lazy" '
-            f'style="width:100%;height:auto;border-radius:10px;border:1px solid var(--border)" />'
+            f'<figure style="margin:0"><img class="shot-img" src="{esc(src)}" alt="{esc(alt)}" loading="lazy" decoding="async" />'
             f'<figcaption class="small muted" style="margin-top:6px">{esc(alt)}</figcaption></figure>'
             for src, alt in shots
         )
@@ -991,18 +1120,32 @@ def _render_emulator_page(
       {f'<section style="margin-top:28px"><h2 style="margin-bottom:10px">Related {esc(cat_label)} Projects</h2><p class="small muted">{siblings}</p></section>' if siblings else ""}
     """
 
+    software_ld: dict[str, Any] = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": name,
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": ", ".join(emu.get("platforms") or ["Cross-platform"]),
+        "url": canonical,
+        "codeRepository": emu["url"],
+        "description": desc,
+        "isAccessibleForFree": True,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+    }
+    if rel and rel.get("tag"):
+        software_ld["softwareVersion"] = rel["tag"]
+        if rel.get("url"):
+            software_ld["downloadUrl"] = rel["url"]
+    mod_iso = (rel or {}).get("publishedAt") or gh.get("pushedAt")
+    if mod_iso:
+        software_ld["dateModified"] = str(mod_iso)[:10]
+    if gh.get("license"):
+        software_ld["license"] = f"https://spdx.org/licenses/{gh['license']}.html"
+    if shots:
+        software_ld["screenshot"] = [src for src, _ in shots]
+
     ld_blocks = [
-        {
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": name,
-            "applicationCategory": "GameApplication",
-            "operatingSystem": ", ".join(emu.get("platforms") or ["Cross-platform"]),
-            "url": canonical,
-            "codeRepository": emu["url"],
-            "description": desc,
-            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-        },
+        software_ld,
         {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -1020,12 +1163,18 @@ def _render_emulator_page(
         ld_blocks=ld_blocks,
         body_html=body,
         generated_at=generated_at,
+        og_type="website",
     )
 
 
 def _render_guide_page(guide: dict[str, Any], generated_at: str) -> str:
     gid = guide["id"]
     canonical = f"{BASE_URL}/guides/{gid}/"
+    page_title = _fit_title(
+        f"{guide.get('metaTitle', guide['title'])} | PS5 EmuTrack",
+        f"{guide['navTitle']} | PS5 EmuTrack",
+    )
+    page_desc = truncate_words(guide["description"], limit=155)
     sections_html = "".join(
         f'<section class="prose-card"><h2>{esc(heading)}</h2>{body}</section>'
         for heading, body in guide["sections"]
@@ -1037,7 +1186,7 @@ def _render_guide_page(guide: dict[str, Any], generated_at: str) -> str:
     )
     body = f"""
       <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <a href="../../">Home</a> / <span>Guides</span> / <span>{esc(guide["navTitle"])}</span>
+        <a href="../../">Home</a> / <a href="../../guides/">Guides</a> / <span>{esc(guide["navTitle"])}</span>
       </nav>
       <div class="subpage-hero">
         <div class="badges"><span class="badge">Research Guide</span><span class="badge">Updated {esc(guide["updated"])}</span></div>
@@ -1046,6 +1195,7 @@ def _render_guide_page(guide: dict[str, Any], generated_at: str) -> str:
         <div class="cta-row" style="margin-top:16px">
           <a class="btn btn-primary btn-sm" href="../../#emulators">Browse Emulator Directory</a>
           <a class="btn btn-ghost btn-sm" href="../../games/gta-vi/">GTA VI Watch</a>
+          <a class="btn btn-ghost btn-sm" href="../../guides/">All Guides</a>
         </div>
       </div>
       {sections_html}
@@ -1060,39 +1210,117 @@ def _render_guide_page(guide: dict[str, Any], generated_at: str) -> str:
             "@type": "BreadcrumbList",
             "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "PS5 EmuTrack", "item": f"{BASE_URL}/"},
-                {"@type": "ListItem", "position": 2, "name": guide["navTitle"], "item": canonical},
+                {"@type": "ListItem", "position": 2, "name": "Guides", "item": f"{BASE_URL}/guides/"},
+                {"@type": "ListItem", "position": 3, "name": guide["navTitle"], "item": canonical},
             ],
         },
         {
             "@context": "https://schema.org",
             "@type": "TechArticle",
             "headline": guide["title"],
-            "description": guide["description"],
+            "description": page_desc,
+            "datePublished": "2026-11-15",
             "dateModified": guide["updated"],
+            "image": f"{BASE_URL}/og-image.png",
+            "author": {"@type": "Organization", "name": "PS5 EmuTrack", "url": f"{BASE_URL}/"},
+            "publisher": {
+                "@type": "Organization",
+                "name": "PS5 EmuTrack",
+                "url": f"{BASE_URL}/",
+                "logo": {"@type": "ImageObject", "url": f"{BASE_URL}/assets/icon-512.png"},
+            },
+            "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
             "url": canonical,
         },
     ]
     return _page_shell(
-        title=f"{guide['title']} | PS5 EmuTrack",
-        description=guide["description"],
+        title=page_title,
+        description=page_desc,
         canonical=canonical,
         ld_blocks=ld_blocks,
         body_html=body,
         generated_at=generated_at,
+        og_type="article",
+    )
+
+
+def _render_guides_index_page(generated_at: str) -> str:
+    canonical = f"{BASE_URL}/guides/"
+    page_title = "PS5 Emulation & GTA VI Guides | PS5 EmuTrack"
+    page_desc = truncate_words(
+        "Research guides on open-source PS5 emulators (KytyPS5, SharpEmu, AnyPS5, Prosperity), "
+        "system requirements, Android ports, and GTA 6 PC reality checks.",
+        limit=155,
+    )
+    cards = "".join(
+        f'<article class="card">'
+        f'<div class="badges"><span class="badge">Research Guide</span><span class="badge">Updated {esc(g["updated"])}</span></div>'
+        f'<h3><a href="../guides/{esc(g["id"])}/">{esc(g["title"])}</a></h3>'
+        f'<p class="muted small">{esc(g["description"])}</p>'
+        f'<div class="card-actions" style="margin-top:auto"><a class="btn btn-primary btn-sm" href="../guides/{esc(g["id"])}/">Read guide →</a></div>'
+        f"</article>"
+        for g in guides.GUIDES
+    )
+    body = f"""
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../">Home</a> / <span>Guides</span>
+      </nav>
+      <div class="subpage-hero">
+        <div class="badges"><span class="badge">Research Hub</span><span class="badge">{len(guides.GUIDES)} Guides</span></div>
+        <h1>PS5 Emulation &amp; GTA VI Reality-Check Guides</h1>
+        <p class="lead">Original technical documentation covering open-source PS5 emulators, safety verification, Vulkan hardware specs, Android ports, and GTA 6 PC compatibility.</p>
+        <div class="cta-row" style="margin-top:16px">
+          <a class="btn btn-primary btn-sm" href="../games/gta-vi/">GTA VI Compatibility Watch</a>
+          <a class="btn btn-ghost btn-sm" href="../emulators/kytyps5/">KytyPS5 Tracker</a>
+          <a class="btn btn-ghost btn-sm" href="../emulators/shadps4/">shadPS4 Tracker</a>
+        </div>
+      </div>
+      <section style="margin-top:24px" aria-labelledby="guides-list-heading">
+        <h2 id="guides-list-heading" style="margin-bottom:14px">All PS5 Emulation &amp; GTA VI Reality-Check Guides</h2>
+        <div class="emu-grid">{cards}</div>
+      </section>
+    """
+    ld_blocks = [
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "PS5 EmuTrack", "item": f"{BASE_URL}/"},
+                {"@type": "ListItem", "position": 2, "name": "Guides", "item": canonical},
+            ],
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "PS5 Emulation & GTA VI Guides",
+            "description": page_desc,
+            "url": canonical,
+        },
+    ]
+    return _page_shell(
+        title=page_title,
+        description=page_desc,
+        canonical=canonical,
+        ld_blocks=ld_blocks,
+        body_html=body,
+        generated_at=generated_at,
+        depth=1,
+        og_type="website",
     )
 
 
 def _render_404_page(generated_at: str) -> str:
+    prefix = f"{BASE_PATH}/"
     body = f"""
       <div class="subpage-hero">
         <div class="badges"><span class="badge badge-warn">404 · Not Found</span></div>
         <h1>Page not found</h1>
         <p class="lead">The emulator, game, or report URL you requested has moved or does not exist.</p>
         <div class="cta-row" style="margin-top:18px">
-          <a class="btn btn-primary" href="/ps5-emutrack/">Go to PS5 EmuTrack Home</a>
-          <a class="btn btn-ghost" href="/ps5-emutrack/#compatibility">Compatibility Matrix</a>
-          <a class="btn btn-ghost" href="/ps5-emutrack/games/gta-vi/">GTA VI Status</a>
-          <a class="btn btn-ghost" href="/ps5-emutrack/guides/real-vs-fake-ps5-emulators/">Safety Guide</a>
+          <a class="btn btn-primary" href="{prefix}">Go to PS5 EmuTrack Home</a>
+          <a class="btn btn-ghost" href="{prefix}#compatibility">Compatibility Matrix</a>
+          <a class="btn btn-ghost" href="{prefix}games/gta-vi/">GTA VI Status</a>
+          <a class="btn btn-ghost" href="{prefix}guides/">Guides</a>
         </div>
       </div>
     """
@@ -1104,7 +1332,12 @@ def _render_404_page(generated_at: str) -> str:
         body_html=body,
         generated_at=generated_at,
         depth=0,
-    ).replace('href="assets/', 'href="/ps5-emutrack/assets/').replace('src="assets/', 'src="/ps5-emutrack/assets/')
+        robots="noindex, follow",
+        include_canonical=False,
+        include_og_url=False,
+        og_type="website",
+        root_prefix=prefix,
+    )
 
 
 def _read_previous_sitemap(site_dir: Path, previous_url: str | None) -> dict[str, str]:
@@ -1192,6 +1425,7 @@ def generate(
             "GUIDES",
             _render_home_guides(payload["games"], emus_with_pages, verified_reports, emulators_by_id, games_by_id),
         )
+        doc = _replace_marker(doc, "UPDATED", f"Updated {esc(fmt_date(generated_at))}")
         index_path.write_text(doc, encoding="utf-8")
 
     (target / "404.html").write_text(_render_404_page(generated_at), encoding="utf-8")
@@ -1206,6 +1440,7 @@ def generate(
     url_entries: list[tuple[str, str, str, str]] = []
 
     games_dir = target / "games"
+    _prune_stale_dirs(games_dir, {g["id"] for g in payload["games"]})
     for g in payload["games"]:
         g_dir = games_dir / g["id"]
         g_dir.mkdir(parents=True, exist_ok=True)
@@ -1219,6 +1454,7 @@ def generate(
         url_entries.append((f"{BASE_URL}/games/{g['id']}/", lastmod, "daily", prio))
 
     emus_dir = target / "emulators"
+    _prune_stale_dirs(emus_dir, emu_page_ids)
     for e in emus_with_pages:
         e_dir = emus_dir / e["id"]
         e_dir.mkdir(parents=True, exist_ok=True)
@@ -1232,6 +1468,7 @@ def generate(
         url_entries.append((f"{BASE_URL}/emulators/{e['id']}/", lastmod, "daily", prio))
 
     reports_dir = target / "reports"
+    _prune_stale_dirs(reports_dir, {slug for slug, _ in verified_reports})
     for slug, r in verified_reports:
         r_dir = reports_dir / slug
         r_dir.mkdir(parents=True, exist_ok=True)
@@ -1242,6 +1479,10 @@ def generate(
         url_entries.append((f"{BASE_URL}/reports/{slug}/", str(r["date"])[:10], "monthly", "0.7"))
 
     guides_dir = target / "guides"
+    guides_dir.mkdir(parents=True, exist_ok=True)
+    _prune_stale_dirs(guides_dir, {g["id"] for g in guides.GUIDES})
+    (guides_dir / "index.html").write_text(_render_guides_index_page(generated_at), encoding="utf-8")
+    url_entries.append((f"{BASE_URL}/guides/", guides.GUIDE_DATE, "weekly", "0.9"))
     for guide in guides.GUIDES:
         gd_dir = guides_dir / guide["id"]
         gd_dir.mkdir(parents=True, exist_ok=True)

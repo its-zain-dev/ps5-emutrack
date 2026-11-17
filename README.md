@@ -26,6 +26,8 @@
 
 <img src="assets/readme/divider.svg" alt="" width="100%" />
 
+**PS5 EmuTrack** is an independent, open-source **PS5 emulator tracker** (**emulator track** & release monitor) for PlayStation 5 and related PS4 projects—including **KytyPS5**, **SharpEmu**, **AnyPS5**, **Prosperity**, and **shadPS4**. It tracks hourly GitHub releases, verified compatibility reports, and our **GTA VI (GTA6 / GTA 6 PC / GTAVI emulator)** launch reality check—without hosting binaries, ROMs, firmware, or keys.
+
 ## How it works
 
 <p align="center">
@@ -126,13 +128,13 @@ python -m unittest discover -s tests -v
 | [Open5Emu](https://github.com/SplaatSites/Open5Emu) | — | — |
 | [P5EMU](https://github.com/NabuOX/P5EMU) | — | — |
 | [PCS5](https://github.com/StoneCold608/PCS5) | — | — |
-| [Prosper](https://github.com/mattias800/prosper) | Windows, Linux, macOS | — |
-| [PS5 PC Emulator](https://github.com/mustafaaldaffaie/PS5-PC-Emulator) | — | — |
-| [PS5PCEM](https://github.com/iStark/PS5PCEM) | Windows, Linux | — |
+| [Prosper](https://github.com/mattias800/prosper) | Windows, Linux, macOS | User-space PlayStation 5 to PC compatibility layer for Linux, Windows, and macOS. |
+| [PS5 PC Emulator](https://github.com/mustafaaldaffaie/PS5-PC-Emulator) | — | Experimental PS5 compatibility layer and desktop frontend for Windows and Linux. |
+| [PS5PCEM](https://github.com/iStark/PS5PCEM) | Windows, Linux | Open-source PS5 PC emulator project targeting Windows and Linux hosts. |
 | [PS5plusplus](https://github.com/thesupersupersigma/PS5plusplus) | — | — |
-| [ps5rs](https://github.com/claimore22/ps5rs) | Windows, Linux, macOS | — |
+| [ps5rs](https://github.com/claimore22/ps5rs) | Windows, Linux, macOS | Rust PS5 binary analysis, virtual loader, SELF/ELF/PRX parser, and pure-Rust HLE emulation framework. |
 | [PSPC5 Plus](https://github.com/gurjotsenghww/pspc5-plus) | Windows | — |
-| [RPS5E (RustPS5Emu)](https://github.com/keklick1337/rps5e) | Windows, Linux | — |
+| [RPS5E (RustPS5Emu)](https://github.com/keklick1337/rps5e) | Windows, Linux | PlayStation 5 emulator written in Rust targeting Linux and Windows hosts. |
 | [RustPS5](https://github.com/CipherSoul01/RustPS5) | — | — |
 | [S5-Play](https://github.com/danielsem65/S5-Play) | Windows | — |
 | [SharpEmu PS5 Mac](https://github.com/xxjonathan1997xx/SharpEmu-PS5-Mac) | macOS | — |
@@ -169,9 +171,9 @@ python -m unittest discover -s tests -v
 | [EmuFive](https://github.com/blue0x1/EmuFive) | PS4 | Based on KytyPS5 |
 | [KyTx](https://github.com/TxCsOffc/KyTx) | macOS | Based on KytyPS5 |
 | [KytyPS5 Emscripten](https://github.com/Shubin123/kytyps5_emscripten) | Web | Based on KytyPS5 |
-| [KytyPS5-Android](https://github.com/tarek369/KytyPS5-Android) | Android | Based on KytyPS5 |
-| [Lumen Emu](https://github.com/gs-soft-it/lumen-emu) | Android, iOS | — |
-| [MagnusPS5](https://github.com/hernan0078/MagnusPS5) | iOS | — |
+| [KytyPS5-Android](https://github.com/tarek369/KytyPS5-Android) | Android | Based on KytyPS5 · Experimental KytyPS5 Android ARM64 port using FEXCore JIT and Vulkan on Mesa Turnip/Adreno. |
+| [Lumen Emu](https://github.com/gs-soft-it/lumen-emu) | Android, iOS | Experimental mobile PS4/PS5 emulator frontend for Android and iOS using open-source cores. |
+| [MagnusPS5](https://github.com/hernan0078/MagnusPS5) | iOS | Experimental PS5 emulator port targeting iOS devices (iPhone and iPad). |
 | [NovaPS5 Android](https://github.com/kaminofilms/NovaPS5-Android) | Android | — |
 | [onRps4-Android](https://github.com/dev-Ali2008/onRps4-Android) | Android | — |
 | [Orbis-Kyty](https://github.com/MrKitsune9/Orbis-Kyty) | PS4 | Based on KytyPS5 |
@@ -188,12 +190,12 @@ python -m unittest discover -s tests -v
 | :-- | :-- | :-- |
 | **[shadPS4](https://github.com/shadps4-emu/shadPS4)** ⭐ | Windows, Linux, macOS | The leading PS4 emulator. Many PS5 projects reuse its shader recompiler and HLE work. |
 | [Empire of Steel](https://github.com/daeken/EmpireOfSteel) | — | — |
-| [fpPS4](https://github.com/red-prig/fpPS4) | Windows, Linux | — |
-| [GPCS4](https://github.com/Inori/GPCS4) | Windows | — |
-| [Kyty (Upstream)](https://github.com/InoriRus/Kyty) | Windows, Linux | — |
-| [Obliteration](https://github.com/obhq/obliteration) | Windows, Linux, macOS | — |
-| [Orbital](https://github.com/AlexAltea/orbital) | Windows, Linux | — |
-| [psOff](https://github.com/SysRay/psOff_public) | Windows | — |
+| [fpPS4](https://github.com/red-prig/fpPS4) | Windows, Linux | PS4 compatibility layer and emulator written in Free Pascal for Windows and Linux. |
+| [GPCS4](https://github.com/Inori/GPCS4) | Windows | Work-in-progress PlayStation 4 emulator for Windows. |
+| [Kyty (Upstream)](https://github.com/InoriRus/Kyty) | Windows, Linux | Upstream PS4 and PS5 emulator by InoriRus for Windows and Linux. |
+| [Obliteration](https://github.com/obhq/obliteration) | Windows, Linux, macOS | Free and open-source PlayStation 4 kernel and compatibility layer. |
+| [Orbital](https://github.com/AlexAltea/orbital) | Windows, Linux | Experimental low-level PlayStation 4 emulator using virtualization. |
+| [psOff](https://github.com/SysRay/psOff_public) | Windows | PlayStation 4 compatibility layer and emulator for Windows. |
 
 </details>
 <!-- EMULATORS:END -->

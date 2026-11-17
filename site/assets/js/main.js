@@ -905,15 +905,21 @@ function renderEmulatorCards(visible, categories) {
         : '<div class="release none">No tagged releases — source only</div>';
 
       const repoUrl = safeHttps(emu.url) || '#';
-      const secondaryAction = rel
-        ? `<button type="button" class="btn btn-primary btn-sm" data-open-release="${escapeHtml(emu.id)}">Release notes</button>`
-        : `<a class="btn btn-ghost btn-sm" href="${escapeHtml(repoUrl)}/commits" target="_blank" rel="noopener">Commits</a>`;
+      const emuPageHref = hasEmulatorPage(emu) ? `./emulators/${escapeHtml(emu.id)}/` : null;
+      const titleLink = emuPageHref
+        ? `<a href="${emuPageHref}">${escapeHtml(emu.name)}</a>`
+        : `<a href="${escapeHtml(repoUrl)}" target="_blank" rel="noopener">${escapeHtml(emu.name)}</a>`;
+      const secondaryAction = emuPageHref
+        ? `<a class="btn btn-primary btn-sm" href="${emuPageHref}">Details &amp; notes</a>`
+        : rel
+          ? `<button type="button" class="btn btn-primary btn-sm" data-open-release="${escapeHtml(emu.id)}">Release notes</button>`
+          : `<a class="btn btn-ghost btn-sm" href="${escapeHtml(repoUrl)}/commits" target="_blank" rel="noopener">Commits</a>`;
 
       return `<article id="emu-card-${escapeHtml(emu.id)}" class="card${emu.tier === 'featured' ? ' is-featured' : ''}${isHighlighted ? ' is-highlighted' : ''}">
         <div class="card-top">
-          <img class="avatar" src="${escapeHtml(avatarUrl)}" alt="" width="38" height="38" loading="lazy" />
+          <img class="avatar" src="${escapeHtml(avatarUrl)}" alt="${escapeHtml(emu.name)} GitHub avatar" width="38" height="38" loading="lazy" decoding="async" />
           <div class="card-title">
-            <h3><a href="${escapeHtml(repoUrl)}" target="_blank" rel="noopener">${escapeHtml(emu.name)}</a></h3>
+            <h3>${titleLink}</h3>
             <span class="repo" title="${escapeHtml(emu.repo)}">${escapeHtml(emu.repo)}</span>
           </div>
           <div class="card-pins">
@@ -947,11 +953,16 @@ function renderEmulatorCompactTable(visible, categories) {
       const isCompared = state.compareIds.includes(emu.id);
       const isHighlighted = state.highlightedId === emu.id;
 
+      const emuPageHref = hasEmulatorPage(emu) ? `./emulators/${escapeHtml(emu.id)}/` : null;
+      const compactTitleLink = emuPageHref
+        ? `<a href="${emuPageHref}">${escapeHtml(emu.name)}</a>`
+        : `<a href="${escapeHtml(repoUrl)}" target="_blank" rel="noopener">${escapeHtml(emu.name)}</a>`;
+
       return `<tr class="${isHighlighted ? 'is-highlighted' : ''}">
         <td>
           <div class="compact-name">
-            <img src="${escapeHtml(avatarUrl)}" alt="" width="22" height="22" loading="lazy" />
-            <a href="${escapeHtml(repoUrl)}" target="_blank" rel="noopener">${escapeHtml(emu.name)}</a>
+            <img src="${escapeHtml(avatarUrl)}" alt="${escapeHtml(emu.name)} GitHub avatar" width="22" height="22" loading="lazy" decoding="async" />
+            ${compactTitleLink}
             ${emu.tier === 'featured' ? '<span class="badge badge-featured">★</span>' : ''}
           </div>
         </td>
@@ -1213,9 +1224,10 @@ function renderCompatibility() {
   const headHtml = `<thead><tr>
     <th>Game</th>
     ${columns
-      .map(
-        (c) =>
-          `<th><a href="${escapeHtml(safeHttps(c.url) || '#')}" target="_blank" rel="noopener">${escapeHtml(c.name)}</a></th>`,
+      .map((c) =>
+        hasEmulatorPage(c)
+          ? `<th><a href="./emulators/${escapeHtml(c.id)}/">${escapeHtml(c.name)}</a></th>`
+          : `<th><a href="${escapeHtml(safeHttps(c.url) || '#')}" target="_blank" rel="noopener">${escapeHtml(c.name)}</a></th>`,
       )
       .join('')}
   </tr></thead>`;
@@ -1297,7 +1309,7 @@ function renderCompatibility() {
           <td>
             <div class="game-title">
               <svg class="chev" aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path fill="currentColor" d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06Z"/></svg>
-              <span>${escapeHtml(game.title)}</span>
+              <a href="./games/${escapeHtml(game.id)}/">${escapeHtml(game.title)}</a>
               ${pills.join('')}
             </div>
             ${game.developer ? `<div class="game-sub">${escapeHtml(game.developer)}</div>` : ''}
@@ -1631,7 +1643,7 @@ function bindEvents() {
   els.compatTable?.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
     const row = e.target.closest('tr.game-row');
-    if (!row) return;
+    if (!row || e.target.closest('a')) return;
     e.preventDefault();
     toggleGameDetail(row.dataset.game);
   });

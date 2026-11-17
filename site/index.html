@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PS5 EmuTrack — PlayStation 5 Emulator Releases, KytyPS5 &amp; GTA VI Compatibility</title>
+    <title>PS5 EmuTrack — Open-Source PS5 Emulator Tracker &amp; GTA VI Watch</title>
     <meta
       name="description"
-      content="Track open-source PlayStation 5 emulators (KytyPS5, SharpEmu, AnyPS5, Prosperity), hourly GitHub releases, and sourced game compatibility reports including GTA VI."
+      content="Live PS5 emulator tracker for KytyPS5, SharpEmu, AnyPS5, Prosperity &amp; shadPS4. Hourly GitHub releases, verified compatibility &amp; GTA 6 PC reality check."
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)" />
@@ -15,14 +15,25 @@
     <meta name="google-site-verification" content="xKwdJEB_WzQuCEltZwvfQgXwB-RtqlKR8q9zS6kt34" />
     <link rel="canonical" href="https://its-zain-dev.github.io/ps5-emutrack/" />
     <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./assets/icon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="./manifest.webmanifest" />
 
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="PS5 EmuTrack" />
-    <meta property="og:title" content="PS5 EmuTrack: open-source PS5 emulator tracker" />
-    <meta property="og:description" content="Latest releases, activity and sourced compatibility reports for every open-source PS5 emulator." />
+    <meta property="og:title" content="PS5 EmuTrack — Open-Source PS5 Emulator Tracker &amp; GTA VI Watch" />
+    <meta property="og:description" content="Live PS5 emulator tracker for KytyPS5, SharpEmu, AnyPS5, Prosperity &amp; shadPS4. Hourly GitHub releases, verified compatibility &amp; GTA 6 PC reality check." />
     <meta property="og:url" content="https://its-zain-dev.github.io/ps5-emutrack/" />
     <meta property="og:image" content="https://its-zain-dev.github.io/ps5-emutrack/og-image.png" />
+    <meta property="og:image:width" content="1440" />
+    <meta property="og:image:height" content="900" />
+    <meta property="og:image:alt" content="PS5 EmuTrack open-source PS5 emulator tracker and compatibility matrix" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PS5 EmuTrack — Open-Source PS5 Emulator Tracker &amp; GTA VI Watch" />
+    <meta name="twitter:description" content="Live PS5 emulator tracker for KytyPS5, SharpEmu, AnyPS5, Prosperity &amp; shadPS4. Hourly GitHub releases, verified compatibility &amp; GTA 6 PC reality check." />
+    <meta name="twitter:image" content="https://its-zain-dev.github.io/ps5-emutrack/og-image.png" />
+    <meta name="twitter:image:alt" content="PS5 EmuTrack open-source PS5 emulator tracker and compatibility matrix" />
 
     <link rel="preload" href="./data.json" as="fetch" crossorigin />
     <link rel="stylesheet" href="./assets/styles.css" />
@@ -33,8 +44,23 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "PS5 EmuTrack",
+        "alternateName": "EmuTrack",
         "url": "https://its-zain-dev.github.io/ps5-emutrack/",
-        "description": "Independent tracker for open-source PlayStation 5 emulators, releases, and sourced compatibility reports."
+        "inLanguage": "en",
+        "description": "Independent open-source PS5 emulator tracker for PlayStation 5 and PS4 releases, GitHub activity, and sourced compatibility reports.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "PS5 EmuTrack",
+          "url": "https://github.com/its-zain-dev/ps5-emutrack"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://its-zain-dev.github.io/ps5-emutrack/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
       }
     </script>
     <script type="application/ld+json">
@@ -42,9 +68,27 @@
         "@context": "https://schema.org",
         "@type": "Dataset",
         "name": "PS5 EmuTrack Emulator & Compatibility Registry",
-        "description": "Hourly-synced directory of open-source PlayStation 5 emulators (KytyPS5, SharpEmu, AnyPS5, Prosperity, shadPS4) and game compatibility reports.",
+        "description": "Hourly-synced directory of open-source PlayStation 5 and PS4 emulators (KytyPS5, SharpEmu, AnyPS5, Prosperity, shadPS4) and verified game compatibility reports.",
         "url": "https://its-zain-dev.github.io/ps5-emutrack/",
         "license": "https://opensource.org/licenses/MIT",
+        "isAccessibleForFree": true,
+        "creator": {
+          "@type": "Organization",
+          "name": "PS5 EmuTrack",
+          "url": "https://github.com/its-zain-dev/ps5-emutrack"
+        },
+        "keywords": [
+          "ps5 emulator",
+          "emulator tracker",
+          "emulator track",
+          "emutrack",
+          "kytyps5",
+          "shadps4",
+          "gta6",
+          "gta 6 pc",
+          "gta6 pc",
+          "gtavi emulator"
+        ],
         "distribution": {
           "@type": "DataDownload",
           "encodingFormat": "application/json",
@@ -57,6 +101,22 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can a GTAVI or GTA6 PS5 emulator run GTA 6 on PC?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Grand Theft Auto VI (GTA6) launches on PlayStation 5 and Xbox Series X|S on 2026-11-19 with no official GTA 6 PC port yet, and no open-source PS5 emulator can run GTA VI today. Beware fake GTAVI emulator or GTA6 PC download scams. Note: GTA IV (2008) is a PC/PS3/Xbox 360 game and not a PS5 title."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is PS5 EmuTrack and what does this emulator tracker monitor?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PS5 EmuTrack is an independent open-source PS5 emulator tracker and hourly emulator track monitoring 50+ PlayStation 5 and PS4 GitHub projects—including KytyPS5, SharpEmu, AnyPS5, Prosperity, and shadPS4—alongside verified game compatibility reports."
+            }
+          },
           {
             "@type": "Question",
             "name": "Can a PS5 emulator run my games today?",
@@ -107,15 +167,16 @@
     <header class="site-header">
       <div class="container header-inner">
         <a href="#top" class="brand" aria-label="PS5 EmuTrack home">
-          <img src="./assets/icon.svg" alt="" width="28" height="28" />
+          <img src="./assets/icon.svg" alt="PS5 EmuTrack logo" width="28" height="28" />
           <span>PS5 <b>EmuTrack</b></span>
         </a>
         <nav class="nav" aria-label="Primary">
           <a href="#emulators">Emulators</a>
           <a href="#compatibility">Compatibility</a>
+          <a href="./guides/">Guides</a>
+          <a href="./games/gta-vi/">GTA VI Watch</a>
           <a href="./guides/real-vs-fake-ps5-emulators/">Safety Guide</a>
           <a href="#contribute">Contribute</a>
-          <a href="#faq">FAQ</a>
         </nav>
         <div class="header-actions">
           <button type="button" class="btn btn-ghost btn-sm search-trigger" id="header-search-btn" title="Jump to search (/)">
@@ -137,10 +198,11 @@
     <main id="main">
       <section class="hero" id="top">
         <div class="container">
-          <p class="eyebrow">Independent · Open source · Updated hourly</p>
-          <h1>Every open-source PS5 emulator, <span class="accent">in one place.</span></h1>
+          <p class="eyebrow">Independent · Open source · Hourly emulator track</p>
+          <h1>The open-source <span class="accent">PS5 emulator tracker.</span></h1>
           <p class="lead">
-            Latest GitHub releases, activity telemetry, and sourced game compatibility.
+            Live GitHub releases, compatibility progress, and verified test logs for 50+ PlayStation 5 &amp; PS4 projects—including
+            KytyPS5, SharpEmu, AnyPS5, Prosperity, shadPS4, and our <a href="./games/gta-vi/">GTA VI (GTA6 / GTA 6 PC) watch</a>.
             Zero binaries, firmware, or keys hosted.
           </p>
 
@@ -177,7 +239,7 @@
 
           <dl class="stats" id="stats" aria-live="polite">
             <!-- SSR:STATS -->
-<div><dt>Projects tracked</dt><dd data-stat="projects">53</dd></div><div><dt>Releases this week</dt><dd data-stat="weekly">7</dd></div><div><dt>Compatibility reports</dt><dd data-stat="reports">36</dd></div><div><dt>Data refreshed</dt><dd data-stat="updated">Nov 16, 2026</dd></div>
+<div><dt>Projects tracked</dt><dd data-stat="projects">53</dd></div><div><dt>Releases this week</dt><dd data-stat="weekly">6</dd></div><div><dt>Compatibility reports</dt><dd data-stat="reports">36</dd></div><div><dt>Data refreshed</dt><dd data-stat="updated">Nov 16, 2026</dd></div>
 <!-- /SSR:STATS -->
           </dl>
         </div>
@@ -258,13 +320,13 @@
 
             <div class="emu-grid" id="emu-grid">
               <!-- SSR:EMULATORS -->
-<article id="emu-card-kytyps5" class="card is-featured"><div class="card-top"><img class="avatar" src="https://github.com/KytyPS5.png?size=80" alt="" width="38" height="38" loading="lazy"><div class="card-title"><h3><a href="https://github.com/KytyPS5/KytyPS5" target="_blank" rel="noopener">KytyPS5</a></h3><span class="repo">KytyPS5/KytyPS5</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="kytyps5" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="kytyps5" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge badge-featured">★ Featured</span><span class="badge">PS5 emulator</span><span class="badge">Windows</span><span class="badge">Linux</span><span class="badge">macOS</span></div><p class="desc">The most widely used PS5 translation layer. Runs PS5 executables on Windows, Linux and macOS.</p><div class="meta"><span>★ 11,349</span><span>C++</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">KytyPS5-2026-11-16-d45b086</span><span class="release-date">Nov 16, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/KytyPS5/KytyPS5" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/kytyps5/">Details &amp; notes</a></div></article><article id="emu-card-shadps4" class="card is-featured"><div class="card-top"><img class="avatar" src="https://github.com/shadps4-emu.png?size=80" alt="" width="38" height="38" loading="lazy"><div class="card-title"><h3><a href="https://github.com/shadps4-emu/shadPS4" target="_blank" rel="noopener">shadPS4</a></h3><span class="repo">shadps4-emu/shadPS4</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="shadps4" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="shadps4" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge badge-featured">★ Featured</span><span class="badge">PS4 &amp; related</span><span class="badge">Windows</span><span class="badge">Linux</span><span class="badge">macOS</span></div><p class="desc">The leading PS4 emulator. Many PS5 projects reuse its shader recompiler and HLE work.</p><div class="meta"><span>★ 34,237</span><span>C++</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">Pre-release-shadPS4-2026-11-16-143b58aa48bfe5ad170d45bbae14b257a240777a</span><span class="release-date">Nov 16, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/shadps4-emu/shadPS4" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/shadps4/">Details &amp; notes</a></div></article><article id="emu-card-anyps5" class="card is-featured"><div class="card-top"><img class="avatar" src="https://github.com/boykopovar.png?size=80" alt="" width="38" height="38" loading="lazy"><div class="card-title"><h3><a href="https://github.com/boykopovar/AnyPS5" target="_blank" rel="noopener">AnyPS5</a></h3><span class="repo">boykopovar/AnyPS5</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="anyps5" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="anyps5" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge badge-featured">★ Featured</span><span class="badge">PS5 emulator</span><span class="badge">Windows</span><span class="badge">Linux</span></div><p class="desc">Ports PS5 executables to run natively on Linux and Windows through automatic re-linking.</p><div class="meta"><span>★ 54,482</span><span>C++</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">v0.1.5</span><span class="release-date">Nov 11, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/boykopovar/AnyPS5" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/anyps5/">Details &amp; notes</a></div></article><article id="emu-card-sharpemu" class="card is-featured"><div class="card-top"><img class="avatar" src="https://github.com/sharpemu.png?size=80" alt="" width="38" height="38" loading="lazy"><div class="card-title"><h3><a href="https://github.com/sharpemu/sharpemu" target="_blank" rel="noopener">SharpEmu</a></h3><span class="repo">sharpemu/sharpemu</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="sharpemu" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="sharpemu" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge badge-featured">★ Featured</span><span class="badge">PS5 emulator</span><span class="badge">Windows</span><span class="badge">Linux</span></div><p class="desc">Experimental PS5 emulator written in C#/.NET with a Vulkan renderer, for Windows and Linux.</p><div class="meta"><span>★ 6,618</span><span>C#</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">v0.0.7-pulse</span><span class="release-date">Nov 01, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/sharpemu/sharpemu" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/sharpemu/">Details &amp; notes</a></div></article><article id="emu-card-prosperity" class="card is-featured"><div class="card-top"><img class="avatar" src="https://github.com/Force67.png?size=80" alt="" width="38" height="38" loading="lazy"><div class="card-title"><h3><a href="https://github.com/Force67/prosperity" target="_blank" rel="noopener">Prosperity</a></h3><span class="repo">Force67/prosperity</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="prosperity" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="prosperity" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge badge-featured">★ Featured</span><span class="badge">PS5 emulator</span></div><p class="desc">Low-level (LLE) emulator targeting both PS4 and PS5 hardware.</p><div class="meta"><span>★ 411</span><span>C++</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">v0.0.1</span><span class="release-date">Oct 03, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/Force67/prosperity" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/prosperity/">Details &amp; notes</a></div></article><article id="emu-card-emufive" class="card"><div class="card-top"><img class="avatar" src="https://github.com/blue0x1.png?size=80" alt="" width="38" height="38" loading="lazy"><div class="card-title"><h3><a href="https://github.com/blue0x1/EmuFive" target="_blank" rel="noopener">EmuFive</a></h3><span class="repo">blue0x1/EmuFive</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="emufive" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="emufive" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge">Port / frontend</span><span class="badge">Based on KytyPS5</span><span class="badge">PS4</span></div><p class="desc">A PS5 emulator for the PS4. Runs on a jailbroken PS4 with Linux, installed through PS4 Multiboot.</p><div class="meta"><span>★ 282</span><span>Python</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">1.0.8</span><span class="release-date">Nov 16, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/blue0x1/EmuFive" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/emufive/">Details &amp; notes</a></div></article>
+<article id="emu-card-kytyps5" class="card is-featured"><div class="card-top"><img class="avatar" src="https://github.com/KytyPS5.png?size=80" alt="KytyPS5 GitHub avatar" width="38" height="38" loading="lazy" decoding="async"><div class="card-title"><h3><a href="https://github.com/KytyPS5/KytyPS5" target="_blank" rel="noopener">KytyPS5</a></h3><span class="repo">KytyPS5/KytyPS5</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="kytyps5" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="kytyps5" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge badge-featured">★ Featured</span><span class="badge">PS5 emulator</span><span class="badge">Windows</span><span class="badge">Linux</span><span class="badge">macOS</span></div><p class="desc">The most widely used PS5 translation layer. Runs PS5 executables on Windows, Linux and macOS.</p><div class="meta"><span>★ 11,349</span><span>C++</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">KytyPS5-2026-11-16-d45b086</span><span class="release-date">Nov 16, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/KytyPS5/KytyPS5" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/kytyps5/">Details &amp; notes</a></div></article><article id="emu-card-shadps4" class="card is-featured"><div class="card-top"><img class="avatar" src="https://github.com/shadps4-emu.png?size=80" alt="shadPS4 GitHub avatar" width="38" height="38" loading="lazy" decoding="async"><div class="card-title"><h3><a href="https://github.com/shadps4-emu/shadPS4" target="_blank" rel="noopener">shadPS4</a></h3><span class="repo">shadps4-emu/shadPS4</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="shadps4" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="shadps4" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge badge-featured">★ Featured</span><span class="badge">PS4 &amp; related</span><span class="badge">Windows</span><span class="badge">Linux</span><span class="badge">macOS</span></div><p class="desc">The leading PS4 emulator. Many PS5 projects reuse its shader recompiler and HLE work.</p><div class="meta"><span>★ 34,237</span><span>C++</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">Pre-release-shadPS4-2026-11-16-143b58aa48bfe5ad170d45bbae14b257a240777a</span><span class="release-date">Nov 16, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/shadps4-emu/shadPS4" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/shadps4/">Details &amp; notes</a></div></article><article id="emu-card-anyps5" class="card is-featured"><div class="card-top"><img class="avatar" src="https://github.com/boykopovar.png?size=80" alt="AnyPS5 GitHub avatar" width="38" height="38" loading="lazy" decoding="async"><div class="card-title"><h3><a href="https://github.com/boykopovar/AnyPS5" target="_blank" rel="noopener">AnyPS5</a></h3><span class="repo">boykopovar/AnyPS5</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="anyps5" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="anyps5" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge badge-featured">★ Featured</span><span class="badge">PS5 emulator</span><span class="badge">Windows</span><span class="badge">Linux</span></div><p class="desc">Ports PS5 executables to run natively on Linux and Windows through automatic re-linking.</p><div class="meta"><span>★ 54,482</span><span>C++</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">v0.1.5</span><span class="release-date">Nov 11, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/boykopovar/AnyPS5" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/anyps5/">Details &amp; notes</a></div></article><article id="emu-card-sharpemu" class="card is-featured"><div class="card-top"><img class="avatar" src="https://github.com/sharpemu.png?size=80" alt="SharpEmu GitHub avatar" width="38" height="38" loading="lazy" decoding="async"><div class="card-title"><h3><a href="https://github.com/sharpemu/sharpemu" target="_blank" rel="noopener">SharpEmu</a></h3><span class="repo">sharpemu/sharpemu</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="sharpemu" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="sharpemu" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge badge-featured">★ Featured</span><span class="badge">PS5 emulator</span><span class="badge">Windows</span><span class="badge">Linux</span></div><p class="desc">Experimental PS5 emulator written in C#/.NET with a Vulkan renderer, for Windows and Linux.</p><div class="meta"><span>★ 6,618</span><span>C#</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">v0.0.7-pulse</span><span class="release-date">Nov 01, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/sharpemu/sharpemu" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/sharpemu/">Details &amp; notes</a></div></article><article id="emu-card-prosperity" class="card is-featured"><div class="card-top"><img class="avatar" src="https://github.com/Force67.png?size=80" alt="Prosperity GitHub avatar" width="38" height="38" loading="lazy" decoding="async"><div class="card-title"><h3><a href="https://github.com/Force67/prosperity" target="_blank" rel="noopener">Prosperity</a></h3><span class="repo">Force67/prosperity</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="prosperity" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="prosperity" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge badge-featured">★ Featured</span><span class="badge">PS5 emulator</span></div><p class="desc">Low-level (LLE) emulator targeting both PS4 and PS5 hardware.</p><div class="meta"><span>★ 411</span><span>C++</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">v0.0.1</span><span class="release-date">Oct 03, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/Force67/prosperity" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/prosperity/">Details &amp; notes</a></div></article><article id="emu-card-emufive" class="card"><div class="card-top"><img class="avatar" src="https://github.com/blue0x1.png?size=80" alt="EmuFive GitHub avatar" width="38" height="38" loading="lazy" decoding="async"><div class="card-title"><h3><a href="https://github.com/blue0x1/EmuFive" target="_blank" rel="noopener">EmuFive</a></h3><span class="repo">blue0x1/EmuFive</span></div><div class="card-pins"><button type="button" class="pin-btn star" data-save-emu="emufive" aria-pressed="false" title="Save to watchlist">☆</button><button type="button" class="pin-btn" data-compare-emu="emufive" aria-pressed="false" title="Add to side-by-side comparison">+ Compare</button></div></div><div class="badges"><span class="badge">Port / frontend</span><span class="badge">Based on KytyPS5</span><span class="badge">PS4</span></div><p class="desc">A PS5 emulator for the PS4. Runs on a jailbroken PS4 with Linux, installed through PS4 Multiboot.</p><div class="meta"><span>★ 282</span><span>Python</span><span>GPL-2.0</span></div><div class="release"><div class="release-info"><span class="release-tag">1.0.8</span><span class="release-date">Nov 16, 2026</span></div></div><div class="card-actions"><a class="btn btn-ghost btn-sm" href="https://github.com/blue0x1/EmuFive" target="_blank" rel="noopener">Repository</a><a class="btn btn-primary btn-sm" href="./emulators/emufive/">Details &amp; notes</a></div></article>
 <!-- /SSR:EMULATORS -->
             </div>
 
             <div class="fold-bar" id="emu-fold-bar" hidden></div>
 
-            <noscript><p class="notice">This page needs JavaScript to show live data. The full list is also in the <a href="https://github.com/its-zain-dev/ps5-emutrack#tracked-emulators">README</a>.</p></noscript>
+            <noscript><p class="notice">Showing pre-rendered top emulators and compatibility status. Browse static pages for <a href="./guides/">all guides</a>, <a href="./games/gta-vi/">GTA VI Watch</a>, and the <a href="https://github.com/its-zain-dev/ps5-emutrack#tracked-emulators">full README list</a>, or enable JavaScript for live filtering.</p></noscript>
           </div>
         </div>
       </section>
@@ -283,7 +345,7 @@
               <button type="button" class="btn btn-ghost btn-sm" id="fold-compat-btn" aria-expanded="true" aria-controls="compat-section-body">
                 Fold section
               </button>
-              <a class="btn btn-primary btn-sm" id="report-link" href="#" target="_blank" rel="noopener">Submit a report</a>
+              <a class="btn btn-primary btn-sm" id="report-link" href="https://github.com/its-zain-dev/ps5-emutrack/issues/new?template=compatibility-report.yml" target="_blank" rel="noopener">Submit a report</a>
             </div>
           </div>
 
@@ -342,7 +404,53 @@
         </div>
       </section>
 
-      <section class="section" id="contribute" aria-labelledby="contribute-title">
+      <section class="section" id="guides" aria-labelledby="guides-title">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 id="guides-title">Research Guides &amp; Flagship Trackers</h2>
+              <p class="muted">Deep-dive engineering guides, anti-scam verification, and dedicated status hubs for high-interest titles and emulators.</p>
+            </div>
+            <div class="head-controls">
+              <a class="btn btn-ghost btn-sm" href="./guides/">View all guides →</a>
+            </div>
+          </div>
+          <div class="guides-hub-grid">
+            <a class="guide-hub-card" href="./games/gta-vi/">
+              <span class="badge badge-featured">Watchlist</span>
+              <h3>GTA VI (GTA6 / GTA 6 PC) Status</h3>
+              <p class="muted small">Live PS5 emulator compatibility check, fake GTAVI emulator warnings &amp; GTA IV disambiguation.</p>
+            </a>
+            <a class="guide-hub-card" href="./guides/gta-vi-pc-ps5-emulator-reality-check/">
+              <span class="badge">Guide</span>
+              <h3>GTA VI PC &amp; GTAVI Emulator Reality Check</h3>
+              <p class="muted small">Console launch timeline, why no PC emulator runs GTA6 yet, and GTA IV vs. GTA VI explained.</p>
+            </a>
+            <a class="guide-hub-card" href="./guides/real-vs-fake-ps5-emulators/">
+              <span class="badge">Safety</span>
+              <h3>Real vs. Fake PS5 Emulators</h3>
+              <p class="muted small">5-point verification checklist to spot real GitHub releases vs. malware &amp; survey scams.</p>
+            </a>
+            <a class="guide-hub-card" href="./guides/best-ps5-emulators-compared/">
+              <span class="badge">Comparison</span>
+              <h3>Best PS5 Emulators Compared</h3>
+              <p class="muted small">KytyPS5 vs. SharpEmu vs. AnyPS5 vs. Prosperity architectures, plus PS4 leader shadPS4.</p>
+            </a>
+            <a class="guide-hub-card" href="./guides/ps5-emulator-requirements/">
+              <span class="badge">Specs</span>
+              <h3>PS5 Emulator System Requirements</h3>
+              <p class="muted small">AVX/SSE4.2 CPUs, Vulkan 1.3/1.4 GPUs, 16–32 GB RAM &amp; Windows/Linux/macOS support.</p>
+            </a>
+            <a class="guide-hub-card" href="./emulators/shadps4/">
+              <span class="badge">PS4 Emulator</span>
+              <h3>shadPS4 &amp; Bloodborne Status</h3>
+              <p class="muted small">Track the leading PS4 emulator, nightly builds, and verified <span class="accent-inline">Bloodborne</span> compatibility.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="contribute" aria-labelledby="contribute-title">
         <div class="container">
           <h2 id="contribute-title">Contribute</h2>
           <p class="muted">Everything goes through GitHub issues. You don't need an account anywhere else.</p>
@@ -361,15 +469,29 @@
             </li>
           </ol>
           <div class="cta-row">
-            <a class="btn btn-primary" id="submit-link" href="#" target="_blank" rel="noopener">Submit an emulator</a>
-            <a class="btn btn-ghost" id="report-link-2" href="#" target="_blank" rel="noopener">Report compatibility</a>
+            <a class="btn btn-primary" id="submit-link" href="https://github.com/its-zain-dev/ps5-emutrack/issues/new?template=submit-emulator.yml" target="_blank" rel="noopener">Submit an emulator</a>
+            <a class="btn btn-ghost" id="report-link-2" href="https://github.com/its-zain-dev/ps5-emutrack/issues/new?template=compatibility-report.yml" target="_blank" rel="noopener">Report compatibility</a>
           </div>
         </div>
       </section>
 
-      <section class="section section-alt" id="faq" aria-labelledby="faq-title">
+      <section class="section" id="faq" aria-labelledby="faq-title">
         <div class="container narrow">
           <h2 id="faq-title">FAQ</h2>
+          <details>
+            <summary>Can a GTAVI or GTA6 PS5 emulator run GTA 6 on PC?</summary>
+            <p>
+              <strong>No.</strong> Grand Theft Auto VI (GTA6) launches on PlayStation 5 and Xbox Series X|S on 2026-11-19 with no official
+              <strong>GTA 6 PC</strong> or <strong>GTA6 PC</strong> port yet, and no open-source PS5 emulator can run it today. Avoid any site offering a
+              “GTAVI emulator” or “GTA6 emulator” repack. Note: <strong>GTA IV</strong> (2008) is a PC/PS3/Xbox 360 game and not a PS5 title. Follow real milestones on our <a href="./games/gta-vi/">GTA VI tracker</a>.
+            </p>
+          </details>
+          <details>
+            <summary>What is PS5 EmuTrack and what does this emulator tracker monitor?</summary>
+            <p>
+              PS5 EmuTrack is an independent open-source <strong>PS5 emulator tracker</strong> (hourly <strong>emulator track</strong>) monitoring 50+ PlayStation 5 and PS4 GitHub repositories—including <a href="./emulators/kytyps5/">KytyPS5</a>, <a href="./emulators/sharpemu/">SharpEmu</a>, <a href="./emulators/anyps5/">AnyPS5</a>, <a href="./emulators/prosperity/">Prosperity</a>, and <a href="./emulators/shadps4/">shadPS4</a>—plus verified game compatibility logs.
+            </p>
+          </details>
           <details>
             <summary>Can a PS5 emulator run my games today?</summary>
             <p>
@@ -411,7 +533,7 @@
             <summary>Browse dedicated game &amp; emulator guide pages</summary>
             <div style="padding:0 16px 16px">
               <!-- SSR:GUIDES -->
-<div class="guides-grid"><div><h3>PS5 Emulation Research Guides (5)</h3><p class="small muted"><a href="./guides/real-vs-fake-ps5-emulators/">Real vs. Fake PS5 Emulators</a> · <a href="./guides/best-ps5-emulators-compared/">Best PS5 Emulators Compared</a> · <a href="./guides/ps5-emulator-requirements/">System Requirements Guide</a> · <a href="./guides/ps5-emulation-explained/">PS5 Emulation Explained</a> · <a href="./guides/ps5-emulator-android/">PS5 Emulators on Android</a></p></div><div><h3>Verified Compatibility Evidence Reports (11)</h3><p class="small muted"><a href="./reports/ghost-of-yotei-kytyps5-2026-11-16/">Ghost of Yōtei (KytyPS5)</a> · <a href="./reports/ghost-of-yotei-kytyps5-2026-11-16-2/">Ghost of Yōtei (KytyPS5)</a> · <a href="./reports/astro-bot-kytyps5-2026-11-04/">Astro Bot (KytyPS5)</a> · <a href="./reports/astro-bot-sharpemu-2026-10-26/">Astro Bot (SharpEmu)</a> · <a href="./reports/demons-souls-kytyps5-2026-10-26/">Demon&#x27;s Souls (KytyPS5)</a> · <a href="./reports/returnal-kytyps5-2026-09-20/">Returnal (KytyPS5)</a> · <a href="./reports/spider-man-2-kytyps5-2026-09-12/">Marvel&#x27;s Spider-Man 2 (KytyPS5)</a> · <a href="./reports/god-of-war-ragnarok-kytyps5-2026-10-28/">God of War Ragnarök (KytyPS5)</a> · <a href="./reports/ff7-rebirth-kytyps5-2026-10-24/">Final Fantasy VII Rebirth (KytyPS5)</a> · <a href="./reports/horizon-forbidden-west-kytyps5-2026-09-26/">Horizon Forbidden West (KytyPS5)</a> · <a href="./reports/bloodborne-shadps4-2026-11-16/">Bloodborne (shadPS4)</a></p></div><div><h3>Game Compatibility Pages (12)</h3><p class="small muted"><a href="./games/gta-vi/">Grand Theft Auto VI</a> · <a href="./games/ghost-of-yotei/">Ghost of Yōtei</a> · <a href="./games/astro-bot/">Astro Bot</a> · <a href="./games/demons-souls/">Demon&#x27;s Souls</a> · <a href="./games/spider-man-2/">Marvel&#x27;s Spider-Man 2</a> · <a href="./games/returnal/">Returnal</a> · <a href="./games/stellar-blade/">Stellar Blade</a> · <a href="./games/bloodborne/">Bloodborne</a> · <a href="./games/god-of-war-ragnarok/">God of War Ragnarök</a> · <a href="./games/ff7-rebirth/">Final Fantasy VII Rebirth</a> · <a href="./games/horizon-forbidden-west/">Horizon Forbidden West</a> · <a href="./games/wolverine-ps5/">Marvel&#x27;s Wolverine</a></p></div><div><h3>Emulator Release &amp; Status Pages (33)</h3><p class="small muted"><a href="./emulators/anyps5/">AnyPS5</a> · <a href="./emulators/kytyps5/">KytyPS5</a> · <a href="./emulators/prosperity/">Prosperity</a> · <a href="./emulators/sharpemu/">SharpEmu</a> · <a href="./emulators/shadps4/">shadPS4</a> · <a href="./emulators/prosper/">Prosper</a> · <a href="./emulators/ps5pcem/">PS5PCEM</a> · <a href="./emulators/ps5plusplus/">PS5plusplus</a> · <a href="./emulators/ps5rs/">ps5rs</a> · <a href="./emulators/rps5e/">RPS5E (RustPS5Emu)</a> · <a href="./emulators/touche-px5/">Touche PX5</a> · <a href="./emulators/vibestation5/">VibeStation5</a> · <a href="./emulators/kytyplus/">KytyPlus</a> · <a href="./emulators/kytyps5-linux/">KytyPS5 (chenxiao07 Linux build)</a> · <a href="./emulators/kytyps5-demon-souls-framegen/">KytyPS5 Demon Souls FrameGen</a> · <a href="./emulators/kytyps5-jetsku/">KytyPS5 Jetsku</a> · <a href="./emulators/kytyps5-supermedo/">KytyPS5-SuperMedo</a> · <a href="./emulators/emufive/">EmuFive</a> · <a href="./emulators/kytyps5-android/">KytyPS5-Android</a> · <a href="./emulators/lumen-emu/">Lumen Emu</a> · <a href="./emulators/magnusps5/">MagnusPS5</a> · <a href="./emulators/novaps5-android/">NovaPS5 Android</a> · <a href="./emulators/onrps4-android/">onRps4-Android</a> · <a href="./emulators/orbis-kyty/">Orbis-Kyty</a> · <a href="./emulators/sharpdroid/">SharpDroid</a> · <a href="./emulators/sharpemu-macos/">SharpEmu for Mac</a> · <a href="./emulators/empire-of-steel/">Empire of Steel</a> · <a href="./emulators/fpps4/">fpPS4</a> · <a href="./emulators/gpcs4/">GPCS4</a> · <a href="./emulators/kyty-inorirus/">Kyty (Upstream)</a> · <a href="./emulators/obliteration/">Obliteration</a> · <a href="./emulators/orbital/">Orbital</a> · <a href="./emulators/psoff/">psOff</a></p></div></div>
+<div class="guides-grid"><div><h3><a href="./guides/">PS5 Emulation &amp; GTA VI Guides (6)</a></h3><p class="small muted"><a href="./guides/real-vs-fake-ps5-emulators/">Real vs. Fake PS5 Emulators</a> · <a href="./guides/gta-vi-pc-ps5-emulator-reality-check/">GTA VI PC &amp; Emulator Check</a> · <a href="./guides/best-ps5-emulators-compared/">Best PS5 Emulators Compared</a> · <a href="./guides/ps5-emulator-requirements/">System Requirements Guide</a> · <a href="./guides/ps5-emulation-explained/">PS5 Emulation Explained</a> · <a href="./guides/ps5-emulator-android/">PS5 Emulators on Android</a></p></div><div><h3>Verified Compatibility Evidence Reports (11)</h3><p class="small muted"><a href="./reports/ghost-of-yotei-kytyps5-2026-11-16/">Ghost of Yōtei (KytyPS5)</a> · <a href="./reports/ghost-of-yotei-kytyps5-2026-11-16-2/">Ghost of Yōtei (KytyPS5)</a> · <a href="./reports/astro-bot-kytyps5-2026-11-04/">Astro Bot (KytyPS5)</a> · <a href="./reports/astro-bot-sharpemu-2026-10-26/">Astro Bot (SharpEmu)</a> · <a href="./reports/demons-souls-kytyps5-2026-10-26/">Demon&#x27;s Souls (KytyPS5)</a> · <a href="./reports/returnal-kytyps5-2026-09-20/">Returnal (KytyPS5)</a> · <a href="./reports/spider-man-2-kytyps5-2026-09-12/">Marvel&#x27;s Spider-Man 2 (KytyPS5)</a> · <a href="./reports/god-of-war-ragnarok-kytyps5-2026-10-28/">God of War Ragnarök (KytyPS5)</a> · <a href="./reports/ff7-rebirth-kytyps5-2026-10-24/">Final Fantasy VII Rebirth (KytyPS5)</a> · <a href="./reports/horizon-forbidden-west-kytyps5-2026-09-26/">Horizon Forbidden West (KytyPS5)</a> · <a href="./reports/bloodborne-shadps4-2026-11-16/">Bloodborne (shadPS4)</a></p></div><div><h3>Game Compatibility Pages (12)</h3><p class="small muted"><a href="./games/gta-vi/">Grand Theft Auto VI</a> · <a href="./games/ghost-of-yotei/">Ghost of Yōtei</a> · <a href="./games/astro-bot/">Astro Bot</a> · <a href="./games/demons-souls/">Demon&#x27;s Souls</a> · <a href="./games/spider-man-2/">Marvel&#x27;s Spider-Man 2</a> · <a href="./games/returnal/">Returnal</a> · <a href="./games/stellar-blade/">Stellar Blade</a> · <a href="./games/bloodborne/">Bloodborne</a> · <a href="./games/god-of-war-ragnarok/">God of War Ragnarök</a> · <a href="./games/ff7-rebirth/">Final Fantasy VII Rebirth</a> · <a href="./games/horizon-forbidden-west/">Horizon Forbidden West</a> · <a href="./games/wolverine-ps5/">Marvel&#x27;s Wolverine</a></p></div><div><h3>Emulator Release &amp; Status Pages (33)</h3><p class="small muted"><a href="./emulators/anyps5/">AnyPS5</a> · <a href="./emulators/kytyps5/">KytyPS5</a> · <a href="./emulators/prosperity/">Prosperity</a> · <a href="./emulators/sharpemu/">SharpEmu</a> · <a href="./emulators/shadps4/">shadPS4</a> · <a href="./emulators/prosper/">Prosper</a> · <a href="./emulators/ps5pcem/">PS5PCEM</a> · <a href="./emulators/ps5plusplus/">PS5plusplus</a> · <a href="./emulators/ps5rs/">ps5rs</a> · <a href="./emulators/rps5e/">RPS5E (RustPS5Emu)</a> · <a href="./emulators/touche-px5/">Touche PX5</a> · <a href="./emulators/vibestation5/">VibeStation5</a> · <a href="./emulators/kytyplus/">KytyPlus</a> · <a href="./emulators/kytyps5-linux/">KytyPS5 (chenxiao07 Linux build)</a> · <a href="./emulators/kytyps5-demon-souls-framegen/">KytyPS5 Demon Souls FrameGen</a> · <a href="./emulators/kytyps5-jetsku/">KytyPS5 Jetsku</a> · <a href="./emulators/kytyps5-supermedo/">KytyPS5-SuperMedo</a> · <a href="./emulators/emufive/">EmuFive</a> · <a href="./emulators/kytyps5-android/">KytyPS5-Android</a> · <a href="./emulators/lumen-emu/">Lumen Emu</a> · <a href="./emulators/magnusps5/">MagnusPS5</a> · <a href="./emulators/novaps5-android/">NovaPS5 Android</a> · <a href="./emulators/onrps4-android/">onRps4-Android</a> · <a href="./emulators/orbis-kyty/">Orbis-Kyty</a> · <a href="./emulators/sharpdroid/">SharpDroid</a> · <a href="./emulators/sharpemu-macos/">SharpEmu for Mac</a> · <a href="./emulators/empire-of-steel/">Empire of Steel</a> · <a href="./emulators/fpps4/">fpPS4</a> · <a href="./emulators/gpcs4/">GPCS4</a> · <a href="./emulators/kyty-inorirus/">Kyty (Upstream)</a> · <a href="./emulators/obliteration/">Obliteration</a> · <a href="./emulators/orbital/">Orbital</a> · <a href="./emulators/psoff/">psOff</a></p></div></div>
 <!-- /SSR:GUIDES -->
             </div>
           </details>
@@ -429,9 +551,13 @@
           <a href="#top">Top</a>
           <a href="#emulators">Emulators</a>
           <a href="#compatibility">Compatibility</a>
+          <a href="./guides/">Guides</a>
+          <a href="./games/gta-vi/">GTA VI Watch</a>
           <a href="https://github.com/its-zain-dev/ps5-emutrack" target="_blank" rel="noopener">Source</a>
           <a href="./data.json">data.json</a>
-          <span id="footer-updated" class="muted"></span>
+          <span id="footer-updated" class="muted"><!-- SSR:UPDATED -->
+Updated Nov 16, 2026
+<!-- /SSR:UPDATED --></span>
         </p>
       </div>
     </footer>

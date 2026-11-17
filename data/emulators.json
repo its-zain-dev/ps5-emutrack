@@ -115,6 +115,7 @@
         "Linux",
         "macOS"
       ],
+      "summary": "User-space PlayStation 5 to PC compatibility layer for Linux, Windows, and macOS.",
       "addedAt": "2026-11-15"
     },
     {
@@ -123,6 +124,7 @@
       "repo": "mustafaaldaffaie/PS5-PC-Emulator",
       "category": "ps5",
       "tier": "community",
+      "summary": "Experimental PS5 compatibility layer and desktop frontend for Windows and Linux.",
       "addedAt": "2026-11-15"
     },
     {
@@ -135,6 +137,7 @@
         "Windows",
         "Linux"
       ],
+      "summary": "Open-source PS5 PC emulator project targeting Windows and Linux hosts.",
       "addedAt": "2026-11-15"
     },
     {
@@ -156,6 +159,7 @@
         "Linux",
         "macOS"
       ],
+      "summary": "Rust PS5 binary analysis, virtual loader, SELF/ELF/PRX parser, and pure-Rust HLE emulation framework.",
       "addedAt": "2026-11-15"
     },
     {
@@ -179,6 +183,7 @@
         "Windows",
         "Linux"
       ],
+      "summary": "PlayStation 5 emulator written in Rust targeting Linux and Windows hosts.",
       "addedAt": "2026-11-15"
     },
     {
@@ -390,6 +395,7 @@
       "platforms": [
         "Android"
       ],
+      "summary": "Experimental KytyPS5 Android ARM64 port using FEXCore JIT and Vulkan on Mesa Turnip/Adreno.",
       "addedAt": "2026-11-15"
     },
     {
@@ -402,7 +408,8 @@
       "platforms": [
         "Android",
         "iOS"
-      ]
+      ],
+      "summary": "Experimental mobile PS4/PS5 emulator frontend for Android and iOS using open-source cores."
     },
     {
       "id": "magnusps5",
@@ -413,7 +420,8 @@
       "addedAt": "2026-11-15",
       "platforms": [
         "iOS"
-      ]
+      ],
+      "summary": "Experimental PS5 emulator port targeting iOS devices (iPhone and iPad)."
     },
     {
       "id": "novaps5-android",
@@ -503,6 +511,7 @@
         "Windows",
         "Linux"
       ],
+      "summary": "PS4 compatibility layer and emulator written in Free Pascal for Windows and Linux.",
       "addedAt": "2026-11-15"
     },
     {
@@ -514,6 +523,7 @@
       "platforms": [
         "Windows"
       ],
+      "summary": "Work-in-progress PlayStation 4 emulator for Windows.",
       "addedAt": "2026-11-15"
     },
     {
@@ -526,6 +536,7 @@
         "Windows",
         "Linux"
       ],
+      "summary": "Upstream PS4 and PS5 emulator by InoriRus for Windows and Linux.",
       "addedAt": "2026-11-15"
     },
     {
@@ -539,6 +550,7 @@
         "Linux",
         "macOS"
       ],
+      "summary": "Free and open-source PlayStation 4 kernel and compatibility layer.",
       "addedAt": "2026-11-15"
     },
     {
@@ -551,6 +563,7 @@
         "Windows",
         "Linux"
       ],
+      "summary": "Experimental low-level PlayStation 4 emulator using virtualization.",
       "addedAt": "2026-11-15"
     },
     {
@@ -562,6 +575,7 @@
       "platforms": [
         "Windows"
       ],
+      "summary": "PlayStation 4 compatibility layer and emulator for Windows.",
       "addedAt": "2026-11-15"
     }
   ]

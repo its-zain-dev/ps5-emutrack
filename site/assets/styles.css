@@ -352,6 +352,8 @@ kbd { font-family: var(--mono); font-size: 0.75rem; padding: 2px 6px; border-rad
 .compat tbody tr.game-row { cursor: pointer; }
 .compat tbody tr.game-row:hover td { background: color-mix(in srgb, var(--surface-2) 60%, var(--surface)); }
 .game-title { font-weight: 650; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.game-title a { color: inherit; text-decoration: none; }
+.game-title a:hover { color: var(--accent-2); text-decoration: underline; }
 .game-title .chev { transition: transform 0.15s; color: var(--muted); flex: none; }
 tr[aria-expanded="true"] .chev { transform: rotate(90deg); }
 .game-sub { color: var(--muted); font-size: 0.8rem; margin-top: 2px; }
@@ -460,7 +462,13 @@ dialog::backdrop { background: rgb(3 6 12 / 0.65); backdrop-filter: blur(3px); }
 .subpage-hero h1 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-top: 10px; }
 .prose-card { margin-top: 22px; padding: 20px 22px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); display: grid; gap: 12px; }
 .prose-card h2 { font-size: 1.2rem; }
+.prose-card h3 { font-size: 1.02rem; margin-top: 4px; }
 .prose-card p { color: var(--text-2); }
+.shot-img { width: 100%; aspect-ratio: 16 / 9; height: auto; object-fit: contain; background: var(--surface-2); border-radius: 10px; border: 1px solid var(--border); display: block; }
+.guides-hub-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin-top: 18px; }
+.guide-hub-card { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 16px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); text-decoration: none; color: inherit; transition: border-color 0.15s, transform 0.15s; }
+.guide-hub-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+.guide-hub-card h3 { font-size: 1.02rem; font-weight: 700; color: var(--text); }
 .guides-details { margin-top: 14px; }
 .guides-grid { display: grid; gap: 14px; padding-top: 4px; }
 .guides-grid h3 { font-size: 0.92rem; margin-bottom: 6px; }

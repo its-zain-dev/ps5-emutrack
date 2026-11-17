@@ -4,26 +4,27 @@ from __future__ import annotations
 
 from typing import Any
 
-GUIDE_DATE = "2026-11-16"
+GUIDE_DATE = "2026-11-17"
 
 GUIDES: list[dict[str, Any]] = [
     {
         "id": "real-vs-fake-ps5-emulators",
+        "metaTitle": "Real vs. Fake PS5 Emulators: Safety Guide",
         "title": "Real vs. Fake PS5 Emulators: How to Verify Safe Downloads",
         "navTitle": "Real vs. Fake PS5 Emulators",
         "description": (
-            "How to tell legitimate open-source PS5 emulators like KytyPS5 and SharpEmu apart from fake "
-            "'GTA 6 PC emulator' malware websites, survey scams, and password-locked archives."
+            "Spot real open-source PS5 emulators like KytyPS5 & SharpEmu vs. fake GTA6 PC, "
+            "GTAVI emulator malware sites, survey scams, and locked archives."
         ),
         "updated": GUIDE_DATE,
         "priority": "0.9",
         "sections": [
             (
                 "Why fake PS5 emulators spike around major launches",
-                "<p>Every major console-first release—especially <strong>Grand Theft Auto VI</strong>—triggers hundreds of "
-                "clone domains and social media videos claiming to run unreleased or launch-day PS5 titles on PC or Android. "
-                "In reality, legitimate PlayStation 5 emulation projects are early-stage, open-source engineering efforts hosted on GitHub.</p>"
-                "<p>None of the real projects require ad-heavy download mirrors, survey gates, or encrypted ZIP passwords.</p>",
+                "<p>Every major console-first release—especially <strong>Grand Theft Auto VI (GTA6)</strong>—triggers hundreds of "
+                "clone domains and social media videos advertising a fake <strong>GTAVI emulator</strong> or <strong>GTA6 emulator</strong> "
+                "for PC or Android. In reality, legitimate PlayStation 5 emulation projects are early-stage, open-source engineering efforts hosted on GitHub.</p>"
+                "<p>None of the real projects tracked by our <a href=\"../../\">PS5 emulator tracker</a> require ad-heavy download mirrors, survey gates, or encrypted ZIP passwords.</p>",
             ),
             (
                 "5-point checklist to verify any PS5 emulator",
@@ -31,8 +32,8 @@ GUIDES: list[dict[str, Any]] = [
                 "<li><strong>Public source code on GitHub:</strong> Real projects publish readable C++, Rust, C#, or Zig code under an open-source license such as GPL-2.0 or MIT.</li>"
                 "<li><strong>Official GitHub Releases only:</strong> Download builds strictly from the repository's <code>/releases</code> tab (e.g. <code>KytyPS5/KytyPS5</code>, <code>sharpemu/sharpemu</code>, <code>boykopovar/AnyPS5</code>, <code>Force67/prosperity</code>) rather than Mega, MediaFire, or random <code>.com</code> download portals.</li>"
                 "<li><strong>Real commit history &amp; issue tracker:</strong> Authentic projects have public pull requests, compiler instructions, shader debugging logs, and open bug reports from real testers.</li>"
-                "<li><strong>No bundled 'BIOS + ROMs' packs:</strong> Legitimate emulators legally cannot ship Sony firmware, decryption keys, or commercial game dumps. Any site offering a one-click 'GTA 6 + PS5 Emulator Repack' is malicious.</li>"
-                "<li><strong>Honest compatibility claims:</strong> Check <a href=\"../../games/gta-vi/\">our GTA VI tracker</a> and <a href=\"../../#compatibility\">verified upstream reports</a>. Even on high-end GPUs, many AAA PS5 titles still stop at intro logos or crash during shader compilation.</li>"
+                "<li><strong>No bundled 'BIOS + ROMs' packs:</strong> Legitimate emulators legally cannot ship Sony firmware, decryption keys, or commercial game dumps. Any site offering a one-click 'GTA 6 PC + PS5 Emulator Repack' or 'GTA6 PC cracked emulator' is malicious.</li>"
+                "<li><strong>Honest compatibility claims:</strong> Check <a href=\"../../games/gta-vi/\">our GTA VI tracker</a>, our <a href=\"../../guides/gta-vi-pc-ps5-emulator-reality-check/\">GTA6 PC &amp; PS5 emulator reality check</a>, and <a href=\"../../#compatibility\">verified upstream reports</a>. Even on high-end GPUs, many AAA PS5 titles still stop at intro logos or crash during shader compilation.</li>"
                 "</ul>",
             ),
             (
@@ -44,12 +45,55 @@ GUIDES: list[dict[str, Any]] = [
         ],
     },
     {
+        "id": "gta-vi-pc-ps5-emulator-reality-check",
+        "metaTitle": "GTA VI PC & GTAVI Emulator Reality Check",
+        "title": "GTA VI on PC & PS5 Emulators: Live Tracker & Reality Check",
+        "navTitle": "GTA VI PC & Emulator Check",
+        "description": (
+            "Can a GTAVI or GTA6 emulator run GTA 6 PC? Live PS5 emulator tracker reality check, "
+            "fake GTA6 PC scam warnings, and GTA IV vs. GTA VI disambiguation."
+        ),
+        "updated": GUIDE_DATE,
+        "priority": "0.9",
+        "sections": [
+            (
+                "Can a GTAVI emulator or GTA6 emulator play GTA 6 on PC?",
+                "<p><strong>No working PS5 emulator can run Grand Theft Auto VI today.</strong> Rockstar Games scheduled "
+                "<strong>GTA VI (GTA6)</strong> for PlayStation 5 and Xbox Series X|S on <strong>2026-11-19</strong>, with no official "
+                "<strong>GTA 6 PC</strong> or <strong>GTA6 PC</strong> release announced at console launch.</p>"
+                "<p>Any website or YouTube video offering a downloadable <em>GTAVI emulator</em>, <em>GTA6 emulator</em>, or "
+                "<em>GTA 6 PC pre-release emulator</em> is either clickbait or malware. You can monitor genuine engineering milestones "
+                "in real time on our <a href=\"../../games/gta-vi/\">GTA VI compatibility watch page</a> and across "
+                "<a href=\"../../emulators/kytyps5/\">KytyPS5</a>, <a href=\"../../emulators/sharpemu/\">SharpEmu</a>, "
+                "<a href=\"../../emulators/anyps5/\">AnyPS5</a>, and <a href=\"../../emulators/prosperity/\">Prosperity</a>.</p>",
+            ),
+            (
+                "What open-source PS5 emulators actually achieve right now",
+                "<p>PS5 EmuTrack serves as an hourly <strong>emulator track</strong> and release monitor for 53 open-source PlayStation projects. "
+                "Today, active PS5 projects like <a href=\"../../emulators/kytyps5/\">KytyPS5</a> and <a href=\"../../emulators/sharpemu/\">SharpEmu</a> "
+                "focus on bootstrapping user-space OS syscalls (<code>libSce*</code>) and compiling RDNA 2 shaders to Vulkan SPIR-V. "
+                "Even established titles such as <em>Astro Bot</em>, <em>Demon's Souls</em>, and <em>Ghost of Yōtei</em> mostly reach intro logos or menus—see our "
+                "<a href=\"../../guides/ps5-emulator-requirements/\">system requirements guide</a> and <a href=\"../../#compatibility\">verified compatibility matrix</a>.</p>",
+            ),
+            (
+                "GTA IV vs. GTA V vs. GTA VI: Roman numeral & platform disambiguation",
+                "<p>Searchers looking for <strong>GTA VI</strong> news frequently run into Roman-numeral confusion with <strong>GTA IV</strong> (4) or older PS5 ports:</p>"
+                "<ul>"
+                "<li><strong>GTA IV (Grand Theft Auto IV, 2008):</strong> A PS3, Xbox 360, and PC release—<strong>not</strong> a PS5 title. GTA IV has an official PC edition and is outside the scope of PS5 emulators tracked here.</li>"
+                "<li><strong>GTA V (Grand Theft Auto V):</strong> Released across PS3, PS4, PC, and PS5. Experimental PS5 forks such as <a href=\"../../emulators/kytyps5/\">KytyPS5</a> (and community fork <code>KytyPS5 GTA5 Fixes</code>) have tested early PS5 boot paths with crashes.</li>"
+                "<li><strong>GTA VI (Grand Theft Auto VI / GTA6):</strong> Console-first PS5/Xbox Series title (2026-11-19). Follow verified progress via our <a href=\"../../games/gta-vi/\">GTA VI tracker</a> and verify downloads with our <a href=\"../../guides/real-vs-fake-ps5-emulators/\">anti-scam guide</a>.</li>"
+                "</ul>",
+            ),
+        ],
+    },
+    {
         "id": "best-ps5-emulators-compared",
+        "metaTitle": "Best PS5 Emulators Compared (2026)",
         "title": "Best PS5 Emulators Compared: KytyPS5 vs. SharpEmu vs. AnyPS5 vs. Prosperity",
         "navTitle": "Best PS5 Emulators Compared",
         "description": (
-            "Technical comparison of active open-source PS5 emulators: KytyPS5 (C++20 translation), "
-            "SharpEmu (C#/.NET), AnyPS5 (binary re-linking), and Prosperity (LLE)."
+            "Compare top open-source PS5 emulators: KytyPS5 (C++20), SharpEmu (C#/.NET), "
+            "AnyPS5 (binary re-linking), Prosperity (LLE), and PS4 leader shadPS4."
         ),
         "updated": GUIDE_DATE,
         "priority": "0.9",
@@ -80,11 +124,12 @@ GUIDES: list[dict[str, Any]] = [
     },
     {
         "id": "ps5-emulator-requirements",
+        "metaTitle": "PS5 Emulator System Requirements",
         "title": "PS5 Emulator System Requirements: CPU, GPU (Vulkan), RAM & OS Guide",
         "navTitle": "System Requirements Guide",
         "description": (
-            "Real hardware requirements documented by upstream PS5 emulators like KytyPS5 and Prosperity: "
-            "x86-64 AVX/SSE4.2 CPUs, Vulkan 1.3/1.4 GPUs, VRAM needs, and Linux vs. Windows support."
+            "Upstream PS5 emulator PC specs for KytyPS5 & Prosperity: x86-64 AVX/SSE4.2 CPUs, "
+            "Vulkan 1.3/1.4 GPUs, 16-32 GB RAM, and Windows vs. Linux support."
         ),
         "updated": GUIDE_DATE,
         "priority": "0.8",
@@ -111,11 +156,12 @@ GUIDES: list[dict[str, Any]] = [
     },
     {
         "id": "ps5-emulation-explained",
+        "metaTitle": "How PS5 Emulators Work (HLE & LLE)",
         "title": "PS5 Emulation Explained: HLE Syscall Translation, Binary Re-Linking & LLE",
         "navTitle": "PS5 Emulation Explained",
         "description": (
-            "How open-source PS5 emulators actually work under the hood: x86-64 host execution, Orbis/Prospero "
-            "PRX library stubbing, RDNA 2 to SPIR-V shader recompilation, and why progress jumps unevenly."
+            "How open-source PS5 emulators work under the hood: x86-64 host execution, "
+            "Orbis/Prospero PRX stubs, and RDNA 2 to SPIR-V shader recompilation."
         ),
         "updated": GUIDE_DATE,
         "priority": "0.8",
@@ -144,11 +190,12 @@ GUIDES: list[dict[str, Any]] = [
     },
     {
         "id": "ps5-emulator-android",
+        "metaTitle": "PS5 Emulators on Android & iOS",
         "title": "PS5 Emulators on Android & Mobile: What Actually Exists vs. Fake APKs",
         "navTitle": "PS5 Emulators on Android",
         "description": (
-            "Honest status of PS5 emulation on Android, iOS, and ARM64 devices: FEX/Box64 CPU overhead, "
-            "Turnip Vulkan drivers, open-source mobile ports, and how to avoid malicious APK scams."
+            "Honest status of PS5 emulators on Android & iOS: FEX/Box64 ARM64 translation, "
+            "Turnip Vulkan drivers, open-source mobile ports, and fake APK scams."
         ),
         "updated": GUIDE_DATE,
         "priority": "0.8",

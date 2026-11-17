@@ -203,6 +203,13 @@ def main(argv: list[str]) -> int:
         help="previous data.json (path or https URL) used as a fallback; '' to disable",
     )
     parser.add_argument("--offline", action="store_true", help="skip GitHub; registry data only")
+    parser.add_argument(
+        "--from-data",
+        "--html-only",
+        dest="from_data",
+        action="store_true",
+        help="regenerate static HTML/sitemap from existing data.json + data/*.json without fetching GitHub",
+    )
     parser.add_argument("--no-html", action="store_true", help="skip static SEO page/sitemap generation")
     args = parser.parse_args(argv)
 
@@ -210,6 +217,44 @@ def main(argv: list[str]) -> int:
     if reg.errors:
         print("Registry is invalid:\n  " + "\n  ".join(reg.errors), file=sys.stderr)
         return 1
+
+    out = Path(args.output)
+    if args.from_data:
+        if not out.exists():
+            print(f"Existing data snapshot not found: {out}", file=sys.stderr)
+            return 1
+        existing_payload = json.loads(out.read_text(encoding="utf-8"))
+        prev_by_id = {e["id"]: e for e in existing_payload.get("emulators", []) if "id" in e}
+        merged_emus: list[dict[str, Any]] = []
+        for emu in reg.emulators:
+            prev = prev_by_id.get(emu["id"], {})
+            entry = {k: v for k, v in emu.items()}
+            entry["url"] = f"https://github.com/{emu['repo']}"
+            entry["github"] = prev.get("github")
+            entry["release"] = prev.get("release")
+            entry["releaseHistory"] = prev.get("releaseHistory", [])
+            if "stale" in prev:
+                entry["stale"] = prev["stale"]
+            if prev.get("unavailable"):
+                entry["unavailable"] = True
+            merged_emus.append(entry)
+        fetched_payload = {
+            "schemaVersion": existing_payload.get("schemaVersion", SCHEMA_VERSION),
+            "generatedAt": existing_payload.get("generatedAt") or now_iso(),
+            "categories": registry.CATEGORIES,
+            "statuses": [{"id": s, "label": registry.STATUS_LABELS[s]} for s in registry.STATUSES],
+            "emulators": merged_emus,
+            "games": reg.games,
+            "reports": reg.reports,
+            "fetch": existing_payload.get("fetch", {"ok": 0, "stale": len(merged_emus), "missing": 0}),
+        }
+        seo_counts = seo.generate(fetched_payload, out.parent, previous_sitemap_url=None)
+        print(
+            f"Regenerated SEO pages from {out}: {seo_counts['games']} games, {seo_counts['emulators']} emulators, "
+            f"{seo_counts['reports']} reports, {seo_counts['guides']} guides "
+            f"({seo_counts['urls']} sitemap URLs, {seo_counts['changed']} changed)"
+        )
+        return 0
 
     previous = load_previous(args.previous or None)
     if args.offline:
@@ -220,7 +265,6 @@ def main(argv: list[str]) -> int:
             print("[warn] no GITHUB_TOKEN set; unauthenticated limit is 60 requests/hour", file=sys.stderr)
         fetched_payload = build(reg, gh, previous)
 
-    out = Path(args.output)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(fetched_payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     c = fetched_payload["fetch"]
