@@ -11,7 +11,7 @@
         "Windows",
         "Linux"
       ],
-      "summary": "Ports PS5 executables to run natively on Linux and Windows through automatic re-linking.",
+      "summary": "Ahead-of-time (AOT) PS5 binary relinker that converts PS5 executables to run natively on Windows and Linux.",
       "addedAt": "2026-11-15"
     },
     {
@@ -25,7 +25,7 @@
         "Linux",
         "macOS"
       ],
-      "summary": "The most widely used PS5 translation layer. Runs PS5 executables on Windows, Linux and macOS.",
+      "summary": "The most widely used open-source PS5 translation layer and emulator (C++20 + Vulkan 1.3) for Windows, Linux, and macOS.",
       "addedAt": "2026-11-15"
     },
     {
@@ -34,7 +34,11 @@
       "repo": "Force67/prosperity",
       "category": "ps5",
       "tier": "featured",
-      "summary": "Low-level (LLE) emulator targeting both PS4 and PS5 hardware.",
+      "platforms": [
+        "Linux",
+        "Android"
+      ],
+      "summary": "Low-level (LLE) emulator targeting both PS4 and PS5 hardware using dumped system modules and Vulkan 1.4+.",
       "addedAt": "2026-11-15"
     },
     {
@@ -47,7 +51,7 @@
         "Windows",
         "Linux"
       ],
-      "summary": "Experimental PS5 emulator written in C#/.NET with a Vulkan renderer, for Windows and Linux.",
+      "summary": "Experimental PS5 emulator written from scratch in C#/.NET with a Vulkan renderer and PS4 backward-compatibility work.",
       "addedAt": "2026-11-15"
     },
     {
@@ -61,8 +65,22 @@
         "Linux",
         "macOS"
       ],
-      "summary": "The leading PS4 emulator. Many PS5 projects reuse its shader recompiler and HLE work.",
+      "summary": "The leading PS4 emulator (150+ playable titles including Bloodborne). Many PS5 projects study its shader recompiler and HLE.",
       "addedAt": "2026-11-15"
+    },
+    {
+      "id": "arielps5",
+      "name": "arielPS5",
+      "repo": "keirsalterego/arielPS5",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "summary": "Clean-slate PlayStation 5 emulator and ELF64/SELF binary loader written in pure Rust focusing on format accuracy.",
+      "addedAt": "2026-11-21"
     },
     {
       "id": "cincar",
@@ -70,6 +88,10 @@
       "repo": "linuxfanosis/Cincar",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Linux"
+      ],
+      "summary": "Early experimental C++ PlayStation 5 emulator project.",
       "addedAt": "2026-11-15"
     },
     {
@@ -78,7 +100,49 @@
       "repo": "SplaatSites/CL5",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Early-stage PlayStation 5 compatibility layer targeting Windows.",
       "addedAt": "2026-11-15"
+    },
+    {
+      "id": "craziiemu",
+      "name": "craziiEmu",
+      "repo": "craze1pirate/craziiEmu",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Experimental Windows PlayStation 5 compatibility layer and emulator written in C# (.NET 10) with a Vulkan renderer.",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "id": "emuv",
+      "name": "EmUV",
+      "repo": "sammwyy/EmUV",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Experimental x86-64 PlayStation 5 HLE compatibility layer mapping PS5 executables directly to host hardware.",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "id": "metaspero",
+      "name": "Metaspero",
+      "repo": "alamshafil/metaspero",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "macOS",
+        "iOS"
+      ],
+      "summary": "Experimental PlayStation 5 emulator and dynamic translation layer built for Apple Silicon macOS and iOS.",
+      "addedAt": "2026-11-21"
     },
     {
       "id": "open5emu",
@@ -86,6 +150,10 @@
       "repo": "SplaatSites/Open5Emu",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Open-source early-stage PlayStation 5 emulator experiment.",
       "addedAt": "2026-11-15"
     },
     {
@@ -94,6 +162,11 @@
       "repo": "NabuOX/P5EMU",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Experimental C++ PS5 emulator architecture focused on portability and ARM64 translation research.",
       "addedAt": "2026-11-15"
     },
     {
@@ -102,6 +175,10 @@
       "repo": "StoneCold608/PCS5",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Early community PlayStation 5 emulator research repository.",
       "addedAt": "2026-11-15"
     },
     {
@@ -119,11 +196,27 @@
       "addedAt": "2026-11-15"
     },
     {
+      "id": "prospero-win",
+      "name": "prospero-win",
+      "repo": "mpereiraesaa/prospero-win",
+      "category": "ps5",
+      "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Windows compatibility runtime for native PlayStation 5 homebrew executables (C, LGPL-2.1).",
+      "addedAt": "2026-11-21"
+    },
+    {
       "id": "ps5-pc-emulator",
       "name": "PS5 PC Emulator",
       "repo": "mustafaaldaffaie/PS5-PC-Emulator",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
       "summary": "Experimental PS5 compatibility layer and desktop frontend for Windows and Linux.",
       "addedAt": "2026-11-15"
     },
@@ -137,7 +230,7 @@
         "Windows",
         "Linux"
       ],
-      "summary": "Open-source PS5 PC emulator project targeting Windows and Linux hosts.",
+      "summary": "Open-source PS5 PC emulator project written in Zig targeting Windows and Linux hosts.",
       "addedAt": "2026-11-15"
     },
     {
@@ -146,6 +239,10 @@
       "repo": "thesupersupersigma/PS5plusplus",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Experimental C++ PlayStation 5 emulator project.",
       "addedAt": "2026-11-15"
     },
     {
@@ -171,6 +268,7 @@
       "platforms": [
         "Windows"
       ],
+      "summary": "Open-source PlayStation 5 emulation and compatibility research written in Zig.",
       "addedAt": "2026-11-15"
     },
     {
@@ -183,7 +281,7 @@
         "Windows",
         "Linux"
       ],
-      "summary": "PlayStation 5 emulator written in Rust targeting Linux and Windows hosts.",
+      "summary": "Wine-style PlayStation 5 HLE compatibility layer written in Rust with Vulkan GPU command translation.",
       "addedAt": "2026-11-15"
     },
     {
@@ -192,6 +290,11 @@
       "repo": "CipherSoul01/RustPS5",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Experimental PlayStation 5 emulator written in Rust with a C# Avalonia desktop UI.",
       "addedAt": "2026-11-15"
     },
     {
@@ -203,6 +306,7 @@
       "platforms": [
         "Windows"
       ],
+      "summary": "Experimental C++ PlayStation 5 / PS5 Pro emulator project for Windows.",
       "addedAt": "2026-11-15"
     },
     {
@@ -211,10 +315,11 @@
       "repo": "xxjonathan1997xx/SharpEmu-PS5-Mac",
       "category": "ps5",
       "tier": "community",
-      "addedAt": "2026-11-15",
       "platforms": [
         "macOS"
-      ]
+      ],
+      "summary": "Educational architectural prototype of a PlayStation 5 emulator built natively for macOS.",
+      "addedAt": "2026-11-15"
     },
     {
       "id": "spogue5",
@@ -222,6 +327,11 @@
       "repo": "tinirey/Spogue5",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Rust PS5 emulator prototype drawing on research from Kyty, SharpEmu, and shadPS4.",
       "addedAt": "2026-11-15"
     },
     {
@@ -230,6 +340,10 @@
       "repo": "Techx3/TouchePX5",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Independent experimental C# PlayStation 5 emulator targeting Windows PCs.",
       "addedAt": "2026-11-15"
     },
     {
@@ -238,10 +352,11 @@
       "repo": "Acelogic/VibeStation5",
       "category": "ps5",
       "tier": "community",
-      "addedAt": "2026-11-15",
       "platforms": [
         "macOS"
-      ]
+      ],
+      "summary": "Experimental native SwiftUI PS4/PS5 runtime for Apple Silicon inspired by SharpEmu.",
+      "addedAt": "2026-11-15"
     },
     {
       "id": "zeno5",
@@ -249,6 +364,10 @@
       "repo": "tossdace/Zeno5",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Early experimental C++ PlayStation 5 emulator project.",
       "addedAt": "2026-11-15"
     },
     {
@@ -257,6 +376,10 @@
       "repo": "zenunqq/zylxemu",
       "category": "ps5",
       "tier": "community",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Experimental C# PlayStation 4 and PlayStation 5 emulator project.",
       "addedAt": "2026-11-15"
     },
     {
@@ -270,6 +393,7 @@
         "Windows",
         "Linux"
       ],
+      "summary": "KytyPS5-based fork adding extra HLE syscalls and experimental boot/crash fixes.",
       "addedAt": "2026-11-15"
     },
     {
@@ -279,6 +403,10 @@
       "category": "fork",
       "tier": "community",
       "forkOf": "kytyps5",
+      "platforms": [
+        "Linux"
+      ],
+      "summary": "Linux build and launch scripts for chenxiao07's Demon's Souls KytyPS5 branch.",
       "addedAt": "2026-11-15"
     },
     {
@@ -288,6 +416,10 @@
       "category": "fork",
       "tier": "community",
       "forkOf": "kytyps5",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Community Windows fork and custom build of KytyPS5.",
       "addedAt": "2026-11-15"
     },
     {
@@ -297,6 +429,10 @@
       "category": "fork",
       "tier": "community",
       "forkOf": "kytyps5",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Custom KytyPS5 build for Demon's Souls featuring DLSS Frame Generation and ultrawide patches.",
       "addedAt": "2026-11-15"
     },
     {
@@ -306,7 +442,10 @@
       "category": "fork",
       "tier": "community",
       "forkOf": "kytyps5",
-      "summary": "KytyPS5 fork with game-specific fixes.",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "KytyPS5 fork with experimental Grand Theft Auto V (PS5) boot and rendering fixes.",
       "addedAt": "2026-11-15"
     },
     {
@@ -316,6 +455,11 @@
       "category": "fork",
       "tier": "community",
       "forkOf": "kytyps5",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Experimental KytyPS5 branch merging shader, texture, and renderer fixes for Demon's Souls and more.",
       "addedAt": "2026-11-15"
     },
     {
@@ -325,6 +469,10 @@
       "category": "fork",
       "tier": "community",
       "forkOf": "kytyps5",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "KytyPS5 fork adding Unity and IL2CPP boot and rendering fixes.",
       "addedAt": "2026-11-15"
     },
     {
@@ -334,7 +482,10 @@
       "category": "fork",
       "tier": "community",
       "forkOf": "kytyps5",
-      "summary": "KytyPS5 fork with game-specific fixes.",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "KytyPS5 fork with experimental game-specific patches for Marvel's Wolverine.",
       "addedAt": "2026-11-15"
     },
     {
@@ -347,7 +498,104 @@
       "platforms": [
         "Windows"
       ],
+      "summary": "Windows KytyPS5 fork bundled with Kyty Launcher and DLSS frame generation enhancements.",
       "addedAt": "2026-11-15"
+    },
+    {
+      "id": "nova5",
+      "name": "Nova5",
+      "repo": "nova5emu/nova5",
+      "category": "fork",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Open-source PC PS5 emulator based on KytyPS5 featuring an integrated console-style launcher.",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "id": "anyplay-launcher",
+      "name": "AnyPlay Launcher",
+      "repo": "anyplaynet/launcher",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "anyps5",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Rust console-style launcher for AnyPS5 games with controller, trophy, save, and online play support.",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "id": "anyps5-arm",
+      "name": "AnyPS5-ARM",
+      "repo": "AnyTogether/AnyPS5-ARM",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "anyps5",
+      "platforms": [
+        "macOS"
+      ],
+      "summary": "Apple Silicon macOS port of AnyPS5 for running relinked PlayStation 5 titles natively on Mac.",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "id": "anyps5-desktop",
+      "name": "AnyPS5 Desktop",
+      "repo": "AnyTogether/AnyPS5-Desktop",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "anyps5",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Flutter desktop frontend for AnyPS5 featuring a PS5-style home screen, saves, trophies, and controller support.",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "id": "anyps5-gui",
+      "name": "AnyPS5 GUI",
+      "repo": "Lenny4250gh/AnyPS5-GUI",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "anyps5",
+      "platforms": [
+        "Windows",
+        "Linux",
+        "macOS"
+      ],
+      "summary": "Cross-platform desktop GUI for AnyPS5 to unwrap, relink, configure, and launch PS5 game dumps.",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "id": "anyps5-launcher",
+      "name": "AnyPS5 Launcher",
+      "repo": "Tiberius1OOO/AnyPS5-Launcher",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "anyps5",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Standalone Windows launcher for AnyPS5 automating tool setup, binary conversion, and game launches.",
+      "addedAt": "2026-11-21"
+    },
+    {
+      "id": "anyps5-osx",
+      "name": "AnyPS5 OSX Edition",
+      "repo": "romangalaxys10-spec/AnyPS5-OSX",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "anyps5",
+      "platforms": [
+        "macOS"
+      ],
+      "summary": "macOS port of AnyPS5 featuring a native Metal/MetalFX backend and Mach-O executable relinker.",
+      "addedAt": "2026-11-21"
     },
     {
       "id": "emufive",
@@ -359,6 +607,7 @@
       "platforms": [
         "PS4"
       ],
+      "summary": "Runs KytyPS5 on jailbroken PlayStation 4 consoles via Linux and PS4 Multiboot.",
       "addedAt": "2026-11-15"
     },
     {
@@ -368,10 +617,11 @@
       "category": "port",
       "tier": "community",
       "forkOf": "kytyps5",
-      "addedAt": "2026-11-15",
       "platforms": [
         "macOS"
-      ]
+      ],
+      "summary": "Native ARM64 PS5 emulator port for Apple Silicon using FEX guest CPU translation and RDNA-to-MSL Metal.",
+      "addedAt": "2026-11-15"
     },
     {
       "id": "kytyps5-emscripten",
@@ -380,10 +630,11 @@
       "category": "port",
       "tier": "community",
       "forkOf": "kytyps5",
-      "addedAt": "2026-11-15",
       "platforms": [
         "Web"
-      ]
+      ],
+      "summary": "Experimental WebAssembly and Emscripten browser port of KytyPS5.",
+      "addedAt": "2026-11-15"
     },
     {
       "id": "kytyps5-android",
@@ -404,12 +655,25 @@
       "repo": "gs-soft-it/lumen-emu",
       "category": "port",
       "tier": "community",
-      "addedAt": "2026-11-15",
       "platforms": [
         "Android",
         "iOS"
       ],
-      "summary": "Experimental mobile PS4/PS5 emulator frontend for Android and iOS using open-source cores."
+      "summary": "Experimental mobile PS4/PS5 emulator frontend for Android and iOS using open-source cores.",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "madeira-anyps5",
+      "name": "madeira-anyps5",
+      "repo": "buberlo/madeira-anyps5",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "anyps5",
+      "platforms": [
+        "iOS"
+      ],
+      "summary": "Research prototype running AnyPS5-relinked PS5 titles on iPad via Madeira (Wine ARM64EC + FEX) and MoltenVK.",
+      "addedAt": "2026-11-21"
     },
     {
       "id": "magnusps5",
@@ -417,11 +681,11 @@
       "repo": "hernan0078/MagnusPS5",
       "category": "port",
       "tier": "community",
-      "addedAt": "2026-11-15",
       "platforms": [
         "iOS"
       ],
-      "summary": "Experimental PS5 emulator port targeting iOS devices (iPhone and iPad)."
+      "summary": "Experimental PS5 emulator port targeting iOS devices (iPhone and iPad).",
+      "addedAt": "2026-11-15"
     },
     {
       "id": "novaps5-android",
@@ -429,10 +693,11 @@
       "repo": "kaminofilms/NovaPS5-Android",
       "category": "port",
       "tier": "community",
-      "addedAt": "2026-11-15",
       "platforms": [
         "Android"
-      ]
+      ],
+      "summary": "Experimental PlayStation 5 emulator port targeting Android ARM64 devices.",
+      "addedAt": "2026-11-15"
     },
     {
       "id": "onrps4-android",
@@ -443,6 +708,7 @@
       "platforms": [
         "Android"
       ],
+      "summary": "Experimental Android port exploring PlayStation 4 and PlayStation 5 emulation on mobile.",
       "addedAt": "2026-11-15"
     },
     {
@@ -452,10 +718,24 @@
       "category": "port",
       "tier": "community",
       "forkOf": "kytyps5",
-      "addedAt": "2026-11-15",
       "platforms": [
         "PS4"
-      ]
+      ],
+      "summary": "Test-only port exploring PS5 software execution on PlayStation 4 hardware via KytyPS5.",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "piesfive",
+      "name": "PiesFive",
+      "repo": "pasttelstudios/PiesFive",
+      "category": "port",
+      "tier": "community",
+      "forkOf": "kytyps5",
+      "platforms": [
+        "Windows"
+      ],
+      "summary": "Console-style PC game launcher powered by KytyPS5 with library management, profiles, saves, and trophies.",
+      "addedAt": "2026-11-21"
     },
     {
       "id": "sharpdroid",
@@ -464,10 +744,11 @@
       "category": "port",
       "tier": "community",
       "forkOf": "sharpemu",
-      "addedAt": "2026-11-15",
       "platforms": [
         "Android"
-      ]
+      ],
+      "summary": "Experimental Android Kotlin app wrapping the SharpEmu PlayStation 5 runtime.",
+      "addedAt": "2026-11-15"
     },
     {
       "id": "sharpemu-android",
@@ -476,10 +757,11 @@
       "category": "port",
       "tier": "community",
       "forkOf": "sharpemu",
-      "addedAt": "2026-11-15",
       "platforms": [
         "Android"
-      ]
+      ],
+      "summary": "Experimental Android Material You 3 frontend and port for SharpEmu PS4/PS5 emulation.",
+      "addedAt": "2026-11-15"
     },
     {
       "id": "sharpemu-macos",
@@ -488,10 +770,23 @@
       "category": "port",
       "tier": "community",
       "forkOf": "sharpemu",
-      "addedAt": "2026-11-15",
       "platforms": [
         "macOS"
-      ]
+      ],
+      "summary": "Official experimental macOS companion port of the SharpEmu PlayStation 5 emulator.",
+      "addedAt": "2026-11-15"
+    },
+    {
+      "id": "aetherps4",
+      "name": "AetherPS4",
+      "repo": "Leviidev/AetherPS4",
+      "category": "ps4",
+      "tier": "community",
+      "platforms": [
+        "iOS"
+      ],
+      "summary": "Open-source PlayStation 4 emulator core and standalone application built for iOS and iPadOS.",
+      "addedAt": "2026-11-21"
     },
     {
       "id": "empire-of-steel",
@@ -499,6 +794,11 @@
       "repo": "daeken/EmpireOfSteel",
       "category": "ps4",
       "tier": "community",
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "summary": "Prototype C# PlayStation 4 and PlayStation 5 emulator research project.",
       "addedAt": "2026-11-15"
     },
     {
@@ -550,7 +850,7 @@
         "Linux",
         "macOS"
       ],
-      "summary": "Free and open-source PlayStation 4 kernel and compatibility layer.",
+      "summary": "Free and open-source PlayStation 4 kernel and compatibility layer written in Rust.",
       "addedAt": "2026-11-15"
     },
     {
@@ -563,7 +863,7 @@
         "Windows",
         "Linux"
       ],
-      "summary": "Experimental low-level PlayStation 4 emulator using virtualization.",
+      "summary": "Experimental low-level PlayStation 4 emulator using hardware virtualization.",
       "addedAt": "2026-11-15"
     },
     {

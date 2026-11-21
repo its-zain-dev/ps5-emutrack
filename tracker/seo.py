@@ -407,7 +407,11 @@ def _render_home_compat(payload: dict[str, Any], emu_page_ids: set[str]) -> str:
         if game.get("platform"):
             pills += f' <span class="badge">{esc(game["platform"])}</span>'
         if game.get("releaseDate"):
-            pills += f' <span class="pill-upcoming">Release · {esc(game["releaseDate"])}</span>'
+            today_iso = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            if str(game["releaseDate"]) <= today_iso:
+                pills += f' <span class="badge">Released · {esc(game["releaseDate"])}</span>'
+            else:
+                pills += f' <span class="pill-upcoming">Release · {esc(game["releaseDate"])}</span>'
         dev = f'<div class="game-sub">{esc(game["developer"])}</div>' if game.get("developer") else ""
         rows.append(
             f'<tr class="game-row"><td>'
@@ -764,7 +768,11 @@ def _render_game_page(
     if game.get("platform"):
         meta_badges.append(f'<span class="badge">{esc(game["platform"])}</span>')
     if game.get("releaseDate"):
-        meta_badges.append(f'<span class="pill-upcoming">Console release: {esc(game["releaseDate"])}</span>')
+        today_iso = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        if str(game["releaseDate"]) <= today_iso:
+            meta_badges.append(f'<span class="badge">Released on PS5: {esc(game["releaseDate"])}</span>')
+        else:
+            meta_badges.append(f'<span class="pill-upcoming">Console release: {esc(game["releaseDate"])}</span>')
 
     gta_callout = ""
     gta_faq_section = ""
@@ -777,33 +785,33 @@ def _render_game_page(
         )
         gta_callout = f"""
         <div class="prose-card">
-          <h2>GTA 6 PC &amp; GTAVI / GTA6 Emulator — Launch Reality Check</h2>
+          <h2>GTA 6 PC &amp; GTAVI / GTA6 Emulator — Post-Launch Reality Check</h2>
           <p>
-            <strong>Short answer: No working PS5 emulator can run GTA VI today.</strong> Grand Theft Auto VI (GTA6) launches on PlayStation 5 and Xbox Series X|S on
-            <strong>{esc(game.get("releaseDate", "2026-11-19"))}</strong> with no official <strong>GTA 6 PC</strong> or <strong>GTA6 PC</strong> port at launch.
-            While <a href="../../emulators/kytyps5/">KytyPS5</a> has booted early builds of older PS5 titles like <em>GTA V</em> briefly before crashing,
-            running a brand-new open-world PS5 release via a <em>GTAVI emulator</em> or <em>GTA6 emulator</em> on PC is not currently possible.
+            <strong>Short answer: No working PS5 emulator can run GTA VI today.</strong> Grand Theft Auto VI (GTA6) officially released on PlayStation 5 and Xbox Series X|S on
+            <strong>{esc(game.get("releaseDate", "2026-11-19"))}</strong>, and Rockstar Games has <strong>not yet announced an official GTA 6 PC or GTA6 PC release date</strong>.
+            While <a href="../../emulators/kytyps5/">KytyPS5</a> has reached verified <a href="../../games/gta-v/">In-Game gameplay on PS5 <em>GTA V</em></a> (with cutscene crashes),
+            running a brand-new open-world PS5 release like GTA VI via a <em>GTAVI emulator</em> or <em>GTA6 emulator</em> on PC is not currently possible.
           </p>
           <h3>GTA VI vs. GTA IV vs. GTA V (Disambiguation)</h3>
           <p>
-            Looking for <strong>GTA VI</strong> (often mistyped as <strong>GTA IV</strong>)? <em>Grand Theft Auto IV</em> (2008) is a PC/PS3/Xbox 360 title with an official PC release—it is <strong>not</strong> a PS5 game and is not tracked by PS5 emulators. <em>GTA V</em> has a PS5 edition with experimental work in forks such as {gta5_fork_link}. Follow real GTA6 compatibility milestones here as verified dumps and test logs arrive.
+            Looking for <strong>GTA VI</strong> (often mistyped as <strong>GTA IV</strong>)? <em>Grand Theft Auto IV</em> (2008) is a PC/PS3/Xbox 360 title with an official PC release—it is <strong>not</strong> a PS5 game and is not tracked by PS5 emulators. <em>GTA V</em> has a native PS5 edition reaching verified In-Game status on KytyPS5 alongside forks like {gta5_fork_link}. Follow real GTA6 compatibility milestones here as verified dumps and test logs arrive.
           </p>
           <p>
-            <strong>Avoid malware:</strong> Read our <a href="../../guides/gta-vi-pc-ps5-emulator-reality-check/">GTA VI PC &amp; Emulator Reality Check</a> and <a href="../../guides/real-vs-fake-ps5-emulators/">Real vs. Fake PS5 Emulators guide</a> before downloading anything claiming to play GTA6 on PC.
+            <strong>Active malware alert:</strong> Fake GitHub repos (such as zero-code <code>GTA6-KytyPS5-*</code> clones) and fake GTA 6 PC installers are actively spreading infostealers and Microsoft Defender tampering malware. Read our <a href="../../guides/ps5-emulator-malware-warnings/">PS5 Emulator Malware Warnings</a>, <a href="../../guides/gta-vi-pc-ps5-emulator-reality-check/">GTA VI PC Reality Check</a>, and <a href="../../guides/real-vs-fake-ps5-emulators/">Real vs. Fake PS5 Emulators guide</a> before downloading anything.
           </p>
         </div>"""
         gta_faq_items = [
             (
                 "Can any GTAVI emulator or GTA6 emulator run GTA 6 on PC?",
-                "No. Grand Theft Auto VI launches on PlayStation 5 and Xbox Series X|S on 2026-11-19 with no official GTA 6 PC port yet, and no open-source PS5 emulator (KytyPS5, SharpEmu, AnyPS5, or Prosperity) can run GTA VI today.",
+                "No. Grand Theft Auto VI officially released on PlayStation 5 and Xbox Series X|S on 2026-11-19 with no official GTA 6 PC port announced yet, and no open-source PS5 emulator (KytyPS5, SharpEmu, AnyPS5, or Prosperity) can run GTA VI today.",
             ),
             (
                 "What is the difference between GTA IV, GTA V, and GTA VI for PS5 emulators?",
-                "GTA IV (Grand Theft Auto IV, 2008) is a PS3/Xbox 360/PC game and is not a PS5 title. GTA V has a native PS5 release tested in experimental KytyPS5 forks, while GTA VI (GTA6) is Rockstar's upcoming PS5/Xbox Series title tracked on PS5 EmuTrack.",
+                "GTA IV (Grand Theft Auto IV, 2008) is a PS3/Xbox 360/PC game and is not a PS5 title. GTA V has a native PS5 release reaching verified In-Game status on KytyPS5, while GTA VI (GTA6) is Rockstar's console-first PS5/Xbox Series title (released 2026-11-19) tracked on PS5 EmuTrack.",
             ),
             (
-                "How do I avoid fake GTA6 PC emulator downloads?",
-                "Legitimate PS5 emulators are open source on GitHub and never bundle commercial game dumps, BIOS files, or password-protected installers. Verify every repository URL through PS5 EmuTrack before downloading.",
+                "How do I avoid fake GTA6 PC emulator malware downloads?",
+                "Legitimate PS5 emulators are open source on GitHub and never bundle commercial game dumps, BIOS files, PowerShell scripts, or password-protected installers. Beware fake look-alike GitHub repos impersonating KytyPS5 or AnyPS5, and verify every repository URL through PS5 EmuTrack.",
             ),
         ]
         faq_details = "".join(

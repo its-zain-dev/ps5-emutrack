@@ -1244,8 +1244,12 @@ function renderCompatibility() {
       const expanded = state.expandedGames.has(game.id);
       const pills = [];
       if (game.platform) pills.push(`<span class="badge">${escapeHtml(game.platform)}</span>`);
-      if (game.releaseDate && parseTime(game.releaseDate) > Date.now()) {
-        pills.push(`<span class="pill-upcoming">Upcoming · ${escapeHtml(game.releaseDate)}</span>`);
+      if (game.releaseDate) {
+        if (parseTime(game.releaseDate) > Date.now()) {
+          pills.push(`<span class="pill-upcoming">Upcoming · ${escapeHtml(game.releaseDate)}</span>`);
+        } else {
+          pills.push(`<span class="badge">Released · ${escapeHtml(game.releaseDate)}</span>`);
+        }
       }
 
       const cells = columns

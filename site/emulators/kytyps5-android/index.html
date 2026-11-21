@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>KytyPS5-Android — PS5 Emulator Port | PS5 EmuTrack</title>
-    <meta name="description" content="KytyPS5-Android (23★, Android): Experimental KytyPS5 Android ARM64 port using FEXCore JIT and Vulkan on Mesa Turnip/Adreno. Latest build Oct 23, 2026." />
+    <meta name="description" content="KytyPS5-Android (27★, Android): Experimental KytyPS5 Android ARM64 port using FEXCore JIT and Vulkan on Mesa Turnip/Adreno. Latest build Oct 23, 2026." />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
     <meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)" />
@@ -18,7 +18,7 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="PS5 EmuTrack" />
     <meta property="og:title" content="KytyPS5-Android — PS5 Emulator Port | PS5 EmuTrack" />
-    <meta property="og:description" content="KytyPS5-Android (23★, Android): Experimental KytyPS5 Android ARM64 port using FEXCore JIT and Vulkan on Mesa Turnip/Adreno. Latest build Oct 23, 2026." />
+    <meta property="og:description" content="KytyPS5-Android (27★, Android): Experimental KytyPS5 Android ARM64 port using FEXCore JIT and Vulkan on Mesa Turnip/Adreno. Latest build Oct 23, 2026." />
     <meta property="og:url" content="https://its-zain-dev.github.io/ps5-emutrack/emulators/kytyps5-android/" />
     <meta property="og:image" content="https://its-zain-dev.github.io/ps5-emutrack/og-image.png" />
     <meta property="og:image:width" content="1440" />
@@ -26,7 +26,7 @@
     <meta property="og:image:alt" content="PS5 EmuTrack open-source PS5 emulator tracker and compatibility matrix" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="KytyPS5-Android — PS5 Emulator Port | PS5 EmuTrack" />
-    <meta name="twitter:description" content="KytyPS5-Android (23★, Android): Experimental KytyPS5 Android ARM64 port using FEXCore JIT and Vulkan on Mesa Turnip/Adreno. Latest build Oct 23, 2026." />
+    <meta name="twitter:description" content="KytyPS5-Android (27★, Android): Experimental KytyPS5 Android ARM64 port using FEXCore JIT and Vulkan on Mesa Turnip/Adreno. Latest build Oct 23, 2026." />
     <meta name="twitter:image" content="https://its-zain-dev.github.io/ps5-emutrack/og-image.png" />
     <meta name="twitter:image:alt" content="PS5 EmuTrack open-source PS5 emulator tracker and compatibility matrix" />
     <link rel="stylesheet" href="../../assets/styles.css" />
@@ -71,7 +71,7 @@
       </div>
 
       <dl class="stats" style="margin-top:20px">
-        <div><dt>GitHub Stars</dt><dd>23</dd></div>
+        <div><dt>GitHub Stars</dt><dd>27</dd></div>
         <div><dt>Language</dt><dd>C++</dd></div>
         <div><dt>License</dt><dd>GPL-2.0</dd></div>
         <div><dt>Last Push</dt><dd>Oct 23, 2026</dd></div>
@@ -81,7 +81,7 @@
         <section class="prose-card" style="margin-top:24px">
           <h2>Latest Release: <code>nightly</code></h2>
           <p class="small muted">Published Oct 23, 2026 · <a href="https://github.com/tarek369/KytyPS5-Android/releases/tag/nightly" target="_blank" rel="noopener noreferrer">View release on GitHub ↗</a></p>
-          <h3>Download Files (1)</h3><ul class="assets" style="margin:10px 0 18px"><li><a href="https://github.com/tarek369/KytyPS5-Android/releases/download/nightly/KytyPS5-Android-0.1.0-nightly.6.apk" target="_blank" rel="noopener noreferrer">KytyPS5-Android-0.1.0-nightly.6.apk</a><span class="size">15 MB · 344 downloads</span></li></ul>
+          <h3>Download Files (1)</h3><ul class="assets" style="margin:10px 0 18px"><li><a href="https://github.com/tarek369/KytyPS5-Android/releases/download/nightly/KytyPS5-Android-0.1.0-nightly.6.apk" target="_blank" rel="noopener noreferrer">KytyPS5-Android-0.1.0-nightly.6.apk</a><span class="size">15 MB · 399 downloads</span></li></ul>
           <h3>Release Notes</h3>
           <div class="notes"><p>Automatic build of <code>8a8fc68c</code> (ci: release notes mention the one-time uninstall of v0.1.0-alpha).</p><p>Install <strong>KytyPS5-Android-0.1.0-nightly.6.apk</strong>. The Turnip GPU driver is bundled. Nightlies install over each other.<br>Coming from v0.1.0-alpha? Uninstall it once first; it was signed with a different key.<br>SHA-256: <code>cd5e51c18637dc6afc3fff525699dd4716cb265ef742c2a38bb213664c22cf03</code></p><p>Status, roadmap and how to help: <a href="https://github.com/tarek369/KytyPS5-Android/tree/android-boot-wip/docs/android" target="_blank" rel="noopener noreferrer">docs/android</a>.</p><p>Recent changes:</p><ul><li>ci: release notes mention the one-time uninstall of v0.1.0-alpha (8a8fc68c)</li><li>docs(android): GPU front-end speed-up in status, roadmap and knobs (ead7ee9e)</li><li>perf(kernel): split placement only while the GPU thread runs two-stage (6e680602)</li><li>perf(kernel): KYTY_CPU_PLACE split mode, default on Android with KYTY_PIPE_SPIN (0d787ce9)</li><li>perf(renderer): KYTY_PIPE_SPIN bounded spin in the GPU front/record/walk handoffs (bcab3cad)</li><li>docs(android): upstream sync in status, round 2 in roadmap (9aff7151)</li><li>fix(renderer): Current() accepts an active scheduler again (da554882)</li><li>ci: build the Android FFmpeg (PIC, static) instead of the desktop package (9e3705e3)</li><li>gpu: preserve zero-stride buffer fetch payloads (2b4150b0)</li><li>shader: use compact integer RTZ half conversion (489a6e88)</li><li>gpu: honour DB_ALPHA_TO_MASK as alpha-to-coverage and keep its depth writes behind the shader (e855b144)</li><li>shader: implement PS5 vector data cache invalidation (8418ec16)</li><li>gpu: drop global barriers for PM4 flush events and releases, ordering buffer-writing draws like dispatches (6d3587af)</li><li>graphics: initialize BDA tables before first buffer registration (d3bad8a9)</li><li>fix: use the Bionic cancel-state shim in the upstream FIFO mutex handoff (e87fb8c8) (ab62feb2)</li></ul></div>
         </section>
@@ -98,7 +98,7 @@
       
       
 
-      <section style="margin-top:28px"><h2 style="margin-bottom:10px">Related Port / frontend Projects</h2><p class="small muted"><a href="../../emulators/emufive/">EmuFive</a> · <a href="../../emulators/lumen-emu/">Lumen Emu</a> · <a href="../../emulators/magnusps5/">MagnusPS5</a> · <a href="../../emulators/novaps5-android/">NovaPS5 Android</a> · <a href="../../emulators/onrps4-android/">onRps4-Android</a> · <a href="../../emulators/orbis-kyty/">Orbis-Kyty</a> · <a href="../../emulators/sharpdroid/">SharpDroid</a> · <a href="../../emulators/sharpemu-macos/">SharpEmu for Mac</a></p></section>
+      <section style="margin-top:28px"><h2 style="margin-bottom:10px">Related Port / frontend Projects</h2><p class="small muted"><a href="../../emulators/anyplay-launcher/">AnyPlay Launcher</a> · <a href="../../emulators/anyps5-arm/">AnyPS5-ARM</a> · <a href="../../emulators/anyps5-desktop/">AnyPS5 Desktop</a> · <a href="../../emulators/anyps5-gui/">AnyPS5 GUI</a> · <a href="../../emulators/anyps5-launcher/">AnyPS5 Launcher</a> · <a href="../../emulators/anyps5-osx/">AnyPS5 OSX Edition</a> · <a href="../../emulators/emufive/">EmuFive</a> · <a href="../../emulators/lumen-emu/">Lumen Emu</a> · <a href="../../emulators/madeira-anyps5/">madeira-anyps5</a> · <a href="../../emulators/magnusps5/">MagnusPS5</a> · <a href="../../emulators/novaps5-android/">NovaPS5 Android</a> · <a href="../../emulators/onrps4-android/">onRps4-Android</a> · <a href="../../emulators/orbis-kyty/">Orbis-Kyty</a> · <a href="../../emulators/piesfive/">PiesFive</a> · <a href="../../emulators/sharpdroid/">SharpDroid</a> · <a href="../../emulators/sharpemu-macos/">SharpEmu for Mac</a></p></section>
     
       </div>
     </main>
@@ -111,7 +111,7 @@
           <a href="../../games/gta-vi/">GTA VI Watch</a>
           <a href="../../guides/real-vs-fake-ps5-emulators/">Verification Guide</a>
           <a href="../../data.json">data.json</a>
-          <span class="muted">Updated Nov 16, 2026</span>
+          <span class="muted">Updated Nov 21, 2026</span>
         </p>
       </div>
     </footer>

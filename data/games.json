@@ -20,6 +20,18 @@
       "releaseDate": "2026-11-19"
     },
     {
+      "id": "gta-v",
+      "title": "Grand Theft Auto V",
+      "developer": "Rockstar Games",
+      "aliases": [
+        "gta 5",
+        "gta5",
+        "gtav",
+        "gta 5 ps5",
+        "gta v ps5"
+      ]
+    },
+    {
       "id": "ghost-of-yotei",
       "title": "Ghost of Yōtei",
       "developer": "Sucker Punch",
@@ -47,6 +59,25 @@
         "demon souls ps5 pc",
         "demons souls",
         "soulsborne"
+      ]
+    },
+    {
+      "id": "wolverine-ps5",
+      "title": "Marvel's Wolverine",
+      "developer": "Insomniac Games",
+      "aliases": [
+        "marvel wolverine",
+        "wolverine ps5"
+      ]
+    },
+    {
+      "id": "resident-evil-requiem",
+      "title": "Resident Evil Requiem",
+      "developer": "Capcom",
+      "aliases": [
+        "re requiem",
+        "re9",
+        "resident evil 9"
       ]
     },
     {
@@ -111,15 +142,6 @@
       "aliases": [
         "forbidden west",
         "horizon"
-      ]
-    },
-    {
-      "id": "wolverine-ps5",
-      "title": "Marvel's Wolverine",
-      "developer": "Insomniac Games",
-      "aliases": [
-        "marvel wolverine",
-        "wolverine ps5"
       ]
     }
   ]
